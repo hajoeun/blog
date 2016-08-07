@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[CSS] Style Override</title>
+  <meta name="description" content="CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="canonical" href="http://rabbylab.xyz/blog/css-style-override/">
+  <link rel="alternate" type="application/rss+xml" title="RABBYLAB" href="http://rabbylab.xyz/blog/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">RABBYLAB</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[CSS] Style Override</h1>
+    <p class="post-meta"><time datetime="2016-05-12T00:52:47+09:00" itemprop="datePublished">May 12, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">rabby</span></span></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.</p>
+
+<p>CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동일한 Element에 동시에 적용되는 경우, 가장 마지막에 선언된 Style이 가장 높은 우선순위를 갖습니다.</p>
+
+<p>예를 들어 아래와 같은 상황에서 h1은 blue-text 속성 값을 지니고 파란색으로 표기되죠.</p>
+
+<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+&lt;/style&gt;
+
+
+&lt;h1 class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //파란색
+
+</pre>
+
+<p>다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 h1이 주황색으로 표기됩니다.</p>
+
+<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  #orange-text {
+    color: orange;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+&lt;/style&gt;
+
+
+&lt;h1 id="orange-text" class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //주황색
+
+</pre>
+
+<p>id 값보다 높은 우선순위를 갖는 방법은 in-line으로 스타일을 지정하는 방법입니다. 위의 코드에서 h1에 <code class="highlighter-rouge">style="color: white"</code>를 추가해주면 다른 class/id보다 높은 우선순위를 가진 in-line style에 의해 h1는 흰색으로 표기됩니다.</p>
+
+<p>하지만 이 모든 방법보다 우위의 순위를 가질 수 있는 방법이 있습니다. 바로 <code class="highlighter-rouge">!important</code>를 추가하는 것이죠. 예를들어 모든 class와 id 그리고 in-line style에 의해 가장 마지막으로 밀린 pink-text를 최상위 스타일로 적용하고 싶다면, <code class="highlighter-rouge">color: pink !important;</code>를 적용해주면 된다. 이 결과로 h1은 분홍색으로 표기됩니다.</p>
+
+<p><strong>정리하자면 CSS Style의 우선순위는</strong></p>
+
+<ol>
+  <li><strong>동일한 class일 경우 가장 마지막에 선언된 Style이 높다.</strong></li>
+  <li><strong>(1번을 포함하고) class보다 id가 높다.</strong></li>
+  <li><strong>id보다 in-line style이 높다.</strong></li>
+  <li><strong>!important는 앞선 모든 것보다 높다.</strong></li>
+</ol>
+
+<p><strong>라고 정의할 수 있습니다.</strong></p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">RABBYLAB</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Coding Experience</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="contact-list">
+          <li><a href="mailto:imjoeunha@gmail.com"><span class="fa fa-envelope"></span> Email</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/joeunha"><span class="fa fa-github"></span> GitHub</a>
+
+          </li>
+          
+
+          
+          <li>
+            <a href="https://kr.linkedin.com/in/joeunha"><span class="fa fa-linkedin"></span> LinkedIn</a>
+
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+  </body>
+
+</html>

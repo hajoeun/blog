@@ -11,8 +11,8 @@ email: imjoeunha@gmail.com
 description: Coding Experience
 baseurl: "" # the subpath of your site, e.g. /blog
 url: http://rabbylab.xyz/blog # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+linkedin_username: joeunha
+github_username:  joeunha
 
 # Build settings
 markdown: kramdown
