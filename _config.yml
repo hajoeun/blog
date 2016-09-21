@@ -16,3 +16,6 @@ github_username:  joeunha
 
 # Build settings
 markdown: kramdown
+
+# Gem list
+gems: [jekyll-admin]
