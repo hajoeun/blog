@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
     backports (3.6.8)
@@ -60,4 +61,4 @@ DEPENDENCIES
   jekyll-admin
 
 BUNDLED WITH
-   1.13.1
+   1.13.2
