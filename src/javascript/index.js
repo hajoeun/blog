@@ -1,6 +1,13 @@
 $(function() {
-  var $nextBtn = $('.next.btn'), $section = $('section'), $body = $('body');
-  $body.stop().animate({scrollTop: 0})
+  var $nextBtn = $('.next.btn'), 
+      $prevBtn = $('.prev.btn'),
+      $section = $('section'), 
+      $body = $('body');
+
+  var length = $section.length - 1;
+  
+  var currentPage = 0;
+  $body.stop().animate({scrollTop: 0});
   
   $body.on({
     'mousewheel': function(e) {
@@ -12,21 +19,37 @@ $(function() {
   
   
   $nextBtn.on('click', function(e) {
-    var nextId = parseInt(e.currentTarget.id) + 1
-        length = $section.length - 1;
+    var nextPage = currentPage + 1;
     
-    if (nextId > length) return;
-    
-    $nextBtn.attr('id', nextId);
-
+    if (nextPage > length) return;
     
     $body.stop().animate({
-      scrollTop: $section.eq(nextId).offset().top
-    }, 1500)
-    
+      scrollTop: $section.eq(nextPage).offset().top
+    }, 1000, function() {
+      currentPage = nextPage;
+      
+      if (currentPage > 0) { 
+        $prevBtn.show(); 
+      }
+      if (currentPage === length) {
+        $nextBtn.text("NEXT");
+      }
+    })
 
-    if (nextId === length) {
-      $nextBtn.text("NEXT");
-    }
+    
+  })
+
+  $prevBtn.on('click', function(e) {
+    var prevPage = currentPage - 1;
+
+    $body.stop().animate({
+      scrollTop: $section.eq(prevPage).offset().top
+    }, 1000, function() {
+      currentPage = prevPage;
+      if (currentPage <= 0) { 
+        return $prevBtn.hide();
+      }
+    })
+    
   })
 })

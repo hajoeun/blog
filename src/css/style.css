@@ -50,7 +50,16 @@ section:nth-child(3) {
   color: white;
   position: fixed;
   width: 50%;
+}
+
+.next.btn {
   bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.prev.btn {
+  top: 5%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
