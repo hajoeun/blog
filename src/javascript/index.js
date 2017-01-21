@@ -12,33 +12,32 @@ $(function() {
   };
 
   $body.stop().animate({scrollTop: 0});
-  
-  $body.on({
-    'mousewheel': function(e) {
-      if (e.originalEvent.deltaY > 0) {
-        scrollNext();
-      } else {
-        scrollPrev();
-      }
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  })
-  
-  
+  $body.on('mousewheel', scrollMove)
   $nextBtn.on('click', scrollNext)
   $prevBtn.on('click', scrollPrev)
 
-  function scrollNext() {
-    pages.next = pages.current + 1;
-    
+  function updatePages(num) {
+    _.each(pages, function(v, k, obj) {
+      obj[k] = v + num
+    });
+  }
+
+  function scrollMove(e) {
+    if (pages.prev > -1 && e.originalEvent.deltaY < 0) {
+      scrollPrev();
+    } else if (pages.next <= length && e.originalEvent.deltaY > 0) {
+      scrollNext();
+    }
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  function scrollNext() {  
     if (pages.next > length) return;
-    
     $body.stop().animate({
       scrollTop: $section.eq(pages.next).offset().top
     }, 1000, function() {
-      pages.current = pages.next;
-      
+      updatePages(1);
       if (pages.current > 0) { 
         $prevBtn.show(); 
       }
@@ -48,17 +47,14 @@ $(function() {
     })
   }
 
-  function scrollPrev(e) {
-    pages.prev = pages.current - 1;
-
+  function scrollPrev() {
     $body.stop().animate({
       scrollTop: $section.eq(pages.prev).offset().top
     }, 1000, function() {
-      pages.current = pages.prev;
+      updatePages(-1);
       if (pages.current <= 0) { 
         return $prevBtn.hide();
       }
     })
   }
-
 })
