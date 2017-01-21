@@ -12,9 +12,9 @@ $(function() {
   };
 
   $body.stop().animate({scrollTop: 0});
-  $body.on('mousewheel', scrollMove)
-  $nextBtn.on('click', scrollNext)
-  $prevBtn.on('click', scrollPrev)
+  $body.on('mousewheel', scrollMove);
+  $nextBtn.on('click', scrollNext);
+  $prevBtn.on('click', scrollPrev);
 
   function updatePages(num) {
     _.each(pages, function(v, k, obj) {
@@ -54,6 +54,9 @@ $(function() {
       updatePages(-1);
       if (pages.current <= 0) { 
         return $prevBtn.hide();
+      }
+      if (pages.current !== length) {
+        $nextBtn.text("DOWN");
       }
     })
   }
