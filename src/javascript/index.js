@@ -5,51 +5,60 @@ $(function() {
       $body = $('body');
 
   var length = $section.length - 1;
-  
-  var currentPage = 0;
+  var pages = {
+    current: 0,
+    next: 1,
+    prev: -1
+  };
+
   $body.stop().animate({scrollTop: 0});
   
   $body.on({
     'mousewheel': function(e) {
-//      if ($nextBtn.attr('id') == $section.length - 1) return;
+      if (e.originalEvent.deltaY > 0) {
+        scrollNext();
+      } else {
+        scrollPrev();
+      }
       e.preventDefault();
       e.stopPropagation();
     }
   })
   
   
-  $nextBtn.on('click', function(e) {
-    var nextPage = currentPage + 1;
+  $nextBtn.on('click', scrollNext)
+  $prevBtn.on('click', scrollPrev)
+
+  function scrollNext() {
+    pages.next = pages.current + 1;
     
-    if (nextPage > length) return;
+    if (pages.next > length) return;
     
     $body.stop().animate({
-      scrollTop: $section.eq(nextPage).offset().top
+      scrollTop: $section.eq(pages.next).offset().top
     }, 1000, function() {
-      currentPage = nextPage;
+      pages.current = pages.next;
       
-      if (currentPage > 0) { 
+      if (pages.current > 0) { 
         $prevBtn.show(); 
       }
-      if (currentPage === length) {
+      if (pages.current === length) {
         $nextBtn.text("NEXT");
       }
     })
+  }
 
-    
-  })
-
-  $prevBtn.on('click', function(e) {
-    var prevPage = currentPage - 1;
+  function scrollPrev(e) {
+    pages.prev = pages.current - 1;
 
     $body.stop().animate({
-      scrollTop: $section.eq(prevPage).offset().top
+      scrollTop: $section.eq(pages.prev).offset().top
     }, 1000, function() {
-      currentPage = prevPage;
-      if (currentPage <= 0) { 
+      pages.current = pages.prev;
+      if (pages.current <= 0) { 
         return $prevBtn.hide();
       }
     })
-    
-  })
+  }
+
 })

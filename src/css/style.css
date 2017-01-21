@@ -19,7 +19,7 @@ header {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 200;
   text-align: center
 }
