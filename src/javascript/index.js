@@ -54,7 +54,7 @@ $(function() {
         $prevBtn.show(); 
       }
       if (pages.current === length) {
-        $nextBtn.text("NEXT");
+        $('.btn.next').hide();
       }
     })
   }
@@ -68,7 +68,7 @@ $(function() {
         return $prevBtn.hide();
       }
       if (pages.current !== length) {
-        $nextBtn.text("DOWN");
+        $('.btn.next').show();
       }
     })
   }
