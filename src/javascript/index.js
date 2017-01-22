@@ -12,7 +12,10 @@ $(function() {
   };
 
   $body.stop().animate({scrollTop: 0});
-  $body.on('mousewheel', scrollMove);
+  $body.on({
+    'mousewheel': wheelMove,
+    'keydown': keyMove,
+  });
   $nextBtn.on('click', scrollNext);
   $prevBtn.on('click', scrollPrev);
 
@@ -22,7 +25,7 @@ $(function() {
     });
   }
 
-  function scrollMove(e) {
+  function wheelMove(e) {
     if (pages.prev > -1 && e.originalEvent.deltaY < 0) {
       scrollPrev();
     } else if (pages.next <= length && e.originalEvent.deltaY > 0) {
@@ -30,6 +33,15 @@ $(function() {
     }
     e.preventDefault();
     e.stopPropagation();
+  }
+
+  function keyMove(e) {
+    if (e.which == 40 || e.which == 32) {
+      scrollNext();
+    }
+    if (e.which == 38) {
+      scrollPrev();
+    }
   }
 
   function scrollNext() {  
