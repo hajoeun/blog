@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   font-family: 'Spoqa Han Sans', 'Sans-serif'; 
   background-color: black;
+  color: white;
 }
 
 section {
@@ -13,7 +14,6 @@ section {
 }
 
 header {
-  color: white;
   max-width: 50%;
   position: relative;
   left: 50%;
@@ -48,20 +48,32 @@ section:nth-child(3) {
 .btn {
   font-size: 2rem;
   text-align: center;
-  color: white;
   position: fixed;
   width: 50%;
   margin: 0;
   padding: 0;
 }
 
-.next.btn {
-  bottom: 0%;
+.next {
+  bottom: 1%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  line-height: 0.7;
 }
 
-.prev.btn {
+.next > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 100;
+  transition: font-size 0.8s;
+}
+
+.next > a:hover {
+  font-size: 1.2rem;
+}
+
+.prev {
   top: 5%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
