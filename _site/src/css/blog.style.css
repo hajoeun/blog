@@ -1,0 +1,26 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+div.menu_wrapper {
+  border: 3px solid red;
+  height: 50px;
+}
+
+header {
+  border: 3px solid blue;
+  height: 200px;
+}
+
+section.content_wrapper {
+  background-color: green;
+  border: 3px solid green;
+  
+  height: 1000px;
+}
+
+footer {
+  border: 3px solid black;
+  height: 200px;
+}
