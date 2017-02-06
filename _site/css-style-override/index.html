@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://localhost:4000/stylesheets/stylesheet.css">
+  <link rel="canonical" href="http://localhost:4000/css-style-override/">
+  <link rel="stylesheet" href="/stylesheets/sharing-popup.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="joeun.me" href="http://localhost:4000/feed.xml">
+  <meta name="description" content="CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.">
+
+   <title>[CSS] Style Override</title>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="page-header">
+     <h1 class="project-name"> <a class="header-link" href="/"> joeun.me</a></h1>
+     <!--<h3 style="font-weight: lighter;">a blog for <a class="header-link" href="http://canijustgo.com/" target="_blank">canijustgo.com</a></h3>-->
+     <h3><a class="header-link" href="https://github.com/joeunha" target="_blank">github @joeunha</a></h3>
+</header>
+
+
+    <section class="main-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="main-content" itemprop="articleBody">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[CSS] Style Override</h1>
+   <p class="post-meta"><time datetime="2016-05-12T00:52:47+09:00" itemprop="datePublished">May 11, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">rabby</span></span></p>
+  </header>
+
+    <p>CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.</p>
+
+<p>CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동일한 Element에 동시에 적용되는 경우, 가장 마지막에 선언된 Style이 가장 높은 우선순위를 갖습니다.</p>
+
+<p>예를 들어 아래와 같은 상황에서 h1은 blue-text 속성 값을 지니고 파란색으로 표기되죠.</p>
+
+<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+&lt;/style&gt;
+
+
+&lt;h1 class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //파란색
+
+</pre>
+
+<p>다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 h1이 주황색으로 표기됩니다.</p>
+
+<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  #orange-text {
+    color: orange;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+&lt;/style&gt;
+
+
+&lt;h1 id="orange-text" class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //주황색
+
+</pre>
+
+<p>id 값보다 높은 우선순위를 갖는 방법은 in-line으로 스타일을 지정하는 방법입니다. 위의 코드에서 h1에 <code class="highlighter-rouge">style="color: white"</code>를 추가해주면 다른 class/id보다 높은 우선순위를 가진 in-line style에 의해 h1는 흰색으로 표기됩니다.</p>
+
+<p>하지만 이 모든 방법보다 우위의 순위를 가질 수 있는 방법이 있습니다. 바로 <code class="highlighter-rouge">!important</code>를 추가하는 것이죠. 예를들어 모든 class와 id 그리고 in-line style에 의해 가장 마지막으로 밀린 pink-text를 최상위 스타일로 적용하고 싶다면, <code class="highlighter-rouge">color: pink !important;</code>를 적용해주면 된다. 이 결과로 h1은 분홍색으로 표기됩니다.</p>
+
+<p><strong>정리하자면 CSS Style의 우선순위는</strong></p>
+
+<ol>
+  <li><strong>동일한 class일 경우 가장 마지막에 선언된 Style이 높다.</strong></li>
+  <li><strong>(1번을 포함하고) class보다 id가 높다.</strong></li>
+  <li><strong>id보다 in-line style이 높다.</strong></li>
+  <li><strong>!important는 앞선 모든 것보다 높다.</strong></li>
+</ol>
+
+<p><strong>라고 정의할 수 있습니다.</strong></p>
+
+  </div>
+
+<a href="http://localhost:4000"><h3 style="text-align: center;">- to blog -</h3></a>
+
+</article>
+
+      </div>
+    </div>
+
+    <p style="font-size: 60%; text-align: right;">blog built using the <a href="https://github.com/jasonlong/cayman-theme">cayman-theme</a> by <a href="https://github.com/jasonlong">Jason Long</a>. <a href="http://creativecommons.org/licenses/by/4.0/">LICENSE</a></p>
+
+
+
+  </body>
+
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+
+<script>
+var clipboard = new Clipboard('.share-btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+
+
+</html>

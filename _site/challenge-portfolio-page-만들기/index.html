@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://localhost:4000/stylesheets/stylesheet.css">
+  <link rel="canonical" href="http://localhost:4000/challenge-portfolio-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/">
+  <link rel="stylesheet" href="/stylesheets/sharing-popup.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="joeun.me" href="http://localhost:4000/feed.xml">
+  <meta name="description" content="Tribute Page 만들기의 뒤를 잇는 두번째 Challenge는 ‘개인 Portfoilo Page 만들기‘ 입니다. 예전부터 포트폴리오를 만들어야지 하면서 Github에 페이지를 만들어두기도 했는데 뭐부터 해야할지 몰라 시작조차 못했던 일을 FCC를 통해 하게 되었습니다.">
+
+   <title>[Challenge] Portfolio Page 만들기</title>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="page-header">
+     <h1 class="project-name"> <a class="header-link" href="/"> joeun.me</a></h1>
+     <!--<h3 style="font-weight: lighter;">a blog for <a class="header-link" href="http://canijustgo.com/" target="_blank">canijustgo.com</a></h3>-->
+     <h3><a class="header-link" href="https://github.com/joeunha" target="_blank">github @joeunha</a></h3>
+</header>
+
+
+    <section class="main-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="main-content" itemprop="articleBody">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">[Challenge] Portfolio Page 만들기</h1>
+   <p class="post-meta"><time datetime="2016-06-06T05:17:26+09:00" itemprop="datePublished">Jun 5, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">rabby</span></span></p>
+  </header>
+
+    <p>Tribute Page 만들기의 뒤를 잇는 두번째 Challenge는 ‘<a href="https://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage">개인 Portfoilo Page 만들기</a>‘ 입니다. 예전부터 포트폴리오를 만들어야지 하면서 Github에 페이지를 만들어두기도 했는데 뭐부터 해야할지 몰라 시작조차 못했던 일을 FCC를 통해 하게 되었습니다.</p>
+
+<p>이전과 마찬가지로 <a href="http://codepen.io/">CodePen</a>을 사용합니다. 역시나 <a href="https://codepen.io/FreeCodeCamp/full/YqLyXB/">예시</a>를 주는데요. 예시의 코드를 볼 순 없습니다. 사실 클릭 한번이면 코드를 다 볼 수 있지만, 양심에 맡깁니다. 그게 실력이 느는 일 이니까요. 이를 만들기 위해 몇가지 기본적으로 갖춰야할 기능에 대해 설명합니다. 기본적으로 단일 페이지를 스크롤해서 모든 컨텐츠를 볼 수 있도록 만들어야합니다. Bootstrap 이외의 라이브러리를 사용해도 괜찮다고 합니다. 클릭해서 다른 소셜 미디어로의 이동이 가능한  버튼을 만들어야합니다.</p>
+
+<p>며칠간 바빠서 미루다가 하루정도 마음 잡고 이것 저것 찾아가며 허접한 <a href="http://codepen.io/rabbylab/full/gMOOBK/">포트폴리오</a>를 만들었습니다. 사실 마땅히 들어갈 작업물이 없어서 그냥 형태만 갖췄습니다. 이후에 작업물이 생기면 업데이트할 생각입니다. 전반적인 기능도 미흡합니다. 예시를 보면 스크롤하면 특정 세션에 이를때 버튼이 자동으로 활성화/비활성화 되는데, 저는 그 부분은 구현하지 않았습니다. 또 Contact Me 파트를 통해 연락하는 기능도 없습니다.정말 기본으로 해야할 것만 했습니다.</p>
+
+<p>이번 과제를 통해 배운 것이 있다면 &lt;section&gt; 이라는 태그가 있다는 점, 이를 이용해서 단일 페이지 내에서 링크로 이동이 가능하다는 점입니다. 그리고 Bootstrap의 스크립트 기능을 사용하기 위해선 .js 파일을 따로 추가해줘야한다는…상식적인 부분도 깨쳤습니다. (이 부분을 몰라서 navbar의 collapse 기능이 동작하지 않아서 제법 오래 당황했었습니다. 부끄럽네요.)</p>
+
+<p>아직도 모르겠는 부분은 페이지 구조를 구성할 때 얼마나 조밀하게 짜야하는가 하는 부분입니다. 또 얼마나 CSS 를 사용해서 커스텀 해야하고 얼마나 기본의 라이브러리를 활용해야하는 부분입니다. 실컷 CSS 로 스타일을 지정 했는데 막상 더 예쁜 기본값을 라이브러리에서 발견할 때면 어디까지 라이브러리를 써야하고 어디까지 직접 코딩 해야하는지 잘 모르겠습니다.</p>
+
+<p>이제부터는 Javascript를 사용하는 방법을 배울 것 같습니다. 기초가 되는 부분은 빨리 진행하고 조금 깊은 자바스크립트를 다뤄보고 싶네요. 이후에 객체지향도 다루고 기초적인 알고리즘도 다루는 것 같아 기대가 됩니다.</p>
+
+  </div>
+
+<a href="http://localhost:4000"><h3 style="text-align: center;">- to blog -</h3></a>
+
+</article>
+
+      </div>
+    </div>
+
+    <p style="font-size: 60%; text-align: right;">blog built using the <a href="https://github.com/jasonlong/cayman-theme">cayman-theme</a> by <a href="https://github.com/jasonlong">Jason Long</a>. <a href="http://creativecommons.org/licenses/by/4.0/">LICENSE</a></p>
+
+
+
+  </body>
+
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+
+<script>
+var clipboard = new Clipboard('.share-btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+
+
+</html>

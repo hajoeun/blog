@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://localhost:4000/stylesheets/stylesheet.css">
+  <link rel="canonical" href="http://localhost:4000/prato-%ea%b0%9c%eb%b0%9c%ea%b8%b0-1/">
+  <link rel="stylesheet" href="/stylesheets/sharing-popup.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="alternate" type="application/rss+xml" title="joeun.me" href="http://localhost:4000/feed.xml">
+  <meta name="description" content="소개">
+
+   <title>PRATO 개발기 (1)</title>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="page-header">
+     <h1 class="project-name"> <a class="header-link" href="/"> joeun.me</a></h1>
+     <!--<h3 style="font-weight: lighter;">a blog for <a class="header-link" href="http://canijustgo.com/" target="_blank">canijustgo.com</a></h3>-->
+     <h3><a class="header-link" href="https://github.com/joeunha" target="_blank">github @joeunha</a></h3>
+</header>
+
+
+    <section class="main-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="main-content" itemprop="articleBody">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">PRATO 개발기 (1)</h1>
+   <p class="post-meta"><time datetime="2016-04-29T00:14:17+09:00" itemprop="datePublished">Apr 28, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">rabby</span></span></p>
+  </header>
+
+    <h3 id="section">소개</h3>
+
+<p>PRATO는 PraiseTogether의 약자입니다. 함께 찬양하고 노래하기 위해 필요한 콘티(곡의 순서)를 제작하는 과정에 필요한 모든 과정을 제공하는 웹 서비스입니다.</p>
+
+<p>해당 서비스는 기존에 콘티 제작 과정이 웹 검색-문서 편집-출력의 과정에서 웹 브라우저와 문서 편집 도구를 별도로 이용해야만 했던 불편함을 해소하고자 시작되었습니다. 불필요한 다운로드 과정을 생략하고 하나의 웹 페이지에서 모든 과정을 수행할 수 있는 서비스입니다.</p>
+
+<p>주요 기능은 ‘<strong>악보 검색</strong>‘, ‘<strong>콘티 편집</strong>‘, ‘<strong>콘티 출력</strong>‘ 입니다.</p>
+
+<p>개발 과정 및 코드는 <a href="https://github.com/joeunha/praisetogether">Github</a>을 통해 확인하실 수 있습니다.</p>
+
+<p> </p>
+
+<h3 id="section-1">개발 환경 만들기</h3>
+
+<p>그나마 경험이 많은 AngularJS로 프론트엔드를 꾸릴까 합니다. 서버단을 구현할 능력이 있을지 모르나, 시간과 능력이 허락한다면 MEAN Stack으로 전체를 구현해볼 생각입니다. 개발 환경 세팅에 소요되는 시간을 최소화하기 위해 스캐폴딩 도구인 <a href="http://yeoman.io/">Yeoman</a>을 이용했습니다.</p>
+
+<p>개발 툴은 SourceTree / Atom / Chrome을 사용합니다. 상황에 따라 Windows 10 / OS X를 혼용하고 있습니다. Windows 10의 경우 bash 툴을 지원하지 않지만 SourceTree에서 제공하는 터미널 기능을 이용하여 개발을 진행하고 있습니다.</p>
+
+<p>node (npm)을 설치한 뒤, yeoman 을 설치하면 yeoman을 사용할 준비가 끝이 납니다. 터미널에서 yo라고 입력하면 generator를 설치할 수 있는 installer가 보입니다. 저는 Grunt / Bower / css 를 선택했습니다. 스캐폴딩이 끝나고 grunt test, grunt build, grunt serve를 순서대로 입력하면 바로 작업 가능한 웹 페이지를 만나보실 수 있습니다. 이로써 개발 환경을 설정 했습니다.</p>
+
+<p>다음 시간에는 페이지 구조를 잡아보겠습니다.</p>
+
+  </div>
+
+<a href="http://localhost:4000"><h3 style="text-align: center;">- to blog -</h3></a>
+
+</article>
+
+      </div>
+    </div>
+
+    <p style="font-size: 60%; text-align: right;">blog built using the <a href="https://github.com/jasonlong/cayman-theme">cayman-theme</a> by <a href="https://github.com/jasonlong">Jason Long</a>. <a href="http://creativecommons.org/licenses/by/4.0/">LICENSE</a></p>
+
+
+
+  </body>
+
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+
+<script>
+var clipboard = new Clipboard('.share-btn');
+
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+
+
+</html>
