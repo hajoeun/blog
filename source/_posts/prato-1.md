@@ -7,10 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=516
 permalink: /prato-%ea%b0%9c%eb%b0%9c%ea%b8%b0-1/
 categories:
-  - prato project
+  - rabbylab(wordpress)
 tags:
-  - praisetogether
-  - prato
+  - toy-project
 ---
 ### 소개
 

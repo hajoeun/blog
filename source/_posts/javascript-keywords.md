@@ -7,11 +7,9 @@ layout: post
 guid: https://rabbylab.wordpress.com/?p=87
 permalink: /%ec%9e%90%eb%b0%94%ec%8a%a4%ed%81%ac%eb%a6%bd%ed%8a%b8%ec%9d%98-%ec%98%88%ec%95%bd%ec%96%b4/
 categories:
-  - javascript
+  - rabbylab(wordpress)
 tags:
   - javascript
-  - 예약어
-  - 이름
 ---
 다른 언어들과 마찬가지로 자바스크립트 역시 문장, 변수, 매개변수, 연산자, 라벨 등에 사용하는 이름을 정하는데 있어서 문자, 숫자, _(under bar)만을 사용하도록 허용하고 있습니다.
 

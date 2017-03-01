@@ -9,8 +9,9 @@ permalink: /javascript_intro_1/
 geo_public:
   - 0
 categories:
+  - rabbylab(wordpress)
+tags:
   - javascript
-  - study
 ---
 <p style="text-align:left;">
   세상에는 수 많은 프로그래밍 언어가 존재하고 그 언어들은 제 각기 배움의 가치가 있습니다. 때문에 제 각기 배움의 이유가 존재합니다. 다수의 프로그래밍 언어 서적들은 &#8216;왜 많은 언어 중에 이 언어를 배워야하는가?&#8217; 하는 질문을 답하며 책을 시작합니다. 그렇다면 저는 왜 자바스크립트를 선택했을까요?

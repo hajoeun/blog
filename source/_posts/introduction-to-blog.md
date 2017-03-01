@@ -9,15 +9,12 @@ permalink: /%eb%b8%94%eb%a1%9c%ea%b7%b8-%eb%b0%8f-%ec%9a%b4%ec%98%81%ec%9e%90-%e
 geo_public:
   - 0
 categories:
-  - rabbylab
+  - rabbylab(wordpress)
 tags:
-  - about
-  - me
-  - rabby
-  - rabbylab
+  - introduction
 ---
 <h5 style="text-align: center;">
-  <img class="alignnone size-medium wp-image-11" src="http://52.79.121.91/blog/wp-content/uploads/2015/07/profile_1-259x300.png" alt="profile_1" width="259" height="300" srcset="http://rabbylab.xyz/blog/wp-content/uploads/2015/07/profile_1-259x300.png 259w, http://rabbylab.xyz/blog/wp-content/uploads/2015/07/profile_1.png 299w" sizes="(max-width: 259px) 100vw, 259px" />
+  ![](/images/profile-1.png)
 </h5>
 
 <h5 style="text-align: center;">

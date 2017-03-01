@@ -16,6 +16,7 @@ url: http://joeun.me/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+cname: joeun.me
 
 # Directory
 source_dir: source
@@ -70,3 +71,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/joeunha/joeunha.github.io.git
+  branch: gh-pages

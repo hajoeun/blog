@@ -7,11 +7,9 @@ layout: post
 guid: https://rabbylab.wordpress.com/?p=402
 permalink: /learn-about-mean-stack/
 categories:
-  - javascript
+  - rabbylab(wordpress)
 tags:
-  - github
   - javascript
-  - meanstack
 ---
 자바스크립트 공부로 시작한 블로그인데 자바스크립트 관련 글을 너무 오랫동안 쓰지 않았습니다. 오랜만에 다시 글을 씁니다. 그동안 인턴이다 영어공부다 해서 블로그 관리에 소홀했습니다. 그렇다고 공부를 소홀히 하진 않았습니다. 제목처럼 한동안 <a href="http://mean.io/" target="_blank">MEAN stack</a> 을 공부하고 있었습니다. 아시다시피 MEAN stack 은 MongoDB, Express, Angular, Node 의미합니다. 모두 자바스크립트로 코딩할 수 있습니다. MEAN stack 을 활용하면 저같은 초보 개발자도 풀스택 개발을 할 수 있다기에 시작했습니다. 인턴으로 일하면서 혼자서는 제대로된 서비스를 만들지 못해 늘 아쉬웠던 탓에 풀스택 개발에 대한 욕구가 있었습니다.
 

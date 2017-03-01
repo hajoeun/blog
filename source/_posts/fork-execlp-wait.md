@@ -7,11 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=464
 permalink: /fork-execlp-wait-%ed%95%a8%ec%88%98/
 categories:
-  - cs basic
+  - rabbylab(wordpress)
 tags:
-  - csbasic
-  - operatingsystem
-  - os
+  - cs-basic
 ---
 운영체제를 배우고 있습니다. <a href="http://rabbylab.xyz/%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8-%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%ec%8a%a4%eb%a0%88%eb%93%9c/" target="_blank">이전 글</a>에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다.
 

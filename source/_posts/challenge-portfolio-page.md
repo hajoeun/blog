@@ -7,12 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=544
 permalink: /challenge-portfolio-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/
 categories:
-  - freecodecamp
+  - rabbylab(wordpress)
 tags:
-  - codepen
-  - fcc
   - freecodecamp
-  - practice
 ---
 Tribute Page 만들기의 뒤를 잇는 두번째 Challenge는 &#8216;[개인 Portfoilo Page 만들기](https://www.freecodecamp.com/challenges/build-a-personal-portfolio-webpage)&#8216; 입니다. 예전부터 포트폴리오를 만들어야지 하면서 Github에 페이지를 만들어두기도 했는데 뭐부터 해야할지 몰라 시작조차 못했던 일을 FCC를 통해 하게 되었습니다.
 

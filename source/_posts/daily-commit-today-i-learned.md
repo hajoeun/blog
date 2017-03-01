@@ -7,8 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=570
 permalink: /daily-commit-today-i-learned/
 categories:
-  - freecodecamp
-  - study
+  - rabbylab(wordpress)
+tags:
+  - daily-commit
 ---
 한동안 개발 활동이 뜸했습니다. 취미 관련 글에서 언급한 것처럼 계절학기로 인해 바빴기 때문입니다. 지난 7월 12일 이후로 학교와 관련된 모든 일을 끝냈습니다. 이제 새로운 곳에서 일을 시작할 예정입니다. (바로 내일부터군요!) 앞으로는 조금 더 꾸준히 개발 공부만 할 수 있을 것 같습니다. 직업이 학생에서 개발자로 바뀌는 덕입니다. 그토록 바라던 개발자라는 직업을 갖게된만큼 더 꾸준히, 체계적으로 개발 활동을 하기 위해 주말동안 물밑작업을 좀 했습니다.
 

@@ -7,11 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=520
 permalink: /css-style-override/
 categories:
-  - freecodecamp
+  - rabbylab(wordpress)
 tags:
   - css
-  - fcc
-  - freecodecamp
 ---
 CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.
 
@@ -38,9 +36,10 @@ CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동
 
 </pre>
 
-다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 h1이 주황색으로 표기됩니다.
+다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 `<h1>`이 주황색으로 표기됩니다.
 
-<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+```
+<style>
   body {
     background-color: black;
     font-family: Monospace;
@@ -55,12 +54,10 @@ CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동
   .blue-text {
     color: blue;
   }
-&lt;/style&gt;
+</style>
 
-
-&lt;h1 id="orange-text" class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //주황색
-
-</pre>
+<h1 id="orange-text" class="pink-text blue-text">Hello World!</h1> //주황색
+```
 
 id 값보다 높은 우선순위를 갖는 방법은 in-line으로 스타일을 지정하는 방법입니다. 위의 코드에서 h1에 `style="color: white"`를 추가해주면 다른 class/id보다 높은 우선순위를 가진 in-line style에 의해 h1는 흰색으로 표기됩니다.
 

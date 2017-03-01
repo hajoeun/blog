@@ -7,10 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=488
 permalink: /practice-animal-shelter/
 categories:
-  - cs basic
+  - rabbylab(wordpress)
 tags:
-  - coin
-  - csbasic
+  - practice
 ---
 ###### Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 <코딩인터뷰 완전분석> 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.
 
@@ -119,6 +118,6 @@ dequeueCat의 경우는 id 값만 바꿔주면 됩니다. 고로 생략하겠습
 
 예제 확인을 위한 코드입니다. 개똥이를 보내고 빈자리를 확인하는 것으로 코드가 끝납니다. 아래는 출력결과 입니다.
   
-<img class="alignnone size-full wp-image-501" src="http://rabbylab.xyz/blog/wp-content/uploads/2016/04/Aniqueue-실행-결과.jpg" alt="Anishelter 실행 결과" width="339" height="108" srcset="http://rabbylab.xyz/blog/wp-content/uploads/2016/04/Aniqueue-실행-결과.jpg 339w, http://rabbylab.xyz/blog/wp-content/uploads/2016/04/Aniqueue-실행-결과-300x96.jpg 300w" sizes="(max-width: 339px) 100vw, 339px" />
+![](/images/aniqueue-result.jpg)
 
 전체 코드는 <a href="https://github.com/joeunha/rabbylab-csbasic/blob/master/src/rabbylab/csbasic/coin/animalshelter/LinkedList.java" target="_blank">이곳</a>에서 확인하실 수 있습니다. 감사합니다.

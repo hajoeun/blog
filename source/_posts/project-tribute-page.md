@@ -7,13 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=540
 permalink: /project-tribute-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/
 categories:
-  - freecodecamp
+  - rabbylab(wordpress)
 tags:
-  - codepen
-  - fcc
   - freecodecamp
-  - practice
-  - project
 ---
 [FreeCodeCamp](https://www.freecodecamp.com/)를 시작한지 3주가 되어갑니다. 지금까지 [13시간 분량의 공부를 진행했네요.](https://www.freecodecamp.com/joeunha) Challenge 부분에서는 HTML, Bootstrap, jQuery 를 이수했습니다. 그리고 이제는 Project를 하게 되었는데요. 이런 실전적인 과제를 내어준다는 점에서 다른 코딩 학습 서비스와 차별점이 있는 것 같습니다. (중간 중간에 계속 커뮤니티와 소통할 수 있는 미션을 주는 것도 FCC가 가진 장점 중에 하납니다.)
 

@@ -7,11 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=518
 permalink: /prato-%ea%b0%9c%eb%b0%9c%ea%b8%b0-2/
 categories:
-  - prato project
+  - rabbylab(wordpress)
 tags:
-  - praisetogether
-  - prato
-  - 기획
+  - toy-project
 ---
 페이지 구조를 잡아보기로 했습니다. 기획 부분이라고 보시면 될 것 같습니다. 기존에 PPT 파일로 만들어둔 목업을 조금 더 세련된 형태로 다듬어 보여 드리는 것으로 자질구레한 설명을 대체하겠습니다. 목업은 [이곳](https://goo.gl/OMW0rb)에서 보실 수 있습니다. 도구는 [페이지 구조를 잡아보기로 했습니다. 기획 부분이라고 보시면 될 것 같습니다. 기존에 PPT 파일로 만들어둔 목업을 조금 더 세련된 형태로 다듬어 보여 드리는 것으로 자질구레한 설명을 대체하겠습니다. 목업은 [이곳](https://goo.gl/OMW0rb)에서 보실 수 있습니다. 도구는 ](https://ovenapp.io/) 를 활용했습니다.
 

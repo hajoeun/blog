@@ -9,12 +9,9 @@ permalink: /javasrcipt_intro_2/
 geo_public:
   - 0
 categories:
-  - javascript
-  - study
+  - rabbylab(wordpress)
 tags:
   - javascript
-  - 도서추천
-  - 자바스크립트
 ---
 어떤 일의 전문가를 찾아가야 그 일의 전문가가 될 수 있습니다. 배움을 위해 스승을 찾는 것은 너무나 당연한 일이지요. 저는 자바스크립트를 공부하기로 결심하고 이를 가르쳐줄 훌륭한 스승을 찾아야겠다고 생각했습니다.
 
@@ -28,7 +25,14 @@ tags:
 
 책에 관한 평가와 살짝 살펴본 제 견해로는 첫번째 스승인 니콜라스 자카스(Nicholas C. Zakas)는 친절한 선배 같은 스승입니다. 자바스크립트에 관해 해주고 싶은 말이 많아 자바스크립트의 전반적인 이야기를 지루하지 않게 들려줍니다. 두번째 스승인 더글라스 크락포드(Douglas Crockford)는 달인의 경지에 이른 교수님의 포스가 흘러넘칩니다. 그의 책은 두께는 얇지만 깊이가 있다고 알려져있습니다. 생활코딩의 이고잉님은 &#8216;보면 볼수록 씹는 맛이 나는 책&#8217;이라고 평했습니다.<figure id="attachment_55" style="width: 264px" class="wp-caption alignleft">
 
-<img class="size-medium wp-image-55" src="http://rabbylab.xyz/blog/wp-content/uploads/2015/07/nicholas_zakas-264x300.jpg" alt="Nicholas C. Zakas" width="264" height="300" srcset="http://rabbylab.xyz/blog/wp-content/uploads/2015/07/nicholas_zakas-264x300.jpg 264w, http://rabbylab.xyz/blog/wp-content/uploads/2015/07/nicholas_zakas.jpg 280w" sizes="(max-width: 264px) 100vw, 264px" /><figcaption class="wp-caption-text">Nicholas C. Zakas</figcaption></figure> <figure id="attachment_54" style="width: 300px" class="wp-caption alignright"><img class="size-medium wp-image-54" src="http://rabbylab.xyz/blog/wp-content/uploads/2015/07/douglas_crockford-300x217.jpg" alt="Doublas Crockford" width="300" height="217" srcset="http://rabbylab.xyz/blog/wp-content/uploads/2015/07/douglas_crockford-300x217.jpg 300w, http://rabbylab.xyz/blog/wp-content/uploads/2015/07/douglas_crockford-768x555.jpg 768w, http://rabbylab.xyz/blog/wp-content/uploads/2015/07/douglas_crockford.jpg 800w" sizes="(max-width: 300px) 100vw, 300px" /><figcaption class="wp-caption-text">Doublas Crockford</figcaption></figure> 
+<div>
+![](/images/nicholas-zakas.jpg)
+<figcaption class="wp-caption-text">Nicholas C. Zakas</figcaption>
+</div> 
+<div>
+![](/images/douglas-crockford.jpg)
+<figcaption class="wp-caption-text">Doublas Crockford</figcaption>
+</div>
 
 #### **이제 훌륭한 제자가 되자!**
 

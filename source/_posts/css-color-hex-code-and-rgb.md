@@ -7,11 +7,9 @@ layout: post
 guid: http://rabbylab.xyz/?p=531
 permalink: /css-color-hex-code-and-rgb/
 categories:
-  - freecodecamp
+  - rabbylab(wordpress)
 tags:
   - css
-  - fcc
-  - freecodecamp
 ---
 CSS에서 색을 표현할 때 간단하게 &#8216;red&#8217;, &#8216;white&#8217;, &#8216;black&#8217;등으로 표기하기도 합니다. 하지만 실제로는 다양한 색을 표현하기 위해 다른 방식을 더 자주 쓰게 됩니다. &#8216;#FF0000&#8217; 혹은 &#8216;rgb(255, 0, 0)&#8217;처럼 표기하는 경우입니다. 이 두가지 표현 방법에 대해 다루겠습니다.
 
