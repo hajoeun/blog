@@ -65,10 +65,16 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
+feed:
+  type: atom
+  path: atom.xml
+  limit: 10
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: https://github.com/joeunha/joeunha.github.io.git
-  branch: gh-pages
+
+# Disqus comments
+disqus_shortname: joeun

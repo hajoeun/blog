@@ -1,1 +1,6 @@
 .deploy_git
+.deploy_git/*
+rabbylab/*
+public
+public/*
+node_modules/*
