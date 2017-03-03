@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[Practice] min연산을 갖춘 stack을 구현하라! | Joeun.me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &amp;lt;코딩인터뷰 완전분석&amp;gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.
+
+코딩인터뷰 완전분석">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Practice] min연산을 갖춘 stack을 구현하라!">
+<meta property="og:url" content="http://joeun.me/2016/03/26//practice-min-stack//index.html">
+<meta property="og:site_name" content="Joeun.me">
+<meta property="og:description" content="Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &amp;lt;코딩인터뷰 완전분석&amp;gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.
+
+코딩인터뷰 완전분석">
+<meta property="og:image" content="http://joeun.me/images/practice-1-result.png">
+<meta property="og:updated_time" content="2017-03-03T04:49:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Practice] min연산을 갖춘 stack을 구현하라!">
+<meta name="twitter:description" content="Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &amp;lt;코딩인터뷰 완전분석&amp;gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.
+
+코딩인터뷰 완전분석">
+<meta name="twitter:image" content="http://joeun.me/images/practice-1-result.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Joeun.me" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-92829973-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Joeun.me</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://joeun.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-/practice-min-stack/" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/26/practice-min-stack/" class="article-date">
+  <time datetime="2016-03-26T10:29:50.000Z" itemprop="datePublished">2016-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [Practice] min연산을 갖춘 stack을 구현하라!
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="color: #999999;">Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &lt;코딩인터뷰 완전분석&gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.</span></p>
+<hr>
+<p><strong>코딩인터뷰 완전분석 &#8211; 연습문제 3.2</strong></p>
+<p><strong>&#8220;push와 pop의 두 가지 연산뿐 아니라, 최솟값을 갖는 원소를 반환하는 min연산을 갖춘 stack은 어떻게 구현할 수 있겠는가? push, pop, 그리고 min은 공히 O(1) 시간에 처리되어야 한다.&#8221;</strong></p>
+<p>이 문제의 포인트는 &#8216;min연산&#8217;, &#8216;O(1)&#8217;에 있습니다. min연산은 어떻게 검색을 통해 해낸다고 해도 O(1) 시간에 처리해야하는 문제로 인해 반복문을 사용할 수가 없게되죠. 결국 min연산부터 다시 생각해야합니다. 이 문제를 해결하는 아이디어를 낸 친구가 이렇게 말했습니다. &#8216;그냥 stack을 하나 더 만들면 안돼?&#8217;라고 말입니다. 이때부터 함께 이것저것 아이디어를 덧붙여가며 이야기를 나눠보니 &#8216;옳다쿠나&#8217; 정답이었습니다.</p>
+<p>구현은 그리 어렵지 않습니다. 차근차근 해보겠습니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">#include &lt;stdio.h&gt;
+
+int main_stack[10];
+int min_chaser[10];
+int main_top = 0, chaser_top = 0;
+int cur_min;
+
+</pre>
+
+<p>우선 배열을 두개를 선언해줍니다. 하나는 기본 스택을 위한 배열, 다른 하나는 최소값을 추적하는 배열입니다. 그리고 각 스택별로 가장 마지막에 들어온 숫자를 체크하는 top 변수를 스택마다 하나씩 선언하고 0으로 초기화시킵니다. 마지막으로 현재의 최소값을 기억하고 있는 변수를 하나 선언합니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">//chaser_push function
+void chaser_push(num) {
+   if(chaser_top &gt;= 10) {
+      printf("Stack is overflow!\n");
+   } else {
+      min_chaser[chaser_top] = num;
+      chaser_top++;
+   }
+}
+
+//chaser_pop function
+void chaser_pop() {
+   chaser_top--;
+   printf("I am number %d. I was a min number!\n", min_chaser[chaser_top]);
+   min_chaser[chaser_top] = 0;
+   cur_min = min_chaser[chaser_top - 1];
+}
+</pre>
+
+<p>다음은 함수를 만들어줄 차례입니다. 우선 chaser와 관련된 함수를 먼저 만들겠습니다. 왜냐하면 뒤이어 나오는 기본 스택 함수들이 이 함수들을 사용해야하기 때문입니다. chaser_push는 인자로 num값을 받습니다. 만약에 chaser_top값이 스택의 범주(10)를 넘어선다면 이는 오버플로우가 발생한 것이라고 경고하는 메세지를 출력합니다. 만약 오버플로우가 아니라면 chaser에 인자로 받은 값을 넣습니다. 그리고 chaser_top 값을 증가시켜줍니다. 기본적인 push구현 방식입니다.</p>
+<p>이어사 등장하는 chaser_pop도 일반적인 pop과 같습니다. 우선 chaser_top을 감소시켜줍니다. 그리고 min_chaser에서 가장 위에 있는 값을 꺼내줍니다. 출력문을 통해 최소값이었다는 것을 밝힙니다. 원래 최소값이 들어있던 자리를 비워주고 cur_min값을 바꿔줍니다.</p>
+<p><em><span style="color: #999999;">*저는 이 부분에서 chaser가 제일 작은 놈을 가두는 경찰소라는 추상적인 관념을 가지고 작업했습니다. 각 숫자들에 인격을 부여하고 함수 역시 어떤 역할을 감당하는 객체(?)라는 느낌을 가지고 작업하다보니 &#8220;I am number 5. I was a min number!&#8221; 같은 메세지가 나왔습니다.</span></em></p>
+<pre class="brush: plain; title: ; notranslate" title="">//main_stack push function
+void push(int num) {
+   if(main_top &gt;= 10) {
+      printf("Stack is overflow.\n");
+   } else if (main_top == 0) {
+      main_stack[main_top] = num;
+      cur_num = num;
+      chaser_push(cur_num);
+      main_top++;
+  } else {
+      main_stack[main_top] = num;
+      main_top++;
+      if(num &lt; cur_num) {
+          cur_num = num;
+          chaser_push(cur_num);
+      }
+   }  
+}
+
+//main_stack pop function
+void pop() {
+   if(main_top == 0) {
+      printf("Stack is empty.\n");
+   } else {
+      main_top--;
+
+      if(main_stack[main_top] == cur_num) {
+         chaser_pop();
+      } else {
+          printf("I am number %d.\n", main_stack[main_top]);
+      }
+        main_stack[main_top] = 0;
+   }
+}
+</pre>
+
+<p>기본적인 push&amp;pop 함수를 크게 벗어나지 않습니다. 특이점만 살펴보겠습니다. 우선 main_stack에 처음으로 push를 하는 경우가 나옵니다. main_top가 0인 경우죠. 이 경우에는 홀로 존재하기 때문에 곧장 최소값이 됩니다. 때문에 cur_num에 num을 넣어주고 chaser에도 push를 합니다. 그리고 top을 증가시키구요. 그 이후로는 cur_num값과 비교해서 더 작은 경우에만 chaser_push를 호출합니다. pop을 살펴보면 비어있는 경우를 메세지로 알려줍니다. 그렇지 않은 경우 중에서 빼내려고 하는 값과 cur_num가 같을 경우, main_stack의 pop이 아니라 chaser_pop으로 넘어갑니다. 거기서 &#8220;I was a min number!&#8221;라는 메세지를 출력한 뒤에 다시 돌아와 빠진 자리를 비워줍니다. 일반적인 경우에는 main_stack에서 메세지를 출력하고 함수가 끝납니다.</p>
+<p>이제 테스트해보겠습니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">int main() {
+
+   push(20);
+   push(16);
+   push(3);
+   push(26);
+   push(19);
+   push(21);
+
+   pop();
+   pop();
+   pop();
+   pop();
+   pop();
+   pop();
+
+   return 0;
+}
+</pre>
+
+<p>결과 값은 아래와 같습니다. (20과 16은 각기 들어갔을 때 당시에 최소값이었습니다.)<br><img src="/images/practice-1-result.png" alt=""></p>
+<p>&nbsp;  </p>
+<p>[Practice 1] &#8220;min연산을 갖춘 stack을 구현하라!&#8221; 끝.</p>
+<p>질문 혹은 문제 제기 환영합니다. 댓글 남겨주세요. ^^</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2016/03/26//practice-min-stack//" data-id="ciztcc9li00157avgnxza5ids" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2016/03/26//practice-min-stack//#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/practice/">practice</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/27/coin-%ed%95%a8%ea%bb%98-%ec%84%b1%ec%9e%a5%ed%95%98%ea%b8%b0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          COIN, 함께 성장하기
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/26/fork-execlp-wait/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">fork(), execlp(), wait() 함수</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/joeun-me/">joeun.me</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/joeun-me/programming/">programming</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/coin/">coin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cs-basic/">cs-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily-commit/">daily-commit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freecodecamp/">freecodecamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduction/">introduction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/practice/">practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toy-project/">toy-project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 15px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 15px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 15px;">practice</a> <a href="/tags/toy-project/" style="font-size: 15px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 10px;">오늘의함수</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">9월 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/02/javascript-daily-function-1/">오늘의 함수 (1)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/introduction-to-blog-2/">Joeun.me 시작</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/17/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/challenge-portfolio-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/">[Challenge] Portfolio Page 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/26/project-tribute-page/">[Challenge] Tribute Page 만들기</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joeun Ha<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'joeun';
+  
+  var disqus_url = 'http://joeun.me/2016/03/26//practice-min-stack//';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

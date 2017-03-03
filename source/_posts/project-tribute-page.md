@@ -5,7 +5,7 @@ date: 2016-05-26T17:51:04+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=540
-permalink: /project-tribute-page/
+permalink: /project-tribute-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/
 categories:
   - rabbylab(wordpress)
 tags:

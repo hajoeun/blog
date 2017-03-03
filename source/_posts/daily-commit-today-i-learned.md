@@ -5,6 +5,7 @@ date: 2016-07-17T23:19:46+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=570
+permalink: /daily-commit-today-i-learned/
 categories:
   - rabbylab(wordpress)
 tags:

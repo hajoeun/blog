@@ -5,6 +5,7 @@ date: 2016-03-26T00:27:03+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=464
+permalink: /fork-execlp-wait-%ed%95%a8%ec%88%98/
 categories:
   - rabbylab(wordpress)
 tags:

@@ -5,7 +5,7 @@ date: 2016-04-28T15:14:17+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=516
-permalink: /prato-1/
+permalink: /prato-%ea%b0%9c%eb%b0%9c%ea%b8%b0-1/
 categories:
   - rabbylab(wordpress)
 tags:

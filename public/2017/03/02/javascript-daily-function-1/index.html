@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>오늘의 함수 (1) | Joeun.me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="오늘 발견한 재미있는 함수를 소개합니다
+리다이렉트 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다. 
+1번 - 어제의 함수123456789var data = &amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="오늘의 함수 (1)">
+<meta property="og:url" content="http://joeun.me/2017/03/02/javascript-daily-function-1/index.html">
+<meta property="og:site_name" content="Joeun.me">
+<meta property="og:description" content="오늘 발견한 재미있는 함수를 소개합니다
+리다이렉트 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다. 
+1번 - 어제의 함수123456789var data = &amp;#12">
+<meta property="og:updated_time" content="2017-03-02T15:11:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="오늘의 함수 (1)">
+<meta name="twitter:description" content="오늘 발견한 재미있는 함수를 소개합니다
+리다이렉트 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다. 
+1번 - 어제의 함수123456789var data = &amp;#12">
+  
+    <link rel="alternate" href="/atom.xml" title="Joeun.me" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-92829973-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Joeun.me</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://joeun.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript-daily-function-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/javascript-daily-function-1/" class="article-date">
+  <time datetime="2017-03-02T14:21:36.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      오늘의 함수 (1)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h3 id="리다이렉트-함수"><a href="#리다이렉트-함수" class="headerlink" title="리다이렉트 함수"></a>리다이렉트 함수</h3><p>서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다. </p>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (res) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">  &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 <code>redirect</code> 함수를 만들었습니다. 함수를 반환하는 고차함수입니다. </p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, redirect(<span class="string">'/main/newsfeed'</span>)); </div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data, redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data, redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="ciztcc9l1000q7avgxecorepo" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/01/introduction-to-blog-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Joeun.me 시작</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/joeun-me/">joeun.me</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/joeun-me/programming/">programming</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/coin/">coin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cs-basic/">cs-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/daily-commit/">daily-commit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/freecodecamp/">freecodecamp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/introduction/">introduction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/practice/">practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/toy-project/">toy-project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 15px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 15px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 15px;">practice</a> <a href="/tags/toy-project/" style="font-size: 15px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 10px;">오늘의함수</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2월 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">9월 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7월 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/02/javascript-daily-function-1/">오늘의 함수 (1)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/introduction-to-blog-2/">Joeun.me 시작</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/17/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/05/challenge-portfolio-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/">[Challenge] Portfolio Page 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/26/project-tribute-page/">[Challenge] Tribute Page 만들기</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joeun Ha<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'joeun';
+  
+  var disqus_url = 'http://joeun.me/2017/03/02/javascript-daily-function-1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
