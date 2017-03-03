@@ -5,7 +5,7 @@ date: 2016-03-26T19:29:50+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=472
-permalink: /practice-1/
+permalink: /practice-min-stack/
 categories:
   - rabbylab(wordpress)
 tags:

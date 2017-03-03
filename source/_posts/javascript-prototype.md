@@ -5,7 +5,7 @@ date: 2016-03-30T00:26:18+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=484
-permalink: /%ea%b0%9d%ec%b2%b4-2/
+permalink: /javascript-prototype/
 categories:
   - rabbylab(wordpress)
 tags:
