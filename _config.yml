@@ -71,4 +71,3 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/joeunha/joeunha.github.io.git
-  branch: gh-pages
