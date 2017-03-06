@@ -1,6 +1,5 @@
 .deploy_git
 .deploy_git/*
-rabbylab/*
 node_modules/*
 .idea/*
 public/*
