@@ -5,7 +5,7 @@ date: 2016-03-27T02:08:18+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=479
-permalink: /coin-%ed%95%a8%ea%bb%98-%ec%84%b1%ec%9e%a5%ed%95%98%ea%b8%b0/
+permalink: /coin/
 categories:
   - rabbylab(wordpress)
 tags:

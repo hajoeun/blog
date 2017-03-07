@@ -5,7 +5,6 @@ date: 2015-07-17T20:19:54+00:00
 author: rabby
 layout: post
 guid: https://rabbylab.wordpress.com/?p=25
-permalink: /%eb%b8%94%eb%a1%9c%ea%b7%b8-%eb%b0%8f-%ec%9a%b4%ec%98%81%ec%9e%90-%ec%86%8c%ea%b0%9c/
 geo_public:
   - 0
 categories:

@@ -5,7 +5,7 @@ date: 2016-06-05T20:17:26+00:00
 author: rabby
 layout: post
 guid: http://rabbylab.xyz/?p=544
-permalink: /challenge-portfolio-page-%eb%a7%8c%eb%93%a4%ea%b8%b0/
+permalink: /challenge-portfolio-page/
 categories:
   - rabbylab(wordpress)
 tags:

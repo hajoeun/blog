@@ -5,7 +5,7 @@ date: 2015-07-21T22:39:27+00:00
 author: rabby
 layout: post
 guid: https://rabbylab.wordpress.com/?p=47
-permalink: /javasrcipt_intro_2/
+permalink: /javasrcipt-intro-2/
 geo_public:
   - 0
 categories:
