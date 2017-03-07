@@ -61,6 +61,142 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-/practice-animal-shelter/" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/02/practice-animal-shelter/" class="article-date">
+  <time datetime="2016-04-01T15:16:46.000Z" itemprop="datePublished">2016-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/02/practice-animal-shelter/">[Practice] 동물 쉼터(Animal Shelter)를 구현하라!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="Practice-시리즈를-연재합니다-지난-3월-3일부터-COIN-코딩인터뷰-준비하는-모임-이라는-이름으로-함께-취업스터디를-진행하고-있는-5명의-친구들과-함께-교재-lt-코딩인터뷰-완전분석-gt-이라는-책을-가지고-공부를-시작했습니다-Practice-시리즈는-이-과정에서-함께-고민하며-풀었던-문제에-대해-이야기하는-시리즈입니다"><a href="#Practice-시리즈를-연재합니다-지난-3월-3일부터-COIN-코딩인터뷰-준비하는-모임-이라는-이름으로-함께-취업스터디를-진행하고-있는-5명의-친구들과-함께-교재-lt-코딩인터뷰-완전분석-gt-이라는-책을-가지고-공부를-시작했습니다-Practice-시리즈는-이-과정에서-함께-고민하며-풀었던-문제에-대해-이야기하는-시리즈입니다" class="headerlink" title="Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &lt;코딩인터뷰 완전분석&gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다."></a>Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &lt;코딩인터뷰 완전분석&gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.</h6><hr>
+<p><strong>코딩인터뷰 완전분석 – 연습문제 3.7</strong></p>
+<p><strong>“먼저 들어온 동물이 먼저 나가는 동물 쉼터(animal shelter)가 있다고 하자. 이 쉼터는 개와 고양이만 수용할 수 있다. 사람들은 쉼터의 동물들 가운데 들어온 지 가장 오래된 동물부터 입양할 수 있는데, 개와 고양이 중 어떤 동물을 데려갈지 선택할 수도 있다. 특정한 동물을 지정해 데려가는 것은 금지되어 있다. 이 시스템을 자료구조로 구현하라. 해당 자료구조는 enqueue, dequeueAny, dequeueDog, dequeueCat의 연산들을 제공해야 한다. 언어에 기본 탑재되어 있는 LinkedList (Java) 자료구조를 이용해도 좋다.”</strong></p>
+<p>이번부터는 자바로 구현하겠습니다. <a href="http://rabbylab.xyz/practice-1/" target="_blank" rel="external">이전 글</a>에서 C로 코딩을 했는데, COIN에서 사용하는 공용 언어로 자바를 선정함에 따라 자바로 코딩하겠습니다.</p>
+<p>코드를 보시기에 앞서 문제를 먼저 해부(?)하겠습니다. 동물 쉼터는 &#8216;먼저 들어온 동물이 먼저 나가는&#8217; 곳 입니다. First In First Out(FIFO)라는거죠. 큐를 의미합니다. 그리고 문제의 끝에서 &#8216;LinkedList&#8217;를 사용해도 좋다고 합니다. 결국 LikedList로 표현된 Queue를 구현하라는 것입니다. 그리고 그 큐는 몇가지 제약조건을 가지고 있습니다. 들어온 지 가장 오래된 동물부터 입양하되, 개나 고양이 중에서 선택은 할 수 있도록 해줘라는 것입니다. 그래서 dequeueDog, dequeueCat 연산을 제공합니다. 대충 그림나옵니다. 그럼 시작할까요?</p>
+<pre class="brush: plain; title: ; notranslate" title="">private Node head;
+private Node tail;
+private int size = 0;
+private class Node {
+    private String name;
+    private int id;
+    private Node next;
+    public Node(String animal, int num){
+        this.name = animal;
+        this.id = num;
+        this.next = null;
+    }
+}
+</pre>
+
+<p>링크드리스트를 구현해야하기 때문에 노드를 만들어줍니다. head와 tail은 큐에서 front(앞)와 rear(뒤)를 맡게됩니다. 일단은 4번째 줄 이후를 집중해서 보겠습니다. 이 노드는 동물의 이름 값(name), 개와 고양이를 분류하기 위한 값(id) 그리고 다음 노드를 가르키는 값(next)을 가지고 있습니다. 사실 저는 이 &#8216;가르키는 값&#8217;이 참 익숙하지 않습니다. C에서는 이걸 포인터로 구현하는데 Java에서는 그냥 값을 참조하면 되는데, 그게 은근히 낯섭니다. 포인터의 그 특징이 더 뇌리에 깊게 박힌 것 같습니다. 여하튼 노드는 이렇게 구성되어 있습니다. 이제 본격적인 연산들을 살펴보겠습니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">public void enqueue(String animal, int num){
+    Node newNode = new Node(animal, num);
+    if(size == 0){
+        tail = head = newNode;
+    } else{
+        head.next = newNode;
+        head = newNode;
+    }
+    size++;
+}
+</pre>
+
+<p>이 코드는 노드를 추가(enqueue)하는 과정을 보여줍니다. 이 메소드는 인자로 동물의 이름(animal)과 개와 고양이를 구분하는 숫자(num)을 받습니다. 그리고 새로운 노드를 생성합니다. 이때 생성된 노드가 첫번째 노드라면(queue의 size가 0이라면) head와 tail이 동시에 이 노드를 가르킵니다. 만약 그렇지 않다면 head의 다음(next)에 새로운 노드가 붙습니다. 그리고 head는 새로운 노드를 가르킵니다. 그러니까 새로운 노드가 추가되면 tail로 붙는게 아니라 head가 이동합니다. tail은 움직이지 않습니다. 앞에다가 추가하는 방식인거죠. 추가가 끝나면 size를 증가시켜줍니다. 이로써 tail에는 가장 오래된 동물이 주인을 기다리게 됩니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">public void dequeueAny(){
+    System.out.println(tail.name);
+    tail = tail.next;
+    size--;
+    return;
+}
+</pre>
+
+<p>새로운 주인을 만난 동물을 보내주는 메소드입니다. 가장 먼저 들어온 동물을 보내주겠습니다. 보내주는 걸 확인하기 위해 메세지를 출력합니다. 출력 이후에는 tail을 한칸 뒤로 이동합니다. 다음 차례를 가르키는거죠. 그리곤 size를 감소시켜줍니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">public void dequeueDog(){
+    Node chaser_1 = tail;
+    Node chaser_2 = tail;
+    while(chaser_1.id != 0 && chaser_1.next != null){
+        chaser_2 = chaser_1;
+        chaser_1 = chaser_2.next;
+    }
+        //개가 첫번째 노드에 있었던 경우
+    if(chaser_1 == tail){
+        dequeueAny();
+        //개를 발견한 경우
+    } else if(chaser_1.id == 0){
+        System.out.println(chaser_1.name + ", Bye!\n");
+        chaser_2.next = chaser_1.next;
+    //개가 없는 경우
+        } else{
+        System.out.println("No Dog...");
+        return;
+    }
+    size--;
+    return;
+}
+</pre>
+
+<p>이제 새로운 주인이 원하는 동물을 골라서 주겠습니다. 개/고양이 중에서 선택이 가능해야겠죠. 위의 코드는 개를 내보내는 코드입니다. id가 0일 때, 개/ 1일 때, 고양이라고 간주했습니다. 이번 코드에서 중요한건 역시 chaser_1,chaser_2 입니다. 이들의 역할은 원하는 동물을 찾아오는 것입니다. 처음에는 tail부터 시작합니다. 가장 오래된 동물부터 확인하는 것이죠.</p>
+<p>while문을 보겠습니다. 본격적인 추적(chase)가 시작됩니다. id가 0이 아닐 경우 계속 반복됩니다. 다시말해, 0이 아니라는 말은 개가 아니라는 것이니까 고양이라는 의미겠죠? 그리고 만약에 더 이상 개가 남아 있지 않을 경우도 있겠죠? 그런 경우에 무한루프를 방지하기 위해서 next값이 null이면 탈출할 수 있도록 조건을 만들어둡니다. 이제 chaser의 이동을 살펴보겠습니다. 5번 줄에서 chaser_2가 chaser_1의 위치로 갑니다. 그리고 다음 줄에서 chaser_1은 다음 노드로 이동합니다. 이렇게 chaser_1이 앞으로 한 노드씩 움직이며 개를 찾습니다. 결국 개가 발견되거나 개가 없으면 루프를 벗어납니다.</p>
+<p>만약에 개가 첫번째 노드에 있었다면 그냥 dequeueAny 메소드를 호출해줍니다. 그리고 만약에 개가 맞다면 개에게 작별을 고하고 보내줍니다. chaser_2의 다음 노드였던 chaser_1의 노드를 없애주기 위해 chaser_1 다음의 노드와 chaser_2를 이어줍니다. 그렇게 노드를 정리합니다. 만약에 개가 없었다면 더 이상 개가 없다고 메세지를 출력해줍니다.</p>
+<p>dequeueCat의 경우는 id 값만 바꿔주면 됩니다. 고로 생략하겠습니다.</p>
+<pre class="brush: plain; title: ; notranslate" title="">public class Main {
+
+    public static void main(String[] args) {
+        LinkedList animals = new LinkedList();
+
+        animals.enqueue("귀욤",1);
+        animals.enqueue("개똥",0);
+        animals.enqueue("황묘",1);
+        animals.enqueue("백구",0);
+
+        System.out.println(animals);
+
+        animals.dequeueDog();
+
+        System.out.println(animals);
+    }
+
+}
+</pre>
+
+<p>예제 확인을 위한 코드입니다. 개똥이를 보내고 빈자리를 확인하는 것으로 코드가 끝납니다. 아래는 출력결과 입니다.</p>
+<p><img src="/images/aniqueue-result.jpg" alt=""></p>
+<p>전체 코드는 <a href="https://github.com/joeunha/rabbylab-csbasic/blob/master/src/rabbylab/csbasic/coin/animalshelter/LinkedList.java" target="_blank">이곳</a>에서 확인하실 수 있습니다. 감사합니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cizznxgal001btpvg3ezpl7lf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/practice/">practice</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-/javascript-prototype/" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/30/javascript-prototype/" class="article-date">
@@ -145,7 +281,7 @@ console.log(c.name);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cizyuj3yt000xf4vgbenlucr0" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cizznxgab000xtpvgdhew6p9u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -190,7 +326,7 @@ console.log(c.name);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/27//coin//" data-id="cizyuj3xk0001f4vghrvez268" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/27//coin//" data-id="cizznxg900000tpvgbvydpaq0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coin/">coin</a></li></ul>
@@ -332,7 +468,7 @@ void pop() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/26//practice-1//" data-id="cizyuj3z50015f4vg74oqzpym" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/26//practice-1//" data-id="cizznxgai0017tpvg0wo7t9ho" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/practice/">practice</a></li></ul>
@@ -426,7 +562,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/26//fork-execlp-wait//" data-id="cizyuj3xy000af4vg2zdyezoo" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/26//fork-execlp-wait//" data-id="cizznxg9n000atpvg36wiaf07" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cs-basic/">cs-basic</a></li></ul>
@@ -474,7 +610,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/02/25//learn-about-mean-stack//" data-id="cizyuj3yv0010f4vgtu9k0yax" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/02/25//learn-about-mean-stack//" data-id="cizznxgaf0014tpvgxtidq7ca" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -551,7 +687,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/09/01//javascript-keyword//" data-id="cizyuj3yk000qf4vg3znahtbj" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/09/01//javascript-keyword//" data-id="cizznxga7000utpvgx73zszs5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -601,7 +737,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/07/21//javasrcipt-intro-2//" data-id="cizyuj3yp000uf4vgbr8nmle3" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/07/21//javasrcipt-intro-2//" data-id="cizznxgae0011tpvgmi3eoddi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -663,7 +799,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/07/17//javascript-intro-1//" data-id="cizyuj3yf000nf4vg8uxu12x2" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/07/17//javascript-intro-1//" data-id="cizznxga1000qtpvglq5l377r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -713,7 +849,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/07/17/introduction-to-blog/" data-id="cizyuj3y8000gf4vg489w355d" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/07/17/introduction-to-blog/" data-id="cizznxg9t000gtpvgwbc5cvwm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/introduction/">introduction</a></li></ul>
@@ -758,7 +894,7 @@ int main(int argc, char *argv[]) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 15px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 15px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 15px;">practice</a> <a href="/tags/toy-project/" style="font-size: 15px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 10px;">오늘의함수</a>
+      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 15px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 15px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 15px;">practice</a> <a href="/tags/toy-project/" style="font-size: 15px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 15px;">오늘의함수</a>
     </div>
   </div>
 
@@ -780,7 +916,11 @@ int main(int argc, char *argv[]) {
       <ul>
         
           <li>
-            <a href="/2017/03/02/javascript-daily-function/">오늘의 함수 (1)</a>
+            <a href="/2017/03/07/javascript-daily-function-2/">오늘의 함수 (2)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/javascript-daily-function-1/">오늘의 함수 (1)</a>
           </li>
         
           <li>
@@ -793,10 +933,6 @@ int main(int argc, char *argv[]) {
         
           <li>
             <a href="/2016/06/05/challenge-portfolio-page/">[Challenge] Portfolio Page 만들기</a>
-          </li>
-        
-          <li>
-            <a href="/2016/05/26/project-tribute-page/">[Challenge] Tribute Page 만들기</a>
           </li>
         
       </ul>
