@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>오늘의 함수 (1) | Joeun.me</title>
+  <title>[오늘의 함수] redirect | Joeun.me</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="오늘 발견한 재미있는 함수를 소개합니다
-리다이렉트(redirect) 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
-1번 - 어제의 함수123456789var da">
+redirect 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 종종 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
+1번 - 어제의 함수123456789var data = &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="오늘의 함수 (1)">
+<meta property="og:title" content="[오늘의 함수] redirect">
 <meta property="og:url" content="http://joeun.me/2017/03/02/javascript-daily-function-1/index.html">
 <meta property="og:site_name" content="Joeun.me">
 <meta property="og:description" content="오늘 발견한 재미있는 함수를 소개합니다
-리다이렉트(redirect) 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
-1번 - 어제의 함수123456789var da">
-<meta property="og:updated_time" content="2017-03-07T14:46:32.000Z">
+redirect 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 종종 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
+1번 - 어제의 함수123456789var data = &amp;#">
+<meta property="og:updated_time" content="2017-03-09T14:47:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="오늘의 함수 (1)">
+<meta name="twitter:title" content="[오늘의 함수] redirect">
 <meta name="twitter:description" content="오늘 발견한 재미있는 함수를 소개합니다
-리다이렉트(redirect) 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
-1번 - 어제의 함수123456789var da">
+redirect 함수서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 종종 있습니다. 아래의 1번 방법과 같이 $.post를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
+1번 - 어제의 함수123456789var data = &amp;#">
   
     <link rel="alternate" href="/atom.xml" title="Joeun.me" type="application/atom+xml">
   
@@ -32,6 +32,19 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-92829973-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
 
 </head>
 
@@ -87,7 +100,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      오늘의 함수 (1)
+      [오늘의 함수] redirect
     </h1>
   
 
@@ -96,14 +109,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="리다이렉트-redirect-함수"><a href="#리다이렉트-redirect-함수" class="headerlink" title="리다이렉트(redirect) 함수"></a>리다이렉트(redirect) 함수</h2><p>서버로 데이터를 보내거나 요청할 때 별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우가 자주 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.</p>
-<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (res) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">  &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="redirect-함수"><a href="#redirect-함수" class="headerlink" title="redirect 함수"></a>redirect 함수</h2><p>서버로 데이터를 보내거나 요청할 때 <strong>별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우</strong>가 종종 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.</p>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; <span class="comment">// [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.</span></div><div class="line">  <span class="keyword">if</span> (res) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">  &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 <code>redirect</code> 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.</p>
-<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, redirect(<span class="string">'/main/newsfeed'</span>)); </div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data, redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data, redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data, redirect(<span class="string">'/main/newsfeed'</span>)); <span class="comment">// [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. </span></div><div class="line"><span class="comment">/* $.post('/api/post/create', data, function(res) &#123; // [2] 위의 redirect 함수가 실행되면 이와 같은 형태가 됩니다. </span></div><div class="line">  if (res) &#123;</div><div class="line">    return window.location.href = '/main/newsfeed';</div><div class="line">  &#125; else &#123;</div><div class="line">    console.error('return data:', res);</div><div class="line">  &#125; </div><div class="line">&#125;); */</div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data, redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// [3] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data, redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cizznxg9q000ctpvgh4rch92q" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj02igmwd000a97vgj81iqd4c" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
@@ -118,7 +133,7 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          오늘의 함수 (2)
+          [오늘의 함수] pick
         
       </div>
     </a>
@@ -134,6 +149,12 @@
   
 </article>
 
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -162,7 +183,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 15px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 15px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 15px;">practice</a> <a href="/tags/toy-project/" style="font-size: 15px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 15px;">오늘의함수</a>
+      <a href="/tags/coin/" style="font-size: 10px;">coin</a> <a href="/tags/cs-basic/" style="font-size: 10px;">cs-basic</a> <a href="/tags/css/" style="font-size: 13.33px;">css</a> <a href="/tags/daily-commit/" style="font-size: 10px;">daily-commit</a> <a href="/tags/freecodecamp/" style="font-size: 13.33px;">freecodecamp</a> <a href="/tags/introduction/" style="font-size: 13.33px;">introduction</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/practice/" style="font-size: 13.33px;">practice</a> <a href="/tags/toy-project/" style="font-size: 13.33px;">toy-project</a> <a href="/tags/오늘의함수/" style="font-size: 16.67px;">오늘의함수</a>
     </div>
   </div>
 
@@ -184,11 +205,15 @@
       <ul>
         
           <li>
-            <a href="/2017/03/07/javascript-daily-function-2/">오늘의 함수 (2)</a>
+            <a href="/2017/03/09/javascript-daily-function-3/">[오늘의 함수] redirect2</a>
           </li>
         
           <li>
-            <a href="/2017/03/02/javascript-daily-function-1/">오늘의 함수 (1)</a>
+            <a href="/2017/03/07/javascript-daily-function-2/">[오늘의 함수] pick</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/javascript-daily-function-1/">[오늘의 함수] redirect</a>
           </li>
         
           <li>
@@ -197,10 +222,6 @@
         
           <li>
             <a href="/2016/07/17/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/05/challenge-portfolio-page/">[Challenge] Portfolio Page 만들기</a>
           </li>
         
       </ul>
@@ -229,6 +250,20 @@
   
 </nav>
     
+<script>
+  var disqus_shortname = 'joeun';
+  
+  var disqus_url = 'http://joeun.me/2017/03/02/javascript-daily-function-1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
