@@ -28,10 +28,13 @@ var redirect1 = function(path) {
   }
 };
 
+
 var data = {title: 'hello', content: 'world!'};
-$.post('/api/post/create', data, function(res) { // [1] URL에 query string을 붙여주기 위해 함수를 새로 열었습니다.
-  redirect1('/main/newsfeed?id=' + res.id); 
-}); 
+
+$.post('/api/post/create', data)
+  .done(function(res) { // [1] URL에 query string을 붙여주기 위해 함수를 새로 열었습니다.
+    redirect1('/main/newsfeed?id=' + res.id); 
+  }); 
 ```
 
 사실 위의 함수도 그리 나쁘지 않습니다. 단지 한줄이 늘었을 뿐이니까요. 그래도 저는 조금 더 단순하게 함수 하나만 넣고 끝내고 싶습니다.
@@ -48,8 +51,15 @@ var redirect2 = function(path, query) { // [1] query라는 새로운 argument를
   }
 };
 
+
 var data = {title: 'hello', content: 'world!'};
-$.post('/api/post/create', data, redirect2('/main/newsfeed?id=', 'id')); // [3] 두번째 매개변수에 데이터에서 어떤 값을 사용하고 싶은지 키 값을 적어줍니다. 
-$.post('/api/post/update', data, redirect2('/main/editor?no=', 'no')); 
-$.post('/api/post/delete', data, redirect2('/main/home')); // [4] 하나의 매개변수를 보내면 redirect1과 동일하게 동작합니다.
+
+$.post('/api/post/create', data)
+  .done(redirect2('/main/newsfeed?id=', 'id')); // [3] 두번째 매개변수에 데이터에서 어떤 값을 사용하고 싶은지 키 값을 적어줍니다. 
+
+$.post('/api/post/update', data)
+  .done(redirect2('/main/editor?no=', 'no'));
+
+$.post('/api/post/delete', data)
+  .done(redirect2('/main/home')); // [4] 하나의 매개변수를 보내면 redirect1과 동일하게 동작합니다.
 ```

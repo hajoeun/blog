@@ -18,13 +18,14 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 ```javascript
 var data = {title: 'hello', content: 'world!'};
 
-$.post('/api/post/create', data, function(res) { // [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.
-  if (res) {
-    return window.location.href = '/main/newsfeed';
-  } else {
-    console.error('return data:', res);
-  } 
-});
+$.post('/api/post/create', data)
+  .done(function(res) { // [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.
+    if (res) {
+      return window.location.href = '/main/newsfeed';
+    } else {
+      console.error('return data:', res);
+    }
+  });
 ```
 
 때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 `redirect` 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.
@@ -41,15 +42,15 @@ var redirect = function(path) {
   }
 };
 
+
 var data = {title: 'hello', content: 'world!'};
-$.post('/api/post/create', data, redirect('/main/newsfeed')); // [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. 
-/* $.post('/api/post/create', data, function(res) { // [2] 위의 redirect 함수가 실행되면 이와 같은 형태가 됩니다. 
-  if (res) {
-    return window.location.href = '/main/newsfeed';
-  } else {
-    console.error('return data:', res);
-  } 
-}); */
-$.post('/api/post/update', data, redirect('/main/editor')); // [3] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.
-$.post('/api/post/delete', data, redirect('/main/home'));
+
+$.post('/api/post/create', data)
+  .done(redirect('/main/newsfeed')); // [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. 
+
+$.post('/api/post/update', data)
+  .done(redirect('/main/editor')); // [2] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.
+
+$.post('/api/post/delete', data)
+  .done(redirect('/main/home'));
 ```

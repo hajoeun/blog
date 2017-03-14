@@ -34,7 +34,8 @@ var user_data = { // [2] 필요한 데이터
   last_name: user_1.last_name
   };
 
-$.post('/api/user_name/check', user_data, redirect('/main')); // [3] '오늘의 함수 redirect' 편을 참고하세요.
+$.post('/api/user_name/check', user_data)
+  .done(redirect('/main')); // [3] '오늘의 함수 redirect' 편을 참고하세요.
 ```
 
 위의 코드는 기존의 데이터를 가공해서 원하는 데이터만을 추려내서 특정 api로 전송하고 있습니다. 아래와 같은 `pick` 함수를 사용한다면 보다 쉽게 원하는 데이터를 추려낼 수 있습니다. [underscore.js](underscorejs.org)라는 라이브러리에서 볼 수 있는 함수입니다. 아래는 그보다 단순하게 구현되어 있습니다. 원본 객체와 함께 꺼내길 원하는 키 값을 배열로 전달하면 추려진 객체를 반환합니다.
@@ -59,10 +60,12 @@ function pick(target, keys) {
   }, {});
 }
 
+
 console.log(pick(user_1, ['age', 'id'])); // [2] 출력 결과는 { age: 28, id: 1 } 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.
 
-$.post('/api/user_name/check', pick(user_1, ['id', 'first_name', 'last_name']), redirect('/main')); // [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.
-$.post('/api/city/check', pick(user_1, ['id', 'city']), redirect('/main'));
-$.post('/api/age_and_email/check', pick(user_1, ['id', 'email', 'age']), redirect('/main'));
-$.post('/api/blog/check', pick(user_1, ['id', 'blog']), redirect('/main'));
+$.post('/api/user_name/check', pick(user_1, ['id', 'first_name', 'last_name'])) // [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.
+  .done(redirect('/main')); 
+
+$.post('/api/city/check', pick(user_1, ['id', 'city']))
+  .done(redirect('/main'));
 ```
