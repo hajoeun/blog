@@ -74,6 +74,84 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-/css-style-override/" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/11/css-style-override/" class="article-date">
+  <time datetime="2016-05-11T06:52:47.000Z" itemprop="datePublished">2016-05-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/11/css-style-override/">[CSS] Style Override</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.</p>
+<p>CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동일한 Element에 동시에 적용되는 경우, 가장 마지막에 선언된 Style이 가장 높은 우선순위를 갖습니다.</p>
+<p>예를 들어 아래와 같은 상황에서 h1은 blue-text 속성 값을 지니고 파란색으로 표기되죠.</p>
+<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+&lt;/style&gt;
+
+
+&lt;h1 class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //파란색
+
+</pre>
+
+<p>다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 <code>&lt;h1&gt;</code>이 주황색으로 표기됩니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  body &#123;</div><div class="line">    background-color: black;</div><div class="line">    font-family: Monospace;</div><div class="line">    color: green;</div><div class="line">  &#125;</div><div class="line">  #orange-text &#123;</div><div class="line">    color: orange;</div><div class="line">  &#125;</div><div class="line">  .pink-text &#123;</div><div class="line">    color: pink;</div><div class="line">  &#125;</div><div class="line">  .blue-text &#123;</div><div class="line">    color: blue;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;h1 id=&quot;orange-text&quot; class=&quot;pink-text blue-text&quot;&gt;Hello World!&lt;/h1&gt; //주황색</div></pre></td></tr></table></figure>
+<p>id 값보다 높은 우선순위를 갖는 방법은 in-line으로 스타일을 지정하는 방법입니다. 위의 코드에서 h1에 <code>style=&quot;color: white&quot;</code>를 추가해주면 다른 class/id보다 높은 우선순위를 가진 in-line style에 의해 h1는 흰색으로 표기됩니다.</p>
+<p>하지만 이 모든 방법보다 우위의 순위를 가질 수 있는 방법이 있습니다. 바로 <code>!important</code>를 추가하는 것이죠. 예를들어 모든 class와 id 그리고 in-line style에 의해 가장 마지막으로 밀린 pink-text를 최상위 스타일로 적용하고 싶다면, <code>color: pink !important;</code>를 적용해주면 된다. 이 결과로 h1은 분홍색으로 표기됩니다.</p>
+<p><strong>정리하자면 CSS Style의 우선순위는</strong></p>
+<ol>
+<li><strong>동일한 class일 경우 가장 마지막에 선언된 Style이 높다.</strong></li>
+<li><strong>(1번을 포함하고) class보다 id가 높다.</strong></li>
+<li><strong>id보다 in-line style이 높다.</strong></li>
+<li><strong>!important는 앞선 모든 것보다 높다.</strong></li>
+</ol>
+<p><strong>라고 정의할 수 있습니다.</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj0b3a2ru00057hvgm1h63ynn" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2016/05/11//css-style-override//#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-/prato-1/" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/04/28/prato-1/" class="article-date">
@@ -113,7 +191,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/28//prato-1//" data-id="cj06071v9001jgavgn7q4ncyd" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/04/28//prato-1//" data-id="cj0b3a2tg001k7hvgg7gr183a" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/04/28//prato-1//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -251,7 +329,7 @@ private class Node {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cj06071v2001bgavgxz4vbpvg" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cj0b3a2ta001d7hvgqtb7lh5o" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/04/02//practice-animal-shelter//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -349,7 +427,7 @@ console.log(c.name);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cj06071us0011gavg1hppnhyz" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cj0b3a2t400137hvgnk6hhdhn" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/03/30//javascript-prototype//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -396,7 +474,7 @@ console.log(c.name);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/27//coin//" data-id="cj06071t90001gavgd0kqj5kk" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/27//coin//" data-id="cj0b3a2rk00017hvgiirvq6ca" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/03/27//coin//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -540,7 +618,7 @@ void pop() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/26//practice-1//" data-id="cj06071v4001egavgzqrv0nrt" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/26//practice-1//" data-id="cj0b3a2te001g7hvghvnxbzg0" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/03/26//practice-1//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -636,7 +714,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/26//fork-execlp-wait//" data-id="cj06071u1000ggavgd7zgy1tq" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/26//fork-execlp-wait//" data-id="cj0b3a2s1000a7hvgvad6g1gt" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/03/26//fork-execlp-wait//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -686,7 +764,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/02/25//learn-about-mean-stack//" data-id="cj06071v00017gavgm80lrbd5" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/02/25//learn-about-mean-stack//" data-id="cj0b3a2t700167hvgkfv4indy" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/02/25//learn-about-mean-stack//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -765,7 +843,7 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/09/01//javascript-keyword//" data-id="cj06071un000xgavgw64r4o87" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/09/01//javascript-keyword//" data-id="cj0b3a2sw000x7hvgqtpmcls9" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2015/09/01//javascript-keyword//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -817,73 +895,9 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/07/21//javasrcipt-intro-2//" data-id="cj06071ux0014gavg9g7rr1us" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2015/07/21//javasrcipt-intro-2//" data-id="cj0b3a2t9001a7hvgdzov6ohc" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2015/07/21//javasrcipt-intro-2//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/javascript-intro-1/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/17/javascript-intro-1/" class="article-date">
-  <time datetime="2015-07-17T12:10:11.000Z" itemprop="datePublished">2015-07-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/17/javascript-intro-1/">자바스크립트를 선택한 이유</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="text-align:left;"><br>  세상에는 수 많은 프로그래밍 언어가 존재하고 그 언어들은 제 각기 배움의 가치가 있습니다. 때문에 제 각기 배움의 이유가 존재합니다. 다수의 프로그래밍 언어 서적들은 &#8216;왜 많은 언어 중에 이 언어를 배워야하는가?&#8217; 하는 질문을 답하며 책을 시작합니다. 그렇다면 저는 왜 자바스크립트를 선택했을까요?<br></p>
-
-<h4 style="text-align:left;"><br>  <strong>프로그래밍 경험</strong><br></h4>
-
-<p style="text-align:left;"><br>  대다수의 컴퓨터공학 전공자들이 그러하듯 저 역시 C언어로 프로그래밍에 입문했습니다. &#8216;hello world&#8217;를 출력하고 기본적인 연산 프로그램을 만들며 별거 아닌데? 라는 생각이 들때쯤 배열과 포인터의 늪을 허덕였습니다. 이후 다양한 응용 과제와 씨름하며 밤새워 한번 앉아서 8시간씩 코딩을 하면서도 문제를 해결했을 때의 그 쾌감 때문에 프로그래밍에 빠져들게 되었습니다. 이어서 자바, C++등을 배웠습니다. 이후 배운 것을 근간으로 프로젝트를 수행하기도 했습니다. 자바를 이용한 안드로이드 앱 개발이 대표적이죠. 제가 배운 언어를 사용할 일이 있을 때 그 언어는 빛을 발하고 정말 재밌다는 것을 느낄 수 있었습니다.<br></p>
-
-<p style="text-align:left;"><br>  아쉬운 것은 스마트 디바이스의 출현으로 실질적으로 와닿는 프로그램을 만들기 위해서는 C나 자바가 다소 어렵게 느껴지는 경우가 많다는 것이었습니다. 물론 오랜 시간을 투자해서 네이티브 앱을 만들어내려고 한다면 자바는 충분히 가치가 있습니다. 허나 학회활동이나 수업에서 사용되고 만들어야 하는 수준의 프로그램은 실제 배포판이 아닌 어느정도 구색을 갖춘 프로토 타입 수준의 어플리케이션이면 되는 것이었습니다. 조금 간편하게 만들고 운영체제에 무관하게 사용해볼 수 있는 프로그램이 필요했던 것입니다.<br></p>
-
-<p style="text-align:left;"><br>  웹앱(web app)이 이에 적합한 형태의 프로그램이었습니다. 방학 중 Do it! 시리즈 중 한권인 &#8216;<a href="http://www.easyspub.co.kr/20_Menu/BookView/B001/90" target="_blank">쉽게 배우는 웹앱&amp;하이브리드앱</a>&#8216;을 잡고 공부를 했습니다. <a href="https://opentutorials.org/course/668" target="_blank">생활코딩 &#8211; 클라이언트</a> 강의와 함께 HTML, CSS, jQuery의 기초를 공부하면서 웹앱의 기초를 익혔습니다. 허나 책을 다봤는데도 실제 어플리케이션을 만들 수준이 되지 않음을 깨달았습니다. 이에 <a href="https://opentutorials.org/course/1688" target="_blank">생활코딩 &#8211; 웹 애플리케이션 만들기</a> 강의를 보며 php, mysql, javascript 에 대해 배웠습니다. 이를 배우는 과정에서 간단하게 만들어 본 1차 결과물이 <a href="https://github.com/joeunha/taleline" target="_blank">taleline</a> 입니다. 지금은 정말 아무것도 아닌 상태로 남아있는 이 웹앱을 제대로 만들어보고 싶은 마음이 생긴 것이 발단이었습니다.<br></p>
-
-<p style="text-align:left;"><br>  어떻게하면 이 앱을 제대로 만들어 볼 수 있을까 하는 고민을 하기 시작했습니다. 현재 제가 처한 여러가지 상황을 놓고 고민했을때 저에게는 두가지 선택지가 있음을 깨달았습니다. 첫째, 지금처럼 얇고 넓게 조금씩 배우며 혼자 개발한다. 둘째, 한가지 언어를 깊게 파서 내공을 쌓은 뒤 누군가와 협력해서 개발한다. 주위의 선배들과 커뮤니티의 선배님들의 조언을 살펴 저는 한가지 언어를 깊게 파는 것을 선택했습니다.<br></p>
-
-<h4 style="text-align:left;"><br>  <strong>왜 자바스크립트를 선택했나? </strong><br></h4>
-
-<p style="text-align:left;"><br>  사실 딱히 어떤 이유로 자바스크립트를 배워야겠다고 생각한 것은 아닙니다. 매력에 이끌렸다고 할까요? 특히 자바스크립트가 가지는 자유로움에 끌렸습니다. 운영체제를 가리지 않는 자유로움, 변수 타입에 제한을 두지 않는 자유로움, 또 웹이 확장되어가고 탈웹의 흐름에 따라 더 많은 곳에서 사용될 가능성이 저를 매료시켰습니다. 생활코딩 강의를 들으면서도 jQuery 같은 강력한 라이브러리가 자바스크립트에 기반을 두고 있다는 사실이 이 언어를 매력적으로 보이게 만들었습니다.<br></p>
-
-<p style="text-align:left;"><br>  앞선 자바스크립트의 매력 요소가 분명 이 언어를 선택함에 어느정도 영향을 준 것이 분명합니다. 하지만 자바스크립트가 저에게 필요하지 않았더라면 아무리 매력적이라고 해도 이 언어를 선택하지 않았을 것입니다. 그 필요는 연습삼아 만들어본 taleline 이라는 앱을 완성시키고 싶은 마음에서 출발합니다. 이 앱을 완성하기 위해 C나 자바를 배우는 것은 무의미합니다. 필요한 서비스를 구현하기 위해 필요한 언어를 배우기로 한 것이죠. 또한 지대한 영향을 끼쳤던 것은 제가 사용하는 스마트워치 &#8216;Pebble Time&#8217;의 개발 언어가 자바스크립트를 기반으로 한 <a href="http://developer.getpebble.com/getting-started/pebble-js-tutorial/part1/" target="_blank">pepple.js</a>(originally <a href="http://simplyjs.io/" target="_blank">simply.js</a>)였기 때문입니다. 가까이 두고 사용하고 있는 기기인만큼 새로운 앱에 대한 아이디어가 종종 떠올랐는데 이를 직접 만들어보고 싶었기 때문입니다.<br></p>
-
-<h4 style="text-align:left;"><br>  <strong>필요해서 배운다!<br> </strong><br></h4>
-
-<p style="text-align:left;"><br>  결국 필요에 의해 자바스크립트를 선택했다라고 말할 수 있겠습니다. 결론은 너무 당연한 것을 이야기하는 것 같습니다. 결국 모든 언어를 배우는 이유는 해당 언어가 자신이 만들고자 하는 서비스에 꼭 필요한 기능을 가졌거나 그 언어로 작업했을 때 발생하는 효용이 있기 때문이라는 겁니다.<br></p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2015/07/17//javascript-intro-1//" data-id="cj06071ui000ugavgazy3cxct" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2015/07/17//javascript-intro-1//#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -950,6 +964,10 @@ int main(int argc, char *argv[]) {
       <ul>
         
           <li>
+            <a href="/2017/03/15/javascript-daily-function-4/">[오늘의 함수] confirm</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/09/javascript-daily-function-3/">[오늘의 함수] redirect2</a>
           </li>
         
@@ -963,10 +981,6 @@ int main(int argc, char *argv[]) {
         
           <li>
             <a href="/2017/03/01/introduction-to-blog-2/">Joeun.me 시작</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/17/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
           </li>
         
       </ul>

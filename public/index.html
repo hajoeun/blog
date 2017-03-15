@@ -74,6 +74,56 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/15/javascript-daily-function-4/" class="article-date">
+  <time datetime="2017-03-15T14:37:46.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/javascript-daily-function-4/">[오늘의 함수] confirm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="confirm-함수"><a href="#confirm-함수" class="headerlink" title="confirm 함수"></a>confirm 함수</h2><p>오늘은 정말 단순한 함수입니다. 아이디어가 없어서라기보다 새로운 함수를 만드는 것이 그렇게 화려한 일이 아님을 보여드리고 싶어 간단한 함수를 준비해봤습니다. 바로 <code>confirm</code> 함수 입니다. 브라우저 환경에서 기본으로 제공하는 함수이기도 합니다. 기존의 사용법은 아래와 같습니다.</p>
+<p>이와 같은 형태의 html 소스 코드가 있다고 가정합니다. 사용자가 삭제 버튼을 누르면 지울 것인지 확인하는 메시지를 보여주고 확인 버튼을 누르면 해당 요소가 삭제되는 예제입니다.</p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>요소 1번<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"delete"</span>&gt;</span>삭제<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (confirm(<span class="string">'Are you sure?'</span>)) &#123; <span class="comment">// [1] 확인 창을 띄워 유저의 선택을 기다립니다. 그 결과에 따라 다음 코드를 실행합니다.</span></div><div class="line">    $(e.delegateTarget).remove(); <span class="comment">// [2] 클릭했던 버튼의 부모 엘리먼트를 제거합니다.</span></div><div class="line">  &#125; </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>confirm</code> 함수는 사용자가 어떤 버튼을 누르는가에 따라 <code>true</code>, <code>false</code> 값을 반환합니다. 보통은 이에 따라 실행되어야할 함수를 조건문으로 분기를 쳐둡니다. 이러한 조건문을 포함한 하나의 <code>confirm</code> 함수를 만들어 보았습니다. (구분을 위해 오늘의 함수 앞에 <code>_</code>를 붙였습니다.)</p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> confirm(message) ? yes_fn() : no_fn(); <span class="comment">// [1] 분기를 함수 안으로 가져왔습니다.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [2] '확인'을 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;) <span class="comment">// [3] '취소'를 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0b3a2sp000u7hvgh5qguclu" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/09/javascript-daily-function-3/" class="article-date">
@@ -109,7 +159,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj06071ud000qgavgmp1jg8al" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0b3a2sl000q7hvgm2uioxke" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -157,7 +207,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj06071u9000ngavg5m23tvj2" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0b3a2sh000n7hvg7myplyzw" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -205,7 +255,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj06071tw000cgavgzq4wy0xx" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0b3a2sc000j7hvg8icwoqfx" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +307,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj06071tt000agavgqo30ljlj" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0b3a2s4000c7hvg5hzc6tku" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -305,7 +355,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj06071tq0006gavghqup3ptc" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0b3a2rx00067hvg2asrkvbb" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -355,7 +405,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj06071t40000gavgyi63f8ql" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0b3a2rf00007hvgemd9jlml" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -404,7 +454,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj06071vf001mgavgqddjcy8l" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0b3a2uh002x7hvg4h7yfjol" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -452,7 +502,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj06071v7001hgavgebde9ty2" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj0b3a2tj001n7hvgi30qow5c" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/23//prato-2//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -510,87 +560,9 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj06071tj0004gavgxko89rpz" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj0b3a2rr00047hvg4pmwo8i0" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/css-style-override/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/11/css-style-override/" class="article-date">
-  <time datetime="2016-05-11T06:52:47.000Z" itemprop="datePublished">2016-05-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/css-style-override/">[CSS] Style Override</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CSS Style Override는 컴포넌트, 라이브러리를 커스텀하기 위해 사용됩니다. 어떤 식으로 Override가 가능한지 살펴보겠습니다.</p>
-<p>CSS 파일은 위에서 아래로 순차적으로 실행됩니다. 때문에 동일한 Element에 동시에 적용되는 경우, 가장 마지막에 선언된 Style이 가장 높은 우선순위를 갖습니다.</p>
-<p>예를 들어 아래와 같은 상황에서 h1은 blue-text 속성 값을 지니고 파란색으로 표기되죠.</p>
-<pre class="brush: plain; title: ; notranslate" title="">&lt;style&gt;
-  body {
-    background-color: black;
-    font-family: Monospace;
-    color: green;
-  }
-  .pink-text {
-    color: pink;
-  }
-  .blue-text {
-    color: blue;
-  }
-&lt;/style&gt;
-
-
-&lt;h1 class="pink-text blue-text"&gt;Hello World!&lt;/h1&gt; //파란색
-
-</pre>
-
-<p>다만 id로 속성을 지정할 경우에는 어떤 class보다 높은 우선순위를 가집니다. 결국 아래와 같은 코드는 <code>&lt;h1&gt;</code>이 주황색으로 표기됩니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  body &#123;</div><div class="line">    background-color: black;</div><div class="line">    font-family: Monospace;</div><div class="line">    color: green;</div><div class="line">  &#125;</div><div class="line">  #orange-text &#123;</div><div class="line">    color: orange;</div><div class="line">  &#125;</div><div class="line">  .pink-text &#123;</div><div class="line">    color: pink;</div><div class="line">  &#125;</div><div class="line">  .blue-text &#123;</div><div class="line">    color: blue;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;h1 id=&quot;orange-text&quot; class=&quot;pink-text blue-text&quot;&gt;Hello World!&lt;/h1&gt; //주황색</div></pre></td></tr></table></figure>
-<p>id 값보다 높은 우선순위를 갖는 방법은 in-line으로 스타일을 지정하는 방법입니다. 위의 코드에서 h1에 <code>style=&quot;color: white&quot;</code>를 추가해주면 다른 class/id보다 높은 우선순위를 가진 in-line style에 의해 h1는 흰색으로 표기됩니다.</p>
-<p>하지만 이 모든 방법보다 우위의 순위를 가질 수 있는 방법이 있습니다. 바로 <code>!important</code>를 추가하는 것이죠. 예를들어 모든 class와 id 그리고 in-line style에 의해 가장 마지막으로 밀린 pink-text를 최상위 스타일로 적용하고 싶다면, <code>color: pink !important;</code>를 적용해주면 된다. 이 결과로 h1은 분홍색으로 표기됩니다.</p>
-<p><strong>정리하자면 CSS Style의 우선순위는</strong></p>
-<ol>
-<li><strong>동일한 class일 경우 가장 마지막에 선언된 Style이 높다.</strong></li>
-<li><strong>(1번을 포함하고) class보다 id가 높다.</strong></li>
-<li><strong>id보다 in-line style이 높다.</strong></li>
-<li><strong>!important는 앞선 모든 것보다 높다.</strong></li>
-</ol>
-<p><strong>라고 정의할 수 있습니다.</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj06071tn0005gavgzc56qst9" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/05/11//css-style-override//#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -657,6 +629,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/03/15/javascript-daily-function-4/">[오늘의 함수] confirm</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/09/javascript-daily-function-3/">[오늘의 함수] redirect2</a>
           </li>
         
@@ -670,10 +646,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2017/03/01/introduction-to-blog-2/">Joeun.me 시작</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/17/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
           </li>
         
       </ul>
