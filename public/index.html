@@ -74,6 +74,57 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/20/javascript-daily-function-5/" class="article-date">
+  <time datetime="2017-03-20T14:41:48.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/javascript-daily-function-5/">[오늘의 함수] identity, always</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="identity-always-함수"><a href="#identity-always-함수" class="headerlink" title="identity, always 함수"></a>identity, always 함수</h2><p>오늘은 정말 황당한(?) 함수 두개를 소개하겠습니다. 이름부터 심상치 않은 <code>identity</code>와 <code>always</code> 함수 입니다. 오늘은 어제의 함수를 생략하고 곧장 함수 소개를 하겠습니다.</p>
+<h4 id="1-오늘의-함수-identity와-always"><a href="#1-오늘의-함수-identity와-always" class="headerlink" title="(1) 오늘의 함수 - identity와 always"></a>(1) 오늘의 함수 - identity와 always</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> value;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">always</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(identity(<span class="number">10</span>)); <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(always(<span class="number">10</span>)()); <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>정말 황당한 함수입니다. 뭐하자는건가 싶습니다. 넣은 값을 그대로 반환할거면 왜 굳이 함수를 썼어야했나 싶습니다. 하지만 이 함수들은 아주 유용한 함수들입니다. 함수를 값으로 다루는 프로그래밍에서는 이 함수들은 아주 빈번하게 등장합니다. 지난번에 소개해드렸던 <code>confirm</code> 함수를 사용해서 예시를 만들어보겠습니다.</p>
+<h4 id="2-오늘의-함수-confirm-함수와의-콜라보"><a href="#2-오늘의-함수-confirm-함수와의-콜라보" class="headerlink" title="(2) 오늘의 함수 - confirm 함수와의 콜라보"></a>(2) 오늘의 함수 - confirm 함수와의 콜라보</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123; <span class="comment">// [1] 출력할 메시지와 성공, 실패에 따라 실행할 함수를 받는 confirm 함수입니다.</span></div><div class="line">  <span class="keyword">return</span> confirm(message) ? yes_fn() : no_fn(); </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [2] '확인'을 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, always(<span class="literal">false</span>)) <span class="comment">// [3] '취소'를 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>주목하셔야할 부분은 역시 <code>always</code> 함수가 등장한 [3] 지점입니다. 이전에는 해당 코드가 <code>function() { return false }</code>로 되어 있었습니다. 오늘 만든 새로운 함수를 써서 보다 간결하게 표현할 수 있게 되었습니다. 그냥 함수를 읽기만 하면 저 코드는 <strong>‘항상 false를 반환하는구나’</strong>하고 이해가 됩니다. </p>
+<p>사실 남은 함수인 <code>identity</code>를 쉽게 설명하기 위해선 새로운 함수가 필요합니다. 함수들을 인자로 받아서 연속으로 실행해주는 일명 <code>pipe</code> 함수입니다. 다음 시간에 그 함수를 소개하면서 황당하고 이상한 <code>identity</code> 함수를 설명하겠습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0i8x524000ymmvg2gn0wqee" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/20/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/15/javascript-daily-function-4/" class="article-date">
@@ -110,7 +161,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0b3a2sp000u7hvgh5qguclu" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0i8x51z000vmmvgvxfaej4t" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -159,7 +210,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0b3a2sl000q7hvgm2uioxke" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0i8x51l000ommvgt2tz6fr8" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -207,7 +258,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0b3a2sh000n7hvg7myplyzw" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0i8x51h000kmmvgkfy0u5el" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -255,7 +306,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0b3a2sc000j7hvg8icwoqfx" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0i8x51q000rmmvgirndke3w" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -307,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0b3a2s4000c7hvg5hzc6tku" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0i8x514000ammvgei8yxo07" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -355,7 +406,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0b3a2rx00067hvg2asrkvbb" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0i8x5100006mmvg6bb87yib" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -405,7 +456,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0b3a2rf00007hvgemd9jlml" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0i8x50o0001mmvghmlzdynr" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -454,7 +505,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0b3a2uh002x7hvg4h7yfjol" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0i8x52x001tmmvgyef65x55" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -502,70 +553,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj0b3a2tj001n7hvgi30qow5c" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj0i8x52v001qmmvg2f3azvv5" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/23//prato-2//#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toy-project/">toy-project</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/css-color-hex-code-and-rgb/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/12/css-color-hex-code-and-rgb/" class="article-date">
-  <time datetime="2016-05-12T06:21:07.000Z" itemprop="datePublished">2016-05-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/12/css-color-hex-code-and-rgb/">[CSS] Color, Hex Code and RGB</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CSS에서 색을 표현할 때 간단하게 &#8216;red&#8217;, &#8216;white&#8217;, &#8216;black&#8217;등으로 표기하기도 합니다. 하지만 실제로는 다양한 색을 표현하기 위해 다른 방식을 더 자주 쓰게 됩니다. &#8216;#FF0000&#8217; 혹은 &#8216;rgb(255, 0, 0)&#8217;처럼 표기하는 경우입니다. 이 두가지 표현 방법에 대해 다루겠습니다.</p>
-<p><strong>Hex Code &#8211; #<span style="color: #ff0000;">00</span><span style="color: #00ff00;">00</span><span style="color: #0000ff;">00</span></strong></p>
-<p>우선은 Hexadecimal Code의 준말인 Hex Code로 <code>#FF0000</code>처럼 표기하는 방법입니다. Hexadecimal은 16진법을 의미합니다. 일반적으로 표기하는 방식은 10진법입니다. 16진법은 0부터 15까지의 수를 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F로 표기합니다. A는 10을 의미하게 되는 것이죠. 이 방식을 이용하면 한자리 수로 16까지 표기 가능하고 두자리로 255까지 표기 가능합니다.</p>
-<p>해당 표기법으로 색을 표현할 때는 단순한 규칙을 가집니다.</p>
-<ul>
-<li>샵(#)기호 이후의 여섯자리의 숫자가 온다.</li>
-<li>첫번째,두번째 숫자는 빨간색(RED)의 정도를 의미한다.</li>
-<li>세번째,네번째 숫자는 초록색(GREEN)의 정도를 의미한다.</li>
-<li>다섯번째,여섯번째 숫자는 파란색(BLUE)의 정도를 의미한다.</li>
-<li>숫자가 클수록 정도(색의 농도)가 높아(짙어)진다.</li>
-</ul>
-<p>예를 들어 <code>#FF0000</code>의 경우 빨간색입니다. 왜냐하면 가장 앞의 두자리가 FF로 가장 높은 정도를 가지고 뒤의 네자리는 0이기 때문입니다. 같은 원리로 <code>#00FF00</code>는 초록색입니다. 이때 색을 섞어서 다양한 색을 표현할 수 있는데 그 표현의 가지수는 256*256*256 만큼입니다. 약 1,600만개입니다.</p>
-<p><strong>RGB Code &#8211; rgb(<span style="color: #ff0000;">255</span>, <span style="color: #00ff00;">255</span>, <span style="color: #0000ff;">255</span>)</strong></p>
-<p>다음은 RGB Code인데 Red, Green, Blue의 정도를 숫자(10진법)으로 <code>rgb(255, 0, 0)</code>처럼 표기하는 방법입니다. 쉼표로 각 색의 정도를 구분짓습니다. 앞선 Hex Code를 이해하셨다면 쉽게 사용하실 수 있습니다. 위의 표기는 빨간색이겠죠?</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj0b3a2rr00047hvg4pmwo8i0" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
 
     </footer>
   </div>
@@ -629,6 +622,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/03/20/javascript-daily-function-5/">[오늘의 함수] identity, always</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/15/javascript-daily-function-4/">[오늘의 함수] confirm</a>
           </li>
         
@@ -642,10 +639,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2017/03/02/javascript-daily-function-1/">[오늘의 함수] redirect</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/introduction-to-blog-2/">Joeun.me 시작</a>
           </li>
         
       </ul>
