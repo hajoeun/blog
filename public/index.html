@@ -104,14 +104,16 @@ ga('send', 'pageview');
 <h2 id="identity-always-함수"><a href="#identity-always-함수" class="headerlink" title="identity, always 함수"></a>identity, always 함수</h2><p>오늘은 정말 황당한(?) 함수 두개를 소개하겠습니다. 이름부터 심상치 않은 <code>identity</code>와 <code>always</code> 함수 입니다. 오늘은 어제의 함수를 생략하고 곧장 함수 소개를 하겠습니다.</p>
 <h4 id="1-오늘의-함수-identity와-always"><a href="#1-오늘의-함수-identity와-always" class="headerlink" title="(1) 오늘의 함수 - identity와 always"></a>(1) 오늘의 함수 - identity와 always</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> value;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">always</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(identity(<span class="number">10</span>)); <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(always(<span class="number">10</span>)()); <span class="comment">// 10</span></div></pre></td></tr></table></figure>
 <p>정말 황당한 함수입니다. 뭐하자는건가 싶습니다. 넣은 값을 그대로 반환할거면 왜 굳이 함수를 썼어야했나 싶습니다. 하지만 이 함수들은 아주 유용한 함수들입니다. 함수를 값으로 다루는 프로그래밍에서는 이 함수들은 아주 빈번하게 등장합니다. 지난번에 소개해드렸던 <code>confirm</code> 함수를 사용해서 예시를 만들어보겠습니다.</p>
-<h4 id="2-오늘의-함수-confirm-함수와의-콜라보"><a href="#2-오늘의-함수-confirm-함수와의-콜라보" class="headerlink" title="(2) 오늘의 함수 - confirm 함수와의 콜라보"></a>(2) 오늘의 함수 - confirm 함수와의 콜라보</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123; <span class="comment">// [1] 출력할 메시지와 성공, 실패에 따라 실행할 함수를 받는 confirm 함수입니다.</span></div><div class="line">  <span class="keyword">return</span> confirm(message) ? yes_fn() : no_fn(); </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [2] '확인'을 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, always(<span class="literal">false</span>)) <span class="comment">// [3] '취소'를 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>주목하셔야할 부분은 역시 <code>always</code> 함수가 등장한 [3] 지점입니다. 이전에는 해당 코드가 <code>function() { return false }</code>로 되어 있었습니다. 오늘 만든 새로운 함수를 써서 보다 간결하게 표현할 수 있게 되었습니다. 그냥 함수를 읽기만 하면 저 코드는 <strong>‘항상 false를 반환하는구나’</strong>하고 이해가 됩니다. </p>
-<p>사실 남은 함수인 <code>identity</code>를 쉽게 설명하기 위해선 새로운 함수가 필요합니다. 함수들을 인자로 받아서 연속으로 실행해주는 일명 <code>pipe</code> 함수입니다. 다음 시간에 그 함수를 소개하면서 황당하고 이상한 <code>identity</code> 함수를 설명하겠습니다.</p>
+<h4 id="2-오늘의-함수-confirm-함수와의-콜라보-1"><a href="#2-오늘의-함수-confirm-함수와의-콜라보-1" class="headerlink" title="(2) 오늘의 함수 - confirm 함수와의 콜라보 1"></a>(2) 오늘의 함수 - confirm 함수와의 콜라보 1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123; <span class="comment">// [1] 출력할 메시지와 성공, 실패에 따라 실행할 함수를 받는 confirm 함수입니다.</span></div><div class="line">  <span class="keyword">return</span> confirm(message) ? yes_fn() : no_fn(); </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [2] '확인'을 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, always(<span class="literal">false</span>)) <span class="comment">// [3] '취소'를 눌렀을 때 동작하게될 함수입니다. 이 경우에 항상 'false'를 반환하는 함수입니다.</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>주목하셔야할 부분은 역시 <code>always</code> 함수가 등장한 [3] 지점입니다. 이전에는 해당 코드가 <code>function() { return false }</code>로 되어 있었습니다. 오늘 만든 새로운 함수를 써서 보다 간결하게 표현할 수 있게 되었습니다. 그냥 함수를 읽기만 하면 저 코드는 ‘<em>항상 false를 반환하는구나</em>‘하고 이해가 됩니다. </p>
+<p>사실 이 예제에서 <code>identity</code> 함수를 사용하기에는 어려움이 있습니다. <code>always</code>와 같이 사용하려면 <code>_confirm</code> 함수를 조금 바꿔줘야 합니다.</p>
+<h4 id="3-오늘의-함수-confirm-함수와의-콜라보-2"><a href="#3-오늘의-함수-confirm-함수와의-콜라보-2" class="headerlink" title="(3) 오늘의 함수 - confirm 함수와의 콜라보 2"></a>(3) 오늘의 함수 - confirm 함수와의 콜라보 2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123; </div><div class="line">  <span class="keyword">var</span> res = confirm(message); <span class="comment">// [1] confirm 함수의 실행 결과를 아래의 함수에 전달하기 위해 별도로 할당했습니다.</span></div><div class="line">  <span class="keyword">return</span> res ? yes_fn(res) : no_fn(res); </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, identity) <span class="comment">// [2] 항상 'false'를 반환하게 됩니다. </span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>_confirm</code> 함수를 조금 바꿔서 <code>identity</code> 함수가 <code>always(false)</code>를 사용한 것과 같은 결과를 만들도록 했습니다. 보다 적절한 예제는 다음 시간에 소개해드릴 <code>pipe</code> 함수를 통해서 보여드릴 수 있을 것 같습니다.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0i8x524000ymmvg2gn0wqee" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0lpu3as000nvyvgbktkqpzd" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/20/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -161,7 +163,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0i8x51z000vmmvgvxfaej4t" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0lpu3b0000wvyvg7qh0zgpc" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -210,7 +212,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0i8x51l000ommvgt2tz6fr8" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0lpu3b60013vyvg1h8y1k2h" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -258,7 +260,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0i8x51h000kmmvgkfy0u5el" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0lpu3ap000jvyvgvq23rrq3" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -306,7 +308,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0i8x51q000rmmvgirndke3w" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0lpu3ag000avyvgff6hzfj1" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -358,7 +360,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0i8x514000ammvgei8yxo07" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0lpu3ai000cvyvgui72jcxh" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -406,7 +408,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0i8x5100006mmvg6bb87yib" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0lpu3a10001vyvgbwjd0s29" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -456,7 +458,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0i8x50o0001mmvghmlzdynr" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0lpu39w0000vyvg7lmbwhwv" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -505,7 +507,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0i8x52x001tmmvgyef65x55" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0lpu3bs001ovyvgpcto4klq" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -553,7 +555,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj0i8x52v001qmmvg2f3azvv5" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj0lpu3bp001kvyvg5hsfzq9v" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/23//prato-2//#disqus_thread" class="article-comment-link">Comments</a>
       
