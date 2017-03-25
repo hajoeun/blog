@@ -105,12 +105,12 @@ ga('send', 'pageview');
 <h4 id="1-어제의-함수-함수의-연속-실행"><a href="#1-어제의-함수-함수의-연속-실행" class="headerlink" title="(1) 어제의 함수 - 함수의 연속 실행"></a>(1) 어제의 함수 - 함수의 연속 실행</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add10</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> num + <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = add10(add10(add10(<span class="number">5</span>))); <span class="comment">// [1] add10 함수를 세번 실행합니다. 첫번째 인자는 5입니다.</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [2] 결과는 35가 나옵니다.</span></div></pre></td></tr></table></figure>
 <p>아주 간단한 예제입니다. <code>add10</code> 함수는 값이 들어오면 10을 더해서 반환합니다. [1] 에서 함수를 세번 실행하고 있습니다. 5에 10을 세번 더해 35라는 값을 반환합니다. 이 예제의 포인트는 <strong>함수가 값으로 쓰인다는 점</strong>입니다. 가장 좌측에 위치한 <code>add10</code> 함수는 인자로 함수 하나를 갖고 있고 인자인 그 함수가 또 함수를 인자로 갖고 있습니다. 이렇듯 인자로 함수를 중첩해서 넘깁니다. 허나 실제로 실행되는 순서, 논리를 읽어나가는 순서는 우측에서부터 시작합니다. 5를 인자로 받은 함수가 먼저 실행되고 그 결과를 자신을 감싸고 있던 함수에 전달하는 식으로 진행됩니다. </p>
 <p>이렇게 함수를 값으로 전달함으로써 함수를 연속적으로 실행해서 결과를 얻어낼 수도 있습니다. 이제 오늘의 주인공 <code>pipe</code> 함수를 만나보겠습니다.</p>
-<h4 id="2-오늘의-함수-pipe-함수"><a href="#2-오늘의-함수-pipe-함수" class="headerlink" title="(2) 오늘의 함수 - pipe 함수"></a>(2) 오늘의 함수 - pipe 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipe</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> funcs = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>); </div><div class="line">  <span class="comment">// [1] 함수에 들어온 인자(함수)들의 모임인 arguments를 배열로 만들어줍니다. (원래 arguments는 유사 배열입니다.)</span></div><div class="line">  </div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> funcs.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">value, func</span>) </span>&#123; <span class="comment">// [2] reduce 함수를 사용해서 함수의 실행 결과를 하나로 합칩니다.</span></div><div class="line">      <span class="keyword">return</span> func(value);</div><div class="line">    &#125;, seed);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> add30 = pipe(add10, add10, add10); <span class="comment">// [3] pipe 함수를 이용해 add10 함수를 세번 연속 호출하는 함수를 만듭니다.</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> result1 = add30(<span class="number">5</span>); <span class="comment">// [4] 만들어진 함수로 결과를 만듭니다.</span></div><div class="line"><span class="keyword">var</span> result2 = add30(<span class="number">13</span>); <span class="comment">// [5] pipe로 만들어진 함수는 재사용 가능합니다.</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 35</span></div><div class="line"><span class="built_in">console</span>.log(result2); <span class="comment">// 43</span></div></pre></td></tr></table></figure>
+<h4 id="2-오늘의-함수-pipe-함수"><a href="#2-오늘의-함수-pipe-함수" class="headerlink" title="(2) 오늘의 함수 - pipe 함수"></a>(2) 오늘의 함수 - pipe 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipe</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> funcs = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>); </div><div class="line">  <span class="comment">// [1] 함수에 들어온 인자(함수)들의 모임인 arguments를 배열로 만들어줍니다. (원래 arguments는 유사 배열입니다.)</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> funcs.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">value, func</span>) </span>&#123; </div><div class="line">      <span class="comment">// [2] reduce 함수를 사용해서 함수의 실행 결과를 하나로 합칩니다.</span></div><div class="line">      <span class="keyword">return</span> func(value);</div><div class="line">    &#125;, seed);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> add30 = pipe(add10, add10, add10); </div><div class="line"><span class="comment">// [3] pipe 함수를 이용해 add10 함수를 세번 연속 호출하는 함수를 만듭니다.</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> result1 = add30(<span class="number">5</span>); <span class="comment">// [4] 만들어진 함수로 결과를 만듭니다.</span></div><div class="line"><span class="keyword">var</span> result2 = add30(<span class="number">13</span>); <span class="comment">// [5] pipe로 만들어진 함수는 재사용 가능합니다.</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 35</span></div><div class="line"><span class="built_in">console</span>.log(result2); <span class="comment">// 43</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0osas2c000qcyvgclq8brzj" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0osc7rh0011isvgre49wref" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/23/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -163,7 +163,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0osas29000ncyvg0vflk162" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0osc7re000xisvg081m136l" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/20/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -213,7 +213,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0osas2j000xcyvgl821mr01" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0osc7rb000uisvg41nzf5vx" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -262,7 +262,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0osas2k0010cyvga980r62o" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0osc7r8000qisvgagbjh2n7" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -310,7 +310,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0osas2g000tcyvghx6yrkf5" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0osc7r5000nisvg9peoen0x" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -358,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0osas25000jcyvgnkc49b16" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0osc7r1000jisvgdhqv4p4r" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -410,7 +410,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0osas23000gcyvgzo1cyskt" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0osc7qt000cisvgu0j284ca" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -458,7 +458,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0osas1w000acyvghp1q94fe" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0osc7qm0006isvg4y754don" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -508,7 +508,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0osas1b0000cyvg4kyba3l3" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0osc7q80000isvg5lx62pvc" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -557,7 +557,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0osas3e001ucyvgz201zjyj" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0osc7sf001uisvg4zkzvp4c" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
