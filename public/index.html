@@ -74,6 +74,54 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/javascript-daily-function-7/" class="article-date">
+  <time datetime="2017-03-28T14:07:24.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/javascript-daily-function-7/">[오늘의 함수] nest</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="nest-함수"><a href="#nest-함수" class="headerlink" title="nest 함수"></a>nest 함수</h2><p><a href="http://joeun.me/2017/03/07/javascript-daily-function-2/"><code>pick</code> 함수 편</a>에서도 말씀드린 것처럼 자바스크립트에서 객체는 키(key)와 값(value)의 쌍입니다. 때론 값에 또 다시 객체를 담아 내부에 객체가 반복해서 등장하는 형태의 객체를 만들기도 합니다. 이런 객체를 중첩 객체(nested object)라고 부릅니다. 오늘은 이러한 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 <code>nest</code> 함수입니다.</p>
+<h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nested_obj = &#123;&#125;;</div><div class="line">nested_obj.first = &#123;&#125;;</div><div class="line">nested_obj.first.second = &#123;&#125;;</div><div class="line">nested_obj.first.second.third = <span class="string">"I'm nested object."</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
+<p>이처럼 중첩된 구조의 객체를 만들기 위해선 일일이 각 순서마다 객체를 생성해줘야하는 번거로운 작업이 수반됩니다. 하지만 <code>nest</code> 함수는 이를 한번에 만들어줍니다.</p>
+<h4 id="2-오늘의-함수-중첩-객체-만들기"><a href="#2-오늘의-함수-중첩-객체-만들기" class="headerlink" title="(2) 오늘의 함수 - 중첩 객체 만들기"></a>(2) 오늘의 함수 - 중첩 객체 만들기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nest = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> key.split(<span class="string">'.'</span>).reduceRight(valkey, value); <span class="comment">// [1] 가장 끝의 인자를 먼저 생성하기 위해 reduceRight를 사용합니다.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">valkey</span>(<span class="params">value, key</span>) </span>&#123; <span class="comment">// [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)</span></div><div class="line">  <span class="keyword">return</span> &#123; [key] : value &#125;; <span class="comment">// [3] ES6부터 지원하는 문법입니다. (Computed property names) </span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nested_obj = nest(<span class="string">'first.second.third'</span>, <span class="string">"I'am nested object."</span>);</div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-7/" data-id="cj0wi2ra4001075vg7m26kytd" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/28/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/23/javascript-daily-function-6/" class="article-date">
@@ -101,7 +149,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="pipe-함수"><a href="#pipe-함수" class="headerlink" title="pipe 함수"></a>pipe 함수</h2><p>미리 예고드린 것처럼 오늘은 <code>pipe</code> 함수를 소개해드리겠습니다. 우선 이 함수는 underscore에 <code>compose</code> 함수와 같은 일을 합니다. 복수의 함수를 합쳐 하나의 함수로 만드는 것입니다. 사용법에 있어서 조금 차이가 있는데, 그 부분은 생략하겠습니다. 우선 <code>pipe</code> 함수가 필요한 아주 간단한 상황을 살펴보겠습니다.</p>
+<h2 id="pipe-함수"><a href="#pipe-함수" class="headerlink" title="pipe 함수"></a>pipe 함수</h2><p>미리 예고드린 것처럼 오늘은 <code>pipe</code> 함수를 소개해드리겠습니다. 우선 이 함수는 underscore의 <code>compose</code> 함수와 같은 일을 합니다. 복수의 함수를 합쳐 하나의 함수로 만드는 것입니다. 사용법에 있어서 조금 차이가 있는데, 그 부분은 생략하겠습니다. 우선 <code>pipe</code> 함수가 필요한 아주 간단한 상황을 살펴보겠습니다.</p>
 <h4 id="1-어제의-함수-함수의-연속-실행"><a href="#1-어제의-함수-함수의-연속-실행" class="headerlink" title="(1) 어제의 함수 - 함수의 연속 실행"></a>(1) 어제의 함수 - 함수의 연속 실행</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add10</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> num + <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = add10(add10(add10(<span class="number">5</span>))); <span class="comment">// [1] add10 함수를 세번 실행합니다. 첫번째 인자는 5입니다.</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [2] 결과는 35가 나옵니다.</span></div></pre></td></tr></table></figure>
 <p>아주 간단한 예제입니다. <code>add10</code> 함수는 값이 들어오면 10을 더해서 반환합니다. [1] 에서 함수를 세번 실행하고 있습니다. 5에 10을 세번 더해 35라는 값을 반환합니다. 이 예제의 포인트는 <strong>함수가 값으로 쓰인다는 점</strong>입니다. 가장 좌측에 위치한 <code>add10</code> 함수는 인자로 함수 하나를 갖고 있고 인자인 그 함수가 또 함수를 인자로 갖고 있습니다. 이렇듯 인자로 함수를 중첩해서 넘깁니다. 허나 실제로 실행되는 순서, 논리를 읽어나가는 순서는 우측에서부터 시작합니다. 5를 인자로 받은 함수가 먼저 실행되고 그 결과를 자신을 감싸고 있던 함수에 전달하는 식으로 진행됩니다. </p>
 <p>이렇게 함수를 값으로 전달함으로써 함수를 연속적으로 실행해서 결과를 얻어낼 수도 있습니다. 이제 오늘의 주인공 <code>pipe</code> 함수를 만나보겠습니다.</p>
@@ -110,7 +158,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0osc7rh0011isvgre49wref" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0wi2ra1000y75vgxp5k4wxz" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/23/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -163,7 +211,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0osc7re000xisvg081m136l" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0wi2rad001575vgor8cbv3p" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/20/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -213,7 +261,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0osc7rb000uisvg41nzf5vx" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0wi2r9z000u75vg4tdxdnhk" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -262,7 +310,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0osc7r8000qisvgagbjh2n7" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0wi2r9t000o75vgfw1klyj4" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -310,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0osc7r5000nisvg9peoen0x" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0wi2r9v000r75vgznctwy73" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -358,7 +406,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0osc7r1000jisvgdhqv4p4r" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0wi2r9q000k75vgde0myim6" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -410,7 +458,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0osc7qt000cisvgu0j284ca" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0wi2r9m000h75vgmpj5txq1" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -458,7 +506,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0osc7qm0006isvg4y754don" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0wi2r99000675vg19ffxwdi" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -508,58 +556,9 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0osc7q80000isvg5lx62pvc" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0wi2r93000475vg5d0g1n8j" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freecodecamp/">freecodecamp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/project-tribute-page/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/26/project-tribute-page/" class="article-date">
-  <time datetime="2016-05-26T08:51:04.000Z" itemprop="datePublished">2016-05-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/26/project-tribute-page/">[Challenge] Tribute Page 만들기</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.freecodecamp.com/" target="_blank" rel="external">FreeCodeCamp</a>를 시작한지 3주가 되어갑니다. 지금까지 <a href="https://www.freecodecamp.com/joeunha" target="_blank" rel="external">13시간 분량의 공부를 진행했네요.</a> Challenge 부분에서는 HTML, Bootstrap, jQuery 를 이수했습니다. 그리고 이제는 Project를 하게 되었는데요. 이런 실전적인 과제를 내어준다는 점에서 다른 코딩 학습 서비스와 차별점이 있는 것 같습니다. (중간 중간에 계속 커뮤니티와 소통할 수 있는 미션을 주는 것도 FCC가 가진 장점 중에 하납니다.)</p>
-<p>첫번째 과제는 Tribute Page를 만드는 건데요. Tribute는 공헌, 봉헌, 헌사 등의 이미를 갖는데 죽은 이를 기리는 페이지입니다. <a href="https://codepen.io/FreeCodeCamp/full/NNvBQW/" target="_blank" rel="external">예시</a>를 주고 코드를 보지 않고 이와 유사한 형태의 페이지를 만들라는 것이 주요 내용입니다.</p>
-<p>과제를 위해 <a href="https://codepen.io/" target="_blank" rel="external">CodePen</a>이라는 서비스를 사용하는데요. 일전에 인턴으로 일하면서 프론트엔드에 필요한 효과의 코드를 얻기 위해 사용했었는데 이렇게 개인 프로젝트로도 사용이 가능하군요.</p>
-<p>저는 존경하는 Steve Jobs를 기리는 페이지를 만들어보았습니다. 특별할 건 없구요. 예시를 최대한 따라하면서 Challenge를 통해 배운 기술들을 활용했습니다. <a href="https://codepen.io/rabbylab/pen/mEbVNJ" target="_blank" rel="external">이곳</a>에서 확인하실 수 있습니다. 조금 엉성한 구조로 만든 탓인지 자료 조사를 포함해서 40분 정도 소요되었습니다. (제 기준에서는 제법 금방 한 것 같습니다.)</p>
-<p>다음 프로젝트는 개인 포트폴리오를 만드는 겁니다. 늘 포트폴리오 하나 만들어야겠다고 생각해왔었는데 이참에 하나 만들어야겠습니다. FCC, 이거 은근히 중독됩니다. 공부도 되고 재미도 있는 참 좋은 서비스인 것 같습니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj0osc7sf001uisvg4zkzvp4c" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freecodecamp/">freecodecamp</a></li></ul>
@@ -626,6 +625,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/03/28/javascript-daily-function-7/">[오늘의 함수] nest</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/23/javascript-daily-function-6/">[오늘의 함수] pipe</a>
           </li>
         
@@ -639,10 +642,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2017/03/09/javascript-daily-function-3/">[오늘의 함수] redirect2</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/07/javascript-daily-function-2/">[오늘의 함수] pick</a>
           </li>
         
       </ul>
