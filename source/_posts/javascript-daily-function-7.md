@@ -10,13 +10,11 @@ tags:
 ---
 
 ```javascript
-  var nest = function (key, value) {
-    return _.reduceRight(key.split('.'), valkey, value);
+  var nest = function(key, value) {
+    return key.split('.').reduceRight(valkey, value);
   };
 
   function valkey(value, key) { 
-    var obj = {};
-    obj[key] = value;
-    return obj; 
+    return { [key] : value }; // ES6부터 지원하는 문법입니다. (Computed property names) 
   }
 ```
