@@ -35,6 +35,7 @@ _오늘 발견한 재미있는 함수를 소개합니다_
   function valkey(value, key) { // [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)
     return { [key] : value }; // [3] ES6부터 지원하는 문법입니다. (Computed property names) 
   }
+  
   var nested_obj = nest('first.second.third', "I'am nested object.");
   console.log(nested_obj.first.second.third); // "I'm nested object."
 ```

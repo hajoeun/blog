@@ -104,11 +104,11 @@ ga('send', 'pageview');
 <h2 id="nest-함수"><a href="#nest-함수" class="headerlink" title="nest 함수"></a>nest 함수</h2><p><a href="http://joeun.me/2017/03/07/javascript-daily-function-2/"><code>pick</code> 함수 편</a>에서도 말씀드린 것처럼 자바스크립트에서 객체는 키(key)와 값(value)의 쌍입니다. 때론 값에 또 다시 객체를 담아 내부에 객체가 반복해서 등장하는 형태의 객체를 만들기도 합니다. 이런 객체를 중첩 객체(nested object)라고 부릅니다. 오늘은 이러한 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 <code>nest</code> 함수입니다.</p>
 <h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nested_obj = &#123;&#125;;</div><div class="line">nested_obj.first = &#123;&#125;;</div><div class="line">nested_obj.first.second = &#123;&#125;;</div><div class="line">nested_obj.first.second.third = <span class="string">"I'm nested object."</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
 <p>이처럼 중첩된 구조의 객체를 만들기 위해선 일일이 각 순서마다 객체를 생성해줘야하는 번거로운 작업이 수반됩니다. 하지만 <code>nest</code> 함수는 이를 한번에 만들어줍니다.</p>
-<h4 id="2-오늘의-함수-중첩-객체-만들기"><a href="#2-오늘의-함수-중첩-객체-만들기" class="headerlink" title="(2) 오늘의 함수 - 중첩 객체 만들기"></a>(2) 오늘의 함수 - 중첩 객체 만들기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nest = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> key.split(<span class="string">'.'</span>).reduceRight(valkey, value); <span class="comment">// [1] 가장 끝의 인자를 먼저 생성하기 위해 reduceRight를 사용합니다.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">valkey</span>(<span class="params">value, key</span>) </span>&#123; <span class="comment">// [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)</span></div><div class="line">  <span class="keyword">return</span> &#123; [key] : value &#125;; <span class="comment">// [3] ES6부터 지원하는 문법입니다. (Computed property names) </span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> nested_obj = nest(<span class="string">'first.second.third'</span>, <span class="string">"I'am nested object."</span>);</div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
+<h4 id="2-오늘의-함수-중첩-객체-만들기"><a href="#2-오늘의-함수-중첩-객체-만들기" class="headerlink" title="(2) 오늘의 함수 - 중첩 객체 만들기"></a>(2) 오늘의 함수 - 중첩 객체 만들기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nest = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> key.split(<span class="string">'.'</span>).reduceRight(valkey, value); <span class="comment">// [1] 가장 끝의 인자를 먼저 생성하기 위해 reduceRight를 사용합니다.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">valkey</span>(<span class="params">value, key</span>) </span>&#123; <span class="comment">// [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)</span></div><div class="line">  <span class="keyword">return</span> &#123; [key] : value &#125;; <span class="comment">// [3] ES6부터 지원하는 문법입니다. (Computed property names) </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> nested_obj = nest(<span class="string">'first.second.third'</span>, <span class="string">"I'am nested object."</span>);</div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-7/" data-id="cj0wi2ra4001075vg7m26kytd" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-7/" data-id="cj0wi4jgk000xbevg31mmerbl" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/28/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -158,7 +158,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0wi2ra1000y75vgxp5k4wxz" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-6/" data-id="cj0wi4jgv0013bevgalc53nqo" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/23/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -211,7 +211,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0wi2rad001575vgor8cbv3p" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-5/" data-id="cj0wi4jgo0011bevgfvp3a7tj" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/20/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -261,7 +261,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0wi2r9z000u75vg4tdxdnhk" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-4/" data-id="cj0wi4jgi000ubevgc590mwat" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -310,7 +310,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0wi2r9t000o75vgfw1klyj4" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-3/" data-id="cj0wi4jgc000qbevg8ggifhyx" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -358,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0wi2r9v000r75vgznctwy73" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-2/" data-id="cj0wi4jg7000nbevgnyk360b0" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -406,7 +406,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0wi2r9q000k75vgde0myim6" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function-1/" data-id="cj0wi4jg2000jbevgrzcar0qt" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -458,7 +458,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0wi2r9m000h75vgmpj5txq1" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/01/introduction-to-blog-2/" data-id="cj0wi4jfq000cbevgyi5vnm6o" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/01/introduction-to-blog-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -506,7 +506,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0wi2r99000675vg19ffxwdi" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj0wi4jfk0006bevg0ul73vy7" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -556,7 +556,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0wi2r93000475vg5d0g1n8j" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj0wi4jf30000bevgvfnqr43s" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
