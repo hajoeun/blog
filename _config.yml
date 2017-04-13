@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Joeun.me
+title: joeun.me
 subtitle:
 description:
 author: Joeun Ha
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: april
 feed:
   type: atom
   path: atom.xml
