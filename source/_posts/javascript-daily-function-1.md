@@ -1,6 +1,6 @@
 ---
-title: '[오늘의 함수] redirect'
-date: 2017-03-02 15:11:12
+title: '[오늘의 함수] pick'
+date: 2017-03-07 23:28:18
 categories:
   - joeun.me
   - programming
@@ -10,47 +10,62 @@ tags:
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
-## redirect 함수
+## pick 함수
 
-서버로 데이터를 보내거나 요청할 때 __별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우__가 종종 있습니다. 아래의 1번 방법과 같이 `$.post`를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.
+__자바스크립트에서 객체는 키(key)와 값(value)의 쌍으로 이루어져있습니다.__ 프로그래밍을 하는 과정에서 키를 기준으로 값을 객체로부터 꺼내는 일을 반복합니다. 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?
 
 #### 1번 - 어제의 함수
 ```javascript
-var data = {title: 'hello', content: 'world!'};
+var user_1 = { // [1] 기존의 데이터
+  id: 1,
+  first_name: 'Joeun',
+  last_name: 'Ha',
+  age: 28,
+  country: 'South Korea',
+  city: 'Seoul',
+  mobile_phone: '010-0000-0000',
+  email: 'imjoeunha@gmail.com',
+  blog_url: 'http://joeun.me',
+  };
 
-$.post('/api/post/create', data)
-  .done(function(res) { // [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.
-    if (res) {
-      return window.location.href = '/main/newsfeed';
-    } else {
-      console.error('return data:', res);
-    }
-  });
+var user_data = { // [2] 필요한 데이터
+  id: user_1.id,
+  first_name: user_1.first_name, 
+  last_name: user_1.last_name
+  };
+
+$.post('/api/user_name/check', user_data)
+  .done(redirect('/main')); // [3] '오늘의 함수 redirect' 편을 참고하세요.
 ```
 
-때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 `redirect` 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.
+위의 코드는 기존의 데이터를 가공해서 원하는 데이터만을 추려내서 특정 api로 전송하고 있습니다. 아래와 같은 `pick` 함수를 사용한다면 보다 쉽게 원하는 데이터를 추려낼 수 있습니다. [underscore.js](underscorejs.org)라는 라이브러리에서 볼 수 있는 함수입니다. 아래는 그보다 단순하게 구현되어 있습니다. 원본 객체와 함께 꺼내길 원하는 키 값을 배열로 전달하면 추려진 객체를 반환합니다.
 
 #### 2번 - 오늘의 함수
 ```javascript
-var redirect = function(path) {
-  return function(res) {
-    if (res) {
-      return window.location.href = path;
-    } else {
-      console.error('return data:', res);
-    } 
-  }
-};
+var user_1 = { // [1] 기존의 데이터
+  id: 1,
+  first_name: 'Joeun',
+  last_name: 'Ha',
+  age: 28,
+  country: 'South Korea',
+  city: 'Seoul',
+  mobile_phone: '010-0000-0000',
+  email: 'imjoeunha@gmail.com',
+  blog_url: 'http://joeun.me',
+  };
+
+function pick(target, keys) {
+  return keys.reduce(function(obj, key) {
+    return obj[key] = target[key], obj;
+  }, {});
+}
 
 
-var data = {title: 'hello', content: 'world!'};
+console.log(pick(user_1, ['age', 'id'])); // [2] 출력 결과는 { age: 28, id: 1 } 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.
 
-$.post('/api/post/create', data)
-  .done(redirect('/main/newsfeed')); // [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. 
+$.post('/api/user_name/check', pick(user_1, ['id', 'first_name', 'last_name'])) // [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.
+  .done(redirect('/main')); 
 
-$.post('/api/post/update', data)
-  .done(redirect('/main/editor')); // [2] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.
-
-$.post('/api/post/delete', data)
-  .done(redirect('/main/home'));
+$.post('/api/city/check', pick(user_1, ['id', 'city']))
+  .done(redirect('/main'));
 ```

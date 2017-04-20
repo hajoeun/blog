@@ -1,6 +1,6 @@
 ---
-title: '[오늘의 함수] redirect2'
-date: 2017-03-09 20:36:40
+title: '[오늘의 함수] confirm'
+date: 2017-03-15 23:37:46
 categories:
   - joeun.me
   - programming
@@ -10,56 +10,41 @@ tags:
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
-## redirect2 함수 
+## confirm 함수 
 
-첫번째로 소개해드렸던 `redirect` 함수의 개량된 버전을 소개합니다. 기존의 함수는 단지 새로운 경로로 이동해주는 역할만을 했습니다. 하지만 __때론 URL이 유연하게 결정되어야할 필요가 있습니다.__ `post`방식이 아닌 `get`방식으로 서버와 통신해야할 경우가 있기 때문입니다.
+오늘은 정말 단순한 함수입니다. 아이디어가 없어서라기보다 새로운 함수를 만드는 것이 그렇게 화려한 일이 아님을 보여드리고 싶어 간단한 함수를 준비해봤습니다. 바로 `confirm` 함수 입니다. 브라우저 환경에서 기본으로 제공하는 함수이기도 합니다. 기존의 사용법은 아래와 같습니다.
 
-오늘의 예제는 `post`로 가져온 데이터의 아이디 값에 따라 `get`방식으로 다른 페이지를 로드(load) 해야하는 경우를 가정했습니다.
+이와 같은 형태의 html 소스 코드가 있다고 가정합니다. 사용자가 삭제 버튼을 누르면 지울 것인지 확인하는 메시지를 보여주고 확인 버튼을 누르면 해당 요소가 삭제되는 예제입니다.
+#### index.html
+```html
+<ul>
+  <li>
+    <span>요소 1번</span>
+    <button class="delete">삭제</button>
+  </li>
+</ul>
+```
 
 #### 1번 - 어제의 함수
 ```javascript
-var redirect1 = function(path) {
-  return function(res) {
-    if (res) {
-      return window.location.href = path;
-    } else {
-      console.error('return data:', res);
-    } 
-  }
-};
-
-
-var data = {title: 'hello', content: 'world!'};
-
-$.post('/api/post/create', data)
-  .done(function(res) { // [1] URL에 query string을 붙여주기 위해 함수를 새로 열었습니다.
-    redirect1('/main/newsfeed?id=' + res.id); 
-  }); 
+$('li').on('click', 'button.delete', function(e) {
+  if (confirm('Are you sure?')) { // [1] 확인 창을 띄워 유저의 선택을 기다립니다. 그 결과에 따라 다음 코드를 실행합니다.
+    $(e.delegateTarget).remove(); // [2] 클릭했던 버튼의 부모 엘리먼트를 제거합니다.
+  } 
+})
 ```
 
-사실 위의 함수도 그리 나쁘지 않습니다. 단지 한줄이 늘었을 뿐이니까요. 그래도 저는 조금 더 단순하게 함수 하나만 넣고 끝내고 싶습니다.
+`confirm` 함수는 사용자가 어떤 버튼을 누르는가에 따라 `true`, `false` 값을 반환합니다. 보통은 이에 따라 실행되어야할 함수를 조건문으로 분기를 쳐둡니다. 이러한 조건문을 포함한 하나의 `confirm` 함수를 만들어 보았습니다. (구분을 위해 오늘의 함수 앞에 `_`를 붙였습니다.)
 
 #### 2번 - 오늘의 함수
 ```javascript
-var redirect2 = function(path, query) { // [1] query라는 새로운 argument를 만들어 둡니다.
-  return function(res) {
-    if (res) {
-      return window.location.href = query ? path + res[query] : path; // [2] query가 존재하면 get 방식으로 URL 지정합니다.
-    } else {
-      console.error('return data:', res);
-    } 
-  }
-};
+function _confirm(message, yes_fn, no_fn) {
+  return confirm(message) ? yes_fn() : no_fn(); // [1] 분기를 함수 안으로 가져왔습니다.
+}
 
-
-var data = {title: 'hello', content: 'world!'};
-
-$.post('/api/post/create', data)
-  .done(redirect2('/main/newsfeed?id=', 'id')); // [3] 두번째 매개변수에 데이터에서 어떤 값을 사용하고 싶은지 키 값을 적어줍니다. 
-
-$.post('/api/post/update', data)
-  .done(redirect2('/main/editor?no=', 'no'));
-
-$.post('/api/post/delete', data)
-  .done(redirect2('/main/home')); // [4] 하나의 매개변수를 보내면 redirect1과 동일하게 동작합니다.
+$('li').on('click', 'button.delete', function(e) {
+  _confirm('Are you sure?', function() { // [2] '확인'을 눌렀을 때 동작하게될 함수입니다.
+    $(e.delegateTarget).remove();
+  }, function() { return false; }) // [3] '취소'를 눌렀을 때 동작하게될 함수입니다.
+})
 ```

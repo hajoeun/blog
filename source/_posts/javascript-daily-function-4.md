@@ -1,6 +1,6 @@
 ---
-title: '[오늘의 함수] confirm'
-date: 2017-03-15 23:37:46
+title: '[오늘의 함수] identity, always'
+date: 2017-03-20 23:41:48
 categories:
   - joeun.me
   - programming
@@ -10,41 +10,57 @@ tags:
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
-## confirm 함수 
+## identity, always 함수 
 
-오늘은 정말 단순한 함수입니다. 아이디어가 없어서라기보다 새로운 함수를 만드는 것이 그렇게 화려한 일이 아님을 보여드리고 싶어 간단한 함수를 준비해봤습니다. 바로 `confirm` 함수 입니다. 브라우저 환경에서 기본으로 제공하는 함수이기도 합니다. 기존의 사용법은 아래와 같습니다.
+오늘은 정말 황당한(?) 함수 두개를 소개하겠습니다. 이름부터 심상치 않은 `identity`와 `always` 함수 입니다. 오늘은 어제의 함수를 생략하고 곧장 함수 소개를 하겠습니다.
 
-이와 같은 형태의 html 소스 코드가 있다고 가정합니다. 사용자가 삭제 버튼을 누르면 지울 것인지 확인하는 메시지를 보여주고 확인 버튼을 누르면 해당 요소가 삭제되는 예제입니다.
-#### index.html
-```html
-<ul>
-  <li>
-    <span>요소 1번</span>
-    <button class="delete">삭제</button>
-  </li>
-</ul>
+#### (1) 오늘의 함수 - identity와 always
+```javascript
+function identity(value) {
+  return value;
+}
+
+function always(value) {
+  return function() {
+    return value;
+  }
+}
+
+console.log(identity(10)); // 10
+console.log(always(10)()); // 10
 ```
 
-#### 1번 - 어제의 함수
-```javascript
-$('li').on('click', 'button.delete', function(e) {
-  if (confirm('Are you sure?')) { // [1] 확인 창을 띄워 유저의 선택을 기다립니다. 그 결과에 따라 다음 코드를 실행합니다.
-    $(e.delegateTarget).remove(); // [2] 클릭했던 버튼의 부모 엘리먼트를 제거합니다.
-  } 
-})
-```
+정말 황당한 함수입니다. 뭐하자는건가 싶습니다. 넣은 값을 그대로 반환할거면 왜 굳이 함수를 썼어야했나 싶습니다. 하지만 이 함수들은 아주 유용한 함수들입니다. 함수를 값으로 다루는 프로그래밍에서는 이 함수들은 아주 빈번하게 등장합니다. 지난번에 소개해드렸던 `confirm` 함수를 사용해서 예시를 만들어보겠습니다.
 
-`confirm` 함수는 사용자가 어떤 버튼을 누르는가에 따라 `true`, `false` 값을 반환합니다. 보통은 이에 따라 실행되어야할 함수를 조건문으로 분기를 쳐둡니다. 이러한 조건문을 포함한 하나의 `confirm` 함수를 만들어 보았습니다. (구분을 위해 오늘의 함수 앞에 `_`를 붙였습니다.)
-
-#### 2번 - 오늘의 함수
+#### (2) 오늘의 함수 - confirm 함수와의 콜라보 1
 ```javascript
-function _confirm(message, yes_fn, no_fn) {
-  return confirm(message) ? yes_fn() : no_fn(); // [1] 분기를 함수 안으로 가져왔습니다.
+function _confirm(message, yes_fn, no_fn) { // [1] 출력할 메시지와 성공, 실패에 따라 실행할 함수를 받는 confirm 함수입니다.
+  return confirm(message) ? yes_fn() : no_fn(); 
 }
 
 $('li').on('click', 'button.delete', function(e) {
   _confirm('Are you sure?', function() { // [2] '확인'을 눌렀을 때 동작하게될 함수입니다.
     $(e.delegateTarget).remove();
-  }, function() { return false; }) // [3] '취소'를 눌렀을 때 동작하게될 함수입니다.
+  }, always(false)) // [3] '취소'를 눌렀을 때 동작하게될 함수입니다. 이 경우에 항상 'false'를 반환하는 함수입니다.
 })
 ```
+
+주목하셔야할 부분은 역시 `always` 함수가 등장한 [3] 지점입니다. 이전에는 해당 코드가 `function() { return false }`로 되어 있었습니다. 오늘 만든 새로운 함수를 써서 보다 간결하게 표현할 수 있게 되었습니다. 그냥 함수를 읽기만 하면 저 코드는 '_항상 false를 반환하는구나_'하고 이해가 됩니다. 
+
+사실 이 예제에서 `identity` 함수를 사용하기에는 어려움이 있습니다. `always`와 같이 사용하려면 `_confirm` 함수를 조금 바꿔줘야 합니다.
+
+#### (3) 오늘의 함수 - confirm 함수와의 콜라보 2
+```javascript
+function _confirm(message, yes_fn, no_fn) { 
+  var res = confirm(message); // [1] confirm 함수의 실행 결과를 아래의 함수에 전달하기 위해 별도로 할당했습니다.
+  return res ? yes_fn(res) : no_fn(res); 
+}
+
+$('li').on('click', 'button.delete', function(e) {
+  _confirm('Are you sure?', function() { 
+    $(e.delegateTarget).remove();
+  }, identity) // [2] 항상 'false'를 반환하게 됩니다. 
+})
+```
+
+`_confirm` 함수를 조금 바꿔서 `identity` 함수가 `always(false)`를 사용한 것과 같은 결과를 만들도록 했습니다. 보다 적절한 예제는 다음 시간에 소개해드릴 `pipe` 함수를 통해서 보여드릴 수 있을 것 같습니다.

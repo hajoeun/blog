@@ -1,6 +1,6 @@
 ---
-title: '[오늘의 함수] pick'
-date: 2017-03-07 23:28:18
+title: '[오늘의 함수] redirect2'
+date: 2017-03-09 20:36:40
 categories:
   - joeun.me
   - programming
@@ -10,62 +10,56 @@ tags:
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
-## pick 함수
+## redirect2 함수 
 
-__자바스크립트에서 객체는 키(key)와 값(value)의 쌍으로 이루어져있습니다.__ 프로그래밍을 하는 과정에서 키를 기준으로 값을 객체로부터 꺼내는 일을 반복합니다. 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?
+첫번째로 소개해드렸던 `redirect` 함수의 개량된 버전을 소개합니다. 기존의 함수는 단지 새로운 경로로 이동해주는 역할만을 했습니다. 하지만 __때론 URL이 유연하게 결정되어야할 필요가 있습니다.__ `post`방식이 아닌 `get`방식으로 서버와 통신해야할 경우가 있기 때문입니다.
+
+오늘의 예제는 `post`로 가져온 데이터의 아이디 값에 따라 `get`방식으로 다른 페이지를 로드(load) 해야하는 경우를 가정했습니다.
 
 #### 1번 - 어제의 함수
 ```javascript
-var user_1 = { // [1] 기존의 데이터
-  id: 1,
-  first_name: 'Joeun',
-  last_name: 'Ha',
-  age: 28,
-  country: 'South Korea',
-  city: 'Seoul',
-  mobile_phone: '010-0000-0000',
-  email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.me',
-  };
+var redirect1 = function(path) {
+  return function(res) {
+    if (res) {
+      return window.location.href = path;
+    } else {
+      console.error('return data:', res);
+    } 
+  }
+};
 
-var user_data = { // [2] 필요한 데이터
-  id: user_1.id,
-  first_name: user_1.first_name, 
-  last_name: user_1.last_name
-  };
 
-$.post('/api/user_name/check', user_data)
-  .done(redirect('/main')); // [3] '오늘의 함수 redirect' 편을 참고하세요.
+var data = {title: 'hello', content: 'world!'};
+
+$.post('/api/post/create', data)
+  .done(function(res) { // [1] URL에 query string을 붙여주기 위해 함수를 새로 열었습니다.
+    redirect1('/main/newsfeed?id=' + res.id); 
+  }); 
 ```
 
-위의 코드는 기존의 데이터를 가공해서 원하는 데이터만을 추려내서 특정 api로 전송하고 있습니다. 아래와 같은 `pick` 함수를 사용한다면 보다 쉽게 원하는 데이터를 추려낼 수 있습니다. [underscore.js](underscorejs.org)라는 라이브러리에서 볼 수 있는 함수입니다. 아래는 그보다 단순하게 구현되어 있습니다. 원본 객체와 함께 꺼내길 원하는 키 값을 배열로 전달하면 추려진 객체를 반환합니다.
+사실 위의 함수도 그리 나쁘지 않습니다. 단지 한줄이 늘었을 뿐이니까요. 그래도 저는 조금 더 단순하게 함수 하나만 넣고 끝내고 싶습니다.
 
 #### 2번 - 오늘의 함수
 ```javascript
-var user_1 = { // [1] 기존의 데이터
-  id: 1,
-  first_name: 'Joeun',
-  last_name: 'Ha',
-  age: 28,
-  country: 'South Korea',
-  city: 'Seoul',
-  mobile_phone: '010-0000-0000',
-  email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.me',
-  };
-
-function pick(target, keys) {
-  return keys.reduce(function(obj, key) {
-    return obj[key] = target[key], obj;
-  }, {});
-}
+var redirect2 = function(path, query) { // [1] query라는 새로운 argument를 만들어 둡니다.
+  return function(res) {
+    if (res) {
+      return window.location.href = query ? path + res[query] : path; // [2] query가 존재하면 get 방식으로 URL 지정합니다.
+    } else {
+      console.error('return data:', res);
+    } 
+  }
+};
 
 
-console.log(pick(user_1, ['age', 'id'])); // [2] 출력 결과는 { age: 28, id: 1 } 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.
+var data = {title: 'hello', content: 'world!'};
 
-$.post('/api/user_name/check', pick(user_1, ['id', 'first_name', 'last_name'])) // [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.
-  .done(redirect('/main')); 
+$.post('/api/post/create', data)
+  .done(redirect2('/main/newsfeed?id=', 'id')); // [3] 두번째 매개변수에 데이터에서 어떤 값을 사용하고 싶은지 키 값을 적어줍니다. 
 
-$.post('/api/city/check', pick(user_1, ['id', 'city']))
-  .done(redirect('/main'));
+$.post('/api/post/update', data)
+  .done(redirect2('/main/editor?no=', 'no'));
+
+$.post('/api/post/delete', data)
+  .done(redirect2('/main/home')); // [4] 하나의 매개변수를 보내면 redirect1과 동일하게 동작합니다.
 ```
