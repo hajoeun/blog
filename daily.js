@@ -9,9 +9,7 @@
   function _partial(func, ...args) {
     
     return function(...args2) {
-      let args1 = Array.from(args);
-      // let args1 = Object.assign([], args);
-      // let args1 = Array.prototype.slice.call(args);
+      let args1 = args.slice();
 
       for (let i in args1) {
         if (args1[i] === _) { 
@@ -92,4 +90,21 @@ function str_reverse(str) {
   return str.split('').reverse().join('');
 }
 
-console.log(str_reverse(str));
+function isNegZero(n) { 
+  n = Number(n); 
+  return (n === 0) && (1/n === -Infinity);
+}
+
+var to_array = function(a,b,c,d) { 
+  return [a, b, c, d];
+}
+
+var temp_to_array = _.partial(to_array, 1, _, 3);
+temp_to_array(2, 4); // [1, 2, 3, 4]
+
+var test = function(a, b, c, d) {
+  console.log(a, b, c, d);
+}
+
+var skip = _.partial(test, 1, _, 3);
+skip(20, 40); // 1, 20, 3, 40

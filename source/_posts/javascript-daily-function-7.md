@@ -54,7 +54,7 @@ ES6에 새롭게 추가된 기능인 [Spread 연산자](https://developer.mozill
 var _ = {}; // [1] 건너뛰기의 단서가 될 키워드를 하나 만들어둡니다.
 var partial = function(func, ...args) {
   return function(...args2) {
-    var args1 = Array.from(args); // [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다. or 'var args1 = Array.prototype.slice.call(args)'
+    var args1 = args.slice(); // [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다.
 
     for (var i in args1) { 
       if (args1[i] === _) { // [3] 단서인 키워드와 일치하는 값이면 
@@ -71,10 +71,10 @@ var sum20 = partial(sum, _, 20);
 sum10(1, 2); // 13
 sum20(50, 50); // 120
 
-var to_array = function(a,b,c,d) { 
-  return [a, b, c, d];
+var test = function(a, b, c, d) { // [5] 네개의 인자를 받아 출력하는 테스트 함수입니다.
+  console.log(a, b, c, d);
 }
 
-var temp_to_array = partial(to_array, 1, _, 3);
-temp_to_array(2, 4); // [1, 2, 3, 4]
+var skip = _.partial(test, 1, _, 3); // [6] 건너뛰기 키워드를 사용해서 인자 b와 d의 값을 지정하지 않은 채로 skip 함수를 생성합니다.
+skip(20, 40); // [7] 인자 b와 d에 값이 적용됩니다. 결과 값은 1, 20, 3, 40
 ```
