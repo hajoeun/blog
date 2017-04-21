@@ -1,8 +1,8 @@
 .deploy_git
 .deploy_git/*
 node_modules/*
+.idea
 .idea/*
 public/*
-rabbylab/*
 test.js
 test.html
