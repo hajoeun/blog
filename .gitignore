@@ -4,5 +4,3 @@ node_modules/*
 .idea
 .idea/*
 public/*
-test.js
-test.html
