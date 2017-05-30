@@ -85,7 +85,16 @@
 
   _.log = (...args) => { console.log(...args) }
 
-  _.pick = (target, keys) => {
+  _.pick = (target, ...keys) => {
+    if (typeof keys[0] == 'function') {
+      var predicate = keys[0];
+      keys = Object.keys(target);
+      
+      return keys.reduce((obj, key) => {
+        return predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;
+      }, {});
+    }
+
     return keys.reduce((obj, key) => {
       return obj[key] = target[key], obj;
     }, {});
