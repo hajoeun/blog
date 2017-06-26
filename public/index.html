@@ -74,6 +74,59 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/06/12/javascript-daily-function-9/" class="article-date">
+  <time datetime="2017-06-12T11:59:55.000Z" itemprop="datePublished">2017-06-12</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/12/javascript-daily-function-9/">[오늘의 함수] omit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="omit"><a href="#omit" class="headerlink" title="omit"></a>omit</h2><p>오늘은 <code>pick</code> 함수의 반대 버전인 <code>omit</code>을 소개해드릴까 합니다. 다시 말해 <code>omit</code>은 객체에서 키가 일치하는 프로퍼티를 제외한 새로운 객체를 반환하는 함수입니다. </p>
+<p>사실 이 함수를 굳이 소개할 필요가 있을까 싶었는데, 사연이 생겨서 올리게 되었습니다. 2주 전쯤 <a href="https://www.codewars.com/kumite/" target="_blank" rel="external">Codewars</a>라는 사이트에서 제공하는 ‘kumite’(일본어로 대련을 의미합니다.) 페이지에 <code>pick</code> 함수를 올려두었습니다. 그리고 며칠 뒤 <code>omit</code>과 같은 일을 하는 <code>flick</code>함수를 대련 코드로 올리셨기에 살펴보다가 블로그에 소개하면 좋겠다고 생각해서 올리게 되었습니다.</p>
+<p>우선 <a href="https://www.codewars.com/kumite/59421af0c32f438c1a000044?sel=595073a15ceb2bda6d000161" target="_blank" rel="external">Codewars</a>에 올려둔 코드 전체를 보여드리겠습니다.</p>
+<h4 id="1-pick-함수와-flick-함수"><a href="#1-pick-함수와-flick-함수" class="headerlink" title="(1) pick 함수와 flick 함수"></a>(1) pick 함수와 flick 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [1] 제가 작성한 pick 함수입니다. 기존의 pick과 크게 다르지 않습니다.</span></div><div class="line">_.pick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> obj[key] = target[key], obj;</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [2] Robert.Cutright이라는 개발자가 작성한 flick 함수입니다. omit 함수와 같은 일을 합니다.</span></div><div class="line">_.flick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? obj : (obj[key] = target[key], obj);</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;, target);</div><div class="line">  <span class="built_in">Object</span>.keys(obj).filter(<span class="function"><span class="params">key</span> =&gt;</span> keys.includes(key) ? <span class="keyword">delete</span> obj[key] : obj[key]);</div><div class="line">  <span class="keyword">return</span> obj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Robert가 작성한 코드는 정상적으로 동작합니다. 하지만 저는 한가지가 아쉬웠습니다. 바로 <code>filter</code>를 사용한 부분입니다. <code>reduce</code>를 사용하면 새로운 객체 복사본을 만드는 <code>var obj = Object.assign({}, target);</code> 같은 코드를 작성하지 않아도 된다는 점을 놓친 것 같았습니다. 그리고 이렇게 새로운 객체를 생성해서 <code>delete obj[key]</code>로 데이터를 제거해나가는 코드는 불필요한 코드라는 생각이 들었습니다. 그래서 아래와 같이 변경했습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">_.omit = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line">	  <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    <span class="keyword">return</span> _.pick(target, (...args) =&gt; !predicate(...args)) <span class="comment">// [1] pick을 사용하고 predicate를 뒤집었습니다.</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(target).reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123; <span class="comment">// [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.</span></div><div class="line">    <span class="keyword">return</span> keys.includes(key) ? obj : (obj[key] = target[key], obj);</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/06/12/javascript-daily-function-9/" data-id="cj4dqx61u0012gzvgooojmods" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/06/12/javascript-daily-function-9/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -110,7 +163,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/26/javascript-daily-function-8/" data-id="cj33uhhoc00154nvgvpvlbhst" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/04/26/javascript-daily-function-8/" data-id="cj4dqx6240019gzvga6qee3ya" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/04/26/javascript-daily-function-8/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -164,7 +217,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/19/javascript-daily-function-7/" data-id="cj33uhhof00194nvgz40d4vtc" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/04/19/javascript-daily-function-7/" data-id="cj4dqx61w0015gzvgnu1jze63" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/04/19/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -219,7 +272,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/05/like-me-1/" data-id="cj33uhhp4001x4nvg3ljjvzrx" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/04/05/like-me-1/" data-id="cj4dqx62w001xgzvgsdvo5p8p" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/04/05/like-me-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -262,14 +315,14 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="nest-함수"><a href="#nest-함수" class="headerlink" title="nest 함수"></a>nest 함수</h2><p><a href="http://joeun.me/2017/03/07/javascript-daily-function-2/"><code>pick</code> 함수 편</a>에서도 말씀드린 것처럼 자바스크립트에서 객체는 키(key)와 값(value)의 쌍입니다. 때론 값에 또 다시 객체를 담아 내부에 객체가 반복해서 등장하는 형태의 객체를 만들기도 합니다. 이런 객체를 중첩 객체(nested object)라고 부릅니다. 오늘은 이러한 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 <code>nest</code> 함수입니다.</p>
+<h2 id="nest-함수"><a href="#nest-함수" class="headerlink" title="nest 함수"></a>nest 함수</h2><p><a href="http://joeun.me/2017/03/07/javascript-daily-function-1/"><code>pick</code> 함수 편</a>에서도 말씀드린 것처럼 자바스크립트에서 객체는 키(key)와 값(value)의 쌍입니다. 때론 값에 또 다시 객체를 담아 내부에 객체가 반복해서 등장하는 형태의 객체를 만들기도 합니다. 이런 객체를 중첩 객체(nested object)라고 부릅니다. 오늘은 이러한 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 <code>nest</code> 함수입니다.</p>
 <h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nested_obj = &#123;&#125;;</div><div class="line">nested_obj.first = &#123;&#125;;</div><div class="line">nested_obj.first.second = &#123;&#125;;</div><div class="line">nested_obj.first.second.third = <span class="string">"I'm nested object."</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
 <p>이처럼 중첩된 구조의 객체를 만들기 위해선 일일이 각 순서마다 객체를 생성해줘야하는 번거로운 작업이 수반됩니다. 하지만 <code>nest</code> 함수는 이를 한번에 만들어줍니다.</p>
 <h4 id="2-오늘의-함수-중첩-객체-만들기"><a href="#2-오늘의-함수-중첩-객체-만들기" class="headerlink" title="(2) 오늘의 함수 - 중첩 객체 만들기"></a>(2) 오늘의 함수 - 중첩 객체 만들기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nest = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> key.split(<span class="string">'.'</span>).reduceRight(valkey, value); <span class="comment">// [1] 가장 끝의 인자를 먼저 생성하기 위해 reduceRight를 사용합니다.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">valkey</span>(<span class="params">value, key</span>) </span>&#123; <span class="comment">// [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)</span></div><div class="line">  <span class="keyword">return</span> &#123; [key] : value &#125;; <span class="comment">// [3] ES6부터 지원하는 문법입니다. (Computed property names) </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> nested_obj = nest(<span class="string">'first.second.third'</span>, <span class="string">"I'am nested object."</span>);</div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-6/" data-id="cj33uhhnq000p4nvgw2layqsn" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-6/" data-id="cj4dqx61q000zgzvgdjecx3og" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/28/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -321,7 +374,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-5/" data-id="cj33uhhny000t4nvgl4dcacvk" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-5/" data-id="cj4dqx61l000wgzvg1hkeg1xg" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/23/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -376,7 +429,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-4/" data-id="cj33uhhop001j4nvgcpdagoq5" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/20/javascript-daily-function-4/" data-id="cj4dqx61h000tgzvgu2aso4xc" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/20/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -428,7 +481,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-3/" data-id="cj33uhho3000w4nvgpa42qo9s" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-3/" data-id="cj4dqx61b000pgzvgge6cg4ue" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/15/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -479,7 +532,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-2/" data-id="cj33uhhnm000m4nvgqhji8dih" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-2/" data-id="cj4dqx618000mgzvgftq6mxxd" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/09/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -529,59 +582,9 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-1/" data-id="cj33uhhni000h4nvgu9xmacs4" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-1/" data-id="cj4dqx60w000egzvgnwv0liwd" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/07/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2017/03/02/javascript-daily-function/" class="article-date">
-  <time datetime="2017-03-02T06:11:12.000Z" itemprop="datePublished">2017-03-02</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/javascript-daily-function/">[오늘의 함수] redirect</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="redirect-함수"><a href="#redirect-함수" class="headerlink" title="redirect 함수"></a>redirect 함수</h2><p>서버로 데이터를 보내거나 요청할 때 <strong>별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우</strong>가 종종 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.</p>
-<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; <span class="comment">// [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.</span></div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<p>때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 <code>redirect</code> 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.</p>
-<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/newsfeed'</span>)); <span class="comment">// [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. </span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// [2] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function/" data-id="cj33uhho6000z4nvgqacagdzv" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2017/03/02/javascript-daily-function/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>

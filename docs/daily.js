@@ -3,12 +3,44 @@
   window.__ = _pipe;
   window.___ = {};
 
-  _.identity = value => value
+  _.identity = _.idtt = value => value
   
   _.always = value => () => value
   
   _.reduce = function(arr, iter, memo) {
     return arr.reduce(iter, memo || 0);
+  }
+
+  _.map = function f(data, iter) {
+    if (arguments.length == 1) return _(f, _, data);
+
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+      res[i] = iter(data[i], i, data);
+    }
+    return res;
+  }
+
+  _.values = _.map(_.idtt);
+
+  _.negate = function(fn) {
+    return (...args) => !fn(...args)
+  }
+
+  _.filter = function f(data, predi) {
+    if (arguments.length == 1) return _(f, _, data);
+
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+      if (predi(data[i], i, data)) res.push(data[i])
+    }
+    return res;
+  }
+
+  _.reject = function f(data, predi) {
+    if (arguments.length == 1) return _(f, _, data);
+
+    return _.filter(data, _.negate(predi));
   }
 
   _.partial = _partial;
@@ -32,26 +64,26 @@
         
       for (var i in args2) 
         if (args2[i] == _) 
-          args2[i] = rest.pop();
+          args2[i] = rest.pop();ㅌ
 
       return func(...[...args1, ...rest, ...args2]);
     }
   }
 
   _.pipe = _pipe;
-  function _pipe(...funcs) {
+  function _pipe(...fns) {
     return function(...seed) {
       seed = seed.length === 1 ? seed[0] : _mr(...seed)
-      return _go(seed, ...funcs);
+      return _go(seed, ...fns);
     }
-  };
+  }
 
   _.go = _go; 
-  function _go(seed, ...funcs) {
+  function _go(seed, ...fns) {
     seed = _isFunction(seed) ? seed() : seed;
     
-    return funcs.reduce((value, func) => {
-      return _is_mr(value) ? func(...value) : func(value);
+    return fns.reduce((se, fn) => {
+      return _is_mr(se) ? fn(...se) : fn(se);
     }, seed);
   }
   
@@ -81,23 +113,34 @@
   _.nest = function f(key, value) {
     if (arguments.length == 1) return _partial(f, key);
     return key.split('.').reduceRight(_valkey, value);
-  };
+  }
 
   _.log = (...args) => { console.log(...args) }
 
   _.pick = (target, ...keys) => {
     if (typeof keys[0] == 'function') {
-      var predicate = keys[0];
+      var predi = keys[0];
       keys = Object.keys(target);
       
       return keys.reduce((obj, key) => {
-        return predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;
+        return predi(target[key], key, target) ? (obj[key] = target[key], obj) : obj;
       }, {});
     }
 
     return keys.reduce((obj, key) => {
       return obj[key] = target[key], obj;
     }, {});
-  };
+  }
+
+  _.omit = (target, ...keys) => {
+    if (typeof keys[0] == 'function') {
+      var predicate = keys[0];
+      return _.pick(target, (...args) => !predicate(...args)) // [1] pick을 사용하고 predicate를 뒤집었습니다.
+    }
+    
+    return Object.keys(target).reduce((obj, key) => { // [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.
+      return keys.includes(key) ? obj : (obj[key] = target[key], obj);
+    }, {});
+  }
 
 }(window)

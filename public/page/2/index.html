@@ -74,6 +74,56 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/03/02/javascript-daily-function/" class="article-date">
+  <time datetime="2017-03-02T06:11:12.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/javascript-daily-function/">[오늘의 함수] redirect</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="redirect-함수"><a href="#redirect-함수" class="headerlink" title="redirect 함수"></a>redirect 함수</h2><p>서버로 데이터를 보내거나 요청할 때 <strong>별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우</strong>가 종종 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.</p>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; <span class="comment">// [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.</span></div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 <code>redirect</code> 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.</p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/newsfeed'</span>)); <span class="comment">// [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. </span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// [2] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function/" data-id="cj4dqx62f001egzvgkz1hyuy1" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/02/javascript-daily-function/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-/daily-commit-today-i-learned/" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -110,7 +160,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj33uhhn7000b4nvgogpcz9pl" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj4dqx60o000agzvgb59dlsj7" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -162,7 +212,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj33uhhms00024nvg39gvadcm" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj4dqx5zw0002gzvgdz4vvbna" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -213,7 +263,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj33uhhpc002a4nvgfq0q03sw" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj4dqx63e002ggzvgkpq4tbjy" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -263,7 +313,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj33uhhp6001z4nvghax2tvm0" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj4dqx63a002dgzvgtbolodpp" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/23//prato-2//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -323,7 +373,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj33uhhn300074nvgt7hr9tjw" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj4dqx60f0006gzvgt3m5ewzi" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -403,7 +453,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj33uhhn200064nvgr385z2pk" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj4dqx60h0007gzvgm77cnkja" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/11//css-style-override//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -458,7 +508,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/28//prato-1//" data-id="cj33uhhpa00274nvg67zx7lj4" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/04/28//prato-1//" data-id="cj4dqx6370028gzvgehmqyo12" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/04/28//prato-1//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -598,7 +648,7 @@ private class Node {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cj33uhhp1001t4nvgn8zgt171" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cj4dqx6300020gzvgd6dmyjql" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/04/02//practice-animal-shelter//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -698,61 +748,12 @@ console.log(c.name);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cj33uhhon001f4nvgxe17u1d9" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cj4dqx62k001lgzvgreqr5198" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/03/30//javascript-prototype//#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/coin/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2016/03/27/coin/" class="article-date">
-  <time datetime="2016-03-26T17:08:18.000Z" itemprop="datePublished">2016-03-27</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/27/coin/">COIN, 함께 성장하기</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>학기의 시작을 앞두고 평소 함께 진로를 고민하던 <a href="http://oyabun.xyz" target="_blank">친한 형님</a>과 이야기를 나눌 기회가 있었습니다. 둘다 졸업을 앞둔 시기라 취업에 관한 이야기가 주를 이뤘죠. 어떻게 준비하면 개발자로 일을 시작할 수 있을까하고 이야기를 나누다보니 나름대로 비슷한 것을 준비하고 있다는 것을 알게되었습니다. 블로그를 운영하고 기술면접(코딩인터뷰)을 준비하고 있다는 사실이 그랬죠. 그리고 학교에서 제공하는 취업 관련 컨설팅이 저희 같은 개발자에게 부족한 부분이 많다는 것을 서로 공감했습니다. 이에 함께 이런 이야기를 할 수 있는 자리를 만들고 비슷한 고민을 하는 친구들을 모아서 동아리를 운영해보자는 이야기까지 나왔습니다. 마침 학교에서 취업 관련 동아리를 지원해주고 있었기에 저희는 각자 사람을 모으고 일을 추진했습니다.</p>
-<p>1주일 후인 3월 4일에 여섯명이 첫모임을 가졌습니다. 그 모임의 이름이 &#8216;<strong>COIN(코인)</strong>&#8216; 입니다. <strong>코</strong>딩<strong>인</strong>터뷰 준비하는 사람들의 모임 혹은 <strong>코</strong>딩하는 <strong>인</strong>간들의 모임이라는 의미를 갖습니다. 저희는 모여서 함께 데이터구조, 알고리즘을 중점적으로 복습 및 학습하고 교재인 &lt;코딩인터뷰 완전분석&gt;이라는 책에 등장하는 예제를 풀어볼 생각입니다. 취업 관련 정보/팁 공유는 덤입니다. 저희 모임을 위해 교내 경력개발실에서도 지원해주고 있습니다.</p>
-<p>COIN 덕분에 저희는 함께 성장할 것 같습니다. 블로그가 풍성해지는 것은 덤이겠지요. 조금씩 더 성장하는 모습 계속 지켜봐주세요. 감사합니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/27//coin//" data-id="cj33uhhn100054nvgv19dwy5c" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/03/27//coin//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coin/">coin</a></li></ul>
 
     </footer>
   </div>
