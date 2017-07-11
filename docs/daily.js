@@ -55,7 +55,7 @@
 
     return function(...args) {
       var args1 = parts1.slice(), 
-          args2 = parts2.slice()
+          args2 = parts2.slice(),
           rest = args.slice();
 
       for (var i in args1)
@@ -64,7 +64,7 @@
         
       for (var i in args2) 
         if (args2[i] == _) 
-          args2[i] = rest.pop();ㅌ
+          args2[i] = rest.pop();
 
       return func(...[...args1, ...rest, ...args2]);
     }
@@ -135,10 +135,10 @@
   _.omit = (target, ...keys) => {
     if (typeof keys[0] == 'function') {
       var predicate = keys[0];
-      return _.pick(target, (...args) => !predicate(...args)) // [1] pick을 사용하고 predicate를 뒤집었습니다.
+      return _.pick(target, _.negate(predicate));
     }
     
-    return Object.keys(target).reduce((obj, key) => { // [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.
+    return Object.keys(target).reduce((obj, key) => {
       return keys.includes(key) ? obj : (obj[key] = target[key], obj);
     }, {});
   }
