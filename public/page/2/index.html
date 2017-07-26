@@ -74,6 +74,159 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/03/15/javascript-daily-function-3/" class="article-date">
+  <time datetime="2017-03-15T14:37:46.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/javascript-daily-function-3/">[오늘의 함수] confirm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="confirm-함수"><a href="#confirm-함수" class="headerlink" title="confirm 함수"></a>confirm 함수</h2><p>오늘은 정말 단순한 함수입니다. 아이디어가 없어서라기보다 새로운 함수를 만드는 것이 그렇게 화려한 일이 아님을 보여드리고 싶어 간단한 함수를 준비해봤습니다. 바로 <code>confirm</code> 함수 입니다. 브라우저 환경에서 기본으로 제공하는 함수이기도 합니다. 기존의 사용법은 아래와 같습니다.</p>
+<p>이와 같은 형태의 html 소스 코드가 있다고 가정합니다. 사용자가 삭제 버튼을 누르면 지울 것인지 확인하는 메시지를 보여주고 확인 버튼을 누르면 해당 요소가 삭제되는 예제입니다.</p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>요소 1번<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"delete"</span>&gt;</span>삭제<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (confirm(<span class="string">'Are you sure?'</span>)) &#123; <span class="comment">// [1] 확인 창을 띄워 유저의 선택을 기다립니다. 그 결과에 따라 다음 코드를 실행합니다.</span></div><div class="line">    $(e.delegateTarget).remove(); <span class="comment">// [2] 클릭했던 버튼의 부모 엘리먼트를 제거합니다.</span></div><div class="line">  &#125; </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>confirm</code> 함수는 사용자가 어떤 버튼을 누르는가에 따라 <code>true</code>, <code>false</code> 값을 반환합니다. 보통은 이에 따라 실행되어야할 함수를 조건문으로 분기를 쳐둡니다. 이러한 조건문을 포함한 하나의 <code>confirm</code> 함수를 만들어 보았습니다. (구분을 위해 오늘의 함수 앞에 <code>_</code>를 붙였습니다.)</p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_confirm</span>(<span class="params">message, yes_fn, no_fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> confirm(message) ? yes_fn() : no_fn(); <span class="comment">// [1] 분기를 함수 안으로 가져왔습니다.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="string">'li'</span>).on(<span class="string">'click'</span>, <span class="string">'button.delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  _confirm(<span class="string">'Are you sure?'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [2] '확인'을 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">    $(e.delegateTarget).remove();</div><div class="line">  &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;) <span class="comment">// [3] '취소'를 눌렀을 때 동작하게될 함수입니다.</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/15/javascript-daily-function-3/" data-id="cj5kjf3oi0014jovg2k921c1e" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/15/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-daily-function-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/03/09/javascript-daily-function-2/" class="article-date">
+  <time datetime="2017-03-09T11:36:40.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/javascript-daily-function-2/">[오늘의 함수] redirect2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="redirect2-함수"><a href="#redirect2-함수" class="headerlink" title="redirect2 함수"></a>redirect2 함수</h2><p>첫번째로 소개해드렸던 <code>redirect</code> 함수의 개량된 버전을 소개합니다. 기존의 함수는 단지 새로운 경로로 이동해주는 역할만을 했습니다. 하지만 <strong>때론 URL이 유연하게 결정되어야할 필요가 있습니다.</strong> <code>post</code>방식이 아닌 <code>get</code>방식으로 서버와 통신해야할 경우가 있기 때문입니다.</p>
+<p>오늘의 예제는 <code>post</code>로 가져온 데이터의 아이디 값에 따라 <code>get</code>방식으로 다른 페이지를 로드(load) 해야하는 경우를 가정했습니다.</p>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect1 = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; <span class="comment">// [1] URL에 query string을 붙여주기 위해 함수를 새로 열었습니다.</span></div><div class="line">    redirect1(<span class="string">'/main/newsfeed?id='</span> + res.id); </div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>사실 위의 함수도 그리 나쁘지 않습니다. 단지 한줄이 늘었을 뿐이니까요. 그래도 저는 조금 더 단순하게 함수 하나만 넣고 끝내고 싶습니다.</p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect2 = <span class="function"><span class="keyword">function</span>(<span class="params">path, query</span>) </span>&#123; <span class="comment">// [1] query라는 새로운 argument를 만들어 둡니다.</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = query ? path + res[query] : path; <span class="comment">// [2] query가 존재하면 get 방식으로 URL 지정합니다.</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(redirect2(<span class="string">'/main/newsfeed?id='</span>, <span class="string">'id'</span>)); <span class="comment">// [3] 두번째 매개변수에 데이터에서 어떤 값을 사용하고 싶은지 키 값을 적어줍니다. </span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data)</div><div class="line">  .done(redirect2(<span class="string">'/main/editor?no='</span>, <span class="string">'no'</span>));</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data)</div><div class="line">  .done(redirect2(<span class="string">'/main/home'</span>)); <span class="comment">// [4] 하나의 매개변수를 보내면 redirect1과 동일하게 동작합니다.</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/09/javascript-daily-function-2/" data-id="cj5kjf3oc000xjovgvp2hnlgp" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/09/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-daily-function-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/03/07/javascript-daily-function-1/" class="article-date">
+  <time datetime="2017-03-07T14:28:18.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/07/javascript-daily-function-1/">[오늘의 함수] pick</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="pick-함수"><a href="#pick-함수" class="headerlink" title="pick 함수"></a>pick 함수</h2><p><strong>자바스크립트에서 객체는 키(key)와 값(value)의 쌍으로 이루어져있습니다.</strong> 프로그래밍을 하는 과정에서 키를 기준으로 값을 객체로부터 꺼내는 일을 반복합니다. 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?</p>
+<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user_1 = &#123; <span class="comment">// [1] 기존의 데이터</span></div><div class="line">  id: <span class="number">1</span>,</div><div class="line">  <span class="attr">first_name</span>: <span class="string">'Joeun'</span>,</div><div class="line">  <span class="attr">last_name</span>: <span class="string">'Ha'</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">28</span>,</div><div class="line">  <span class="attr">country</span>: <span class="string">'South Korea'</span>,</div><div class="line">  <span class="attr">city</span>: <span class="string">'Seoul'</span>,</div><div class="line">  <span class="attr">mobile_phone</span>: <span class="string">'010-0000-0000'</span>,</div><div class="line">  <span class="attr">email</span>: <span class="string">'imjoeunha@gmail.com'</span>,</div><div class="line">  <span class="attr">blog_url</span>: <span class="string">'http://joeun.me'</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user_data = &#123; <span class="comment">// [2] 필요한 데이터</span></div><div class="line">  id: user_1.id,</div><div class="line">  <span class="attr">first_name</span>: user_1.first_name, </div><div class="line">  <span class="attr">last_name</span>: user_1.last_name</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/user_name/check'</span>, user_data)</div><div class="line">  .done(redirect(<span class="string">'/main'</span>)); <span class="comment">// [3] '오늘의 함수 redirect' 편을 참고하세요.</span></div></pre></td></tr></table></figure>
+<p>위의 코드는 기존의 데이터를 가공해서 원하는 데이터만을 추려내서 특정 api로 전송하고 있습니다. 아래와 같은 <code>pick</code> 함수를 사용한다면 보다 쉽게 원하는 데이터를 추려낼 수 있습니다. <a href="underscorejs.org">underscore.js</a>라는 라이브러리에서 볼 수 있는 함수입니다. 아래는 그보다 단순하게 구현되어 있습니다. 원본 객체와 함께 꺼내길 원하는 키 값을 배열로 전달하면 추려진 객체를 반환합니다.</p>
+<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user_1 = &#123; <span class="comment">// [1] 기존의 데이터</span></div><div class="line">  id: <span class="number">1</span>,</div><div class="line">  <span class="attr">first_name</span>: <span class="string">'Joeun'</span>,</div><div class="line">  <span class="attr">last_name</span>: <span class="string">'Ha'</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">28</span>,</div><div class="line">  <span class="attr">country</span>: <span class="string">'South Korea'</span>,</div><div class="line">  <span class="attr">city</span>: <span class="string">'Seoul'</span>,</div><div class="line">  <span class="attr">mobile_phone</span>: <span class="string">'010-0000-0000'</span>,</div><div class="line">  <span class="attr">email</span>: <span class="string">'imjoeunha@gmail.com'</span>,</div><div class="line">  <span class="attr">blog_url</span>: <span class="string">'http://joeun.me'</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pick</span>(<span class="params">target, keys</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> keys.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">obj, key</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> obj[key] = target[key], obj;</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(pick(user_1, [<span class="string">'age'</span>, <span class="string">'id'</span>])); <span class="comment">// [2] 출력 결과는 &#123; age: 28, id: 1 &#125; 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.</span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/user_name/check'</span>, pick(user_1, [<span class="string">'id'</span>, <span class="string">'first_name'</span>, <span class="string">'last_name'</span>])) <span class="comment">// [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.</span></div><div class="line">  .done(redirect(<span class="string">'/main'</span>)); </div><div class="line"></div><div class="line">$.post(<span class="string">'/api/city/check'</span>, pick(user_1, [<span class="string">'id'</span>, <span class="string">'city'</span>]))</div><div class="line">  .done(redirect(<span class="string">'/main'</span>));</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/03/07/javascript-daily-function-1/" data-id="cj5kjf3o0000mjovg0kea9wnl" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/03/07/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -110,7 +263,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function/" data-id="cj4dqx62f001egzvgkz1hyuy1" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/03/02/javascript-daily-function/" data-id="cj5kjf3pe001pjovgjk8q3o1d" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/03/02/javascript-daily-function/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -160,7 +313,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj4dqx60o000agzvgb59dlsj7" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/07/17//daily-commit-today-i-learned//" data-id="cj5kjf3np000kjovgm1wzgwqb" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/07/17//daily-commit-today-i-learned//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -212,7 +365,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj4dqx5zw0002gzvgdz4vvbna" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/06/05//challenge-portfolio-page//" data-id="cj5kjf3nc000bjovg6jpe8ofd" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/06/05//challenge-portfolio-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -263,7 +416,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj4dqx63e002ggzvgkpq4tbjy" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/26//project-tribute-page//" data-id="cj5kjf3qg002tjovg8tsswcdp" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/26//project-tribute-page//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -313,7 +466,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj4dqx63a002dgzvgtbolodpp" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/23//prato-2//" data-id="cj5kjf3qf002qjovgm2g9757q" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/23//prato-2//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -373,7 +526,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj4dqx60f0006gzvgt3m5ewzi" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//" data-id="cj5kjf3nh000fjovghpngbm0q" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/12//css-color-hex-code-and-rgb//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -453,7 +606,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj4dqx60h0007gzvgm77cnkja" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/05/11//css-style-override//" data-id="cj5kjf3nf000djovg1n2hxz0z" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2016/05/11//css-style-override//#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -467,305 +620,10 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-/prato-1/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2016/04/28/prato-1/" class="article-date">
-  <time datetime="2016-04-28T06:14:17.000Z" itemprop="datePublished">2016-04-28</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/28/prato-1/">PRATO 개발기 (1)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="소개"><a href="#소개" class="headerlink" title="소개"></a>소개</h3><p>PRATO는 PraiseTogether의 약자입니다. 함께 찬양하고 노래하기 위해 필요한 콘티(곡의 순서)를 제작하는 과정에 필요한 모든 과정을 제공하는 웹 서비스입니다.</p>
-<p>해당 서비스는 기존에 콘티 제작 과정이 웹 검색-문서 편집-출력의 과정에서 웹 브라우저와 문서 편집 도구를 별도로 이용해야만 했던 불편함을 해소하고자 시작되었습니다. 불필요한 다운로드 과정을 생략하고 하나의 웹 페이지에서 모든 과정을 수행할 수 있는 서비스입니다.</p>
-<p>주요 기능은 &#8216;<strong>악보 검색</strong>&#8216;, &#8216;<strong>콘티 편집</strong>&#8216;, &#8216;<strong>콘티 출력</strong>&#8216; 입니다.</p>
-<p>개발 과정 및 코드는 <a href="https://github.com/joeunha/praisetogether" target="_blank" rel="external">Github</a>을 통해 확인하실 수 있습니다.</p>
-<p>&nbsp;</p>
-<h3 id="개발-환경-만들기"><a href="#개발-환경-만들기" class="headerlink" title="개발 환경 만들기"></a>개발 환경 만들기</h3><p>그나마 경험이 많은 AngularJS로 프론트엔드를 꾸릴까 합니다. 서버단을 구현할 능력이 있을지 모르나, 시간과 능력이 허락한다면 MEAN Stack으로 전체를 구현해볼 생각입니다. 개발 환경 세팅에 소요되는 시간을 최소화하기 위해 스캐폴딩 도구인 <a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a>을 이용했습니다.</p>
-<p>개발 툴은 SourceTree / Atom / Chrome을 사용합니다. 상황에 따라 Windows 10 / OS X를 혼용하고 있습니다. Windows 10의 경우 bash 툴을 지원하지 않지만 SourceTree에서 제공하는 터미널 기능을 이용하여 개발을 진행하고 있습니다.</p>
-<p>node (npm)을 설치한 뒤, yeoman 을 설치하면 yeoman을 사용할 준비가 끝이 납니다. 터미널에서 yo라고 입력하면 generator를 설치할 수 있는 installer가 보입니다. 저는 Grunt / Bower / css 를 선택했습니다. 스캐폴딩이 끝나고 grunt test, grunt build, grunt serve를 순서대로 입력하면 바로 작업 가능한 웹 페이지를 만나보실 수 있습니다. 이로써 개발 환경을 설정 했습니다.</p>
-<p>다음 시간에는 페이지 구조를 잡아보겠습니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/28//prato-1//" data-id="cj4dqx6370028gzvgehmqyo12" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/04/28//prato-1//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toy-project/">toy-project</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/practice-animal-shelter/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2016/04/02/practice-animal-shelter/" class="article-date">
-  <time datetime="2016-04-01T15:16:46.000Z" itemprop="datePublished">2016-04-02</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/02/practice-animal-shelter/">[Practice] 동물 쉼터(Animal Shelter)를 구현하라!</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="Practice-시리즈를-연재합니다-지난-3월-3일부터-COIN-코딩인터뷰-준비하는-모임-이라는-이름으로-함께-취업스터디를-진행하고-있는-5명의-친구들과-함께-교재-lt-코딩인터뷰-완전분석-gt-이라는-책을-가지고-공부를-시작했습니다-Practice-시리즈는-이-과정에서-함께-고민하며-풀었던-문제에-대해-이야기하는-시리즈입니다"><a href="#Practice-시리즈를-연재합니다-지난-3월-3일부터-COIN-코딩인터뷰-준비하는-모임-이라는-이름으로-함께-취업스터디를-진행하고-있는-5명의-친구들과-함께-교재-lt-코딩인터뷰-완전분석-gt-이라는-책을-가지고-공부를-시작했습니다-Practice-시리즈는-이-과정에서-함께-고민하며-풀었던-문제에-대해-이야기하는-시리즈입니다" class="headerlink" title="Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &lt;코딩인터뷰 완전분석&gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다."></a>Practice 시리즈를 연재합니다. 지난 3월 3일부터 COIN(코딩인터뷰 준비하는 모임)이라는 이름으로 함께 취업스터디를 진행하고 있는 5명의 친구들과 함께 교재 &lt;코딩인터뷰 완전분석&gt; 이라는 책을 가지고 공부를 시작했습니다. Practice 시리즈는 이 과정에서 함께 고민하며 풀었던 문제에 대해 이야기하는 시리즈입니다.</h6><hr>
-<p><strong>코딩인터뷰 완전분석 – 연습문제 3.7</strong></p>
-<p><strong>“먼저 들어온 동물이 먼저 나가는 동물 쉼터(animal shelter)가 있다고 하자. 이 쉼터는 개와 고양이만 수용할 수 있다. 사람들은 쉼터의 동물들 가운데 들어온 지 가장 오래된 동물부터 입양할 수 있는데, 개와 고양이 중 어떤 동물을 데려갈지 선택할 수도 있다. 특정한 동물을 지정해 데려가는 것은 금지되어 있다. 이 시스템을 자료구조로 구현하라. 해당 자료구조는 enqueue, dequeueAny, dequeueDog, dequeueCat의 연산들을 제공해야 한다. 언어에 기본 탑재되어 있는 LinkedList (Java) 자료구조를 이용해도 좋다.”</strong></p>
-<p>이번부터는 자바로 구현하겠습니다. <a href="http://rabbylab.xyz/practice-1/" target="_blank" rel="external">이전 글</a>에서 C로 코딩을 했는데, COIN에서 사용하는 공용 언어로 자바를 선정함에 따라 자바로 코딩하겠습니다.</p>
-<p>코드를 보시기에 앞서 문제를 먼저 해부(?)하겠습니다. 동물 쉼터는 &#8216;먼저 들어온 동물이 먼저 나가는&#8217; 곳 입니다. First In First Out(FIFO)라는거죠. 큐를 의미합니다. 그리고 문제의 끝에서 &#8216;LinkedList&#8217;를 사용해도 좋다고 합니다. 결국 LikedList로 표현된 Queue를 구현하라는 것입니다. 그리고 그 큐는 몇가지 제약조건을 가지고 있습니다. 들어온 지 가장 오래된 동물부터 입양하되, 개나 고양이 중에서 선택은 할 수 있도록 해줘라는 것입니다. 그래서 dequeueDog, dequeueCat 연산을 제공합니다. 대충 그림나옵니다. 그럼 시작할까요?</p>
-<pre class="brush: plain; title: ; notranslate" title="">private Node head;
-private Node tail;
-private int size = 0;
-private class Node {
-    private String name;
-    private int id;
-    private Node next;
-    public Node(String animal, int num){
-        this.name = animal;
-        this.id = num;
-        this.next = null;
-    }
-}
-</pre>
-
-<p>링크드리스트를 구현해야하기 때문에 노드를 만들어줍니다. head와 tail은 큐에서 front(앞)와 rear(뒤)를 맡게됩니다. 일단은 4번째 줄 이후를 집중해서 보겠습니다. 이 노드는 동물의 이름 값(name), 개와 고양이를 분류하기 위한 값(id) 그리고 다음 노드를 가르키는 값(next)을 가지고 있습니다. 사실 저는 이 &#8216;가르키는 값&#8217;이 참 익숙하지 않습니다. C에서는 이걸 포인터로 구현하는데 Java에서는 그냥 값을 참조하면 되는데, 그게 은근히 낯섭니다. 포인터의 그 특징이 더 뇌리에 깊게 박힌 것 같습니다. 여하튼 노드는 이렇게 구성되어 있습니다. 이제 본격적인 연산들을 살펴보겠습니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">public void enqueue(String animal, int num){
-    Node newNode = new Node(animal, num);
-    if(size == 0){
-        tail = head = newNode;
-    } else{
-        head.next = newNode;
-        head = newNode;
-    }
-    size++;
-}
-</pre>
-
-<p>이 코드는 노드를 추가(enqueue)하는 과정을 보여줍니다. 이 메소드는 인자로 동물의 이름(animal)과 개와 고양이를 구분하는 숫자(num)을 받습니다. 그리고 새로운 노드를 생성합니다. 이때 생성된 노드가 첫번째 노드라면(queue의 size가 0이라면) head와 tail이 동시에 이 노드를 가르킵니다. 만약 그렇지 않다면 head의 다음(next)에 새로운 노드가 붙습니다. 그리고 head는 새로운 노드를 가르킵니다. 그러니까 새로운 노드가 추가되면 tail로 붙는게 아니라 head가 이동합니다. tail은 움직이지 않습니다. 앞에다가 추가하는 방식인거죠. 추가가 끝나면 size를 증가시켜줍니다. 이로써 tail에는 가장 오래된 동물이 주인을 기다리게 됩니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">public void dequeueAny(){
-    System.out.println(tail.name);
-    tail = tail.next;
-    size--;
-    return;
-}
-</pre>
-
-<p>새로운 주인을 만난 동물을 보내주는 메소드입니다. 가장 먼저 들어온 동물을 보내주겠습니다. 보내주는 걸 확인하기 위해 메세지를 출력합니다. 출력 이후에는 tail을 한칸 뒤로 이동합니다. 다음 차례를 가르키는거죠. 그리곤 size를 감소시켜줍니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">public void dequeueDog(){
-    Node chaser_1 = tail;
-    Node chaser_2 = tail;
-    while(chaser_1.id != 0 && chaser_1.next != null){
-        chaser_2 = chaser_1;
-        chaser_1 = chaser_2.next;
-    }
-        //개가 첫번째 노드에 있었던 경우
-    if(chaser_1 == tail){
-        dequeueAny();
-        //개를 발견한 경우
-    } else if(chaser_1.id == 0){
-        System.out.println(chaser_1.name + ", Bye!\n");
-        chaser_2.next = chaser_1.next;
-    //개가 없는 경우
-        } else{
-        System.out.println("No Dog...");
-        return;
-    }
-    size--;
-    return;
-}
-</pre>
-
-<p>이제 새로운 주인이 원하는 동물을 골라서 주겠습니다. 개/고양이 중에서 선택이 가능해야겠죠. 위의 코드는 개를 내보내는 코드입니다. id가 0일 때, 개/ 1일 때, 고양이라고 간주했습니다. 이번 코드에서 중요한건 역시 chaser_1,chaser_2 입니다. 이들의 역할은 원하는 동물을 찾아오는 것입니다. 처음에는 tail부터 시작합니다. 가장 오래된 동물부터 확인하는 것이죠.</p>
-<p>while문을 보겠습니다. 본격적인 추적(chase)가 시작됩니다. id가 0이 아닐 경우 계속 반복됩니다. 다시말해, 0이 아니라는 말은 개가 아니라는 것이니까 고양이라는 의미겠죠? 그리고 만약에 더 이상 개가 남아 있지 않을 경우도 있겠죠? 그런 경우에 무한루프를 방지하기 위해서 next값이 null이면 탈출할 수 있도록 조건을 만들어둡니다. 이제 chaser의 이동을 살펴보겠습니다. 5번 줄에서 chaser_2가 chaser_1의 위치로 갑니다. 그리고 다음 줄에서 chaser_1은 다음 노드로 이동합니다. 이렇게 chaser_1이 앞으로 한 노드씩 움직이며 개를 찾습니다. 결국 개가 발견되거나 개가 없으면 루프를 벗어납니다.</p>
-<p>만약에 개가 첫번째 노드에 있었다면 그냥 dequeueAny 메소드를 호출해줍니다. 그리고 만약에 개가 맞다면 개에게 작별을 고하고 보내줍니다. chaser_2의 다음 노드였던 chaser_1의 노드를 없애주기 위해 chaser_1 다음의 노드와 chaser_2를 이어줍니다. 그렇게 노드를 정리합니다. 만약에 개가 없었다면 더 이상 개가 없다고 메세지를 출력해줍니다.</p>
-<p>dequeueCat의 경우는 id 값만 바꿔주면 됩니다. 고로 생략하겠습니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">public class Main {
-
-    public static void main(String[] args) {
-        LinkedList animals = new LinkedList();
-
-        animals.enqueue("귀욤",1);
-        animals.enqueue("개똥",0);
-        animals.enqueue("황묘",1);
-        animals.enqueue("백구",0);
-
-        System.out.println(animals);
-
-        animals.dequeueDog();
-
-        System.out.println(animals);
-    }
-
-}
-</pre>
-
-<p>예제 확인을 위한 코드입니다. 개똥이를 보내고 빈자리를 확인하는 것으로 코드가 끝납니다. 아래는 출력결과 입니다.</p>
-<p><img src="/images/aniqueue-result.jpg" alt=""></p>
-<p>전체 코드는 <a href="https://github.com/joeunha/rabbylab-csbasic/blob/master/src/rabbylab/csbasic/coin/animalshelter/LinkedList.java" target="_blank">이곳</a>에서 확인하실 수 있습니다. 감사합니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/04/02//practice-animal-shelter//" data-id="cj4dqx6300020gzvgd6dmyjql" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/04/02//practice-animal-shelter//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/practice/">practice</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/javascript-prototype/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2016/03/30/javascript-prototype/" class="article-date">
-  <time datetime="2016-03-29T15:26:18.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/javascript-prototype/">프로토타입</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>오늘은 &#8216;<strong>prototype(프로토타입)</strong>&#8216;에 대해 먼저 이야기해보겠습니다. 프로토타입은 사전에서 &#8220;(후대 사물의) 원조&#8221;라고 정의하고 있습니다. 다른 말로 &#8220;원형&#8221;이라고도 정의합니다. 코드 먼저 보시겠습니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">function GrandFa(){};
-GrandFa.prototype.name = "Joeun";
-
-function Father(){};
-Father.prototype = new GrandFa();
-
-function Sun(){};
-Sun.prototype = new Father();
-
-var o = new Sun();
-
-console.log(o.name);
-</pre>
-
-<p>위 코드는 &#8220;Joeun&#8221;을 출력하는 코드입니다. 자세히 살펴보면 첫째줄에서 GrandFa가 선언됩니다. (할아버지가 제일 먼저 계셨죠.) 그리고 두번째 줄에서 그 GrandFa의 이름은 Joeun이라고 GrandFa.prototype.name으로 정의합니다. 이때 프로토타입은 자바스크립트가 객체에 기본적으로 제공하는 프로퍼티입니다. 특정 객체의 원형을 정의하기 위해 사용된다고 생각하면 쉽습니다. 그 후에는 Father가 선언되고 GrandFa의 원형(특징,성질)을 물려받습니다. 상속이죠. 마찬가지로 Sun도 Father의 원형을 물려받습니다. 아들 객체가 마지막으로 o를 생성하고 o가 그 이름을 출력하면 결과물은 Joeun이 됩니다. 무슨 일이 일어난걸까요? </p>
-<p>이 상황을 설명하기 위해 Prototype Chain이라는 개념을 이해해야합니다. 가장 아래에 있는 o.name부터 보겠습니다. 자바스크립트는 o.name을 출력하기 위해 내용물을 들여다봅니다. 그런데 그 안에 아무것도 없는걸 발견하죠. 실제로 저희는 o.name에 아무것도 정의하지 않았으니까요. 그럼 이제 자바스크립트는 o의 원형인 Sun을 찾아갑니다. sun.name을 확인합니다. 역시 비어있습니다. 위로 올라갑니다. Father를 살펴보니 또 없군요. 결국 GrandFa까지 가서 보니 이 가족의 이름은 &#8220;Joeun&#8221;입니다. 그래서 o.name에 해당 내용을 출력합니다. 어떤가요? name을 Family name이라고 했으면 더 쉬웠을지도 모르겠다는 생각이 듭니다. 결국 Prototype Chain은 원형이 이어져있는 겁니다. 하위 항목에 없으면 상위 항목으로 찾으러 올라가는거죠. 너 성이 뭐니? 라고 물어봐서 아들이 모르면 아빠가 알테고 아빠가 모르면 할아버지가 알겠죠? 위로 올라가면서 묻는겁니다.</p>
-<p>그럼 이런 경우는 어떨까요?</p>
-<pre class="brush: plain; title: ; notranslate" title="">function GrandFa(){};
-GrandFa.prototype.name = "Joeun";
-
-function Father(){};
-Father.prototype = new GrandFa();
-Father.prototype.name = "Rabby"
-
-function Sun(){};
-Sun.prototype = new Father();
-
-var o = new Sun();
-
-console.log(o.name);
-</pre>
-
-<p>딱 한줄이 추가됐습니다. Father가 생성되고 중간에 이름을 변경합니다. 이때 출력되는 값은 &#8220;Rabby&#8221;입니다. 체인을 타고 올라가다가보니 중간쯤에 값이 있는데 그게 &#8220;Rabby&#8221;였기 때문입니다. (아빠가 성을 바꾸면 아들도 그 성을 따라가겠죠.)</p>
-<p>이때 주의하셔야할 부분이 하나 있습니다. 객체를 생성할 때 <code>var o = Sun.prototype</code>라고 하면 안됩니다. 그렇게 되면 o가 변경되면 Sun.prototype 값이 영향을 받습니다. 왜 그럴까요?</p>
-<p>&#8220;<em>객체는 결코 복사되지 않는다. 다만 참조된다.</em>&#8221; 바로 이 문장 때문입니다.</p>
-<p>그렇습니다. 객체는 복사되지 않습니다. 객체는 참조됩니다. 코드를 보시면 알 수 있습니다.</p>
-<pre class="brush: plain; title: ; notranslate" title="">function Dev(){};
-Dev.prototype.name = "Joeun";
-
-var a = b = c = Dev.prototype;
-
-console.log(a.name);
-console.log(b.name);
-console.log(c.name);
-
-Dev.prototype.name = "Rabby";
-
-console.log(a.name);
-console.log(b.name);
-console.log(c.name);
-</pre>
-
-<p>이 코드의 결과는 &#8220;Joeun&#8221;이 세번 반복되고 이어서 &#8220;Rabby&#8221;가 세번 반복됩니다. a,b,c를 정의할 때 저희는 Dev.prototype을 참조하게 했습니다. 만약에 복사되었다면 중간에 Dev.prototype.name 값이 바뀐다고 해서 이후 값이 바뀌지 않았겠죠. 하지만 객체는 &#8216;참조&#8217;된다는 특성 때문에 이와 같은 결과가 나온 것입니다. 때문에 객체를 복사하듯 사용하기 위해선 &#8220;new&#8221;를 이용해 생성자로 사용해주셔야 합니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/30//javascript-prototype//" data-id="cj4dqx62k001lgzvgreqr5198" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2016/03/30//javascript-prototype//#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 </section>
       </div>
