@@ -5,19 +5,18 @@
   
   <title>fork(), execlp(), wait() 함수 | joeun.me</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다.
-이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
+  <meta name="description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다. 이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
+<meta name="keywords" content="cs-basic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fork(), execlp(), wait() 함수">
 <meta property="og:url" content="http://joeun.me/2016/03/26//fork-execlp-wait//index.html">
 <meta property="og:site_name" content="joeun.me">
-<meta property="og:description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다.
-이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
+<meta property="og:description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다. 이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
+<meta property="og:locale" content="ko">
 <meta property="og:updated_time" content="2017-04-21T15:19:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fork(), execlp(), wait() 함수">
-<meta name="twitter:description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다.
-이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
+<meta name="twitter:description" content="운영체제를 배우고 있습니다. 이전 글에서 프로그램, 프로세스 그리고 스레드에 대해 다뤘습니다. 오늘은 fork(), execlp(), wait() 함수를 살펴보겠습니다. 이 세 함수는 앞서 살펴본 프로세스와 연관을 맺고 있는 함수입니다. 각각 복사, 대체, 대기를 담당하는 함수들입니다. 오늘은 예시와 함께 살펴보도록 하겠습니다. 예시는 C 언어로 작성되었습">
   
   
     <link rel="shortcut icon" href="/css/images/favicon.ico">
@@ -73,7 +72,7 @@ ga('send', 'pageview');
         <!--<a id="nav-search-btn" class="nav-icon" title="Search"></a>-->
       </nav>
       <!--<div id="search-form-wrap">-->
-        <!--<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://joeun.me"></form>-->
+        <!--<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://joeun.me"></form>-->
       <!--</div>-->
     </div>
   </div>
@@ -163,9 +162,9 @@ int main(int argc, char *argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2016/03/26//fork-execlp-wait//" data-id="cj5kjf3o4000pjovgzaou8wos" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2016/03/26/fork-execlp-wait/" data-id="cj5kjf3o4000pjovgzaou8wos" class="article-share-link">Share</a>
       
-        <a href="http://joeun.me/2016/03/26//fork-execlp-wait//#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://joeun.me/2016/03/26/fork-execlp-wait/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cs-basic/">cs-basic</a></li></ul>
@@ -228,7 +227,7 @@ int main(int argc, char *argv[]) {
 <script>
   var disqus_shortname = 'joeun';
   
-  var disqus_url = 'http://joeun.me/2016/03/26//fork-execlp-wait//';
+  var disqus_url = 'http://joeun.me/2016/03/26/fork-execlp-wait/';
   
   (function(){
     var dsq = document.createElement('script');
