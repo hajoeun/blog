@@ -3,45 +3,17 @@
   window.__ = _pipe;
   window.___ = {};
 
+  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+  _.is_array_like = _is_arr_like;
+  function _is_arr_like(data) {
+    var length = get_length(data);
+    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+  }
+  function get_length(list) { return list == null ? void 0 : list.length; }
+
   _.identity = _.idtt = value => value
   
   _.always = value => () => value
-  
-  _.reduce = function(arr, iter, memo) {
-    return arr.reduce(iter, memo || 0);
-  }
-
-  _.map = function f(data, iter) {
-    if (arguments.length == 1) return _(f, _, data);
-
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-      res[i] = iter(data[i], i, data);
-    }
-    return res;
-  }
-
-  _.values = _.map(_.idtt);
-
-  _.negate = function(fn) {
-    return (...args) => !fn(...args)
-  }
-
-  _.filter = function f(data, predi) {
-    if (arguments.length == 1) return _(f, _, data);
-
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-      if (predi(data[i], i, data)) res.push(data[i])
-    }
-    return res;
-  }
-
-  _.reject = function f(data, predi) {
-    if (arguments.length == 1) return _(f, _, data);
-
-    return _.filter(data, _.negate(predi));
-  }
 
   _.partial = _partial;
   function _partial(func, ...parts) {
@@ -50,8 +22,7 @@
     for (var i in parts)
       if (parts[i] == ___) ___idx = i; 
       else if (i < ___idx) parts1.push(parts[i]);
-      else parts2.push(parts[i]);
-  
+      else parts2.push(parts[i]);  
 
     return function(...args) {
       var args1 = parts1.slice(), 
@@ -68,6 +39,55 @@
 
       return func(...[...args1, ...rest, ...args2]);
     }
+  }
+
+  _.each = _each;
+  function _each(data, iter) {
+    if (arguments.length == 1) return _each(f, _, data);
+    if (_is_arr_like(data)) {  
+      for (var i in data) iter(data[i], i, data); 
+    } else {
+      var keys = Object.keys(data);
+      for (var i in keys) iter(data[keys[i]], keys[i], data);
+    }
+    return data;
+  }
+
+  _.map = function f(data, iter) {
+    if (arguments.length == 1) return _(f, _, data);
+    var res = [];
+    _each(data, (v, i, l) => (res[i] = iter(v, i, l)));
+    return res;
+  }
+
+  _.filter = function f(data, predi) {
+    if (arguments.length == 1) return _(f, _, data);
+    var res = [];
+    _each(data, (v, i, l) => {if (predi(v, i, l)) res.push(v)});
+    return res;
+  }
+
+  _.reject = function f(data, predi) {
+    if (arguments.length == 1) return _(f, _, data);
+    return _.filter(data, _.negate(predi));
+  }
+
+  _.reduce = function f(data, iter, memo) {
+    if (arguments.length == 1) return _(f, _, data);
+    if (_is_arr_like(data)) { 
+      var i = -1, len = data.length, res = memo || data[++i];
+      while (++i < len) res = iter(res, data[i], i, data);
+    } else {
+      var i = -1, keys = Object.keys(data), len = keys.length, res = memo || data[keys[++i]];
+      while (++i < len) res = iter(res, data[keys[i]], keys[i], data);
+    }
+    return res;
+  }
+
+  _.toArray = _.to_array = _.map(_.idtt);
+
+  _.negate = function(fn) {
+    return (...args) => !fn(...args)
   }
 
   _.pipe = _pipe;
@@ -111,7 +131,7 @@
   }
 
   _.nest = function f(key, value) {
-    if (arguments.length == 1) return _partial(f, key);
+    if (arguments.length == 1) return _(f, key);
     return key.split('.').reduceRight(_valkey, value);
   }
 
