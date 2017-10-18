@@ -13,7 +13,7 @@ _함수형 자바스크립트 스터디 정리_
 
 
 ### 전체 스터디 일정
-  1. 기본 함수 구현하고 사용하기 [Source](https://github.com/joeunha/functional-js-study/tree/master/01_week)
+  1. [기본 함수 구현하고 사용하기](http://joeun.me/2017/10/17/functional-js-study/) [Source](https://github.com/joeunha/functional-js-study/tree/master/01_week)
   2. 커링과 Partial.js 간단 소개 [Source](https://github.com/joeunha/functional-js-study/tree/master/02_week)
   3. jQuery vs Don.js [Source](https://github.com/joeunha/functional-js-study/tree/master/03_week)
   4. Movie Box 1 - 필터링, 정렬 [Source](https://github.com/joeunha/functional-js-study/tree/master/04_week)
@@ -63,7 +63,7 @@ var products = [
 ];
 ```
 
-##### 1. 전체 수량 구하기
+##### 1. 모든 제품의 전체 수량 구하기
 
 제품의 전체 수량을 구하는 코드는 아래와 같이 작성할 수 있다.
 ```javascript
@@ -95,7 +95,7 @@ _go(products,
 ```
 
 
-##### 2. 선택된 전체 수량 구하기
+##### 2. 선택된 제품의 전체 수량 구하기
 
 선택된 제품들의 수량만을 구하는 코드는 아래와 같다.
 ```javascript
@@ -213,7 +213,7 @@ console.log(result); // 55
 function _reduce(list, iter, memo) {
   var i = 0;
   if (Array.isArray(list)) {
-    var res = (memo != undefined ? memo : list[i++]);
+    var res = (memo != undefined ? memo : list[i++]); // <-- 남다른 결과값 선언부
     for (var len = list.length; i < len; i++) 
       res = iter(res, list[i], i, list);
   } else {
@@ -225,21 +225,43 @@ function _reduce(list, iter, memo) {
 }
 ```
 
-(...)
+결과값 `res`를 선언하는 부분이 조금 남다르다. 앞선 `_map`, `_filter`가 배열을 리턴했던 것과 달리 `_reduce`는 결과값의 데이터형이 호출 당시에 결정된다. 코드에서 `memo`에 해당하는 변수가 바로 초기값이다. 결과값은 초기값의 데이터형에 의해 정해지기 때문에 `res`를 선언하는 과정에서 `memo`가 데이터를 가지고 있는지를 검사한다. `!=`로 검사하여 `null` 혹은 `undefined`인 경우 호출 당시 초기값이 전달되지 않은 것으로 판단하고 `list`의 첫번째 값을 초기값으로 사용한다. 
+
+이후에 다른 함수들과 마찬가지로 반복문을 수행한다. 이때 보조함수 `iter`가 리턴하는 값을 결과값에 덮어씌운다. `list`의 마지막 값을 가지고 보조함수가 수행한 결과가 최종 결과값이 된다.
+
 
 ##### 5. `_go`
+`_go` 함수는 파이프라인 코딩이 가능하도록 돕는 함수다. 클로저(Clojure)에서의 `->>` 연산자나 엘릭서(Elixir)에서의 `|>` 연산자와 같은 역할을 한다. 첫번째로 받은 인자(데이터)를 두번째로 받은 인자(함수)에 넘긴다. 두번째 함수가 리턴하는 값을 다시 세번째 인자(함수)로 넘긴다. 예시를 한번 더 살펴보자.
+
+```javascript
+_go([1,2,3,4,5,6,7,8,9,10],
+  arr => _filter(arr, num => num % 2), // <-- 홀수 값만을 갖는 배열을 리턴한다.
+  arr => _reduce(arr, (total, num) => total + num), // [1, 3, 5, 7, 9]을 더하여 리턴한다.
+  console.log); // 25
+```
+
+코드는 아래와 같이 구현되어 있다.
 ```javascript
 var slice = Array.prototype.slice;
 function _go(seed) {
   var fns = slice.call(arguments, 1);
-  return _reduce(fns, function(se, fn) {
-    return fn(se);
-  }, seed)
+  return _reduce(fns, (se, fn) => fn(se), seed);
 }
 ```
 
+짧은 코드지만 재미난 구석이 많은 코드다. 살펴보자. 우선 `slice`를 사용해서 `arguments` 객체를 배열로 만들어준다. 첫번째 인자인 `seed`를 제외한 나머지들을 모두 `fns`라는 변수에 선언하는데 첫번째 인자를 제외한 모든 인자가 함수일 것이기 때문이다. 이제 이 함수들을 순서대로 실행시켜나가면 된다. 그런데 뜬금없이 `_reduce`가 등장한다. 잠깐 생각해보자.
+
+`_go`는 첫번째 인자로 들어온 __데이터를 여러 함수들에 통과시키며 리턴값을 만들어가는 함수__다. 데이터를 변형해서 무엇으로 만들어가는 함수는 이미 하나 있었다. 데이터를 접는 함수라고 소개했던 `_reduce`가 그런 역할을 한다. __초기값의 데이터형__을 기준으로 __돌림직한 데이터__를 돌면서 데이터를 접어나간다. 우리는 이미 돌림직한 데이터인 `fns`(배열)와 초기값인 `seed`를 가지고 있다. 이제 필요한건 오직 __어떻게 접어나갈지 정의하는 함수__뿐이다. 그렇다. 이게 바로 `_reduce`가 사용된 이유다. 이렇게 이미 정의된 함수 덕에 보다 쉽게 새로운 함수를 만들 수 있다. 이제 어떻게 접어나갈지 살펴보자.
+
+우리는 `fns`가 갖고 있는 함수들의 실행 결과가 필요하다. 이 작업을 단지 `(se, fn) => fn(se)`라고 정의함으로 해결할 수 있다. 이미 정의된 어떤 함수 덕분이다. 여기서 `se`는 처음에는 `seed`와 같은 값이었다가 이후에는 `fn`의 리턴값이 될 것이다. `fn`은 `_reduce`의 내부에서 반복문으로 배열(`fns`)을 돌며 계속해서 다음 값을 넘겨서 받게 되는 함수다. 
 
 
+### 문제 풀어보기
+끝으로 앞서 소개된 '함수형 실전 코드 예제'와 유사한 예제를 풀어보자. 데이터는 `products`라는 변수에 선언되어 있다. ('검사' 창에서 풀어볼 수 있다.) 
+
+##### 1. 모든 제품의 총 가격
+
+##### 2. 선택된 제품의 총 가격 
 
 
 
@@ -274,4 +296,10 @@ var products = [
     ]
   }
 ];
+console.log(`
+[문제 풀어보기]
+  0. 데이터 변수 이름: products
+  1. 모든 제품의 총 가격
+  2. 선택된 제품의 총 가격 
+`)
 </script>
