@@ -2,7 +2,6 @@
 title: '[미니게임] 코드 - BINGO'
 date: 2017-07-26 13:55:31
 categories:
-  - joeun.me
   - programming
 tags:
   - javascript

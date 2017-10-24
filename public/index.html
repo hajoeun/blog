@@ -5,13 +5,18 @@
   
   <title>joeun.me</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Developer Joeun&apos;s Blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="joeun.me">
 <meta property="og:url" content="http://joeun.me/index.html">
 <meta property="og:site_name" content="joeun.me">
+<meta property="og:description" content="Developer Joeun&apos;s Blog">
 <meta property="og:locale" content="ko">
+<meta property="og:image" content="http://joeun.me/images/header_image.gif">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="joeun.me">
+<meta name="twitter:description" content="Developer Joeun&apos;s Blog">
+<meta name="twitter:image" content="http://joeun.me/images/header_image.gif">
   
   
     <link rel="shortcut icon" href="/css/images/favicon.ico">
@@ -35,6 +40,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  <link rel="canonical" href="http://joeun.me/"/>
 </head>
 
 <body>
@@ -75,16 +81,16 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
-    <article id="post-functional-js-study" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-functional-js-study-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-      <a href="/2017/10/17/functional-js-study/" class="article-date">
-  <time datetime="2017-10-17T06:36:32.000Z" itemprop="datePublished">2017-10-17</time>
+      <a href="/2017/10/23/functional-js-study-3/" class="article-date">
+  <time datetime="2017-10-23T06:06:58.000Z" itemprop="datePublished">2017-10-23</time>
 </a>
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -95,7 +101,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/functional-js-study/">[스터디] 함수형 자바스크립트</a>
+      <a class="article-title" href="/2017/10/23/functional-js-study-3/">[함수형 자바스크립트] 함수형 자바스크립트 라이브러리</a>
     </h1>
   
 
@@ -103,18 +109,266 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>함수형 자바스크립트 스터디 정리</em></p>
-<h3 id="전체-스터디-일정"><a href="#전체-스터디-일정" class="headerlink" title="전체 스터디 일정"></a>전체 스터디 일정</h3><ol>
-<li><a href="http://joeun.me/2017/10/17/functional-js-study/">기본 함수 구현하고 사용하기</a> <a href="https://github.com/joeunha/functional-js-study/tree/master/01_week" target="_blank" rel="external">Source</a></li>
-<li>커링과 Partial.js 간단 소개 <a href="https://github.com/joeunha/functional-js-study/tree/master/02_week" target="_blank" rel="external">Source</a></li>
-<li>jQuery vs Don.js <a href="https://github.com/joeunha/functional-js-study/tree/master/03_week" target="_blank" rel="external">Source</a></li>
-<li>Movie Box 1 - 필터링, 정렬 <a href="https://github.com/joeunha/functional-js-study/tree/master/04_week" target="_blank" rel="external">Source</a></li>
-<li>Movie Box 2 - 필터링, 정렬 복습 <a href="https://github.com/joeunha/functional-js-study/tree/master/05_week" target="_blank" rel="external">Source</a></li>
-<li>Movie Box 3 - 지연평가 L, memoize <a href="https://github.com/joeunha/functional-js-study/tree/master/06_week" target="_blank" rel="external">Source</a></li>
-<li>Movie Box 4 - 비동기 상황 다루기 <a href="https://github.com/joeunha/functional-js-study/tree/master/07_week" target="_blank" rel="external">Source</a></li>
-</ol>
+        <hr>
+<h3 id="전체-스터디-일정"><a href="#전체-스터디-일정" class="headerlink" title="전체 스터디 일정"></a>전체 스터디 일정</h3><h5 id="1주차-기본-함수-구현하고-사용하기"><a href="#1주차-기본-함수-구현하고-사용하기" class="headerlink" title="1주차 | 기본 함수 구현하고 사용하기"></a>1주차 | <a href="http://joeun.me/2017/10/17/functional-js-study/">기본 함수 구현하고 사용하기</a></h5><h5 id="2주차-고차-함수와-커링-currying"><a href="#2주차-고차-함수와-커링-currying" class="headerlink" title="2주차 | 고차 함수와 커링(currying)"></a>2주차 | <a href="http://joeun.me/2017/10/18/functional-js-study-1/">고차 함수와 커링(currying)</a></h5><h5 id="3주차-함수형-자바스크립트-라이브러리"><a href="#3주차-함수형-자바스크립트-라이브러리" class="headerlink" title="3주차 | 함수형 자바스크립트 라이브러리"></a>3주차 | <a href="http://joeun.me/2017/10/19/functional-js-study-2/">함수형 자바스크립트 라이브러리</a></h5><h5 id="4주차-Movie-Box-1-필터링-정렬"><a href="#4주차-Movie-Box-1-필터링-정렬" class="headerlink" title="4주차 | Movie Box 1 - 필터링, 정렬"></a>4주차 | Movie Box 1 - 필터링, 정렬</h5><h5 id="5주차-Movie-Box-2-필터링-정렬-복습"><a href="#5주차-Movie-Box-2-필터링-정렬-복습" class="headerlink" title="5주차 | Movie Box 2 - 필터링, 정렬 복습"></a><em>5주차 | Movie Box 2 - 필터링, 정렬 복습</em></h5><h5 id="6주차-Movie-Box-3-지연평가-L-memoize"><a href="#6주차-Movie-Box-3-지연평가-L-memoize" class="headerlink" title="6주차 | Movie Box 3 - 지연평가 L, memoize"></a><em>6주차 | Movie Box 3 - 지연평가 L, memoize</em></h5><h5 id="7주차-Movie-Box-4-비동기-상황-다루기"><a href="#7주차-Movie-Box-4-비동기-상황-다루기" class="headerlink" title="7주차 | Movie Box 4 - 비동기 상황 다루기"></a><em>7주차 | Movie Box 4 - 비동기 상황 다루기</em></h5><p><a href="https://github.com/joeunha/functional-js-study/tree/master/04_week" target="_blank" rel="external">예제 코드</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/10/23/functional-js-study-3/" data-id="cj93s6mt2000djzvg190basr6" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/10/23/functional-js-study-3/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/partial-js/">partial.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-자바스크립트/">함수형 자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-functional-js-study-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/10/19/functional-js-study-2/" class="article-date">
+  <time datetime="2017-10-19T09:41:14.000Z" itemprop="datePublished">2017-10-19</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/19/functional-js-study-2/">[함수형 자바스크립트] 함수형 자바스크립트 라이브러리</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="함수형-자바스크립트-라이브러리"><a href="#함수형-자바스크립트-라이브러리" class="headerlink" title="함수형 자바스크립트 라이브러리"></a>함수형 자바스크립트 라이브러리</h2><p>함수형으로 프로그래밍하는데 도움을 주는 자바스크립트 라이브러리를 알아보고 배워보자.<br>(모든 예제는 웹 브라우저의 ‘검사’ 도구를 열어서 테스트할 수 있다.)</p>
+<h3 id="Partial-js"><a href="#Partial-js" class="headerlink" title="Partial.js"></a>Partial.js</h3><h5 id="0-Underscore"><a href="#0-Underscore" class="headerlink" title="0. Underscore"></a>0. Underscore</h5><p>자바스크립트 생태계에서 <code>_</code>(underscore)라는 네임스페이스는 보통 <a href="http://underscorejs.org/" target="_blank" rel="external">Underscore</a>나 <a href="https://lodash.com/" target="_blank" rel="external">Lodash</a>의 차지다. underscore가 먼저 등장했고 이후에 조금 더 다양한 함수와 기능으로 무장한 채로 lodash가 등장했다. 그리고 이제 같은 네임스페이스를 사용하지만 보다 함수형 프로그래밍에 적합한 <a href="https://marpple.github.io/partial.js/" target="_blank" rel="external">Partial</a>을 소개할 차례다.</p>
+<h5 id="1-부분-적용-함수-partial"><a href="#1-부분-적용-함수-partial" class="headerlink" title="1. 부분 적용 함수 _.partial"></a>1. 부분 적용 함수 <code>_.partial</code></h5><p><a href="http://joeun.me/2017/10/18/functional-js-study-1/">지난 시간</a>에 다룬 <code>_curryr</code> 함수는 해결되지 않은 문제를 가지고 있었다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = _curryr(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b);</div></pre></td></tr></table></figure>
+<p><code>_curryr</code>에 의해 커링이 가능하게 만들어진 함수는 받을 수 있는 인자의 개수가 2개로 제한되어 있다는 점이었다. <code>_reduce</code>와 같이 3개 이상의 인자를 받는 함수가 커링이 가능하도록 만들기 위해서는 <code>_curryr</code>을 새로 만들어야하는 상황이었다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_curryr3</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">1</span>) <span class="comment">// &lt;-- 인자의 수에 따라 다른 값을 리턴</span></div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fn(b, a);</div><div class="line">      &#125;;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">2</span>) </div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">c</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> fn(c, a, b);</div><div class="line">      &#125;;</div><div class="line">    <span class="keyword">return</span> fn(a, b, c); </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>_curryr3</code>은 세개의 인자를 받는 함수라도 커링이 가능하도록 만들어주는 함수다. 허나 인자의 수에 따라 새로운 함수를 여러개 만들어 두는 것은 그리 근사한 방법이 아니다. 이 부분도 추상화가 가능하다. 바로 <code>_.partial</code> 함수다. 이 함수는 커링을 보다 높은 레벨로 추상화한 함수다. <code>_curry</code>와 마찬가지로 커링이 가능한 함수를 리턴하는 함수이지만 미리 값을 적용시켜둘 인자의 순서를 정할 수 있는 함수다. 사용법을 살펴보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum_init_0 = _.partial(_reduce, _, (total, num) =&gt; total + num, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(sum_init_0(arr)); <span class="comment">// 55</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> sum = _.partial(_reduce, _, (total, num) =&gt; total + num);</div><div class="line"><span class="built_in">console</span>.log(sum(arr, <span class="number">100</span>)); <span class="comment">// 155</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> reduce_arr = _.partial(_reduce, arr);</div><div class="line"><span class="built_in">console</span>.log(reduce_arr(<span class="function">(<span class="params">total, num</span>) =&gt;</span> total + num)); <span class="comment">// 55</span></div></pre></td></tr></table></figure>
+<p><code>sum_init_0</code> 함수는 <code>0</code>을 초기값으로 가진 상태로 돌림직한 데이터가 가진 모든 수를 더하는 함수다. 선언되는 과정을 살펴보면 <code>_.partial</code> 함수에게 세개의 인자가 전달된다. 첫번째 인자인 <code>_reduce</code>는 커링의 대상이 될 함수다. 이후의 인자들은 <code>_reduce</code>에 전달될 인자를 의미한다. 두번째 인자는 <code>_</code>인데 이 부분은 나중에 받겠다는 의미가 된다. <strong>‘지금은 비워두고 나중에 값이 들어오면 여기에 넣어라’</strong>는 의미가 되는 셈이다. 반면 <code>(total, num) =&gt; total + num</code>과 <code>0</code>은 각각 <code>iter</code>, <code>memo</code>를 의미하고(<a href="http://joeun.me/2017/10/17/functional-js-study/">기본 함수 구현하고 사용하기</a> 편의 <code>_reduce</code> 참고) <strong>‘지금 값을 넣어두겠다’</strong>는 의미가 된다. 이렇게 일정 부분만 미리 값을 넣어두는 행위를 <strong>부분 적용</strong>이라고 한다. </p>
+<p><code>sum</code> 함수는 돌림직한 데이터가 가진 모든 수를 더하는 함수다. <code>sum_init_0</code>와는 초기값의 유무에서 차이가 생긴다. <code>_.partial</code> 함수를 살펴보면 마지막 인자 <code>0</code>이 없는 것을 알 수 있다. 이처럼 <code>_.partial</code>로 부분 적용된 함수를 만들 때 마지막 인자가 들어오지 않으면 <code>_</code>과 같은 취급을 한다. 즉 ‘지금은 비워두고 나중에 값이 들어오면 넣는’ 영역으로 본다. 결과적으로 <code>sum</code>은 <code>iter</code>만을 가진 함수가 되어 실행하는 시점에 데이터 <code>arr</code>와 초기값 <code>100</code>을 인자로 줄 수 있었다.</p>
+<p>반면 <code>reduce_arr</code>는 데이터를 가지고 있지만 어떻게 돌리며 접어나갈지 정의 되지 않았다. 때문에 실행되는 시점에 어떻게 돌릴지 정의하는 함수를 주고 결과를 얻어낼 수 있었다. (<code>_reduce</code>는 초기값이 생략되면 데이터의 첫번째 값을 초기값으로 사용한다.)</p>
+<p>이렇게 <code>_.partial</code>을 사용하면 <code>_curry</code>, <code>_curryr</code>이 가지고 있던 단점을 모두 보완할 수 있다. 실제 사용의 사례를 보면 이렇다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">_.go(arr,</div><div class="line">  _.partial(_filter, _, n =&gt; n % <span class="number">2</span>),</div><div class="line">  _(_reduce, _, (a, b) =&gt; a + b, <span class="number">0</span>), <span class="comment">// &lt;-- 네임스페이스 '_'는 _.partial 함수다.</span></div><div class="line">  <span class="built_in">console</span>.log); <span class="comment">// 25</span></div></pre></td></tr></table></figure>
+<p>위 코드에서 재미난 부분은 Partial.js에서는 네임스페이스인 <code>_</code>가 <code>_.partial</code> 함수라는 점이다. Partial이라는 라이브러리의 이름이 <code>_.partial</code> 함수와 같은 이유가 바로 이 때문이다. 사실 위의 코드는 <code>_.partial</code>의 사용 예를 보여주기만을 위한 코드라 그리 근사하지 않다. 지난 시간에 만든 <code>_filter</code>와 <code>_reduce</code> 대신 Partial.js의 함수들을 사용하면 보다 깔끔한 코드를 만들 수 있다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">_.go(arr,</div><div class="line">  _.filter(<span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span>),</div><div class="line">  _.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b),</div><div class="line">  <span class="built_in">console</span>.log); <span class="comment">// 25</span></div></pre></td></tr></table></figure>
+<p><code>_.filter</code>와 <code>_.reduce</code>를 구현하는 코드에는 <code>_.partial</code> 함수가 사용되고 있기 때문에 위와 같은 부분 적용이 가능하다.</p>
+<h5 id="2-go-pipe의-사용"><a href="#2-go-pipe의-사용" class="headerlink" title="2. _.go, _.pipe의 사용"></a>2. <code>_.go</code>, <code>_.pipe</code>의 사용</h5><p>우리는 이미 <code>_go</code>와 <code>_pipe</code>를 만들고 사용해보았다. 이번에 사용해볼 <code>_.go</code>와 <code>_.pipe</code>는 조금 특별한 비밀을 가지고 있다. 이전에 직접 만들었던 함수와 같은 일을 한다. 함수를 실행하거나 함수를 조합하여 리턴한다. 전달된 인자 중에 <strong>비동기 함수가 있더라도 완벽하게 제어해준다는 점</strong>을 제외하면 주요 역할은 동일한 함수다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">syncDate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseDate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      resolve(<span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line">    &#125;, <span class="number">1000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">_.go([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">  _.map(syncDate),</div><div class="line">  _.map(<span class="function"><span class="params">d</span> =&gt;</span> d.toString()),</div><div class="line">  <span class="built_in">console</span>.log);</div><div class="line"><span class="comment">// 결과:</span></div><div class="line"><span class="comment">//  ["Sun Feb 05 2017 03:33:36 GMT+0900 (KST)",</span></div><div class="line"><span class="comment">//   "Sun Feb 05 2017 03:33:36 GMT+0900 (KST)",</span></div><div class="line"><span class="comment">//   "Sun Feb 05 2017 03:33:36 GMT+0900 (KST)"]</span></div><div class="line"></div><div class="line">_.go([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">  _.map(promiseDate),</div><div class="line">  _.map(<span class="function"><span class="params">d</span> =&gt;</span> d.toString()),</div><div class="line">  <span class="built_in">console</span>.log);</div><div class="line"><span class="comment">// 결과:</span></div><div class="line"><span class="comment">//  ["Sun Feb 05 2017 03:33:37 GMT+0900 (KST)",</span></div><div class="line"><span class="comment">//   "Sun Feb 05 2017 03:33:38 GMT+0900 (KST)",</span></div><div class="line"><span class="comment">//   "Sun Feb 05 2017 03:33:39 GMT+0900 (KST)"]</span></div></pre></td></tr></table></figure>
+<p>위의 예제는 Partial.js의 <a href="https://marpple.github.io/partial.js/#컬렉션을-다루는-비동기-제어-함수" target="_blank" rel="external">소개 페이지</a>에 나오는 코드를 가져왔다. 잠깐 코드를 살펴보면 동기적으로 날짜를 리턴하는 <code>snycData</code> 함수와 비동기적으로 날짜를 리턴하는 <code>promiseData</code> 함수가 있다. 두 함수를 <code>_.map</code>에 넣어 실행하면 날짜 데이터를 갖는 배열을 리턴한다. 다시 한번 <code>_.map</code>으로 날짜 데이터를 문자열로 치환하여 리턴하면 결과값과 같은 날짜와 시간을 표시한 문자열이 담긴 배열이 나온다. 비동기 상황임에도 불구하고 동기 상황과 같은 결과를 리턴한다. 물론 3초정도의 시간이 소요된다. <a href="http://joeun.me/2017/10/17/functional-js-study/">1주차</a>에 만들어본 일반 <code>_go</code>를 사용하면 위와 같은 결과를 만들어내지 못한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">_go([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">  _.map(promiseDate),</div><div class="line">  _.map(<span class="function"><span class="params">d</span> =&gt;</span> d.toString()),</div><div class="line">  <span class="built_in">console</span>.log); <span class="comment">// []</span></div></pre></td></tr></table></figure>
+<p>비동기 상황을 무시하고 지나가면서 빈 배열만을 리턴한다. 살펴본 것처럼 Partial.js <code>_.go</code>를 사용하면 이와 같은 문제없이 비동기 상황을 생각한대로 제어할 수 있다.</p>
+<h5 id="3-템플릿-함수-template"><a href="#3-템플릿-함수-template" class="headerlink" title="3. 템플릿 함수 _.template"></a>3. 템플릿 함수 <code>_.template</code></h5><p>HTML 코드를 보다 쉽게 작성하기 위해 <a href="https://pugjs.org/api/getting-started.html" target="_blank" rel="external">Pug</a>, <a href="http://handlebarsjs.com/" target="_blank" rel="external">Handlebars.js</a>, <a href="http://www.embeddedjs.com/" target="_blank" rel="external">ejs</a>와 같은 템플릿 엔진이 존재한다. Partial.js는 함수 스타일의 템플릿 엔진인 <code>_.template</code> 함수를 지원한다. Pug와 같은 문법을 사용하는 이 함수의 사용법에 대한 자세한 설명은 <a href="https://marpple.github.io/partial.js/#함수-스타일의-템플릿-함수" target="_blank" rel="external">소개 페이지</a>에서 확인할 수 있다.</p>
+<h3 id="함수형-jQuery-don-js"><a href="#함수형-jQuery-don-js" class="headerlink" title="함수형 jQuery, don.js"></a>함수형 jQuery, don.js</h3><h5 id="1-jQuery-vs-don-js"><a href="#1-jQuery-vs-don-js" class="headerlink" title="1. jQuery vs don.js"></a>1. jQuery vs don.js</h5><p>don.js는 jQuery가 지원하는 함수들을 함수형 스타일로 지원한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery</span></div><div class="line">$(<span class="string">'body'</span>); </div><div class="line">$(<span class="string">'body'</span>).addClass(<span class="string">'container'</span>);</div><div class="line"></div><div class="line"><span class="comment">// don.js</span></div><div class="line">D(<span class="string">'body'</span>); </div><div class="line">D.addClass(D(<span class="string">'body'</span>), <span class="string">'container'</span>);</div></pre></td></tr></table></figure>
+<p>jQuery가 체인 방식으로 함수들을 이어나가는 것과 달리 <strong>don.js는 함수의 리턴값을 사용함</strong>으로 함수를 이어나간다. 때문에 Partial.js와 궁합이 잘 맞는다. </p>
+<h5 id="2-Don-js-with-Partial-js"><a href="#2-Don-js-with-Partial-js" class="headerlink" title="2. Don.js with Partial.js"></a>2. Don.js with Partial.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery (http://api.jquery.com/map/)</span></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">  $( <span class="string">":checkbox"</span> )</div><div class="line">    .map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.id;</div><div class="line">    &#125;)</div><div class="line">    .get() <span class="comment">// &lt;-- 이때 배열이 된다.</span></div><div class="line">    .join());</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// don.js</span></div><div class="line">_.go(</div><div class="line">  D(<span class="string">'[type="checkbox"]'</span>),</div><div class="line">  _.map(<span class="function"><span class="keyword">function</span>(<span class="params">el</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> el.id;</div><div class="line">  &#125;), <span class="comment">// &lt;-- 이미 배열인 상태다.</span></div><div class="line">  _.join(), <span class="comment">// arr =&gt; arr.join(),</span></div><div class="line">  _.log);</div></pre></td></tr></table></figure>
+<p>jQuery가 셀렉터를 통해 찾아 리턴하는 값이 jQuery 객체인데 반해 don.js의 리턴값은 기본형 데이터인 배열이거나 엘리먼트 자체임으로 어떤 순수 함수인 다른 함수들과 조합이 자유롭다. 위의 예제에서 jQuery의 경우, <code>map</code>을 실행한 뒤에 <code>get</code>을 실행하지 않으면 배열의 기본 메서드인 <code>join</code>을 실행할 수 없다. 하지만 don.js는 항상 기본형 데이터를 사용하기 때문에 자유롭게 함수들을 이어갈 수 있다. </p>
+<p><code>_.template</code> 계열의 템플릿 함수들과 함께 사용하면 더 don.js를 재미있고 유용하게 사용할 수 있다. 우선 예제를 위해 아래와 같은 주문서 데이터(<code>projections</code>)가 있다고 가정하자. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> projections = [</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">user_id</span>: <span class="number">2</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'ID'</span>, <span class="attr">age</span>: <span class="number">36</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'긴팔티'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'후드티'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">user_id</span>: <span class="number">7</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'BJ'</span>, <span class="attr">age</span>: <span class="number">32</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'긴팔티'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">user_id</span>: <span class="number">8</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'JM'</span>, <span class="attr">age</span>: <span class="number">34</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'청바지'</span> &#125;] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">user_id</span>: <span class="number">9</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'PJ'</span>, <span class="attr">age</span>: <span class="number">27</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'양말'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'후드티'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'긴팔티'</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">user_id</span>: <span class="number">1</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'HA'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">6</span>, <span class="attr">user_id</span>: <span class="number">11</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'JE'</span>, <span class="attr">age</span>: <span class="number">26</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'머플러'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">user_id</span>: <span class="number">12</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'JI'</span>, <span class="attr">age</span>: <span class="number">31</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'머그컵'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">8</span>, <span class="attr">user_id</span>: <span class="number">15</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'MP'</span>, <span class="attr">age</span>: <span class="number">23</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125; ] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">9</span>, <span class="attr">user_id</span>: <span class="number">15</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'MP'</span>, <span class="attr">age</span>: <span class="number">23</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125;] &#125; &#125;,</div><div class="line">  &#123; <span class="attr">id</span>: <span class="number">10</span>, <span class="attr">user_id</span>: <span class="number">15</span>, <span class="attr">_</span>: &#123; <span class="attr">user</span>: &#123; <span class="attr">name</span>: <span class="string">'MP'</span>, <span class="attr">age</span>: <span class="number">23</span> &#125;, <span class="attr">products</span>: [ &#123; <span class="attr">name</span>: <span class="string">'에코백'</span> &#125;] &#125; &#125;,</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>예제 데이터는 주문서의 아이디, 주문자의 정보와 제품 정보를 담고 있다. 이를 이용해서 주문 목록을 그린다고 가정해보자. 템플릿 함수 중 하나인 <code>_.t$</code>(<code>_.template$</code>의 약식) 함수를 사용하면 아래와 같은 코드로 원하는 목록을 그릴 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">_.go(</div><div class="line">  projections,</div><div class="line">  _.sum(_.t$(<span class="string">`</span></div><div class="line">    li#&#123;&#123;$.id&#125;&#125;</div><div class="line">      .user_info#&#123;&#123;$.user_id&#125;&#125;</div><div class="line">        h4 &#123;&#123;$._.user.name&#125;&#125;</div><div class="line">      ul.products &#123;&#123;_.sum($._.products, `, _.t$(<span class="string">`</span></div><div class="line">        li &#123;&#123;$.name&#125;&#125;</div><div class="line">      `) ,<span class="string">`)&#125;&#125;</span></div><div class="line">      button 주문취소</div><div class="line">      `)),</div><div class="line">  <span class="comment">// _.hi, // &lt;-- 앞의 주석을 제거하면 어떤 문자열이 만들어지는지 확인할 수 있다.</span></div><div class="line">  D.appendTo(<span class="string">'.user_list'</span>));</div></pre></td></tr></table></figure>
+<p><code>_.sum</code>은 <code>projections</code> 데이터를 바탕으로 <code>_.t$</code> 함수가 만들어낸 HTML 문자열을 하나의 문자열로 합쳐준다. 이렇게 합쳐진 긴 문자열은 <code>D.appendTo</code> 함수에게 전달되는데 이 함수는 <code>&#39;.user_list&#39;</code>라는 문자열을 인자로 받았다. 클래스 명이 ‘user_product’에 해당하는 엘리먼트에게 이후에 들어오는 HTML 문자열을 엘리먼트로 변환해서 붙여넣겠다는 의미다. 결과적으로 앞에서 <code>_.sum</code>에 의해 합쳐진 문자열이 <code>D.appendTo</code>에 의해 엘리먼트로 변환되고 ‘user_product’에 해당하는 클래스를 가진 곳에 붙여진다. </p>
+<p>이벤트를 달아서 주문을 취소하는 동작을 만들기 위해선 아래와 같은 <code>on</code> 함수를 사용하면 된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">_.go(</div><div class="line">  D(<span class="string">'body'</span>),</div><div class="line">  D.on(<span class="string">'click'</span>, <span class="string">'button'</span>, _.pipe(</div><div class="line">    _.v(<span class="string">'$currentTarget'</span>),</div><div class="line">    D.parent(<span class="string">'li'</span>),</div><div class="line">    D.hide)</div><div class="line">  ));</div></pre></td></tr></table></figure>
+<p><code>_.pipe</code> 함수가 등장했다. <code>D.on</code> 함수의 세번째 인자로 받을 함수는 ‘클릭 이벤트가 발생하면 어떤 일을 할지 정의한 함수’가 들어와야 한다. 이 함수를 <code>_.pipe</code>가 여러개의 함수를 조합해서 만들었다. 내부를 보면 <code>_.v(&#39;$currentTarget&#39;)</code> 함수가 이벤트의 대상이 되는 엘리먼트를 꺼내고 <code>D.parent(&#39;li&#39;)</code>가 부모 중에 li 엘리먼트인 것을 찾아 리턴한다. 마지막에 <code>D.hide</code>가 리턴된 엘리먼트를 숨긴다. 이러한 순서에 의해 버튼을 클릭하면 대상을 담고 있는 li 엘리먼트가 가려지는 동작을 수행한다. </p>
 <hr>
-<h2 id="기본-함수-구현하고-사용하기"><a href="#기본-함수-구현하고-사용하기" class="headerlink" title="기본 함수 구현하고 사용하기"></a>기본 함수 구현하고 사용하기</h2><p>함수형 프로그래밍에서 사용되는 기본 함수인 <code>each</code>, <code>map</code>, <code>filter</code>, <code>reduce</code> 함수와 함수를 실행하는 함수인 <code>go</code> 함수를 사용해보고 직접 구현해보자.<br>(모든 예제는 웹 브라우저의 ‘검사’ 도구를 열어서 테스트할 수 있다.)</p>
+<h3 id="전체-스터디-일정"><a href="#전체-스터디-일정" class="headerlink" title="전체 스터디 일정"></a>전체 스터디 일정</h3><h5 id="1주차-기본-함수-구현하고-사용하기"><a href="#1주차-기본-함수-구현하고-사용하기" class="headerlink" title="1주차 | 기본 함수 구현하고 사용하기"></a>1주차 | <a href="http://joeun.me/2017/10/17/functional-js-study/">기본 함수 구현하고 사용하기</a></h5><h5 id="2주차-고차-함수와-커링-currying"><a href="#2주차-고차-함수와-커링-currying" class="headerlink" title="2주차 | 고차 함수와 커링(currying)"></a>2주차 | <a href="http://joeun.me/2017/10/18/functional-js-study-1/">고차 함수와 커링(currying)</a></h5><h5 id="3주차-함수형-자바스크립트-라이브러리"><a href="#3주차-함수형-자바스크립트-라이브러리" class="headerlink" title="3주차 | 함수형 자바스크립트 라이브러리"></a>3주차 | 함수형 자바스크립트 라이브러리</h5><h5 id="4주차-Movie-Box-1-필터링-정렬"><a href="#4주차-Movie-Box-1-필터링-정렬" class="headerlink" title="4주차 | Movie Box 1 - 필터링, 정렬"></a><em>4주차 | Movie Box 1 - 필터링, 정렬</em></h5><h5 id="5주차-Movie-Box-2-필터링-정렬-복습"><a href="#5주차-Movie-Box-2-필터링-정렬-복습" class="headerlink" title="5주차 | Movie Box 2 - 필터링, 정렬 복습"></a><em>5주차 | Movie Box 2 - 필터링, 정렬 복습</em></h5><h5 id="6주차-Movie-Box-3-지연평가-L-memoize"><a href="#6주차-Movie-Box-3-지연평가-L-memoize" class="headerlink" title="6주차 | Movie Box 3 - 지연평가 L, memoize"></a><em>6주차 | Movie Box 3 - 지연평가 L, memoize</em></h5><h5 id="7주차-Movie-Box-4-비동기-상황-다루기"><a href="#7주차-Movie-Box-4-비동기-상황-다루기" class="headerlink" title="7주차 | Movie Box 4 - 비동기 상황 다루기"></a><em>7주차 | Movie Box 4 - 비동기 상황 다루기</em></h5><p><a href="https://github.com/joeunha/functional-js-study/tree/master/03_week" target="_blank" rel="external">예제 코드</a></p>
+<script>
+var arr = [1,2,3,4,5,6,7,8,9,10];
+
+function _filter(list, iter) {
+  var res = [];
+  if (Array.isArray(list)) {
+    for (var i = 0, len = list.length; i < len; i++) 
+      if (iter(list[i], i, list)) 
+        res.push(list[i]);
+  } else {
+    var keys = Object.keys(list);
+    for (var i = 0, len = keys.length; i < len; i++) 
+      if (iter(list[keys[i]], keys[i], list)) 
+        res.push(list[keys[i]]);
+  }
+  return res;
+}
+
+function _reduce(list, iter, memo) {
+  var i = 0;
+  if (Array.isArray(list)) {
+    var res = (memo != undefined ? memo : list[i++]);
+    for (var len = list.length; i < len; i++) 
+      res = iter(res, list[i], i, list);
+  } else {
+    var keys = Object.keys(list), res = (memo != undefined ? memo : list[keys[i++]]);
+    for (var len = keys.length; i < len; i++) 
+      res = iter(res, list[keys[i]], keys[i], list);
+  }
+  return res;
+}
+
+var projections = [
+  { id: 1, user_id: 2, _: { user: { name: 'ID', age: 36 }, products: [ { name: '긴팔티' }, { name: '후드티' } ] } },
+  { id: 2, user_id: 7, _: { user: { name: 'BJ', age: 32 }, products: [ { name: '긴팔티' } ] } },
+  { id: 3, user_id: 8, _: { user: { name: 'JM', age: 34 }, products: [ { name: '에코백' }, { name: '청바지' }] } },
+  { id: 4, user_id: 9, _: { user: { name: 'PJ', age: 27 }, products: [ { name: '양말' }, { name: '후드티' }, { name: '긴팔티' }, { name: '에코백' } ] } },
+  { id: 5, user_id: 1, _: { user: { name: 'HA', age: 25 }, products: [ { name: '에코백' } ] } },
+  { id: 6, user_id: 11, _: { user: { name: 'JE', age: 26 }, products: [ { name: '머플러' } ] } },
+  { id: 7, user_id: 12, _: { user: { name: 'JI', age: 31 }, products: [ { name: '머그컵' } ] } },
+  { id: 8, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' } ] } },
+  { id: 9, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' }] } },
+  { id: 10, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' }] } },
+];
+</script>
+<script src="https://rawgit.com/joeunha/cdn/master/don.js"></script>
+<script src="https://rawgit.com/joeunha/cdn/master/partial.js"></script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/10/19/functional-js-study-2/" data-id="cj93s6mt3000gjzvgmotue0e6" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/10/19/functional-js-study-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/partial-js/">partial.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-자바스크립트/">함수형 자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-functional-js-study-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/10/18/functional-js-study-1/" class="article-date">
+  <time datetime="2017-10-18T09:49:54.000Z" itemprop="datePublished">2017-10-18</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/functional-js-study-1/">[함수형 자바스크립트] 고차 함수와 커링(currying)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="고차-함수와-커링-currying"><a href="#고차-함수와-커링-currying" class="headerlink" title="고차 함수와 커링(currying)"></a>고차 함수와 커링(currying)</h2><p>함수형 프로그래밍의 꽃인 고차 함수 개념과 커링에 대해서 이야기 해보자.<br>(모든 예제는 웹 브라우저의 ‘검사’ 도구를 열어서 테스트할 수 있다.)</p>
+<h3 id="보조-함수의-활용"><a href="#보조-함수의-활용" class="headerlink" title="보조 함수의 활용"></a>보조 함수의 활용</h3><h5 id="1-고차-함수란"><a href="#1-고차-함수란" class="headerlink" title="1. 고차 함수란?"></a>1. 고차 함수란?</h5><p>고차 함수는 <strong>값으로 다룰 수 있는 함수</strong>다. 함수를 값으로 다룰 수 있기 때문에 <strong>함수를 인자로 사용</strong>할 수도 있고 함수를 <strong>리턴값으로 사용</strong>할 수도 있다. 이러한 특징을 잘 보여주는 예제가 <a href="http://joeun.me/2017/10/17/functional-js-study/">지난 시간</a> 살펴본 함수들이 가진 보조함수들이다. <code>_each</code>를 다시 한번 살펴보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_each([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>], num =&gt; <span class="built_in">console</span>.log(num)); <span class="comment">// _each 함수에 두번째 인자로 함수가 사용된다.</span></div></pre></td></tr></table></figure>
+<p>화살표 함수로 정의된 <code>num =&gt; console.log(num)</code>가 <code>_each</code> 함수의 인자로 전달되고 이는 보조함수의 역할을 한다. 인자로 함수를 넘겨서 어떤 일을 수행해야하는지를 전달한다면 함수의 추상화 레벨이 올라간다. <code>_each</code>의 경우 반복적으로 동일한 일을 처리하는 경우를 추상화해두고 그 일이 어떤 일인지는 개발자가 함수를 호출하는 시기에 결정할 수 있도록 위임한 것이다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> persons = [</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">'JE'</span>, <span class="attr">age</span>: <span class="number">27</span> &#125;, </div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">'SJ'</span>, <span class="attr">age</span>: <span class="number">34</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">'HR'</span>, <span class="attr">age</span>: <span class="number">38</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">'YS'</span>, <span class="attr">age</span>: <span class="number">27</span> &#125;</div><div class="line">];</div><div class="line"><span class="keyword">var</span> YB = _filter(persons, person =&gt; person.age &lt; <span class="number">30</span>);</div><div class="line"><span class="built_in">console</span>.log(YB); <span class="comment">// [&#123; name: 'JE', age: 27 &#125;, &#123; name: 'YS', age: 27 &#125;]</span></div></pre></td></tr></table></figure>
+<p><code>_filter</code> 함수는 어떤 조건에 따라 원하는 데이터를 골라내는 함수다. 위의 예제는 30세 미만의 사람만 골라냈다. 고차 함수인 <code>person =&gt; person.age &lt; 30</code> 함수를 어떤 조건을 정의해 전달함으로써 추상화된 <code>_filter</code> 라는 함수를 사용할 수 있었다.</p>
+<h5 id="2-callback-iteratee-predicate의-차이"><a href="#2-callback-iteratee-predicate의-차이" class="headerlink" title="2. callback, iteratee, predicate의 차이"></a>2. callback, iteratee, predicate의 차이</h5><p>지난 시간에 확인한 것처럼 <code>_each</code> 함수의 내부에서는 두번째 인자로 전달되는 보조함수를 <code>iter</code>라고 정의하고 있는데 이는 ‘iteratee’의 준말이다. 반복되는 함수라는 뜻이다. <code>_filter</code> 함수는 같은 함수를 <code>predi</code>라고 정의하고 있다. 술부라는 의미를 가진 ‘predicate’의 준말이다. 결과값이 어떠해야 하는지 정의하고 있는 함수이기 때문이다.<br>보조함수 중에서 잘 알려진 함수는 ‘callback’ 함수다. 유명세 때문인지 ‘보조함수(고차함수) === 콜백함수’라고 생각하는 경우도 있다. 하지만 보조함수가 가지는 이름 callback, iteratee, predicate는 그 함수가 하는 역할에 따라 지어진 이름일 뿐이다. callback 함수가 ‘회신’이라는 의미를 가지고 비동기 상황이 끝난 뒤에 어떠한 일을 할지 정의하는 함수인 것처럼 다른 보조함수들도 그에 맞는 이름을 갖는 것이다. </p>
+<p>지금까지 인자로 사용하는 함수인 보조함수를 통해 고차 함수를 알아봤다. 그렇다면 리턴값으로 사용되는 고차 함수는 어떤 경우가 있을까? 커링(currying)을 통해 그 예를 살펴보자.</p>
+<h3 id="고차-함수의-응용"><a href="#고차-함수의-응용" class="headerlink" title="고차 함수의 응용"></a>고차 함수의 응용</h3><h5 id="0-커링이란"><a href="#0-커링이란" class="headerlink" title="0. 커링이란?"></a>0. 커링이란?</h5><p>수학자 Haskell Curry의 이름을 딴 이 기법은 <strong>함수가 함수를 만드는 기법</strong>이다. 함수로 함수를 만들기 위해선 결과값으로 함수를 전달할 수 있어야한다. 이 지점에서 리턴값으로 사용할 수 있는 고차 함수가 등장한다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>커링을 이야기할때 가장 자주 등장하는 형태의 함수다. 이 함수 <code>add</code>는 인자 <code>a</code>를 받고 익명 함수를 리턴한다. 리턴된 익명 함수는 <code>b</code>를 받고 <code>a</code>와 <code>b</code>를 더한 값을 리턴한다. 리턴되는 익명 함수는 <code>a</code>에 대해 알고 있는 클로저다. 때문에 이후에 들어오는 값인 <code>b</code>와 <code>a</code>를 이용해 어떠한 일을 할 수 있는 함수가 된다. </p>
+<p><code>add</code> 함수는 이렇게 사용할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add10 = add(<span class="number">10</span>); <span class="comment">// &lt;-- 함수를 리턴했다.</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">11</span>)); <span class="comment">// 21</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">21</span>)); <span class="comment">// 31</span></div></pre></td></tr></table></figure></p>
+<p><code>10</code>이라는 값을 알고 있는 익명 함수가 <code>add10</code>이라는 변수에 담긴다. 클로저인 익명 함수가 <code>add10</code>이라는 이름을 갖게된 것이다. 새로운 이름을 가진 이 함수가 실행되면 자신이 알고 있는 <code>10</code>과 새로 받는 값을 모두 이용할 수 있다. 최초의 <code>add</code> 함수 정의에서 두 값을 더하는 것으로 정했기 때문에 이후에 들어온 값 <code>11</code>이나 <code>21</code>을 <code>10</code>과 더하는 일을 수행한다. </p>
+<p><code>add</code> 함수를 정의할 때 화살표 함수를 사용하면 조금 더 근사하다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="params">a</span> =&gt;</span> b =&gt; a + b;</div></pre></td></tr></table></figure>
+<p>이러한 형태의 함수는 미리 정의된 일 밖에 할 수 없으니 아쉽다. 커링하는 일 자체를 추상화하는 새로운 함수를 만들어보자.</p>
+<h5 id="1-curry-함수"><a href="#1-curry-함수" class="headerlink" title="1. curry 함수"></a>1. curry 함수</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_curry</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> fn(a, b);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// var _curry = a =&gt; b =&gt; fn(a, b);</span></div></pre></td></tr></table></figure>
+<p>함수가 익명 함수를 리턴했는데 그 함수가 다시 함수를 리턴한다. 복잡한것처럼 보이지만 단순하다. 천천히 살펴보자. </p>
+<p>우선 <code>_curry</code>는 함수를 인자로 받는다. 이때 받은 함수를 커링이 되는 함수로 만드는 것이 <code>_curry</code> 함수의 목표다. 목표를 달성하기 위해 다짜고짜 첫번째 익명 함수를 리턴한다. 첫번째 익명 함수는 <code>fn</code>이 사용할 첫번째 인자를 받는 함수다. <code>a</code>를 받은 뒤에 다시 한번 더 익명 함수를 리턴한다. 두번째 익명 함수다. 두번째 함수는 <code>fn</code>에게 필요한 두번째 인자를 받고 <code>fn</code>을 실행한다. 그 결과를 리턴한다. 글로만 읽으면 어떻게 동작하는지 이해하기 어렵다. 예제를 보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = _curry(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b); <span class="comment">// &lt;-- 첫번째 함수를 리턴했다.</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> add10 = add(<span class="number">10</span>); <span class="comment">// &lt;-- 두번째 함수를 리턴했다.</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">11</span>)); <span class="comment">// 21</span></div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">21</span>)); <span class="comment">// 31</span></div></pre></td></tr></table></figure>
+<p>커링하는 일을 추상화 해둔 <code>_curry</code>라는 함수를 사용했다. 덕분에 어떤 일을 할지 <code>_curry</code>에 함수에 전달하는 것만으로 커링이 가능한 함수를 만들 수 있게 되었다. 다른 함수도 쉽게 만들 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = _curry(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</div><div class="line"><span class="keyword">var</span> sum10 = sum(<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sum10(<span class="number">5</span>)); <span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<p>이처럼 <code>_curry</code> 함수를 이용해서 사칙 연산 함수들을 커링이 가능한 함수로 만들 수 있다. 그런데 가만 생각해보면 좀 이상하다 <code>sum10</code>이라는 이름을 생각해보자. <strong>10을 뺄 준비가 된 함수</strong>여야할 것 같은데 반대가 되어버린다. (이 대목에서 이상하다고 생각하지 않아도 괜찮다.) <code>_curryr</code>이라는 함수를 만들어서 덜 이상하게 순서를 바꿔보자. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _curryr = <span class="function"><span class="params">a</span> =&gt;</span> b =&gt; fn(b, a);</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum = _curryr(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</div><div class="line"><span class="keyword">var</span> sum10 = sum(<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sum10(<span class="number">5</span>)); <span class="comment">// -5</span></div></pre></td></tr></table></figure>
+<p><code>_curryr</code>을 구현하기 위해선 인자 <code>fn</code>의 인자 순서를 뒤집어주면(reverse) 된다. 이제 <code>sum10</code>은 <strong>10을 뺄 준비가 된 함수</strong>가 됐다. 어떤 수가 들어오건 10을 뺀다. 이 상태가 되면 이제 지난 시간에 만들어둔 함수들을 발전시킬 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 커링 적용 전</span></div><div class="line">_go([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>],</div><div class="line">  arr =&gt; _filter(arr, num =&gt; num % <span class="number">2</span>), <span class="comment">// &lt;-- 함수로 한번 감싸서 실행시킨다.</span></div><div class="line">  arr =&gt; _each(arr, num =&gt; <span class="built_in">console</span>.log(num))); <span class="comment">// &lt;-- 코드가 복잡하다.</span></div><div class="line"></div><div class="line">_filter = _curryr(_filter);</div><div class="line">_each = _curryr(_each);</div><div class="line"></div><div class="line"><span class="comment">// 커링 적용 후</span></div><div class="line">_go([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>],</div><div class="line">  _filter(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span>), <span class="comment">// &lt;-- 어떤 일을 해야하는지 알고 있는 함수가 이 자리에 리턴된다.</span></div><div class="line">  _each(<span class="function"><span class="params">num</span> =&gt;</span> <span class="built_in">console</span>.log(num))); <span class="comment">// &lt;-- 코드가 간결하다.</span></div></pre></td></tr></table></figure>
+<p>커링이 적용된 발전된 함수는 <code>_go</code> 함수 안에서 보다 간결하게 의미를 전달 수 있는 코드가 되었다. <code>_filter</code>와 <code>_each</code>가 보조함수를 기억한 함수를 리턴한 뒤에 <code>_go</code>가 실행되면 <code>_go</code>는 첫번째 인자인 배열을 <code>_filter</code>와 <code>_each</code>가 남긴 함수에게 전달해서 각각의 일을 수행하도록 한다. 커링으로 간결하고 읽기 좋은 코드가 되었다. </p>
+<p>하지만 이 코드에서도 문제가 남아있다. 바로 커링이 적용된 함수들을 원래 방법대로 사용할 수 없다는 점이다. 지금 상황에서는 <code>_filter</code>에 인자를 동시에 두개를 넘겨도 함수를 리턴할 것이다. 약간의 수정이 필요하다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_curryr</span>(<span class="params">fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> !b ? <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> fn(b, a);</div><div class="line">    &#125; : fn(a, b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// var _curryr = fn =&gt; (a, b) =&gt; (!b ? b =&gt; fn(b, a) : fn(a, b))</span></div></pre></td></tr></table></figure>
+<p>첫번째 익명 함수에 인자가 하나만 들어왔다면 커링을 적용한 함수를 리턴하고 그렇지 않다면 그냥 원래 방법대로 함수를 실행핟 결과를 리턴하도록 바꿔주면 모든 문제가 해결된다. 물론 인자를 두개 받지 못한다는 단점은 여전히 존재한다. 이 문제는 다음 시간에 해결할 계획이다.</p>
+<h5 id="2-pipe-함수-만들기"><a href="#2-pipe-함수-만들기" class="headerlink" title="2. _pipe 함수 만들기"></a>2. <code>_pipe</code> 함수 만들기</h5><p><code>_pipe</code> 함수는 함수를 조합하는 함수다. 여러 개의 함수가 조합된 새로운 함수를 만들기 위해 사용한다. 이런 식으로 사용할 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> odd_sum = _pipe(_filter(<span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span>), _reduce(<span class="function">(<span class="params">t, n</span>) =&gt;</span> t + n));</div><div class="line"></div><div class="line">_go([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],</div><div class="line">  odd_sum,</div><div class="line">  <span class="built_in">console</span>.log); <span class="comment">// 16</span></div></pre></td></tr></table></figure></p>
+<p><code>_filter</code>와 <code>_reduce</code>를 조합해서 홀수값의 총합을 만드는 함수를 만들었다. 이 함수는 어떤 배열이 들어와도 홀수값의 합을 반환하는 함수가 된다. 이처럼 반복적으로 사용될만한 함수 조합을 <code>_pipe</code>로 묶어서 정의해두면 함수의 활용성이 좋아진다. </p>
+<p>끝으로 어떻게 구현하는지 살펴보자. 아래와 같이 <code>_go</code>를 사용하면 쉽게 구현할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> slice = <span class="built_in">Array</span>.prototype.slice;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_pipe</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> fns = slice.call(<span class="built_in">arguments</span>)</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _go.apply(<span class="literal">null</span>, [seed, ...fns]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="전체-스터디-일정"><a href="#전체-스터디-일정" class="headerlink" title="전체 스터디 일정"></a>전체 스터디 일정</h3><h5 id="1주차-기본-함수-구현하고-사용하기"><a href="#1주차-기본-함수-구현하고-사용하기" class="headerlink" title="1주차 | 기본 함수 구현하고 사용하기"></a>1주차 | <a href="http://joeun.me/2017/10/17/functional-js-study/">기본 함수 구현하고 사용하기</a></h5><h5 id="2주차-고차-함수와-커링-currying"><a href="#2주차-고차-함수와-커링-currying" class="headerlink" title="2주차 | 고차 함수와 커링(currying)"></a>2주차 | 고차 함수와 커링(currying)</h5><h5 id="3주차-함수형-자바스크립트-라이브러리"><a href="#3주차-함수형-자바스크립트-라이브러리" class="headerlink" title="3주차 | 함수형 자바스크립트 라이브러리"></a>3주차 | <a href="http://joeun.me/2017/10/19/functional-js-study-2/">함수형 자바스크립트 라이브러리</a></h5><h5 id="4주차-Movie-Box-1-필터링-정렬"><a href="#4주차-Movie-Box-1-필터링-정렬" class="headerlink" title="4주차 | Movie Box 1 - 필터링, 정렬"></a><em>4주차 | Movie Box 1 - 필터링, 정렬</em></h5><h5 id="5주차-Movie-Box-2-필터링-정렬-복습"><a href="#5주차-Movie-Box-2-필터링-정렬-복습" class="headerlink" title="5주차 | Movie Box 2 - 필터링, 정렬 복습"></a><em>5주차 | Movie Box 2 - 필터링, 정렬 복습</em></h5><h5 id="6주차-Movie-Box-3-지연평가-L-memoize"><a href="#6주차-Movie-Box-3-지연평가-L-memoize" class="headerlink" title="6주차 | Movie Box 3 - 지연평가 L, memoize"></a><em>6주차 | Movie Box 3 - 지연평가 L, memoize</em></h5><h5 id="7주차-Movie-Box-4-비동기-상황-다루기"><a href="#7주차-Movie-Box-4-비동기-상황-다루기" class="headerlink" title="7주차 | Movie Box 4 - 비동기 상황 다루기"></a><em>7주차 | Movie Box 4 - 비동기 상황 다루기</em></h5><p><a href="https://github.com/joeunha/functional-js-study/tree/master/02_week" target="_blank" rel="external">예제 코드</a></p>
+<script src="https://rawgit.com/joeunha/functional-js-study/master/02_week/functional.js"></script>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://joeun.me/2017/10/18/functional-js-study-1/" data-id="cj93s6mtk000xjzvgv0dldu68" class="article-share-link">Share</a>
+      
+        <a href="http://joeun.me/2017/10/18/functional-js-study-1/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/currying/">currying</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/higher-order-function/">higher-order function</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/partial-js/">partial.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/고차-함수/">고차 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/커링/">커링</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-자바스크립트/">함수형 자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-functional-js-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/2017/10/17/functional-js-study/" class="article-date">
+  <time datetime="2017-10-17T06:36:32.000Z" itemprop="datePublished">2017-10-17</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/functional-js-study/">[함수형 자바스크립트] 기본 함수 구현하고 사용하기</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="기본-함수-구현하고-사용하기"><a href="#기본-함수-구현하고-사용하기" class="headerlink" title="기본 함수 구현하고 사용하기"></a>기본 함수 구현하고 사용하기</h2><p>함수형 프로그래밍에서 사용되는 기본 함수인 <code>each</code>, <code>map</code>, <code>filter</code>, <code>reduce</code> 함수와 함수를 실행하는 함수인 <code>go</code> 함수를 사용해보고 직접 구현해보자.<br>(모든 예제는 웹 브라우저의 ‘검사’ 도구를 열어서 테스트할 수 있다.)</p>
 <h3 id="함수형-실전-코드-예제-소개"><a href="#함수형-실전-코드-예제-소개" class="headerlink" title="함수형 실전 코드 예제 소개"></a>함수형 실전 코드 예제 소개</h3><h5 id="0-예제-데이터"><a href="#0-예제-데이터" class="headerlink" title="0. 예제 데이터"></a>0. 예제 데이터</h5><p>이하 예제에서 사용될 데이터이다. <code>products</code>는 객체 형태의 상품 정보를 담고 있는 배열이다. 장바구니에 담긴 데이터라고 가정하고 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> products = [</div><div class="line">  &#123;</div><div class="line">    <span class="attr">is_selected</span>: <span class="literal">true</span>, <span class="comment">// &lt;--- 장바구니에서 체크 박스 선택</span></div><div class="line">    name: <span class="string">"반팔티"</span>,</div><div class="line">    <span class="attr">price</span>: <span class="number">10000</span>, <span class="comment">// &lt;--- 기본 가격</span></div><div class="line">    sizes: [ <span class="comment">// &lt;---- 장바구니에 담은 동일 상품의 사이즈 별 수량과 가격</span></div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"L"</span>, <span class="attr">quantity</span>: <span class="number">2</span>, <span class="attr">price</span>: <span class="number">0</span> &#125;,</div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"XL"</span>, <span class="attr">quantity</span>: <span class="number">3</span>, <span class="attr">price</span>: <span class="number">0</span> &#125;,</div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"2XL"</span>, <span class="attr">quantity</span>: <span class="number">2</span>, <span class="attr">price</span>: <span class="number">2000</span> &#125;, <span class="comment">// &lt;-- 옵션의 추가 가격</span></div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="attr">is_selected</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">name</span>: <span class="string">"후드티"</span>,</div><div class="line">    <span class="attr">price</span>: <span class="number">21000</span>,</div><div class="line">    <span class="attr">sizes</span>: [</div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"L"</span>, <span class="attr">quantity</span>: <span class="number">3</span>, <span class="attr">price</span>: <span class="number">-1000</span> &#125;,</div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"2XL"</span>, <span class="attr">quantity</span>: <span class="number">1</span>, <span class="attr">price</span>: <span class="number">2000</span> &#125;,</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="attr">is_selected</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">name</span>: <span class="string">"맨투맨"</span>,</div><div class="line">    <span class="attr">price</span>: <span class="number">16000</span>,</div><div class="line">    <span class="attr">sizes</span>: [</div><div class="line">      &#123; <span class="attr">name</span>: <span class="string">"L"</span>, <span class="attr">quantity</span>: <span class="number">4</span>, <span class="attr">price</span>: <span class="number">0</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
 <h5 id="1-모든-제품의-전체-수량-구하기"><a href="#1-모든-제품의-전체-수량-구하기" class="headerlink" title="1. 모든 제품의 전체 수량 구하기"></a>1. 모든 제품의 전체 수량 구하기</h5><p>제품의 전체 수량을 구하는 코드는 아래와 같이 작성할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum_total_quantity = <span class="function"><span class="keyword">function</span>(<span class="params">products</span>) </span>&#123; <span class="comment">// &lt;-- 제품의 전체 수량을 구하는 함수</span></div><div class="line">  <span class="keyword">return</span> _reduce(products, <span class="function"><span class="keyword">function</span>(<span class="params">tq, product</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _reduce(product.sizes, <span class="function"><span class="keyword">function</span>(<span class="params">tq2, size</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> tq2 + size.quantity;</div><div class="line">    &#125;, tq);</div><div class="line">  &#125;, <span class="number">0</span>)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> total_quantity = sum_total_quantity(products); <span class="comment">// &lt;-- 예제 데이터를 넣으면 전체 수량을 구할 수 있다.</span></div><div class="line"><span class="built_in">console</span>.log(total_quantity); <span class="comment">// 15</span></div></pre></td></tr></table></figure></p>
 <p>코드를 살펴보자. 우선 코드에 등장하는 <code>_reduce</code> 함수는 돌림직한 데이터(Array, ArrayLike, Object)를 ‘줄여나가는(reduce)’ 함수다. underscore와 같은 라이브러리에선 <code>fold</code>라는 이름으로도 사용된다. 이와 같은 표현을 사용하면 <code>reduce</code> 함수는 데이터를 ‘접는(fold)’ 함수인 셈이다. </p>
@@ -134,8 +388,8 @@ ga('send', 'pageview');
 <p>실제 함수는 아래와 같이 구현되어 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_map</span>(<span class="params">list, iter</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(list)) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = list.length; i &lt; len; i++) </div><div class="line">      res[i] = iter(list[i], i, list);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(list);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = keys.length; i &lt; len; i++) </div><div class="line">      res[i] = iter(list[keys[i]], keys[i], list);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>_each</code> 함수와 다른 점은 <code>res</code>라는 결과값을 내부에서 정의하고 이를 반환한다는 것이다. 결과적으로 <code>_map</code>은 보조함수에 의해 정의된 값을 담은 새로운 배열을 리턴한다. </p>
 <h5 id="3-filter"><a href="#3-filter" class="headerlink" title="3. _filter"></a>3. <code>_filter</code></h5><p>위에서 이미 살펴본 <code>_filter</code> 함수는 데이터를 거르는 함수다. 사실 <code>_each</code>를 제외한 모든 함수는 리턴값이 중요하다. 그 값을 전달함으로 다른 함수와 소통한다. </p>
-<p>사용의 예는 이미 위에서 살펴보았으니 구현체만 살펴보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_filter</span>(<span class="params">list, iter</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(list)) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = list.length; i &lt; len; i++) </div><div class="line">      <span class="keyword">if</span> (iter(list[i], i, list)) </div><div class="line">        res.push(list[i]);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(list);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = keys.length; i &lt; len; i++) </div><div class="line">      <span class="keyword">if</span> (iter(list[keys[i]], keys[i], list)) </div><div class="line">        res.push(list[keys[i]]);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>_map</code>처럼 결과값 <code>res</code>를 갖지만 보조함수가 리턴한 값이 아닌 보조함수의 실행 결과가 참인 경우에만 값을 결과값에 담는다.</p>
+<p>사용의 예는 이미 위에서 살펴보았으니 구현체만 살펴보자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_filter</span>(<span class="params">list, predi</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(list)) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = list.length; i &lt; len; i++) </div><div class="line">      <span class="keyword">if</span> (predi(list[i], i, list)) </div><div class="line">        res.push(list[i]);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> keys = <span class="built_in">Object</span>.keys(list);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = keys.length; i &lt; len; i++) </div><div class="line">      <span class="keyword">if</span> (predi(list[keys[i]], keys[i], list)) </div><div class="line">        res.push(list[keys[i]]);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>_map</code>처럼 결과값 <code>res</code>를 갖지만 보조함수(<code>predi</code>)가 리턴한 값이 아닌 보조함수의 실행 결과가 참인 경우에만 값을 결과값에 담는다.</p>
 <h5 id="4-reduce"><a href="#4-reduce" class="headerlink" title="4. _reduce"></a>4. <code>_reduce</code></h5><p>역시 이미 앞서 만나본 함수다. <code>_reduce</code>는 데이터를 접는 함수다. 다른 함수들과 달리 세개의 인자를 값으로 받는다.</p>
 <p>미리 봤던 예제보다 단순한 예제를 살펴보고 구현으로 넘어가자.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> result = _reduce([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>], <span class="function"><span class="keyword">function</span>(<span class="params">memo, num</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> memo + num;</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// 55</span></div></pre></td></tr></table></figure></p>
 <p>세개의 인자를 전달 받았다. 첫번째 인자는 1부터 10까지를 담고 있는 배열이다. 이를 어떻게 처리할지 알고 있는 함수와 초기 값을 나머지 인자로 받았다. 예제에서 보조함수는 받은 값을 더하는 함수다. 결과적으로 <code>_reduce</code>는 1부터 10까지의 총합을 반환한다. </p>
@@ -149,7 +403,9 @@ ga('send', 'pageview');
 <p><code>_go</code>는 첫번째 인자로 들어온 <strong>데이터를 여러 함수들에 통과시키며 리턴값을 만들어가는 함수</strong>다. 데이터를 변형해서 무엇으로 만들어가는 함수는 이미 하나 있었다. 데이터를 접는 함수라고 소개했던 <code>_reduce</code>가 그런 역할을 한다. <strong>초기값의 데이터형</strong>을 기준으로 <strong>돌림직한 데이터</strong>를 돌면서 데이터를 접어나간다. 우리는 이미 돌림직한 데이터인 <code>fns</code>(배열)와 초기값인 <code>seed</code>를 가지고 있다. 이제 필요한건 오직 <strong>어떻게 접어나갈지 정의하는 함수</strong>뿐이다. 그렇다. 이게 바로 <code>_reduce</code>가 사용된 이유다. 이렇게 이미 정의된 함수 덕에 보다 쉽게 새로운 함수를 만들 수 있다. 이제 어떻게 접어나갈지 살펴보자.</p>
 <p>우리는 <code>fns</code>가 갖고 있는 함수들의 실행 결과가 필요하다. 이 작업을 단지 <code>(se, fn) =&gt; fn(se)</code>라고 정의함으로 해결할 수 있다. 이미 정의된 어떤 함수 덕분이다. 여기서 <code>se</code>는 처음에는 <code>seed</code>와 같은 값이었다가 이후에는 <code>fn</code>의 리턴값이 될 것이다. <code>fn</code>은 <code>_reduce</code>의 내부에서 반복문으로 배열(<code>fns</code>)을 돌며 계속해서 다음 값을 넘겨서 받게 되는 함수다. </p>
 <h3 id="문제-풀어보기"><a href="#문제-풀어보기" class="headerlink" title="문제 풀어보기"></a>문제 풀어보기</h3><p>끝으로 앞서 소개된 ‘함수형 실전 코드 예제’와 유사한 예제를 풀어보자. 데이터는 <code>products</code>라는 변수에 선언되어 있다. (‘검사’ 창에서 풀어볼 수 있다.) </p>
-<h5 id="1-모든-제품의-총-가격"><a href="#1-모든-제품의-총-가격" class="headerlink" title="1. 모든 제품의 총 가격"></a>1. 모든 제품의 총 가격</h5><h5 id="2-선택된-제품의-총-가격"><a href="#2-선택된-제품의-총-가격" class="headerlink" title="2. 선택된 제품의 총 가격"></a>2. 선택된 제품의 총 가격</h5><script src="https://rawgit.com/joeunha/functional-js-study/master/01_week/functional.js"></script>
+<h5 id="1-모든-제품의-총-가격"><a href="#1-모든-제품의-총-가격" class="headerlink" title="1. 모든 제품의 총 가격"></a>1. 모든 제품의 총 가격</h5><h5 id="2-선택된-제품의-총-가격"><a href="#2-선택된-제품의-총-가격" class="headerlink" title="2. 선택된 제품의 총 가격"></a>2. 선택된 제품의 총 가격</h5><hr>
+<h3 id="전체-스터디-일정"><a href="#전체-스터디-일정" class="headerlink" title="전체 스터디 일정"></a>전체 스터디 일정</h3><h5 id="1주차-기본-함수-구현하고-사용하기"><a href="#1주차-기본-함수-구현하고-사용하기" class="headerlink" title="1주차 | 기본 함수 구현하고 사용하기"></a>1주차 | 기본 함수 구현하고 사용하기</h5><h5 id="2주차-고차-함수와-커링-currying"><a href="#2주차-고차-함수와-커링-currying" class="headerlink" title="2주차 | 고차 함수와 커링(currying)"></a>2주차 | <a href="http://joeun.me/2017/10/18/functional-js-study-1/">고차 함수와 커링(currying)</a></h5><h5 id="3주차-함수형-자바스크립트-라이브러리"><a href="#3주차-함수형-자바스크립트-라이브러리" class="headerlink" title="3주차 | 함수형 자바스크립트 라이브러리"></a>3주차 | <a href="http://joeun.me/2017/10/19/functional-js-study-2/">함수형 자바스크립트 라이브러리</a></h5><h5 id="4주차-Movie-Box-1-필터링-정렬"><a href="#4주차-Movie-Box-1-필터링-정렬" class="headerlink" title="4주차 | Movie Box 1 - 필터링, 정렬"></a><em>4주차 | Movie Box 1 - 필터링, 정렬</em></h5><h5 id="5주차-Movie-Box-2-필터링-정렬-복습"><a href="#5주차-Movie-Box-2-필터링-정렬-복습" class="headerlink" title="5주차 | Movie Box 2 - 필터링, 정렬 복습"></a><em>5주차 | Movie Box 2 - 필터링, 정렬 복습</em></h5><h5 id="6주차-Movie-Box-3-지연평가-L-memoize"><a href="#6주차-Movie-Box-3-지연평가-L-memoize" class="headerlink" title="6주차 | Movie Box 3 - 지연평가 L, memoize"></a><em>6주차 | Movie Box 3 - 지연평가 L, memoize</em></h5><h5 id="7주차-Movie-Box-4-비동기-상황-다루기"><a href="#7주차-Movie-Box-4-비동기-상황-다루기" class="headerlink" title="7주차 | Movie Box 4 - 비동기 상황 다루기"></a><em>7주차 | Movie Box 4 - 비동기 상황 다루기</em></h5><p><a href="https://github.com/joeunha/functional-js-study/tree/master/01_week" target="_blank" rel="external">예제 코드</a></p>
+<script src="https://rawgit.com/joeunha/functional-js-study/master/02_week/functional.js"></script>
 <script>
 var products = [
   {
@@ -180,22 +436,24 @@ var products = [
     ]
   }
 ];
-console.log(`
-[문제 풀어보기]
-  0. 데이터 변수 이름: products
-  1. 모든 제품의 총 가격
-  2. 선택된 제품의 총 가격 
-`)
+
+if (location.pathname === '/2017/10/17/functional-js-study/')
+  console.log(`
+  [문제 풀어보기]
+    0. 데이터 변수 이름: products
+    1. 모든 제품의 총 가격
+    2. 선택된 제품의 총 가격 
+  `)
 </script>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/10/17/functional-js-study/" data-id="cj8wmktx1000pzsvg0qc9119j" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/10/17/functional-js-study/" data-id="cj93s6mt8000njzvg1llr3rje" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/10/17/functional-js-study/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Functional-Programming/">Functional Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/스터디/">스터디</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/each/">each</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filter/">filter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reduce/">reduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/스터디/">스터디</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/자바스크립트/">자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-자바스크립트/">함수형 자바스크립트</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
 
     </footer>
   </div>
@@ -213,7 +471,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -258,7 +516,7 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/07/26/make-bingo-game-1/" data-id="cj8wmktz0002czsvgs6n6o129" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/07/26/make-bingo-game-1/" data-id="cj93s6muu002rjzvgwj3tj0cz" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/07/26/make-bingo-game-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -281,7 +539,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/view-of-value/">view of value</a>
+    <a class="article-category-link" href="/categories/view-of-value/">view of value</a>
   </div>
 
   </div>
@@ -313,7 +571,7 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/07/17/1-year-anniversary/" data-id="cj8wmktw00009zsvgy4e12zf9" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/07/17/1-year-anniversary/" data-id="cj93s6msw000ajzvg3qzi5qw1" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/07/17/1-year-anniversary/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -336,7 +594,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -373,7 +631,7 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/07/12/make-bingo-game/" data-id="cj8wmktz3002fzsvggjtjy2y8" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/07/12/make-bingo-game/" data-id="cj93s6mw70070jzvgvqhscszt" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/07/12/make-bingo-game/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -396,7 +654,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -426,12 +684,12 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/06/12/javascript-daily-function-9/" data-id="cj8wmkty8001mzsvg0vqyt692" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/06/12/javascript-daily-function-9/" data-id="cj93s6mu4001pjzvgrqd703fm" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/06/12/javascript-daily-function-9/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
 
     </footer>
   </div>
@@ -449,7 +707,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -476,12 +734,12 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/26/javascript-daily-function-8/" data-id="cj8wmkty5001kzsvgj6pzx6ut" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/04/26/javascript-daily-function-8/" data-id="cj93s6mu0001jjzvgv43dg25a" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/04/26/javascript-daily-function-8/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
 
     </footer>
   </div>
@@ -499,7 +757,7 @@ console.log(`
     
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
   </div>
 
   </div>
@@ -530,169 +788,12 @@ console.log(`
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/19/javascript-daily-function-7/" data-id="cj8wmktxx001gzsvgv31hmwn4" class="article-share-link">Share</a>
+      <a data-url="http://joeun.me/2017/04/19/javascript-daily-function-7/" data-id="cj93s6mty001gjzvgedpbb5ae" class="article-share-link">Share</a>
       
         <a href="http://joeun.me/2017/04/19/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-like-me-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2017/04/05/like-me-1/" class="article-date">
-  <time datetime="2017-04-05T14:11:26.000Z" itemprop="datePublished">2017-04-05</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/view-of-value/">view of value</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/like-me-1/">[나와 같다면] 직장이 아니라 직업</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="나와-같다면-시리즈-소개"><a href="#나와-같다면-시리즈-소개" class="headerlink" title="[나와 같다면] 시리즈 소개"></a>[나와 같다면] 시리즈 소개</h5><p>  <em>‘그대여 나와 같다면 내 마음과 똑같다면 그냥 나에게 오면 돼’</em> 김연우씨가 불러서 더 유명한 노래 ‘나와 같다면’에 나오는 가사입니다. 저는 이 노래의 제목을 제 가치관을 나누는 시리즈의 제목으로 쓰려고 합니다. 이 노래의 가사처럼 저와 같은 가치관을 가진 분들과 함께 하고 싶은 마음을 담았습니다. 가치관이 담긴 글이다 보니 다른 글보다 조금 더 편하게 때론 더 단호하게 써내려갈 생각입니다.</p>
-<hr>
-<h2 id="직장이-아니라-직업"><a href="#직장이-아니라-직업" class="headerlink" title="직장이 아니라 직업"></a>직장이 아니라 직업</h2><h4 id="나의-선택"><a href="#나의-선택" class="headerlink" title="나의 선택"></a>나의 선택</h4><p>나는 직장이 아닌 직업을 선택했다. 개발자라는 직업을 선택했다. 그리고 특정 직장(기업)이 아닌 업계를 선택했다. IT업계와 스타트업계가 그것이다. 나는 개발자로서 IT 업계에 종사하는 사람이다. 스타트업에 일하는 사람으로서 스타트업계에 종사하는 사람이다. 대학 졸업은 앞둔 나는 개발이 하고 싶었다. 잘 하는 편은 아니었지만 그래도 뭔가 새로운 서비스를 만드는 일이 하고 싶었다. 내가 작성한 코드로 돌아가는 서비스를 만들었들 때 그 서비스를 이용하는 유저들의 반응이 궁금했다. 나는 개발자가 되고 싶었고, 개발자라는 직업을 선택했다. 사회생활의 시작을 준비하면서 이 길을 선택했다.</p>
-<h4 id="새로운-시대"><a href="#새로운-시대" class="headerlink" title="새로운 시대"></a>새로운 시대</h4><p>우리 세대는 이제 직장이 아니라 직업을 선택해야 한다. 더 이상 평생직장은 없다. 평생 나를 먹여 살려줄 회사는 없다. 이름만 들으면 다 아는 대기업이라면 안정적인 공기업이라면 다르지 않을까. 한동안 돈은 많이 벌 수 있을지 모르겠다. 하지만 오래 가진 않을 것이다. 새로운 시대가 오고 있다. 바로 4차 산업의 시대다.<br>정치권에서도 4차 산업 시대를 운운한다. 어떤 시대가 될지 정확히 알 수 없지만 한 가지 확실한 것은 지금과 일의 개념이 많이 달라질 것이라는 점이다. 기업은 더 이상 반복적으로 누구나 할 수 있는 일을 사람에게 맡기지 않을 것이다. 이윤을 추구하는 기업의 특성상 그러한 일을 사람에게 맡기는 건 비효율적이기 때문이다. 그렇다면 직장이 아니라 직업을 선택하면 안전하단 말인가? 사실 또 그렇다고 말하긴 좀 어렵지만 그래도 직장을 선택하는 것보다는 낫다. 직장을 선택하는 것과 직업을 선택하는 것의 차이는 주도성에 있기 때문이다.</p>
-<h4 id="주도성과-창의력"><a href="#주도성과-창의력" class="headerlink" title="주도성과 창의력"></a>주도성과 창의력</h4><p>직업을 선택하는 행위는 직장을 선택하는 행위보다 내가 어떤 일을 할 것인지 선택할 수 있는 주도성 혹은 주체성이라고 할 수 있는 어떤 자주적인 선택 능력이 더 필요하다. 직장은 다양한 일을 하는 사람, 팀 혹은 집단의 집합인데 직장을 선택한다는 것은 이러한 집합을 선택한다는 의미이다. 특정 직장에 들어가길 원한다는 것은 그들이 하는 일 중 어떤 것이 자신에게 맡겨지더라도 무관하다고 말하는 것과 같다. 결국 자신이 어떤 일을 할지에 대해서는 선택을 포기한 것이다. 반면 직업은 어떤 일 자체를 의미한다. 직업을 선택한다는 것은 그 일을 선택한다는 것을 의미한다. 전자의 선택보다 훨씬 주체적이고 구체적인 선택을 하는 것이다.<br>직장과 직업을 선택하는 차이가 주도성에 있는데, 그 주도성이 왜 중요하고 좋은 것이냐고 묻는다면 다시 4차 산업 시대를 이야기로 돌아가야 한다. 반복되는 작업은 기계와 소프트웨어가 대신하는 시대가 올 것이다. 그 시대에서 살아남는 방법은 이전과는 다른 선택을 하는 것이다. 기계가 따라 할 수 없는 선택을 하는 것이다. 기계가 아직 학습하지 못한 형태의 선택을 하는 것이다. 개인적으로는 이러한 형태의, 이전과는 다른 선택을 할 수 있는 능력이 창의력이라고 생각한다. 새로운 방식을 선택하는 능력, 새로운 방법을 선택하는 능력이 창의력이다. 창의력은 주도적으로 선택한 일에서 나온다. 주도적으로 일을 선택한 사람만이 일을 창의적으로 해결하려고 노력할 것이다. 무슨 일을 해야 하는지 선택할 수도 없는 직장에 간다면 우리는 주도성을 잃어갈 것이고 이는 선택하는 능력, 창의력을 잃어가는 것을 의미한다. 이미 우리는 학교 생활을 통해서 창의력을 잃었다고 말한다면 이렇게 말하고 싶다. 그러니까 더 이상 창의력을 잃어서는 안 된다. 주도성으로부터 나오는 창의력만이 새로운 시대에서 우리를 살아남게 할 것이기 때문이다.</p>
-<h4 id="업계-業界"><a href="#업계-業界" class="headerlink" title="업계(業界)"></a>업계(業界)</h4><p>같은 일을 하는 사람들의 세계, 업계. 직업을 선택한다는 것은 업계를 선택하는 것이다. 업계는 직장보다 더 넓은 세계다. 이곳은 더 자유롭다. 그리고 더 안전하다.<br>업계가 직장보다 더 넓은 세계라는 점은 굳이 설명할 필요가 없다. 직장은 특정 집단의 이윤을 추구하는 곳이지만 업계는 같은 유형의 일을 하는 사람들의 집합이다. 다양한 기업에 일하는 사람들의 총합에서 같은 유형의 일을 하는 사람을 모아둔 것이다. 훨씬 많은 사람이 있으며 다양한 국가의 사람이 존재할 수 있다. 또한 넓은 장소일수록 활동 반경이 넓어지고 자유로워지는 것처럼 이처럼 넓은 세계에서는 더욱 자유로울 수 있다. 일례로 이직에 관한 사례들을 들어봐도 그렇다. 듣자 하니 실리콘밸리에서는 능력이 된다면 더 자주 이직한다고 한다. 1년에 한 번씩 이직하더라도 그것을 능력이라고 생각한다고 한다. (이직과 함께 연봉도 오른다고 한다.) 심지어는 이처럼 능력 있는 이직꾼(?)들은 특정 회사에 소속되려 하지 않는다. 극단적인 자유를 누리면서 일한다. 바로 디지털 노마드다. 컴퓨터가 있고 인터넷이 된다면 어디서든 일한다. 이 같은 일이 가능한 것은 그들이 직업을 선택했기 때문이다.</p>
-<p>자유롭지만 또한 안전한 이유는 무엇일까. 직장이 아닌 직업을 선택하기에 가장 두려운 부분이 바로 불안정에 대한 두려움 때문일 것이다. 남들이 알아주는 안정적인 직장을 선택하면 때론 일이 고달프더라도 그리고 내가 무슨 일을 하는지 잘 모르더라도 안정적으로 월급을 받을 수 있으니 그걸로 족하다는 생각을 할 것이다. 사실은 그렇지 않다. 물론 모든 경우가 그렇지 않다고 단정 지을 수 없는 부분이 있다. 하지만 앞서 말한 것처럼 새로운 시대에 우리는 어느 누구도 안정적인 직장을 가질 수 없다. 우리는 그나마 안정적인 직업을 가질 수 있을 뿐이다. 업계에 들어오는 것이 보다 안정적이고 안전한 이유는 그 세계가 넓기 때문이다. 이건 또 무슨 도돌이표 같은 소리인가. 잘 생각해보자. 더 넓은 세계에서는 또 다른 장소로의 이동이 자유롭다. 자유롭다는 것은 제약이 적다는 것이다. 이동(이직)의 장벽이 낮다는 것이다. 바로 이 지점이다. 평생직장이 없기에 우리는 잦은 이직을 경험해야 하고 또한 선택해야 한다. 그렇기 때문에 우리는 넓은 세계, 이동이 용이한 세계에 들어가야 한다. 그것이 보다 안정적인 삶을 영위할 수 있는 방법이다.</p>
-<h4 id="고통의-길"><a href="#고통의-길" class="headerlink" title="고통의 길"></a>고통의 길</h4><p>사실 직업을 선택하는 것은 고통의 길이다. 앞서 말한 창의력으로 새로운 시대에서 살아남는 것과 이직의 자유로움을 얻기 위해선 고통이 따른다. 단순히 직장이 아닌 직업을 선택했다고 곧장 주어지는 선물이 아니다. 업계에서 쓰일만한 능력을 갖추기 위해 계속 공부하고 발전해야 한다. 그 모든 과정이 재미있고 보람찰 때도 있겠지만 때론 상당히 고통스러울 것이다. 그렇지만 우리가 직업을 선택하지 않는다면 이러한 고통도 없이 애써볼 시간도 없이 막다른 길에 이르게 될 것이다.</p>
-<h4 id="나와-같다면"><a href="#나와-같다면" class="headerlink" title="나와 같다면"></a>나와 같다면</h4><p>사회라는 새로운 세상으로 들어서는 길, 그 길은 갈림길이다.<br>남들이 부러워하는 안정적인 직장인의 길과 불안정하고 인정받지 못하는 것처럼 보이는 직업인의 길이다. 어떤 길을 선택할 것인가.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/04/05/like-me-1/" data-id="cj8wmktyx0028zsvgvdbgj8hb" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2017/04/05/like-me-1/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opinion/">opinion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/나와같다면/">나와같다면</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function-6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2017/03/28/javascript-daily-function-6/" class="article-date">
-  <time datetime="2017-03-28T14:07:24.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/javascript-daily-function-6/">[오늘의 함수] nest</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="nest-함수"><a href="#nest-함수" class="headerlink" title="nest 함수"></a>nest 함수</h2><p><a href="http://joeun.me/2017/03/07/javascript-daily-function-1/"><code>pick</code> 함수 편</a>에서도 말씀드린 것처럼 자바스크립트에서 객체는 키(key)와 값(value)의 쌍입니다. 때론 값에 또 다시 객체를 담아 내부에 객체가 반복해서 등장하는 형태의 객체를 만들기도 합니다. 이런 객체를 중첩 객체(nested object)라고 부릅니다. 오늘은 이러한 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 <code>nest</code> 함수입니다.</p>
-<h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nested_obj = &#123;&#125;;</div><div class="line">nested_obj.first = &#123;&#125;;</div><div class="line">nested_obj.first.second = &#123;&#125;;</div><div class="line">nested_obj.first.second.third = <span class="string">"I'm nested object."</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
-<p>이처럼 중첩된 구조의 객체를 만들기 위해선 일일이 각 순서마다 객체를 생성해줘야하는 번거로운 작업이 수반됩니다. 하지만 <code>nest</code> 함수는 이를 한번에 만들어줍니다.</p>
-<h4 id="2-오늘의-함수-중첩-객체-만들기"><a href="#2-오늘의-함수-중첩-객체-만들기" class="headerlink" title="(2) 오늘의 함수 - 중첩 객체 만들기"></a>(2) 오늘의 함수 - 중첩 객체 만들기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nest = <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> key.split(<span class="string">'.'</span>).reduceRight(valkey, value); <span class="comment">// [1] 가장 끝의 인자를 먼저 생성하기 위해 reduceRight를 사용합니다.</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">valkey</span>(<span class="params">value, key</span>) </span>&#123; <span class="comment">// [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)</span></div><div class="line">  <span class="keyword">return</span> &#123; [key] : value &#125;; <span class="comment">// [3] ES6부터 지원하는 문법입니다. (Computed property names) </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> nested_obj = nest(<span class="string">'first.second.third'</span>, <span class="string">"I'am nested object."</span>);</div><div class="line"><span class="built_in">console</span>.log(nested_obj.first.second.third); <span class="comment">// "I'm nested object."</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/28/javascript-daily-function-6/" data-id="cj8wmktxw001ezsvg4vrhy127" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2017/03/28/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function-5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/2017/03/23/javascript-daily-function-5/" class="article-date">
-  <time datetime="2017-03-23T13:48:59.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/joeun-me/">joeun.me</a>►<a class="article-category-link" href="/categories/joeun-me/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/javascript-daily-function-5/">[오늘의 함수] pipe</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="pipe-함수"><a href="#pipe-함수" class="headerlink" title="pipe 함수"></a>pipe 함수</h2><p>미리 예고드린 것처럼 오늘은 <code>pipe</code> 함수를 소개해드리겠습니다. 우선 이 함수는 underscore의 <code>compose</code> 함수와 같은 일을 합니다. 복수의 함수를 합쳐 하나의 함수로 만드는 것입니다. 사용법에 있어서 조금 차이가 있는데, 그 부분은 생략하겠습니다. 우선 <code>pipe</code> 함수가 필요한 아주 간단한 상황을 살펴보겠습니다.</p>
-<h4 id="1-어제의-함수-함수의-연속-실행"><a href="#1-어제의-함수-함수의-연속-실행" class="headerlink" title="(1) 어제의 함수 - 함수의 연속 실행"></a>(1) 어제의 함수 - 함수의 연속 실행</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add10</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> num + <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = add10(add10(add10(<span class="number">5</span>))); <span class="comment">// [1] add10 함수를 세번 실행합니다. 첫번째 인자는 5입니다.</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [2] 결과는 35가 나옵니다.</span></div></pre></td></tr></table></figure>
-<p>아주 간단한 예제입니다. <code>add10</code> 함수는 값이 들어오면 10을 더해서 반환합니다. [1] 에서 함수를 세번 실행하고 있습니다. 5에 10을 세번 더해 35라는 값을 반환합니다. 이 예제의 포인트는 <strong>함수가 값으로 쓰인다는 점</strong>입니다. 가장 좌측에 위치한 <code>add10</code> 함수는 인자로 함수 하나를 갖고 있고 인자인 그 함수가 또 함수를 인자로 갖고 있습니다. 이렇듯 인자로 함수를 중첩해서 넘깁니다. 허나 실제로 실행되는 순서, 논리를 읽어나가는 순서는 우측에서부터 시작합니다. 5를 인자로 받은 함수가 먼저 실행되고 그 결과를 자신을 감싸고 있던 함수에 전달하는 식으로 진행됩니다. </p>
-<p>이렇게 함수를 값으로 전달함으로써 함수를 연속적으로 실행해서 결과를 얻어낼 수도 있습니다. 이제 오늘의 주인공 <code>pipe</code> 함수를 만나보겠습니다.</p>
-<h4 id="2-오늘의-함수-pipe-함수"><a href="#2-오늘의-함수-pipe-함수" class="headerlink" title="(2) 오늘의 함수 - pipe 함수"></a>(2) 오늘의 함수 - pipe 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pipe</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> funcs = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>); </div><div class="line">  <span class="comment">// [1] 함수에 들어온 인자(함수)들의 모임인 arguments를 배열로 만들어줍니다. (원래 arguments는 유사 배열입니다.)</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">seed</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> funcs.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">value, func</span>) </span>&#123; </div><div class="line">      <span class="comment">// [2] reduce 함수를 사용해서 함수의 실행 결과를 하나로 합칩니다.</span></div><div class="line">      <span class="keyword">return</span> func(value);</div><div class="line">    &#125;, seed);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> add30 = pipe(add10, add10, add10); </div><div class="line"><span class="comment">// [3] pipe 함수를 이용해 add10 함수를 세번 연속 호출하는 함수를 만듭니다.</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> result1 = add30(<span class="number">5</span>); <span class="comment">// [4] 만들어진 함수로 결과를 만듭니다.</span></div><div class="line"><span class="keyword">var</span> result2 = add30(<span class="number">13</span>); <span class="comment">// [5] pipe로 만들어진 함수는 재사용 가능합니다.</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(result1); <span class="comment">// 35</span></div><div class="line"><span class="built_in">console</span>.log(result2); <span class="comment">// 43</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joeun.me/2017/03/23/javascript-daily-function-5/" data-id="cj8wmktxs001azsvgxslxpyr7" class="article-share-link">Share</a>
-      
-        <a href="http://joeun.me/2017/03/23/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의함수/">오늘의함수</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
 
     </footer>
   </div>

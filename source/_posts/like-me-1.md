@@ -2,7 +2,6 @@
 title: '[나와 같다면] 직장이 아니라 직업'
 date: 2017-04-05 23:11:26
 categories:
-  - joeun.me
   - view of value
 tags:
   - opinion

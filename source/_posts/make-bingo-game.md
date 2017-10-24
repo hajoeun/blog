@@ -2,7 +2,6 @@
 title: '[미니게임] 소개 - BINGO'
 date: 2017-07-12 23:56:13
 categories:
-  - joeun.me
   - programming
 tags:
   - javascript

@@ -2,11 +2,11 @@
 title: '[오늘의 함수] pick'
 date: 2017-03-07 23:28:18
 categories:
-  - joeun.me
   - programming
 tags:
   - javascript
-  - 오늘의함수
+  - 오늘의 함수
+  - 함수형 프로그래밍
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

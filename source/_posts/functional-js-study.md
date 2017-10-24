@@ -1,28 +1,19 @@
 ---
-title: '[스터디] 함수형 자바스크립트'
+title: '[함수형 자바스크립트] 기본 함수 구현하고 사용하기'
 categories:
-  - joeun.me
   - programming
 tags:
   - javascript
+  - each
+  - map
+  - filter
+  - reduce
+  - 자바스크립트
   - 스터디
-  - Functional Programming
+  - 함수형 프로그래밍
+  - 함수형 자바스크립트
 date: 2017-10-17 15:36:32
 ---
-_함수형 자바스크립트 스터디 정리_
-
-
-### 전체 스터디 일정
-  1. [기본 함수 구현하고 사용하기](http://joeun.me/2017/10/17/functional-js-study/) [Source](https://github.com/joeunha/functional-js-study/tree/master/01_week)
-  2. 커링과 Partial.js 간단 소개 [Source](https://github.com/joeunha/functional-js-study/tree/master/02_week)
-  3. jQuery vs Don.js [Source](https://github.com/joeunha/functional-js-study/tree/master/03_week)
-  4. Movie Box 1 - 필터링, 정렬 [Source](https://github.com/joeunha/functional-js-study/tree/master/04_week)
-  5. Movie Box 2 - 필터링, 정렬 복습 [Source](https://github.com/joeunha/functional-js-study/tree/master/05_week)
-  6. Movie Box 3 - 지연평가 L, memoize [Source](https://github.com/joeunha/functional-js-study/tree/master/06_week)
-  7. Movie Box 4 - 비동기 상황 다루기 [Source](https://github.com/joeunha/functional-js-study/tree/master/07_week)
-
----
-
 ## 기본 함수 구현하고 사용하기
 함수형 프로그래밍에서 사용되는 기본 함수인 `each`, `map`, `filter`, `reduce` 함수와 함수를 실행하는 함수인 `go` 함수를 사용해보고 직접 구현해보자.
 (모든 예제는 웹 브라우저의 '검사' 도구를 열어서 테스트할 수 있다.)
@@ -176,23 +167,23 @@ function _map(list, iter) {
 
 사용의 예는 이미 위에서 살펴보았으니 구현체만 살펴보자.
 ```javascript
-function _filter(list, iter) {
+function _filter(list, predi) {
   var res = [];
   if (Array.isArray(list)) {
     for (var i = 0, len = list.length; i < len; i++) 
-      if (iter(list[i], i, list)) 
+      if (predi(list[i], i, list)) 
         res.push(list[i]);
   } else {
     var keys = Object.keys(list);
     for (var i = 0, len = keys.length; i < len; i++) 
-      if (iter(list[keys[i]], keys[i], list)) 
+      if (predi(list[keys[i]], keys[i], list)) 
         res.push(list[keys[i]]);
   }
   return res;
 }
 ```
 
-`_map`처럼 결과값 `res`를 갖지만 보조함수가 리턴한 값이 아닌 보조함수의 실행 결과가 참인 경우에만 값을 결과값에 담는다.
+`_map`처럼 결과값 `res`를 갖지만 보조함수(`predi`)가 리턴한 값이 아닌 보조함수의 실행 결과가 참인 경우에만 값을 결과값에 담는다.
 
 
 ##### 4. `_reduce`
@@ -263,9 +254,20 @@ function _go(seed) {
 
 ##### 2. 선택된 제품의 총 가격 
 
+---
 
+### 전체 스터디 일정
+  ##### 1주차 | 기본 함수 구현하고 사용하기
+  ##### 2주차 | [고차 함수와 커링(currying)](http://joeun.me/2017/10/18/functional-js-study-1/) 
+  ##### 3주차 | [함수형 자바스크립트 라이브러리](http://joeun.me/2017/10/19/functional-js-study-2/)
+  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](http://joeun.me/2017/10/23/functional-js-study-3/)
+  ##### _5주차 | Movie Box 2 - 필터링, 정렬 복습_
+  ##### _6주차 | Movie Box 3 - 지연평가 L, memoize_
+  ##### _7주차 | Movie Box 4 - 비동기 상황 다루기_
 
-<script src="https://rawgit.com/joeunha/functional-js-study/master/01_week/functional.js"></script>
+[예제 코드](https://github.com/joeunha/functional-js-study/tree/master/01_week)
+
+<script src="https://rawgit.com/joeunha/functional-js-study/master/02_week/functional.js"></script>
 <script>
 var products = [
   {
@@ -296,10 +298,12 @@ var products = [
     ]
   }
 ];
-console.log(`
-[문제 풀어보기]
-  0. 데이터 변수 이름: products
-  1. 모든 제품의 총 가격
-  2. 선택된 제품의 총 가격 
-`)
+
+if (location.pathname === '/2017/10/17/functional-js-study/')
+  console.log(`
+  [문제 풀어보기]
+    0. 데이터 변수 이름: products
+    1. 모든 제품의 총 가격
+    2. 선택된 제품의 총 가격 
+  `)
 </script>

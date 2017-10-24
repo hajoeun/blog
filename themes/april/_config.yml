@@ -4,7 +4,7 @@ menu:
   블로그: /
   모아보기: /archives
   Github: https://github.com/joeunha
-# rss: /atom.xml
+# rss: /feed.xml
 
 # Content
 excerpt_link: Read More
@@ -33,7 +33,9 @@ show_count: false
 google_analytics: UA-92829973-1
 favicon: /favicon.ico
 logo: /images/logo.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+open_graph:
+  image: /images/header_image.gif
+  twitter_id:
+  google_plus:
+  fb_admins:
+  fb_app_id:
