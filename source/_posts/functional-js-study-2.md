@@ -21,7 +21,7 @@ date: 2017-10-19 18:41:14
 
 
 ##### 1. 부분 적용 함수 `_.partial`
-[지난 시간](http://joeun.me/2017/10/18/functional-js-study-1/)에 다룬 `_curryr` 함수는 해결되지 않은 문제를 가지고 있었다. 
+[지난 시간](/programming/functional-js-study-1/)에 다룬 `_curryr` 함수는 해결되지 않은 문제를 가지고 있었다. 
 
 ```javascript
 var add = _curryr((a, b) => a + b);
@@ -60,7 +60,7 @@ var reduce_arr = _.partial(_reduce, arr);
 console.log(reduce_arr((total, num) => total + num)); // 55
 ```
 
-`sum_init_0` 함수는 `0`을 초기값으로 가진 상태로 돌림직한 데이터가 가진 모든 수를 더하는 함수다. 선언되는 과정을 살펴보면 `_.partial` 함수에게 세개의 인자가 전달된다. 첫번째 인자인 `_reduce`는 커링의 대상이 될 함수다. 이후의 인자들은 `_reduce`에 전달될 인자를 의미한다. 두번째 인자는 `_`인데 이 부분은 나중에 받겠다는 의미가 된다. __'지금은 비워두고 나중에 값이 들어오면 여기에 넣어라'__는 의미가 되는 셈이다. 반면 `(total, num) => total + num`과 `0`은 각각 `iter`, `memo`를 의미하고([기본 함수 구현하고 사용하기](http://joeun.me/2017/10/17/functional-js-study/) 편의 `_reduce` 참고) __'지금 값을 넣어두겠다'__는 의미가 된다. 이렇게 일정 부분만 미리 값을 넣어두는 행위를 __부분 적용__이라고 한다. 
+`sum_init_0` 함수는 `0`을 초기값으로 가진 상태로 돌림직한 데이터가 가진 모든 수를 더하는 함수다. 선언되는 과정을 살펴보면 `_.partial` 함수에게 세개의 인자가 전달된다. 첫번째 인자인 `_reduce`는 커링의 대상이 될 함수다. 이후의 인자들은 `_reduce`에 전달될 인자를 의미한다. 두번째 인자는 `_`인데 이 부분은 나중에 받겠다는 의미가 된다. __'지금은 비워두고 나중에 값이 들어오면 여기에 넣어라'__는 의미가 되는 셈이다. 반면 `(total, num) => total + num`과 `0`은 각각 `iter`, `memo`를 의미하고([기본 함수 구현하고 사용하기](/programming/functional-js-study/) 편의 `_reduce` 참고) __'지금 값을 넣어두겠다'__는 의미가 된다. 이렇게 일정 부분만 미리 값을 넣어두는 행위를 __부분 적용__이라고 한다. 
 
 `sum` 함수는 돌림직한 데이터가 가진 모든 수를 더하는 함수다. `sum_init_0`와는 초기값의 유무에서 차이가 생긴다. `_.partial` 함수를 살펴보면 마지막 인자 `0`이 없는 것을 알 수 있다. 이처럼 `_.partial`로 부분 적용된 함수를 만들 때 마지막 인자가 들어오지 않으면 `_`과 같은 취급을 한다. 즉 '지금은 비워두고 나중에 값이 들어오면 넣는' 영역으로 본다. 결과적으로 `sum`은 `iter`만을 가진 함수가 되어 실행하는 시점에 데이터 `arr`와 초기값 `100`을 인자로 줄 수 있었다.
 
@@ -121,7 +121,7 @@ _.go([1, 2, 3],
 //   "Sun Feb 05 2017 03:33:39 GMT+0900 (KST)"]
 ```
 
-위의 예제는 Partial.js의 [소개 페이지](https://marpple.github.io/partial.js/#컬렉션을-다루는-비동기-제어-함수)에 나오는 코드를 가져왔다. 잠깐 코드를 살펴보면 동기적으로 날짜를 리턴하는 `snycData` 함수와 비동기적으로 날짜를 리턴하는 `promiseData` 함수가 있다. 두 함수를 `_.map`에 넣어 실행하면 날짜 데이터를 갖는 배열을 리턴한다. 다시 한번 `_.map`으로 날짜 데이터를 문자열로 치환하여 리턴하면 결과값과 같은 날짜와 시간을 표시한 문자열이 담긴 배열이 나온다. 비동기 상황임에도 불구하고 동기 상황과 같은 결과를 리턴한다. 물론 3초정도의 시간이 소요된다. [1주차](http://joeun.me/2017/10/17/functional-js-study/)에 만들어본 일반 `_go`를 사용하면 위와 같은 결과를 만들어내지 못한다. 
+위의 예제는 Partial.js의 [소개 페이지](https://marpple.github.io/partial.js/#컬렉션을-다루는-비동기-제어-함수)에 나오는 코드를 가져왔다. 잠깐 코드를 살펴보면 동기적으로 날짜를 리턴하는 `snycData` 함수와 비동기적으로 날짜를 리턴하는 `promiseData` 함수가 있다. 두 함수를 `_.map`에 넣어 실행하면 날짜 데이터를 갖는 배열을 리턴한다. 다시 한번 `_.map`으로 날짜 데이터를 문자열로 치환하여 리턴하면 결과값과 같은 날짜와 시간을 표시한 문자열이 담긴 배열이 나온다. 비동기 상황임에도 불구하고 동기 상황과 같은 결과를 리턴한다. 물론 3초정도의 시간이 소요된다. [1주차](/programming/functional-js-study/)에 만들어본 일반 `_go`를 사용하면 위와 같은 결과를 만들어내지 못한다. 
 
 ```javascript
 _go([1, 2, 3],
@@ -233,17 +233,17 @@ _.go(
 ---
 
 ### 전체 스터디 일정
-  ##### 1주차 | [기본 함수 구현하고 사용하기](http://joeun.me/2017/10/17/functional-js-study/)
-  ##### 2주차 | [고차 함수와 커링(currying)](http://joeun.me/2017/10/18/functional-js-study-1/)
+  ##### 1주차 | [기본 함수 구현하고 사용하기](/programming/functional-js-study/)
+  ##### 2주차 | [고차 함수와 커링(currying)](/programming/functional-js-study-1/)
   ##### 3주차 | 함수형 자바스크립트 라이브러리
-  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](http://joeun.me/2017/10/23/functional-js-study-3/)
+  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](/programming/functional-js-study-3/)
   ##### _5주차 | Movie Box 2 - 필터링, 정렬 복습_
   ##### _6주차 | Movie Box 3 - 지연평가 L, memoize_
   ##### _7주차 | Movie Box 4 - 비동기 상황 다루기_
 
 [예제 코드](https://github.com/joeunha/functional-js-study/tree/master/03_week)
 
-<script>
+<script async>
 var arr = [1,2,3,4,5,6,7,8,9,10];
 
 function _filter(list, iter) {
@@ -288,5 +288,5 @@ var projections = [
   { id: 10, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' }] } },
 ];
 </script>
-<script src="https://rawgit.com/joeunha/cdn/master/don.js"></script>
-<script src="https://rawgit.com/joeunha/cdn/master/partial.js"></script>
+<script async src="https://rawgit.com/joeunha/cdn/master/don.js"></script>
+<script async src="https://rawgit.com/marpple/partial.js/master/partial.min.js"></script>

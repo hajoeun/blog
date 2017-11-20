@@ -12,9 +12,9 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://joeun.me/
+url: https://joeun.me/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :category/:title/
 permalink_defaults:
 cname: joeun.me
 
@@ -45,7 +45,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: programming
 category_map:
 tag_map:
 
@@ -87,3 +87,18 @@ robotstxt:
   disallow:
   allow: 
   sitemap: /sitemap.xml
+
+# hexo-generator-amp
+# The following settings is the quick start options.
+generator_amp:
+  templateDir:  amp-template
+  assetDistDir: amp-dist
+  logo:
+    path:   sample/sample-logo.png
+    width:  600
+    height: 60
+  substituteTitleImage:
+    path:   sample/sample-substituteTitleImage.png
+    width:  1024
+    height: 800
+  warningLog: false   # To display warning, please set true.

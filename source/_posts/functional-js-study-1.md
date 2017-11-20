@@ -20,7 +20,7 @@ date: 2017-10-18 18:49:54
 
 ### 보조 함수의 활용
 ##### 1. 고차 함수란?
-고차 함수는 __값으로 다룰 수 있는 함수__다. 함수를 값으로 다룰 수 있기 때문에 __함수를 인자로 사용__할 수도 있고 함수를 __리턴값으로 사용__할 수도 있다. 이러한 특징을 잘 보여주는 예제가 [지난 시간](http://joeun.me/2017/10/17/functional-js-study/) 살펴본 함수들이 가진 보조함수들이다. `_each`를 다시 한번 살펴보자.
+고차 함수는 __값으로 다룰 수 있는 함수__다. 함수를 값으로 다룰 수 있기 때문에 __함수를 인자로 사용__할 수도 있고 함수를 __리턴값으로 사용__할 수도 있다. 이러한 특징을 잘 보여주는 예제가 [지난 시간](/programming/functional-js-study/) 살펴본 함수들이 가진 보조함수들이다. `_each`를 다시 한번 살펴보자.
 
 ```javascript
 _each([1,2,3,4,5], num => console.log(num)); // _each 함수에 두번째 인자로 함수가 사용된다.
@@ -183,14 +183,14 @@ function _pipe() {
 ---
 
 ### 전체 스터디 일정
-  ##### 1주차 | [기본 함수 구현하고 사용하기](http://joeun.me/2017/10/17/functional-js-study/)
+  ##### 1주차 | [기본 함수 구현하고 사용하기](/programming/functional-js-study/)
   ##### 2주차 | 고차 함수와 커링(currying)
-  ##### 3주차 | [함수형 자바스크립트 라이브러리](http://joeun.me/2017/10/19/functional-js-study-2/)
-  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](http://joeun.me/2017/10/23/functional-js-study-3/)
+  ##### 3주차 | [함수형 자바스크립트 라이브러리](/programming/functional-js-study-2/)
+  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](/programming/functional-js-study-3/)
   ##### _5주차 | Movie Box 2 - 필터링, 정렬 복습_
   ##### _6주차 | Movie Box 3 - 지연평가 L, memoize_
   ##### _7주차 | Movie Box 4 - 비동기 상황 다루기_
 
 [예제 코드](https://github.com/joeunha/functional-js-study/tree/master/02_week)
 
-<script src="https://rawgit.com/joeunha/functional-js-study/master/02_week/functional.js"></script>
+<script src="/js/functional.js"></script>

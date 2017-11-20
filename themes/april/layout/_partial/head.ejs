@@ -21,6 +21,9 @@
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <% if (is_post() && config.generator_amp){ %>
+    <link rel="amphtml" href="<%= config.url %><%= config.root %><%= page.path %>/amp/index.html">
+  <% } %>
   <%- open_graph(theme.open_graph) %>
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
