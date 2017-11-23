@@ -1265,3 +1265,8 @@ pre .javascript .function {
     color: #fff;
   }
 }
+@media screen and (max-width: 479px) {
+  #body.outer {
+    padding: 0;
+  }
+}

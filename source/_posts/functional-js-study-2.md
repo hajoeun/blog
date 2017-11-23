@@ -236,7 +236,7 @@ _.go(
   ##### 1주차 | [기본 함수 구현하고 사용하기](/programming/functional-js-study/)
   ##### 2주차 | [고차 함수와 커링(currying)](/programming/functional-js-study-1/)
   ##### 3주차 | 함수형 자바스크립트 라이브러리
-  ##### 4주차 | [Movie Box 1 - 필터링, 정렬](/programming/functional-js-study-3/)
+  ##### _4주차 | Movie Box 1 - 필터링, 정렬_
   ##### _5주차 | Movie Box 2 - 필터링, 정렬 복습_
   ##### _6주차 | Movie Box 3 - 지연평가 L, memoize_
   ##### _7주차 | Movie Box 4 - 비동기 상황 다루기_
