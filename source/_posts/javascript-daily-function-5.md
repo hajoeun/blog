@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] pipe'
+title: '오늘의 함수 - pipe'
 date: 2017-03-23 22:48:59
 categories:
   - programming

@@ -82,6 +82,60 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/programming/javascript-daily-function-7/" class="article-date">
+  <time datetime="2017-04-19T14:41:48.000Z" itemprop="datePublished">2017-04-19</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/programming/javascript-daily-function-7/">오늘의 함수 - partial</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="partial-함수"><a href="#partial-함수" class="headerlink" title="partial 함수"></a>partial 함수</h2><p>함수를 만들면서 프로그래밍을 하다보면 <code>pipe</code>와 같이 새로운 함수를 만들어주는 함수가 필요한 경우가 있습니다. 오늘 소개해드릴 <code>partial</code>도 그런 유형의 함수입니다. 사실 ‘새로운 함수’를 만들어준다고 보기에는 어려움이 있을 것 같습니다. 이 함수는 <strong>기존의 함수에 인자를 미리 적용해두는 일을 하는 함수</strong>입니다. 내장함수 중에서 <code>bind</code>와 같은 일을 합니다. </p>
+<h4 id="1-어제의-함수-인자를-미리-적용해두기"><a href="#1-어제의-함수-인자를-미리-적용해두기" class="headerlink" title="(1) 어제의 함수 - 인자를 미리 적용해두기"></a>(1) 어제의 함수 - 인자를 미리 적용해두기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a + b + c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = sum.bind(<span class="literal">null</span>, <span class="number">10</span>); <span class="comment">// [1] 첫번째 인자로 넘긴 null은 this 값 입니다.</span></div><div class="line"><span class="keyword">var</span> sum20 = sum.bind(<span class="literal">null</span>, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>); <span class="comment">// 70</span></div></pre></td></tr></table></figure>
+<p>내장 함수를 사용하는 것도 나쁘지 않아보입니다. 하지만 이 함수에는 아쉬운 점이 있습니다. 반드시 순서대로 인자를 적용해야한다는 점입니다. 중간 인자를 건너뛰고 마지막 인자만 미리 적용해두고 싶을 땐 사용할 수 없다는 점이 아쉽습니다. 그래서 필요한 함수가 <code>partial</code>입니다. 우리가 원하는 ‘건너뛰고 적용하기’까지를 구현하기 위해선 평소보다 긴 함수를 정의해야 합니다. 고로 단계별로 함수를 발전시켜 보겠습니다.</p>
+<h4 id="2-오늘의-함수-1단계-bind와-같은-수준의-partial"><a href="#2-오늘의-함수-1단계-bind와-같은-수준의-partial" class="headerlink" title="(2) 오늘의 함수 - 1단계: bind와 같은 수준의 partial"></a>(2) 오늘의 함수 - 1단계: bind와 같은 수준의 partial</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> partial = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...args1</span>) </span>&#123; <span class="comment">// [1] 인자를 적용해둘 대상이 되는 함수 func를 받고 적용될 인자 rest 파라미터를 이용해 배열로 받습니다. (args1 = 미리 적용된 인자)</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123; <span class="comment">// [2] 인자가 적용된 상태로 추가적인 인자를 받을 준비가 된 함수를 반환합니다. (args2 = 추가될 인자)</span></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...args2]); <span class="comment">// [3] 배열로 받은 인자들을 전개해서 함수에 값으로 전달하여 실행합니다. or 'return func.apply([...args1, ...args2])'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = partial(sum, <span class="number">10</span>);</div><div class="line"><span class="keyword">var</span> sum20 = partial(sum, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>); <span class="comment">// 70</span></div></pre></td></tr></table></figure>
+<p>ES6에 새롭게 추가된 기능인 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">Spread 연산자</a>를 사용했습니다. 덕분에 코드가 간결해졌습니다. 결과적으로 <code>bind</code>와 같은 역할을 하는 함수가 만들어졌습니다. 현재 상황에서는 여전히 인자를 순서대로 적용해야만합니다. 다음 단계에서 건너뛰기가 가능하도록 만들어보겠습니다.</p>
+<h4 id="3-오늘의-함수-2단계-건너뛰기가-가능한-partial"><a href="#3-오늘의-함수-2단계-건너뛰기가-가능한-partial" class="headerlink" title="(3) 오늘의 함수 - 2단계: 건너뛰기가 가능한 partial"></a>(3) 오늘의 함수 - 2단계: 건너뛰기가 가능한 partial</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;; <span class="comment">// [1] 건너뛰기의 단서가 될 키워드를 하나 만들어둡니다.</span></div><div class="line"><span class="keyword">var</span> partial = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...args</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args1 = args.slice(); <span class="comment">// [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다.</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> args1) &#123; </div><div class="line">      <span class="keyword">if</span> (args1[i] === _) &#123; <span class="comment">// [3] 단서인 키워드와 일치하는 값이면 </span></div><div class="line">        args1[i] = args2.shift(); <span class="comment">// [4] 그 자리에 추가될 인자 값을 넣어줍니다.</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...args2]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = partial(sum, <span class="number">10</span>);</div><div class="line"><span class="keyword">var</span> sum20 = partial(sum, _, <span class="number">20</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>, <span class="number">50</span>); <span class="comment">// 120</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c, d</span>) </span>&#123; <span class="comment">// [5] 네개의 인자를 받아 출력하는 테스트 함수입니다.</span></div><div class="line">  <span class="built_in">console</span>.log(a, b, c, d);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> skip = partial(test, <span class="number">1</span>, _, <span class="number">3</span>); <span class="comment">// [6] 건너뛰기 키워드를 사용해서 인자 b와 d의 값을 지정하지 않은 채로 skip 함수를 생성합니다.</span></div><div class="line">skip(<span class="number">20</span>, <span class="number">40</span>); <span class="comment">// [7] 인자 b와 d에 값이 적용됩니다. 결과 값은 1, 20, 3, 40</span></div></pre></td></tr></table></figure>
+<p>(건너뛰기라는 표현이 와닿지 않을 수도 있을 것 같아 부연설명합니다. 미리 적용될 인자를 나중에 적용하도록 유보시킨다는 관점에서는 ‘건너뛰기’라고 말할 수 있지만 다음에 들어올 인자의 자리를 비워둔다는 관점으로는 ‘비워두기’가 더 적절한 표현일 것 같습니다. 비워둔 자리에 두번째로 들어오는 인자 값이 적용된다고 이해하시면 좋을 것 같습니다.)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjakt7u8h001rrrvgzdzeq1ax" class="article-share-link">Share</a>
+      
+        <a href="https://joeun.me/programming/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-like-me-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -128,7 +182,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjajb82hc0022o0vgsgfxaw23" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjakt7u8l001yrrvgh5a0uprw" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/joeun-me/like-me-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -183,7 +237,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjajb82hm002eo0vgc3j2ac9z" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjakt7uai005jrrvgas5atlsr" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/view-of-value/like-me-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -217,7 +271,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-6/">[오늘의 함수] nest</a>
+      <a class="article-title" href="/programming/javascript-daily-function-6/">오늘의 함수 - nest</a>
     </h1>
   
 
@@ -233,7 +287,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjajb82gg0014o0vg8429gerk" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjakt7u83001drrvgle1nis83" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -267,7 +321,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-5/">[오늘의 함수] pipe</a>
+      <a class="article-title" href="/programming/javascript-daily-function-5/">오늘의 함수 - pipe</a>
     </h1>
   
 
@@ -285,7 +339,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjajb82gb0011o0vg4brz8q85" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjakt7u7z0016rrvgsvojr9vv" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -319,7 +373,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-4/">[오늘의 함수] identity, always</a>
+      <a class="article-title" href="/programming/javascript-daily-function-4/">오늘의 함수 - identity, always</a>
     </h1>
   
 
@@ -340,7 +394,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjajb82g9000zo0vgx8hlifhq" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjakt7u7p000vrrvg9rs11cfp" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -374,7 +428,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-3/">[오늘의 함수] confirm</a>
+      <a class="article-title" href="/programming/javascript-daily-function-3/">오늘의 함수 - confirm</a>
     </h1>
   
 
@@ -392,7 +446,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjajb82g6000wo0vgfs7wk6ls" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjakt7u7j000trrvgvn8gmeea" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -426,7 +480,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-2/">[오늘의 함수] redirect2</a>
+      <a class="article-title" href="/programming/javascript-daily-function-2/">오늘의 함수 - redirect2</a>
     </h1>
   
 
@@ -443,7 +497,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjajb82g3000to0vgzfjk6qgr" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjakt7u7h000rrrvgzrtsmywh" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -477,7 +531,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-1/">[오늘의 함수] pick</a>
+      <a class="article-title" href="/programming/javascript-daily-function-1/">오늘의 함수 - pick</a>
     </h1>
   
 
@@ -493,7 +547,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-1/" data-id="cjajb82fq000ho0vgiwqhgzvr" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-1/" data-id="cjakt7u7b000lrrvgaki674eq" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -527,7 +581,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function/">[오늘의 함수] redirect</a>
+      <a class="article-title" href="/programming/javascript-daily-function/">오늘의 함수 - redirect</a>
     </h1>
   
 
@@ -543,62 +597,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function/" data-id="cjajb82gx001lo0vgwj0wqdhq" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function/" data-id="cjakt7u8b001krrvger0gioyr" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-/daily-commit-today-i-learned/" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/rabbylab-wordpress/daily-commit-today-i-learned/" class="article-date">
-  <time datetime="2016-07-17T14:19:46.000Z" itemprop="datePublished">2016-07-17</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/rabbylab-wordpress/">rabbylab(wordpress)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/rabbylab-wordpress/daily-commit-today-i-learned/">[Daily Commit] Today I Learned</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>한동안 개발 활동이 뜸했습니다. 취미 관련 글에서 언급한 것처럼 계절학기로 인해 바빴기 때문입니다. 지난 7월 12일 이후로 학교와 관련된 모든 일을 끝냈습니다. 이제 새로운 곳에서 일을 시작할 예정입니다. (바로 내일부터군요!) 앞으로는 조금 더 꾸준히 개발 공부만 할 수 있을 것 같습니다. 직업이 학생에서 개발자로 바뀌는 덕입니다. 그토록 바라던 개발자라는 직업을 갖게된만큼 더 꾸준히, 체계적으로 개발 활동을 하기 위해 주말동안 물밑작업을 좀 했습니다.</p>
-<p>이전부터 다른 블로그에서 <a href="https://blog.outsider.ne.kr/1141" target="_blank" rel="external">&#8216;일일커밋&#8217;에 관한 글</a>을 보면서 도전해보고 싶다는 생각을 해왔습니다. 그 중에서도 <a href="https://milooy.wordpress.com/2015/10/08/daily-commit/" target="_blank" rel="external">Jay Jin님의 블로그</a>를 통해 알게된 TIL(Today I Learned)을 따라 해보고 싶다는 생각을 해왔습니다. 그래서 주말에 <a href="https://github.com/milooy/TIL" target="_blank" rel="external">Jay Jin님의 Github</a>을 찾아가 기본 골격을 본따서 <a href="https://github.com/joeunha/TIL" target="_blank" rel="external">저만의 TIL</a>을 구성했습니다.</p>
-<p>TIL은 말처럼 그날 배운 내용을 정리해서 커밋(commit)하는 저장소입니다. 무의미한 내용은 커밋하지 않는다는 조건에 따라 의미있는 내용을 커밋합니다. 이로써 일일커밋 활동을 해나갈 수 있고 제가 배워나가는 지식을 저장해서 저만의 위키(wiki)를 만들 수 있습니다. 아마 저는 FreeCodeCamp를 통해서 배우는 내용을 정리하는 것으로 커밋하는 경우가 많을 것 같습니다. 더불어 회사에서 일하면서 배우게 되는 내용을 그날 그날 정리하면 커밋할 내용이 제법될 것 같습니다.</p>
-<p>우선은 30일로 일일커밋의 목표를 설정하겠습니다. 무작정 100일로 목표를 세우면 미리부터 지칠것 같아 작게 여러번 가겠습니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://joeun.me/rabbylab-wordpress/daily-commit-today-i-learned/" data-id="cjajb82f8000ao0vgmyyu2ioh" class="article-share-link">Share</a>
-      
-        <a href="https://joeun.me/rabbylab-wordpress/daily-commit-today-i-learned/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/daily-commit/">daily-commit</a></li></ul>
 
     </footer>
   </div>

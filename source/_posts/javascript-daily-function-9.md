@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] omit'
+title: '오늘의 함수 - omit'
 date: 2017-06-12 20:59:55
 categories:
   - programming

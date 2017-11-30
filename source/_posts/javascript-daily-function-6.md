@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] nest'
+title: '오늘의 함수 - nest'
 date: 2017-03-28 23:07:24
 categories:
   - programming

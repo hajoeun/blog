@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] redirect'
+title: '오늘의 함수 - redirect'
 date: 2017-03-02 15:11:12
 categories:
   - programming

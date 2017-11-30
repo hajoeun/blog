@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] pick'
+title: '오늘의 함수 - pick'
 date: 2017-03-07 23:28:18
 categories:
   - programming

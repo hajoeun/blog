@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] confirm'
+title: '오늘의 함수 - confirm'
 date: 2017-03-15 23:37:46
 categories:
   - programming

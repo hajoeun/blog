@@ -82,6 +82,64 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/programming/javascript-daily-function-10/" class="article-date">
+  <time datetime="2017-11-28T08:59:00.000Z" itemprop="datePublished">2017-11-28</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/programming/javascript-daily-function-10/">오늘의 함수 - redirect3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="redirect3"><a href="#redirect3" class="headerlink" title="redirect3"></a>redirect3</h2><p>같은 함수를 세번째 다룹니다. 오늘은 함수 구현 방법에 대한 이야기 뿐만 아니라 검색, 필터링, 정렬한 페이지를 다시 로드하는 <code>redirect3</code> 함수의 사용 패턴을 살펴보겠습니다. (본문에서 <a href="https://github.com/marpple/partial.js" target="_blank" rel="external">Partial.js</a>가 제공하는 함수를 사용했습니다.)</p>
+<h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><p><a href="/programming/javascript-daily-function-2/">이전에 만들었던 <code>redirect2</code> 함수</a>는 쿼리문을 포함하는 URL인 경우를 구분하기 위해 새로운 인자를 부여했습니다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect2 = <span class="function"><span class="keyword">function</span>(<span class="params">path, query</span>) </span>&#123; <span class="comment">// [1] query라는 새로운 argument를 만들어 둡니다.</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = query ? path + res[query] : path; <span class="comment">// [2] query가 존재하면 get 방식으로 URL 지정합니다.</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data).done(redirect2(<span class="string">'/main/newsfeed?id='</span>, <span class="string">'id'</span>)); <span class="comment">// [3] id라는 문자열을 키로 갖는 값을 찾아서 리다이렉트 합니다.</span></div></pre></td></tr></table></figure>
+<p>위와 같은 방법은 하나의 쿼리만을 날릴 수 있습니다. 물론 배열을 받도록 코드를 변경해서 보다 나은 형태로 개선할 여지는 있습니다. 하지만 더 좋은 방법도 있습니다. URL만으로 쿼리가 포함될 것인지 구분하면 됩니다.</p>
+<h4 id="2-오늘의-함수"><a href="#2-오늘의-함수" class="headerlink" title="(2) 오늘의 함수"></a>(2) 오늘의 함수</h4><p>URL에 문자열 ‘?’가 포함된 경우에 이후에 들어오는 객체가 쿼리 데이터라고 가정하는 것입니다. 물음표가 있다면 URL에 퀴리를 붙여서 리다이렉트하고 그렇지 않으면 그냥 리다이렉트하면 됩니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect3 = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123; <span class="comment">// [1] query를 받지 않아도 됩니다.</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="regexp">/\?$/</span>.test(path) ? <span class="comment">// [2-1] 물음표가 존재하면</span></div><div class="line">      _.reduce(res, <span class="function"><span class="keyword">function</span>(<span class="params">m, v, k</span>) </span>&#123; <span class="keyword">return</span> v ? m += <span class="string">'&amp;'</span>+k+<span class="string">'='</span>+v : m &#125;, path) <span class="comment">// [2-2] 쿼리문을 생성합니다.</span></div><div class="line">      : path; </div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>이 함수는 검색, 정렬, 필터링이 필요한 경우에 그 힘을 발휘합니다. 유저가 검색어를 넣고 이후에 추가로 필터링과 정렬 작업을 한다고 가정해보겠습니다. URL에 검색어를 포함해서 쿼리를 날리고 다시 필터링의 기준을 포함해서 쿼리를 날리고 또 다시 정렬의 기준을 포함해서 쿼리를 날려야하는 상황입니다. 쿼리가 누적되는 상황입니다. 쉽게 접근할 수 있는 방법은 <code>window.location.search</code>에 있는 문자열을 저장해두고 거기에 추가로 쿼리를 붙여서 날리는 방법입니다. 허나 몇가지 동작에서 정상 작동하겠지만 기존에 있던 필터를 제거하고 다시 쿼리를 날려야하는 경우에 복잡한 문제가 생길 수 있습니다. 이전 쿼리에 포함된 문자열을 조사해서 필요 없는 문자열을 제거하는 작업이 필요할겁니다. 이러한 상황을 타개할 함수가 <code>redirect3</code> 함수입니다. 물론 함수 하나로 모든걸 할 수는 없습니다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> parse_query_obj = _.if(__( <span class="comment">// [1] 만약에 데이터가 있다면 아래의 코드를 실행합니다.</span></div><div class="line">  str =&gt; str.slice(<span class="number">1</span>).split(<span class="string">'&amp;'</span>),</div><div class="line">  _.compact, <span class="comment">// [2] 빈 문자열은 제외합니다.</span></div><div class="line">  _.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">obj, str</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> arr = str.split(<span class="string">'='</span>); <span class="comment">// [3] 등호를 기준으로 앞에는 키 뒤에는 값입니다.</span></div><div class="line">    obj[arr[<span class="number">0</span>]] = arr[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">  &#125;, &#123;&#125;)))</div><div class="line">  .else(_.always(&#123;&#125;)); <span class="comment">// [4] 만약에 데이터가 없다면 빈 객체를 반환합니다.</span></div></pre></td></tr></table></figure>
+<p>위의 함수는 <code>window.location.search</code> 문자열을 받아서 쿼리가 있으면 쿼리 객체를 만들어 반환하는 함수입니다. 이 함수 덕분에 <code>redirect3</code> 함수를 유용하게 사용할 수 있습니다. 이제 유저가 정렬이나 필터등을 요구하면 <code>parse_query_obj</code>가 만들어낸 객체를 수정해서 <code>redirect3</code> 함수에게 전달하면 됩니다. 객체를 수정하는 함수가 하나 더 있으면 좋겠습니다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> make_query_obj = _.go(</div><div class="line">  <span class="built_in">window</span>.location.search, <span class="comment">// [1-1] 쿼리문을 사용해서</span></div><div class="line">  parse_query_obj, <span class="comment">// [1-2] 쿼리 객체를 만듭니다. </span></div><div class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">query_obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123; <span class="comment">// [2] query_obj를 기억하는 함수(클로저)를 반환합니다.</span></div><div class="line">      query_obj[key] = value; </div><div class="line">      <span class="keyword">return</span> query_obj;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<p>이제 준비가 되었습니다. 유저가 검색을 요구하면 검색어와 키를 <code>make_query_obj</code>에 넣어주면 됩니다. 그 후에 <code>redirect3</code> 함수를 호출하면 끝입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// click, change 이벤트의 함수</span></div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> current_target = e.currentTarget; <span class="comment">// [1] 엘리먼트(current_target)의 id가 키, value가 값이라고 가정하겠습니다.</span></div><div class="line">  <span class="keyword">var</span> query_obj = make_query_obj(current_target.id, current_target.value);</div><div class="line">  redirect3(<span class="string">'/search/?'</span>)(query_obj); <span class="comment">// [2] 즉시 리다이렉트 됩니다.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://joeun.me/programming/javascript-daily-function-10/" data-id="cjakt7u7x0013rrvg8iwd1suf" class="article-share-link">Share</a>
+      
+        <a href="https://joeun.me/programming/javascript-daily-function-10/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-landsurfer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -134,7 +192,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/landsurfing/landsurfer/" data-id="cjajb82hj002ao0vghn5ln6zx" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/landsurfing/landsurfer/" data-id="cjakt7ua60057rrvgoqd5mntl" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/landsurfing/landsurfer/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -263,7 +321,7 @@ var projections = [
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study-2/" data-id="cjajb82gl0017o0vgkuoa9xqk" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study-2/" data-id="cjakt7u7t0010rrvgrxpqlr0q" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -345,7 +403,7 @@ var projections = [
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study-1/" data-id="cjajb82fm000fo0vgzzg23blx" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study-1/" data-id="cjakt7u7e000nrrvgvhnjzdco" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -467,7 +525,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study/" data-id="cjajb82fx000no0vgg1pomws9" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study/" data-id="cjakt7u7r000yrrvgbfpz9ftj" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -535,7 +593,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/make-bingo-game-1/" data-id="cjajb82i2002vo0vg7mcsmir4" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/make-bingo-game-1/" data-id="cjakt7ua8005arrvg9dqxisnt" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/make-bingo-game-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -590,7 +648,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/view-of-value/1-year-anniversary/" data-id="cjajb82fu000lo0vg852ecq1d" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/view-of-value/1-year-anniversary/" data-id="cjakt7u6i0006rrvgd3v58ak5" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/view-of-value/1-year-anniversary/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -650,7 +708,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/make-bingo-game/" data-id="cjajb82ho002ho0vgks1f5o88" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/make-bingo-game/" data-id="cjakt7ua10055rrvgh9cxd53x" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/make-bingo-game/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -684,7 +742,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-9/">[오늘의 함수] omit</a>
+      <a class="article-title" href="/programming/javascript-daily-function-9/">오늘의 함수 - omit</a>
     </h1>
   
 
@@ -703,7 +761,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-9/" data-id="cjajb82gu001io0vgpggld9jc" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-9/" data-id="cjakt7u85001hrrvgxn4e2fdr" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-9/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -737,7 +795,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-8/">[오늘의 함수] partial2</a>
+      <a class="article-title" href="/programming/javascript-daily-function-8/">오늘의 함수 - partial2</a>
     </h1>
   
 
@@ -753,63 +811,9 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-8/" data-id="cjajb82gp001bo0vglre19wkm" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-8/" data-id="cjakt7u81001arrvgj1wv3qsi" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-8/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function-7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/programming/javascript-daily-function-7/" class="article-date">
-  <time datetime="2017-04-19T14:41:48.000Z" itemprop="datePublished">2017-04-19</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-7/">[오늘의 함수] partial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="partial-함수"><a href="#partial-함수" class="headerlink" title="partial 함수"></a>partial 함수</h2><p>함수를 만들면서 프로그래밍을 하다보면 <code>pipe</code>와 같이 새로운 함수를 만들어주는 함수가 필요한 경우가 있습니다. 오늘 소개해드릴 <code>partial</code>도 그런 유형의 함수입니다. 사실 ‘새로운 함수’를 만들어준다고 보기에는 어려움이 있을 것 같습니다. 이 함수는 <strong>기존의 함수에 인자를 미리 적용해두는 일을 하는 함수</strong>입니다. 내장함수 중에서 <code>bind</code>와 같은 일을 합니다. </p>
-<h4 id="1-어제의-함수-인자를-미리-적용해두기"><a href="#1-어제의-함수-인자를-미리-적용해두기" class="headerlink" title="(1) 어제의 함수 - 인자를 미리 적용해두기"></a>(1) 어제의 함수 - 인자를 미리 적용해두기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a + b + c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = sum.bind(<span class="literal">null</span>, <span class="number">10</span>); <span class="comment">// [1] 첫번째 인자로 넘긴 null은 this 값 입니다.</span></div><div class="line"><span class="keyword">var</span> sum20 = sum.bind(<span class="literal">null</span>, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>); <span class="comment">// 70</span></div></pre></td></tr></table></figure>
-<p>내장 함수를 사용하는 것도 나쁘지 않아보입니다. 하지만 이 함수에는 아쉬운 점이 있습니다. 반드시 순서대로 인자를 적용해야한다는 점입니다. 중간 인자를 건너뛰고 마지막 인자만 미리 적용해두고 싶을 땐 사용할 수 없다는 점이 아쉽습니다. 그래서 필요한 함수가 <code>partial</code>입니다. 우리가 원하는 ‘건너뛰고 적용하기’까지를 구현하기 위해선 평소보다 긴 함수를 정의해야 합니다. 고로 단계별로 함수를 발전시켜 보겠습니다.</p>
-<h4 id="2-오늘의-함수-1단계-bind와-같은-수준의-partial"><a href="#2-오늘의-함수-1단계-bind와-같은-수준의-partial" class="headerlink" title="(2) 오늘의 함수 - 1단계: bind와 같은 수준의 partial"></a>(2) 오늘의 함수 - 1단계: bind와 같은 수준의 partial</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> partial = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...args1</span>) </span>&#123; <span class="comment">// [1] 인자를 적용해둘 대상이 되는 함수 func를 받고 적용될 인자 rest 파라미터를 이용해 배열로 받습니다. (args1 = 미리 적용된 인자)</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123; <span class="comment">// [2] 인자가 적용된 상태로 추가적인 인자를 받을 준비가 된 함수를 반환합니다. (args2 = 추가될 인자)</span></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...args2]); <span class="comment">// [3] 배열로 받은 인자들을 전개해서 함수에 값으로 전달하여 실행합니다. or 'return func.apply([...args1, ...args2])'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = partial(sum, <span class="number">10</span>);</div><div class="line"><span class="keyword">var</span> sum20 = partial(sum, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>); <span class="comment">// 70</span></div></pre></td></tr></table></figure>
-<p>ES6에 새롭게 추가된 기능인 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">Spread 연산자</a>를 사용했습니다. 덕분에 코드가 간결해졌습니다. 결과적으로 <code>bind</code>와 같은 역할을 하는 함수가 만들어졌습니다. 현재 상황에서는 여전히 인자를 순서대로 적용해야만합니다. 다음 단계에서 건너뛰기가 가능하도록 만들어보겠습니다.</p>
-<h4 id="3-오늘의-함수-2단계-건너뛰기가-가능한-partial"><a href="#3-오늘의-함수-2단계-건너뛰기가-가능한-partial" class="headerlink" title="(3) 오늘의 함수 - 2단계: 건너뛰기가 가능한 partial"></a>(3) 오늘의 함수 - 2단계: 건너뛰기가 가능한 partial</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;; <span class="comment">// [1] 건너뛰기의 단서가 될 키워드를 하나 만들어둡니다.</span></div><div class="line"><span class="keyword">var</span> partial = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...args</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args1 = args.slice(); <span class="comment">// [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다.</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> args1) &#123; </div><div class="line">      <span class="keyword">if</span> (args1[i] === _) &#123; <span class="comment">// [3] 단서인 키워드와 일치하는 값이면 </span></div><div class="line">        args1[i] = args2.shift(); <span class="comment">// [4] 그 자리에 추가될 인자 값을 넣어줍니다.</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...args2]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = partial(sum, <span class="number">10</span>);</div><div class="line"><span class="keyword">var</span> sum20 = partial(sum, _, <span class="number">20</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>, <span class="number">50</span>); <span class="comment">// 120</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c, d</span>) </span>&#123; <span class="comment">// [5] 네개의 인자를 받아 출력하는 테스트 함수입니다.</span></div><div class="line">  <span class="built_in">console</span>.log(a, b, c, d);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> skip = partial(test, <span class="number">1</span>, _, <span class="number">3</span>); <span class="comment">// [6] 건너뛰기 키워드를 사용해서 인자 b와 d의 값을 지정하지 않은 채로 skip 함수를 생성합니다.</span></div><div class="line">skip(<span class="number">20</span>, <span class="number">40</span>); <span class="comment">// [7] 인자 b와 d에 값이 적용됩니다. 결과 값은 1, 20, 3, 40</span></div></pre></td></tr></table></figure>
-<p>(건너뛰기라는 표현이 와닿지 않을 수도 있을 것 같아 부연설명합니다. 미리 적용될 인자를 나중에 적용하도록 유보시킨다는 관점에서는 ‘건너뛰기’라고 말할 수 있지만 다음에 들어올 인자의 자리를 비워둔다는 관점으로는 ‘비워두기’가 더 적절한 표현일 것 같습니다. 비워둔 자리에 두번째로 들어오는 인자 값이 적용된다고 이해하시면 좋을 것 같습니다.)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjajb82gr001eo0vgyi4qx51o" class="article-share-link">Share</a>
-      
-        <a href="https://joeun.me/programming/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>

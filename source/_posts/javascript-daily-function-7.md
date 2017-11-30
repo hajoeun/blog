@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] partial'
+title: '오늘의 함수 - partial'
 date: 2017-04-19 23:41:48
 categories:
   - programming

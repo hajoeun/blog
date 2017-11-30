@@ -1,5 +1,5 @@
 ---
-title: '[오늘의 함수] identity, always'
+title: '오늘의 함수 - identity, always'
 date: 2017-03-20 23:41:48
 categories:
   - programming
