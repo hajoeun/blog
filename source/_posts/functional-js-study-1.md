@@ -1,5 +1,5 @@
 ---
-title: '[함수형 자바스크립트] 고차 함수와 커링(currying)'
+title: '함수형 자바스크립트 - 고차 함수와 커링(currying)'
 categories:
   - programming
 tags:

@@ -1,5 +1,5 @@
 ---
-title: '[함수형 자바스크립트] 함수형 자바스크립트 라이브러리'
+title: '함수형 자바스크립트- 함수형 자바스크립트 라이브러리'
 categories:
   - programming
 tags:
