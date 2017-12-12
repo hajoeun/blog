@@ -1,5 +1,5 @@
 ---
-title: "[Landsurfing] 취미의 시작"
+title: "랜드서핑 - 취미의 시작"
 categories:
   - landsurfing
 date: 2017-11-20 22:45:38

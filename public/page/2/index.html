@@ -82,6 +82,56 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/programming/javascript-daily-function-8/" class="article-date">
+  <time datetime="2017-04-26T13:54:34.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/programming/javascript-daily-function-8/">오늘의 함수 - partial2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="partial2-함수"><a href="#partial2-함수" class="headerlink" title="partial2 함수"></a>partial2 함수</h2><p>오늘은 지난 시간에 만든 <code>partial</code> 함수보다 향상된 버전의 함수를 준비해보았습니다. 지난 함수와 구분 짓기 위해 <code>partial2</code>라고 이름 붙였지만 하는 일은 같습니다. 인자가 미리 적용된 함수를 반환하는 함수입니다. 간단히 이전의 함수를 살펴보겠습니다.</p>
+<h4 id="1-어제의-함수-partial"><a href="#1-어제의-함수-partial" class="headerlink" title="(1) 어제의 함수 - partial"></a>(1) 어제의 함수 - partial</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;; <span class="comment">// [1] 건너뛰기의 단서가 될 키워드를 하나 만들어둡니다.</span></div><div class="line"><span class="keyword">var</span> partial = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...args</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args1 = args.slice(); <span class="comment">// [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다.</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> args1) &#123; </div><div class="line">      <span class="keyword">if</span> (args1[i] === _) &#123; <span class="comment">// [3] 단서인 키워드와 일치하는 값이면 </span></div><div class="line">        args1[i] = args2.shift(); <span class="comment">// [4] 그 자리에 추가될 인자 값을 넣어줍니다.</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...args2]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a + b + c;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum10 = partial(sum, <span class="number">10</span>);</div><div class="line"><span class="keyword">var</span> sum20 = partial(sum, _, <span class="number">20</span>);</div><div class="line">sum10(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 13</span></div><div class="line">sum20(<span class="number">50</span>, <span class="number">50</span>); <span class="comment">// 120</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> log = partial(<span class="built_in">console</span>.log, <span class="number">0</span>, _, <span class="number">0</span>, <span class="number">0</span>, _, <span class="number">0</span>);</div><div class="line">log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 0 1 0 0 2 0 3</span></div></pre></td></tr></table></figure>
+<p>이번에 기존 <code>partial</code> 함수에 아쉬운 점은 ‘유연함’입니다. 인자를 조금 더 유연하게 받을 수 있다면 좋지 않을까요? 건너뛰기를 위한 단서인 <code>_</code>는 한번에 한 칸만 건너뜁니다. 몇번을 건너뛸지 알 수 없을 때 두번째로 들어오는 인자에 따라 유연하게 건너뛸 수 있다면 조금 더 편할 것 같습니다. 바로 오늘의 주인공인 <code>partial2</code>입니다.</p>
+<h4 id="2-오늘의-함수-partial2"><a href="#2-오늘의-함수-partial2" class="headerlink" title="(2) 오늘의 함수 - partial2"></a>(2) 오늘의 함수 - partial2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> partial2 = <span class="function"><span class="keyword">function</span>(<span class="params">func, ...parts</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> parts1 = [], parts2 = [], ___idx = parts.length;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> parts) &#123;</div><div class="line">    <span class="keyword">if</span> (parts[i] == ___) &#123;</div><div class="line">      ___idx = i; </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (i &lt; ___idx) &#123;</div><div class="line">      parts1.push(parts[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">      parts2.push(parts[i]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> args1 = parts1.slice(), </div><div class="line">        args2 = parts2.slice(),</div><div class="line">        rest = args.slice();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> args1) &#123;</div><div class="line">      <span class="keyword">if</span> (args1[i] == _) &#123;</div><div class="line">        args1[i] = rest.shift(); </div><div class="line">      &#125;</div><div class="line">    &#125;     </div><div class="line">      </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> args2) &#123;</div><div class="line">      <span class="keyword">if</span> (args2[i] == _) &#123;</div><div class="line">        args2[i] = rest.pop();</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> func(...[...args1, ...rest, ...args2]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> log = partial2(<span class="built_in">console</span>.log, <span class="number">0</span>, _, <span class="number">0</span>, ___, <span class="number">0</span>, _, <span class="number">0</span>);</div><div class="line">log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>); <span class="comment">// 0 1 0 2 3 4 5 6 7 8 9 0 10 0</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> greeting = partial2(<span class="built_in">console</span>.log, <span class="string">'Hello,'</span>, _, ___, <span class="string">'Nice to meet you.'</span>);</div><div class="line">greeting(<span class="string">'Joeun.'</span>, <span class="string">'My name is'</span>, <span class="string">'Momo.'</span>, <span class="string">'\n'</span>, <span class="string">'I\'m'</span>, <span class="number">27</span>, <span class="string">'years old.\n'</span>); </div><div class="line"><span class="comment">/* </span></div><div class="line">Hello, Joeun. </div><div class="line"> My name is Momo. </div><div class="line"> I'm 27 years old. </div><div class="line"> Nice to meet you.  </div><div class="line">*/</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://joeun.me/programming/javascript-daily-function-8/" data-id="cjaukxipk001jfavg8vblylw7" class="article-share-link">Share</a>
+      
+        <a href="https://joeun.me/programming/javascript-daily-function-8/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-7" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -122,7 +172,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjanbi72g001r9jvgkcsarngb" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjaukxipw001tfavg7yuxgha2" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -182,7 +232,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjanbi737002k9jvgpy3gnrjz" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjaukxiqo002pfavgg0a9dsui" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/joeun-me/like-me-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -237,7 +287,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjanbi730002c9jvgy17z94ry" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjaukxiqf002efavg364r94oy" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/view-of-value/like-me-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -287,7 +337,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjanbi722001a9jvg9w65hmlu" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjaukxipd0018favgmumg8ckj" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -339,7 +389,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjanbi72000169jvg74562jld" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjaukxipa0015favgd7mx6tbm" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -394,7 +444,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjanbi71y00139jvg6s4m4z32" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjaukxip80012favg7nott63n" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -446,7 +496,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjanbi71u00109jvgdfdnmbhm" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjaukxip50010favgb4lfhtmv" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -497,7 +547,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjanbi71i000r9jvgn86dkfwy" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjaukxiox000ufavg76jyd5xh" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -547,59 +597,9 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-1/" data-id="cjanbi71k000t9jvgfif9gol9" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-1/" data-id="cjaukxiot000ofavgbltynmyc" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/programming/javascript-daily-function/" class="article-date">
-  <time datetime="2017-03-02T06:11:12.000Z" itemprop="datePublished">2017-03-02</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function/">오늘의 함수 - redirect</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="redirect-함수"><a href="#redirect-함수" class="headerlink" title="redirect 함수"></a>redirect 함수</h2><p>서버로 데이터를 보내거나 요청할 때 <strong>별다른 문제 없이 통신에 성공한 이후에 특정 페이지로 이동하도록 조치하는 경우</strong>가 종종 있습니다. 아래의 1번 방법과 같이 <code>$.post</code>를 이용한다고 할때 일반적으로 콜백 함수를 작성해서 응답을 처리합니다.</p>
-<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; <span class="comment">// [1] 통신에 의해 데이터가 성공적으로 전달되면 새로운 페이지로 이동하도록 콜백 함수를 정의했습니다.</span></div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = <span class="string">'/main/newsfeed'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<p>때론 위와 같은 동작이 ‘자주’ 일어납니다. 특정 페이지로 이동하기 전에 통신의 성공 여부를 확인하기만 하는 것인데 코드가 계속 반복될 생각을 하니 뭔가 괴롭습니다. 그래서 저는 아래와 같이 <code>redirect</code> 함수를 만들었습니다. 함수를 반환하는 고차함수입니다.</p>
-<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> redirect = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (res) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.location.href = path;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="built_in">console</span>.error(<span class="string">'return data:'</span>, res);</div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> data = &#123;<span class="attr">title</span>: <span class="string">'hello'</span>, <span class="attr">content</span>: <span class="string">'world!'</span>&#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/create'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/newsfeed'</span>)); <span class="comment">// [1] URL을 인자로 전달해두면 어디로 이동할지 미리 정해둔 함수가 콜백 함수로 남게 됩니다. </span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/update'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/editor'</span>)); <span class="comment">// [2] 이렇게 URL만 바꿔서 다른 통신에서도 재활용할 수 있는 함수가 되었습니다.</span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/post/delete'</span>, data)</div><div class="line">  .done(redirect(<span class="string">'/main/home'</span>));</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function/" data-id="cjanbi729001k9jvgghzht5b2" class="article-share-link">Share</a>
-      
-        <a href="https://joeun.me/programming/javascript-daily-function/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
