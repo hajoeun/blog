@@ -82,6 +82,59 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/programming/javascript-daily-function-9/" class="article-date">
+  <time datetime="2017-06-12T11:59:55.000Z" itemprop="datePublished">2017-06-12</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/programming/javascript-daily-function-9/">오늘의 함수 - omit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="omit"><a href="#omit" class="headerlink" title="omit"></a>omit</h2><p>오늘은 <code>pick</code> 함수의 반대 버전인 <code>omit</code>을 소개해드릴까 합니다. 다시 말해 <code>omit</code>은 객체에서 키가 일치하는 프로퍼티를 제외한 새로운 객체를 반환하는 함수입니다. </p>
+<p>사실 이 함수를 굳이 소개할 필요가 있을까 싶었는데, 사연이 생겨서 올리게 되었습니다. 2주 전쯤 <a href="https://www.codewars.com/kumite/" target="_blank" rel="external">Codewars</a>라는 사이트에서 제공하는 ‘kumite’(일본어로 대련을 의미합니다.) 페이지에 <code>pick</code> 함수를 올려두었습니다. 그리고 며칠 뒤 <code>omit</code>과 같은 일을 하는 <code>flick</code>함수를 대련 코드로 올리셨기에 살펴보다가 블로그에 소개하면 좋겠다고 생각해서 올리게 되었습니다.</p>
+<p>우선 <a href="https://www.codewars.com/kumite/59421af0c32f438c1a000044?sel=595073a15ceb2bda6d000161" target="_blank" rel="external">Codewars</a>에 올려둔 코드 전체를 보여드리겠습니다.</p>
+<h4 id="1-pick-함수와-flick-함수"><a href="#1-pick-함수와-flick-함수" class="headerlink" title="(1) pick 함수와 flick 함수"></a>(1) pick 함수와 flick 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [1] 제가 작성한 pick 함수입니다. 기존의 pick과 크게 다르지 않습니다.</span></div><div class="line">_.pick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> obj[key] = target[key], obj;</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [2] Robert.Cutright이라는 개발자가 작성한 flick 함수입니다. omit 함수와 같은 일을 합니다.</span></div><div class="line">_.flick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? obj : (obj[key] = target[key], obj);</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;, target);</div><div class="line">  <span class="built_in">Object</span>.keys(obj).filter(<span class="function"><span class="params">key</span> =&gt;</span> keys.includes(key) ? <span class="keyword">delete</span> obj[key] : obj[key]);</div><div class="line">  <span class="keyword">return</span> obj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Robert가 작성한 코드는 정상적으로 동작합니다. 하지만 저는 한가지가 아쉬웠습니다. 바로 <code>filter</code>를 사용한 부분입니다. <code>reduce</code>를 사용하면 새로운 객체 복사본을 만드는 <code>var obj = Object.assign({}, target);</code> 같은 코드를 작성하지 않아도 된다는 점을 놓친 것 같았습니다. 그리고 이렇게 새로운 객체를 생성해서 <code>delete obj[key]</code>로 데이터를 제거해나가는 코드는 불필요한 코드라는 생각이 들었습니다. 그래서 아래와 같이 변경했습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">_.omit = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line">	  <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    <span class="keyword">return</span> _.pick(target, (...args) =&gt; !predicate(...args)) <span class="comment">// [1] pick을 사용하고 predicate를 뒤집었습니다.</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(target).reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123; <span class="comment">// [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.</span></div><div class="line">    <span class="keyword">return</span> keys.includes(key) ? obj : (obj[key] = target[key], obj);</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://joeun.me/programming/javascript-daily-function-9/" data-id="cjbexcr18001p6uvgpsxg53wp" class="article-share-link">Share</a>
+      
+        <a href="https://joeun.me/programming/javascript-daily-function-9/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -118,7 +171,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-8/" data-id="cjaukxipk001jfavg8vblylw7" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-8/" data-id="cjbexcr14001m6uvgipvcf0k9" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-8/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -172,7 +225,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjaukxipw001tfavg7yuxgha2" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-7/" data-id="cjbexcr1k00206uvgwytgt5z4" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-7/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -232,7 +285,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjaukxiqo002pfavgg0a9dsui" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/joeun-me/like-me-2/" data-id="cjbexcr22002h6uvg6t5x9eut" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/joeun-me/like-me-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -287,7 +340,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjaukxiqf002efavg364r94oy" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/view-of-value/like-me-1/" data-id="cjbexcr2e002r6uvgbkuoyz8z" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/view-of-value/like-me-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -337,7 +390,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjaukxipd0018favgmumg8ckj" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-6/" data-id="cjbexcr11001j6uvg9fd4ivy0" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-6/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -389,7 +442,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjaukxipa0015favgd7mx6tbm" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-5/" data-id="cjbexcr0w001f6uvgtypafwlv" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-5/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -444,7 +497,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjaukxip80012favg7nott63n" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-4/" data-id="cjbexcr0q001c6uvgyv3xul8t" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-4/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -496,7 +549,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjaukxip50010favgb4lfhtmv" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-3/" data-id="cjbexcr0h00156uvgr159ot1o" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -547,59 +600,9 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjaukxiox000ufavg76jyd5xh" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-2/" data-id="cjbexcr0l00186uvgpazxwgvc" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-2/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/programming/javascript-daily-function-1/" class="article-date">
-  <time datetime="2017-03-07T14:28:18.000Z" itemprop="datePublished">2017-03-07</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-1/">오늘의 함수 - pick</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="pick-함수"><a href="#pick-함수" class="headerlink" title="pick 함수"></a>pick 함수</h2><p><strong>자바스크립트에서 객체는 키(key)와 값(value)의 쌍으로 이루어져있습니다.</strong> 프로그래밍을 하는 과정에서 키를 기준으로 값을 객체로부터 꺼내는 일을 반복합니다. 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?</p>
-<h4 id="1번-어제의-함수"><a href="#1번-어제의-함수" class="headerlink" title="1번 - 어제의 함수"></a>1번 - 어제의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user_1 = &#123; <span class="comment">// [1] 기존의 데이터</span></div><div class="line">  id: <span class="number">1</span>,</div><div class="line">  <span class="attr">first_name</span>: <span class="string">'Joeun'</span>,</div><div class="line">  <span class="attr">last_name</span>: <span class="string">'Ha'</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">28</span>,</div><div class="line">  <span class="attr">country</span>: <span class="string">'South Korea'</span>,</div><div class="line">  <span class="attr">city</span>: <span class="string">'Seoul'</span>,</div><div class="line">  <span class="attr">mobile_phone</span>: <span class="string">'010-0000-0000'</span>,</div><div class="line">  <span class="attr">email</span>: <span class="string">'imjoeunha@gmail.com'</span>,</div><div class="line">  <span class="attr">blog_url</span>: <span class="string">'http://joeun.me'</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> user_data = &#123; <span class="comment">// [2] 필요한 데이터</span></div><div class="line">  id: user_1.id,</div><div class="line">  <span class="attr">first_name</span>: user_1.first_name, </div><div class="line">  <span class="attr">last_name</span>: user_1.last_name</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">$.post(<span class="string">'/api/user_name/check'</span>, user_data)</div><div class="line">  .done(redirect(<span class="string">'/main'</span>)); <span class="comment">// [3] '오늘의 함수 redirect' 편을 참고하세요.</span></div></pre></td></tr></table></figure>
-<p>위의 코드는 기존의 데이터를 가공해서 원하는 데이터만을 추려내서 특정 api로 전송하고 있습니다. 아래와 같은 <code>pick</code> 함수를 사용한다면 보다 쉽게 원하는 데이터를 추려낼 수 있습니다. <a href="underscorejs.org">underscore.js</a>라는 라이브러리에서 볼 수 있는 함수입니다. 아래는 그보다 단순하게 구현되어 있습니다. 원본 객체와 함께 꺼내길 원하는 키 값을 배열로 전달하면 추려진 객체를 반환합니다.</p>
-<h4 id="2번-오늘의-함수"><a href="#2번-오늘의-함수" class="headerlink" title="2번 - 오늘의 함수"></a>2번 - 오늘의 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user_1 = &#123; <span class="comment">// [1] 기존의 데이터</span></div><div class="line">  id: <span class="number">1</span>,</div><div class="line">  <span class="attr">first_name</span>: <span class="string">'Joeun'</span>,</div><div class="line">  <span class="attr">last_name</span>: <span class="string">'Ha'</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">28</span>,</div><div class="line">  <span class="attr">country</span>: <span class="string">'South Korea'</span>,</div><div class="line">  <span class="attr">city</span>: <span class="string">'Seoul'</span>,</div><div class="line">  <span class="attr">mobile_phone</span>: <span class="string">'010-0000-0000'</span>,</div><div class="line">  <span class="attr">email</span>: <span class="string">'imjoeunha@gmail.com'</span>,</div><div class="line">  <span class="attr">blog_url</span>: <span class="string">'http://joeun.me'</span>,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pick</span>(<span class="params">target, keys</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> keys.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">obj, key</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> obj[key] = target[key], obj;</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(pick(user_1, [<span class="string">'age'</span>, <span class="string">'id'</span>])); <span class="comment">// [2] 출력 결과는 &#123; age: 28, id: 1 &#125; 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.</span></div><div class="line"></div><div class="line">$.post(<span class="string">'/api/user_name/check'</span>, pick(user_1, [<span class="string">'id'</span>, <span class="string">'first_name'</span>, <span class="string">'last_name'</span>])) <span class="comment">// [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.</span></div><div class="line">  .done(redirect(<span class="string">'/main'</span>)); </div><div class="line"></div><div class="line">$.post(<span class="string">'/api/city/check'</span>, pick(user_1, [<span class="string">'id'</span>, <span class="string">'city'</span>]))</div><div class="line">  .done(redirect(<span class="string">'/main'</span>));</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-1/" data-id="cjaukxiot000ofavgbltynmyc" class="article-share-link">Share</a>
-      
-        <a href="https://joeun.me/programming/javascript-daily-function-1/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>

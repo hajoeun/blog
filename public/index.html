@@ -82,6 +82,67 @@ ga('send', 'pageview');
       <div id="body" class="outer">
         <section id="main">
   
+    <article id="post-javascript-daily-function-12" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+      <a href="/programming/javascript-daily-function-12/" class="article-date">
+  <time datetime="2017-12-06T05:12:21.000Z" itemprop="datePublished">2017-12-06</time>
+</a>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/programming/javascript-daily-function-12/">오늘의 함수 - if2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
+<h2 id="if2"><a href="#if2" class="headerlink" title="if2"></a>if2</h2><p>오늘은 <a href="/programming/javascript-daily-function-11/">지난 시간</a>에 예고한대로 <code>_.if2</code> 함수를 살펴보겠습니다. 기존의 <code>_.if</code>와 <code>_.if2</code>의 문법적 차이를 먼저 살펴보고 구현 방식의 차이에 대해서도 이야기해보겠습니다. (오늘의 함수를 이해하기 위해 반드시 <a href="/programming/javascript-daily-function-11/">오늘의 함수 - if</a>를 확인하고 오셔야합니다.)</p>
+<h4 id="1-어제의-함수"><a href="#1-어제의-함수" class="headerlink" title="(1) 어제의 함수"></a>(1) 어제의 함수</h4><p>기존의 <code>_.if</code>는 <code>_.if(predi, fn)</code>의 형태로 사용합니다. 조건이 되는 <code>predi</code>와 조건에 따라 실행할 <code>fn</code>을 인자로 전달하는데 이때 <code>fn</code>을 정의하기 위해서 <code>_pipe</code>와 같은 합성 함수를 사용해야 합니다. <a href="https://github.com/marpple/window.functions.js" target="_blank" rel="external">window.functions.js</a>와 함께 사용하면 아래와 같은 예제를 만들어 볼 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">_go(<span class="number">11</span>,</div><div class="line">  _.if(_lt(<span class="number">10</span>), <span class="comment">// [1] 10보다 작으면</span></div><div class="line">    _pipe(</div><div class="line">      _add(<span class="number">100</span>), </div><div class="line">      <span class="built_in">console</span>.log)</div><div class="line">  ).else_if(_gte(<span class="number">20</span>), <span class="comment">// [2] 20과 같거나 크면</span></div><div class="line">    _pipe(</div><div class="line">      _add(<span class="number">200</span>), </div><div class="line">      <span class="built_in">console</span>.log)</div><div class="line">  ).else(</div><div class="line">    _pipe(</div><div class="line">      _add(<span class="number">300</span>), </div><div class="line">      <span class="built_in">console</span>.log)</div><div class="line">  )); </div><div class="line">  <span class="comment">// [3] 결과는 311 입니다.</span></div></pre></td></tr></table></figure>
+<p>지난 시간에 이미 보여드린 것처럼 위의 코드는 <code>_.if2</code> 함수를 만나 아래와 같은 형태로 다르게 적을 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">_go(<span class="number">11</span>,</div><div class="line">  _.if2(_lt(<span class="number">10</span>))(</div><div class="line">    _add(<span class="number">100</span>), </div><div class="line">    <span class="built_in">console</span>.log</div><div class="line">  ).else_if(_gte(<span class="number">20</span>))(</div><div class="line">    _add(<span class="number">200</span>), </div><div class="line">    <span class="built_in">console</span>.log</div><div class="line">  ).else(</div><div class="line">    _add(<span class="number">300</span>), </div><div class="line">    <span class="built_in">console</span>.log</div><div class="line">  ));</div></pre></td></tr></table></figure>
+<p><code>_.if2</code>에서는 괄호를 연달아 두번 열어줍니다. 첫번째 괄호는 조건부를 담고 두번째 괄호는 실행부를 담습니다. 각 괄호 안에 몇개의 함수를 담건 합성해서 실행합니다. 코드가 간결해졌을뿐 아니라 본래의 if와 유사한 형태를 띄고 있습니다. 훨씬 직관적인 함수가 되었습니다.</p>
+<h4 id="2-오늘의-함수"><a href="#2-오늘의-함수" class="headerlink" title="(2) 오늘의 함수"></a>(2) 오늘의 함수</h4><p>이제 <code>_.if2</code>가 어떻게 구현되었는지 살펴보겠습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">_.if2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> predi = _.pipe.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>); <span class="comment">// [1]</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> store = [[predi, _.pipe.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)]]; <span class="comment">// [2]</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">If</span>(<span class="params"></span>) </span>&#123; <span class="comment">// [3]</span></div><div class="line">      <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>; </div><div class="line">      <span class="keyword">return</span> _.go.call(<span class="keyword">this</span>, store,</div><div class="line">        _.partial(_.find, _, <span class="function"><span class="keyword">function</span>(<span class="params">fnset</span>) </span>&#123; <span class="keyword">return</span> fnset[<span class="number">0</span>].apply(context, args); &#125;),</div><div class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">fnset</span>) </span>&#123; <span class="keyword">return</span> fnset ? fnset[<span class="number">1</span>].apply(context, args) : <span class="keyword">void</span> <span class="number">0</span>; &#125;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> _.extend(If, &#123;</div><div class="line">      <span class="attr">else_if</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> predi = _.pipe.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>); <span class="comment">// [4]</span></div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> store.push([predi, _.pipe.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)]) &amp;&amp; If; &#125;; <span class="comment">// [5]</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">else</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> store.push([_.constant(<span class="literal">true</span>), _.pipe.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)]) &amp;&amp; If; &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>지난 시간에 살펴본 <code>_.if</code> 함수의 내부와 상당히 유사한 코드입니다. 함수의 실행 시기의 차이로 인해 몇가지 다른 점이 보입니다. 이번에도 주석을 따라 순서대로 설명하겠습니다. </p>
+<p>[1] Line 2 - 가장 밖에 있는 함수는 인자로 조건부에 해당하는 함수들을 받습니다. 그 함수들을 <code>_.pipe</code> 함수로 합성해둡니다. 나중에 <code>store</code>에 저장하기 위함입니다.</p>
+<p>[2] Line 4 - <code>_.if</code> 함수와 마찬가지로 <code>store</code>라는 배열을 만듭니다. 이 배열은 위에서 만들어둔 조건 판별 함수인 <code>predi</code>와 현재 함수에서 받은 인자로 받은 함수들 즉, 실행될 함수 <code>fn</code>을 묶음으로 가진 2차원 배열입니다. 여기서도 <code>_.pipe</code>로 인자들을 합성합니다. </p>
+<p>[3] Line 6 - <code>_.if</code> 함수의 <code>If</code> 함수와 동일합니다. <a href="/programming/javascript-daily-function-11/">오늘의 함수 - if</a>를 참고하세요.</p>
+<p>[4] Line 15 - [1]번에서와 같이 <code>store</code>에 저장하기 위해 인자로 받은 함수를 합성합니다.</p>
+<p>[5] Line 16 - [2]번처럼 실행될 함수를 만들어 조건부 함수와 함께 <code>store</code>에 넣어둡니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://joeun.me/programming/javascript-daily-function-12/" data-id="cjbexcr0a00126uvgqs5nmvdo" class="article-share-link">Share</a>
+      
+        <a href="https://joeun.me/programming/javascript-daily-function-12/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-daily-function-11" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -136,7 +197,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-11/" data-id="cjaukxiov000sfavgoabl5n96" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-11/" data-id="cjbexcqzz000x6uvgbw8b8h0f" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-11/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -194,7 +255,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-10/" data-id="cjaukxipf001cfavg5flyvrak" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/javascript-daily-function-10/" data-id="cjbexcqzq000u6uvgow19d2oq" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/javascript-daily-function-10/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -260,7 +321,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/landsurfing/landsurfing/" data-id="cjaukxiqj002hfavgywa3uak4" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/landsurfing/landsurfing/" data-id="cjbexcr2a002p6uvgn4taf2ao" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/landsurfing/landsurfing/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -389,7 +450,7 @@ var projections = [
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study-2/" data-id="cjaukxip2000xfavgskt9aadv" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study-2/" data-id="cjbexcr0500106uvgsli4uaek" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -471,7 +532,7 @@ var projections = [
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study-1/" data-id="cjaukxior000mfavgyxpgwntw" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study-1/" data-id="cjbexcqyw000d6uvgr84tpc5h" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -593,7 +654,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/functional-js-study/" data-id="cjaukxiph001ffavgjbpcrnrf" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/functional-js-study/" data-id="cjbexcqzn000s6uvgvfg12ih7" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/functional-js-study/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -661,7 +722,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/make-bingo-game-1/" data-id="cjaukxiqu0030favg56y6n8y6" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/make-bingo-game-1/" data-id="cjbexcr3500386uvg8e5n08n3" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/make-bingo-game-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -716,7 +777,7 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/view-of-value/1-year-anniversary/" data-id="cjaukxiom000gfavgki5tamdb" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/view-of-value/1-year-anniversary/" data-id="cjbexcqzc000m6uvge31k4prt" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/view-of-value/1-year-anniversary/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -776,65 +837,12 @@ if (location.pathname === '/2017/10/17/functional-js-study/')
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/make-bingo-game/" data-id="cjaukxiqm002lfavgsqx7plpb" class="article-share-link">Share</a>
+      <a data-url="https://joeun.me/programming/make-bingo-game/" data-id="cjbexcr27002l6uvgoukn7iy3" class="article-share-link">Share</a>
       
         <a href="https://joeun.me/programming/make-bingo-game/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bingo/">bingo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/만들기/">만들기</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/미니게임/">미니게임</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/빙고/">빙고</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-javascript-daily-function-9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <a href="/programming/javascript-daily-function-9/" class="article-date">
-  <time datetime="2017-06-12T11:59:55.000Z" itemprop="datePublished">2017-06-12</time>
-</a>
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programming/">programming</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/programming/javascript-daily-function-9/">오늘의 함수 - omit</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>오늘 발견한 재미있는 함수를 소개합니다</em></p>
-<h2 id="omit"><a href="#omit" class="headerlink" title="omit"></a>omit</h2><p>오늘은 <code>pick</code> 함수의 반대 버전인 <code>omit</code>을 소개해드릴까 합니다. 다시 말해 <code>omit</code>은 객체에서 키가 일치하는 프로퍼티를 제외한 새로운 객체를 반환하는 함수입니다. </p>
-<p>사실 이 함수를 굳이 소개할 필요가 있을까 싶었는데, 사연이 생겨서 올리게 되었습니다. 2주 전쯤 <a href="https://www.codewars.com/kumite/" target="_blank" rel="external">Codewars</a>라는 사이트에서 제공하는 ‘kumite’(일본어로 대련을 의미합니다.) 페이지에 <code>pick</code> 함수를 올려두었습니다. 그리고 며칠 뒤 <code>omit</code>과 같은 일을 하는 <code>flick</code>함수를 대련 코드로 올리셨기에 살펴보다가 블로그에 소개하면 좋겠다고 생각해서 올리게 되었습니다.</p>
-<p>우선 <a href="https://www.codewars.com/kumite/59421af0c32f438c1a000044?sel=595073a15ceb2bda6d000161" target="_blank" rel="external">Codewars</a>에 올려둔 코드 전체를 보여드리겠습니다.</p>
-<h4 id="1-pick-함수와-flick-함수"><a href="#1-pick-함수와-flick-함수" class="headerlink" title="(1) pick 함수와 flick 함수"></a>(1) pick 함수와 flick 함수</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> _ = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [1] 제가 작성한 pick 함수입니다. 기존의 pick과 크게 다르지 않습니다.</span></div><div class="line">_.pick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> obj[key] = target[key], obj;</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// [2] Robert.Cutright이라는 개발자가 작성한 flick 함수입니다. omit 함수와 같은 일을 합니다.</span></div><div class="line">_.flick = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    keys = <span class="built_in">Object</span>.keys(target);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123;</div><div class="line">      <span class="keyword">return</span> predicate(target[key], key, target) ? obj : (obj[key] = target[key], obj);</div><div class="line">    &#125;, &#123;&#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> obj = <span class="built_in">Object</span>.assign(&#123;&#125;, target);</div><div class="line">  <span class="built_in">Object</span>.keys(obj).filter(<span class="function"><span class="params">key</span> =&gt;</span> keys.includes(key) ? <span class="keyword">delete</span> obj[key] : obj[key]);</div><div class="line">  <span class="keyword">return</span> obj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>Robert가 작성한 코드는 정상적으로 동작합니다. 하지만 저는 한가지가 아쉬웠습니다. 바로 <code>filter</code>를 사용한 부분입니다. <code>reduce</code>를 사용하면 새로운 객체 복사본을 만드는 <code>var obj = Object.assign({}, target);</code> 같은 코드를 작성하지 않아도 된다는 점을 놓친 것 같았습니다. 그리고 이렇게 새로운 객체를 생성해서 <code>delete obj[key]</code>로 데이터를 제거해나가는 코드는 불필요한 코드라는 생각이 들었습니다. 그래서 아래와 같이 변경했습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">_.omit = <span class="function">(<span class="params">target, ...keys</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> keys[<span class="number">0</span>] == <span class="string">'function'</span>) &#123;</div><div class="line">	  <span class="keyword">var</span> predicate = keys[<span class="number">0</span>];</div><div class="line">    <span class="keyword">return</span> _.pick(target, (...args) =&gt; !predicate(...args)) <span class="comment">// [1] pick을 사용하고 predicate를 뒤집었습니다.</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(target).reduce(<span class="function">(<span class="params">obj, key</span>) =&gt;</span> &#123; <span class="comment">// [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.</span></div><div class="line">    <span class="keyword">return</span> keys.includes(key) ? obj : (obj[key] = target[key], obj);</div><div class="line">  &#125;, &#123;&#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://joeun.me/programming/javascript-daily-function-9/" data-id="cjaukxipn001mfavgpzro5fhk" class="article-share-link">Share</a>
-      
-        <a href="https://joeun.me/programming/javascript-daily-function-9/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/오늘의-함수/">오늘의 함수</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/함수형-프로그래밍/">함수형 프로그래밍</a></li></ul>
 
     </footer>
   </div>
