@@ -1,6 +1,6 @@
 ---
 id: 87
-title: 자바스크립트의 예약어
+title: '[JavaScript] 자바스크립트의 예약어'
 date: 2015-09-01T07:30:00+00:00
 author: rabby
 layout: post

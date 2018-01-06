@@ -1,6 +1,6 @@
 ---
 id: 402
-title: Learn about MEAN stack
+title: '[JavaScript] Learn about MEAN stack'
 date: 2016-02-25T15:42:11+00:00
 author: rabby
 layout: post

@@ -1,6 +1,6 @@
 ---
 id: 479
-title: COIN, 함께 성장하기
+title: '[Group] COIN, 함께 성장하기'
 date: 2016-03-27T02:08:18+00:00
 author: rabby
 layout: post

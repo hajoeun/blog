@@ -1,5 +1,5 @@
 ---
-title: '[회고] 벌써 일년'
+title: '회고 - 벌써 일년'
 date: 2017-07-17 23:11:11
 categories:
   - view of value

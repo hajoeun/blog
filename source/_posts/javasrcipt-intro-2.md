@@ -1,6 +1,6 @@
 ---
 id: 47
-title: 자바스크립트, 어떻게 공부하지?
+title: '[JavaScript] 자바스크립트, 어떻게 공부하지?'
 date: 2015-07-21T22:39:27+00:00
 author: rabby
 layout: post

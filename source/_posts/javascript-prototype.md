@@ -1,6 +1,6 @@
 ---
 id: 484
-title: 프로토타입
+title: '[JavaScript] 프로토타입'
 date: 2016-03-30T00:26:18+00:00
 author: rabby
 layout: post

@@ -1,6 +1,6 @@
 ---
 id: 15
-title: 자바스크립트를 선택한 이유
+title: '[JavaScript] 자바스크립트를 선택한 이유'
 date: 2015-07-17T21:10:11+00:00
 author: rabby
 layout: post

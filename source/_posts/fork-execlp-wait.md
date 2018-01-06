@@ -1,6 +1,6 @@
 ---
 id: 464
-title: fork(), execlp(), wait() 함수
+title: '[C] fork(), execlp(), wait() 함수'
 date: 2016-03-26T00:27:03+00:00
 author: rabby
 layout: post

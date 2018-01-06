@@ -1,6 +1,6 @@
 ---
 id: 25
-title: 블로그 및 운영자 소개
+title: '[RABBY LAB] 블로그 및 운영자 소개'
 date: 2015-07-17T20:19:54+00:00
 author: rabby
 layout: post

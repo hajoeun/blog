@@ -1,5 +1,5 @@
 ---
-title: '[미니게임] 소개 - BINGO'
+title: '미니게임 - BINGO(1)'
 date: 2017-07-12 23:56:13
 categories:
   - programming

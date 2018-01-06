@@ -1,6 +1,6 @@
 ---
 id: 518
-title: PRATO 개발기 (2)
+title: '[Project] PRATO 개발기(2)'
 date: 2016-05-23T09:05:29+00:00
 author: rabby
 layout: post

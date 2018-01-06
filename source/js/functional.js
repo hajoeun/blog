@@ -1,6 +1,6 @@
 // each, map, filter, reduce, go, curryr
 
-function _each(list, iter) {
+function each(list, iter) {
   if (Array.isArray(list)) {
     for (var i = 0, len = list.length; i < len; i++) 
       iter(list[i], i, list);
@@ -11,7 +11,7 @@ function _each(list, iter) {
   }
 }
 
-function _map(list, iter) {
+function map(list, iter) {
   var res = [];
   if (Array.isArray(list)) {
     for (var i = 0, len = list.length; i < len; i++) 
@@ -24,7 +24,7 @@ function _map(list, iter) {
   return res;
 }
 
-function _filter(list, iter) {
+function filter(list, iter) {
   var res = [];
   if (Array.isArray(list)) {
     for (var i = 0, len = list.length; i < len; i++) 
@@ -39,7 +39,7 @@ function _filter(list, iter) {
   return res;
 }
 
-function _find(list, iter) {
+function find(list, iter) {
   if (Array.isArray(list)) {
     for (var i = 0, len = list.length; i < len; i++) 
       if (iter(list[i], i, list)) 
@@ -52,7 +52,7 @@ function _find(list, iter) {
   }
 }
 
-function _reduce(list, iter, memo) {
+function reduce(list, iter, memo) {
   var i = 0;
   if (Array.isArray(list)) {
     var res = (memo != undefined ? memo : list[i++]);
@@ -67,21 +67,21 @@ function _reduce(list, iter, memo) {
 }
 
 var slice = Array.prototype.slice;
-function _go(seed) {
+function go(seed) {
   var fns = slice.call(arguments, 1);
   return _reduce(fns, function(se, fn) {
     return fn(se);
   }, seed)
 }
 
-function _pipe() {
+function pipe() {
   var fns = slice.call(arguments);
   return function(seed) {
-    return _go.apply(null, [seed].concat(fns));
+    return go.apply(null, [seed].concat(fns));
   }
 }
 
-function _curry(fn) {
+function curry(fn) {
   return function(a) {
     return function(b) {
       return fn(a, b);
@@ -89,7 +89,7 @@ function _curry(fn) {
   }
 }
 
-function _curryr(func) {
+function curryr(func) {
   return function(a, b) {
     return !b ? function(b) {
       return func(b, a);
@@ -97,7 +97,7 @@ function _curryr(func) {
   }
 }
 
-function _curryr3(func) {
+function curryr3(func) {
   return function(a, b, c) {
     if (arguments.length == 1)
       return function(b) {
@@ -111,8 +111,8 @@ function _curryr3(func) {
   }
 }
 
-_each = _curryr(_each);
-_map = _curryr(_map);
-_filter = _curryr(_filter);
-_find = _curryr(_find);
-_reduce = _curryr3(_reduce);
+each = curryr(each);
+map = curryr(map);
+filter = curryr(filter);
+find = curryr(find);
+reduce = curryr3(reduce);

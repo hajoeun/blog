@@ -4,8 +4,7 @@ categories:
   - landsurfing
 date: 2017-11-20 22:45:38
 tags:
-  - landsurfing
-  - landsurfers
+  - 랜드서핑
   - youtube
   - instagram
   - gopro
