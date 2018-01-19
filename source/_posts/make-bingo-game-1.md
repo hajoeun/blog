@@ -1,6 +1,6 @@
 ---
 title: '미니게임 - BINGO(2)'
-date: 2017-07-26 13:55:31
+date: 2017-07-16 13:55:31
 categories:
   - programming
 tags:
