@@ -90,8 +90,8 @@ _.if = function(predi, fn) {
   
   function If() {
     var context = this, args = arguments; // [2]
-    return _.go.call(this, store, // [3] 
-      _.partial(_.find, _, function(fnset) { return fnset[0].apply(context, args); }), // [4]
+    return _.go(store, // [3] 
+      _.find(function(fnset) { return fnset[0].apply(context, args); }), // [4]
       function(fnset) { return fnset ? fnset[1].apply(context, args) : void 0; }); // [5]
   }
 
@@ -108,9 +108,9 @@ _.if = function(predi, fn) {
 
 [2] Line 5 - 본격적인 `If` 함수 내부입니다. 이후에 사용하기 위해 실행 컨텍스트인 `this`와 매개변수를 담은 `arguments`를 변수에 할당해둡니다. 
 
-[3] Line 6 - `_.go` 함수로 원하는 동작을 수행한 결과를 리턴합니다. 이때 `this`를 전달하기 위해 call로 호출합니다. `_.go`의 첫번째 인자는 배열인 `store` 입니다.
+[3] Line 6 - `_.go` 함수로 원하는 동작을 수행한 결과를 리턴합니다. `_.go`의 첫번째 인자는 배열인 `store` 입니다.
 
-[4] Line 7 - `_.find`의 술부에 해당하는 함수를 `_.partial`를 이용해서 미리 적용해둡니다. 이때 술부 내부를 살펴보면 `fnset`이라는 값이 존재하는데 이는 `store`가 가졌던 배열입니다. 이 배열은 `[predi, fn]`의 형태로 생겼습니다. 결국 `fnset[0].apply(context, args)` 이 대목은 `predi`를 실행해보는 것입니다. 이를 통해 참 값이 반환되면 `_.find` 함수가 찾는 값이 됩니다. 따라서 해당 `fnset`이 이후 함수로 전달됩니다.
+[4] Line 7 - `_.find`의 술부에 해당하는 함수를 미리 적용(커링)해둡니다. 이때 술부 내부를 살펴보면 `fnset`이라는 값이 존재하는데 이는 `store`가 가졌던 배열입니다. 이 배열은 `[predi, fn]`의 형태로 생겼습니다. 결국 `fnset[0].apply(context, args)` 이 대목은 `predi`를 실행해보는 것입니다. 이를 통해 참 값이 반환되면 `_.find` 함수가 찾는 값이 됩니다. 따라서 해당 `fnset`이 이후 함수로 전달됩니다.
 
 [5] Line 8 - 전달된 `fnset`의 두번째 인자는 참인 경우 실행될 함수입니다. `fnset[1].apply(context, args)`로 함수를 실행합니다.
 

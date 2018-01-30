@@ -87,5 +87,3 @@ robotstxt:
   disallow:
   allow: 
   sitemap: /sitemap.xml
-
-# all_minifier: true

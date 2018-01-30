@@ -187,5 +187,3 @@ function pipe() {
   - _7주차 - Movie Box 4: 비동기 상황 다루기_
 
 [예제 코드](https://github.com/joeunha/functional-js-study/tree/master/02_week)
-
-<script src="/js/functional.js"></script>

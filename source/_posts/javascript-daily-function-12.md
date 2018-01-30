@@ -66,8 +66,8 @@ _.if2 = function() {
     
     function If() { // [3]
       var context = this, args = arguments; 
-      return _.go.call(this, store,
-        _.partial(_.find, _, function(fnset) { return fnset[0].apply(context, args); }),
+      return _.go(store,
+        _.find(function(fnset) { return fnset[0].apply(context, args); }),
         function(fnset) { return fnset ? fnset[1].apply(context, args) : void 0; });
     }
     

@@ -4,3 +4,5 @@ node_modules/*
 .idea
 .idea/*
 public/*
+test
+test/*
