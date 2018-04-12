@@ -12,8 +12,8 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 
 ## [val](https://marpple.github.io/partial.js/docs/#val)
 
-오늘은 짧막한 이름을 가진 `val` 함수를 소개합니다. val이라는 이름은 value의 약자입니다. 여기서 value(값)는 객체에서 프로퍼티의 값을 의미합니다. 오늘은 그냥 '값'이라고 표기하도록 하겠습니다. 이름이 유사한 함수로는 `values`가 있는데, 이 함수는 객체에 있는 모든 값을 반환하는 함수입니다. `val`은 원하는 값 하나만을 반환합니다. 
-(기능이 유사한 함수로 underscore의 `_.property`가 있지만 사용법이 조금 다릅니다.)
+오늘은 짧막한 이름을 가진 `val` 함수를 소개합니다. val이라는 이름은 value의 약자입니다. 여기서 value(값)는 객체에서 프로퍼티의 값을 의미합니다. 오늘 글에서는 '값'이라고 표기하겠습니다. 이름이 유사한 함수로는 `values`가 있는데, 이 함수는 객체에 있는 모든 값을 반환하는 함수입니다. 반면 `val`은 원하는 값 하나만을 반환합니다. 
+(기능이 유사한 함수로 [underscore](http://underscorejs.org/#property)의 `_.property`, [ramdajs](http://ramdajs.com/docs/#path)의 `R.path`가 있지만 사용법이 조금 다릅니다.)
 
 예제를 살펴보겠습니다.
 
