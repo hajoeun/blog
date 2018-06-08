@@ -1,6 +1,6 @@
 ---
 title: '오늘의 함수 - pipe2'
-date: 2018-03-05 21:21:56
+date: 2018-03-29 20:21:56
 categories:
   - programming
 tags:
