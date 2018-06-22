@@ -4,7 +4,7 @@
 
 # Site
 title: joeun.me
-subtitle: 
+subtitle:
 description: 꿈꾸던 오늘을 살아가는 개발자, 하조은의 블로그
 author: Joeun Ha
 language: ko
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus-dark
+theme: cactus
 feed:
   type: atom
   path: feed.xml
