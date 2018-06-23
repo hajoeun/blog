@@ -7,6 +7,7 @@ tags:
   - javascript
   - 오늘의 함수
   - 함수형 프로그래밍
+description: redirect 함수의 개량된 버전을 소개합니다.
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
