@@ -1280,14 +1280,14 @@ article .content .caption {
   color: #eee;
 }
 .search-input {
-  padding: 4px 7px;
+  padding: 8px;
   width: 100%;
   outline: none;
   border: solid 1px #ccc;
   border-radius: 5px;
   background-color: #1d1f21;
   color: #c9cacc;
-  font-size: 1.2rem;
+  font-size: 1rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 }
@@ -1326,67 +1326,72 @@ article .content .caption {
   color: #c9cacc;
 }
 .highlight {
-  background: #474949;
-  color: #d1d9e1;
+  background: #1d1f21;
+  color: #c5c8c6;
+/* selection color */
+}
+.highlight::selection,
+.highlight span::selection {
+  background: #373b41;
+}
+.highlight::-moz-selection,
+.highlight span::-moz-selection {
+  background: #373b41;
+}
+.highlight .code .title,
+.highlight .code .name {
+  color: #f0c674;
 }
 .highlight .code .comment,
-.highlight .code .quote {
-  color: #969896;
-  font-style: italic;
-}
-.highlight .code .keyword,
-.highlight .code .selector-tag,
-.highlight .code .literal,
-.highlight .code .type,
-.highlight .code .addition {
-  color: #c9c;
+.highlight .code .meta,
+.highlight .code .meta .keyword {
+  color: #707880;
 }
 .highlight .code .number,
-.highlight .code .selector-attr,
-.highlight .code .selector-pseudo {
-  color: #f99157;
+.highlight .code .symbol,
+.highlight .code .literal,
+.highlight .code .deletion,
+.highlight .code .link {
+  color: #c66;
 }
 .highlight .code .string,
 .highlight .code .doctag,
-.highlight .code .regexp {
-  color: #8abeb7;
-}
-.highlight .code .title,
-.highlight .code .name,
-.highlight .code .section,
-.highlight .code .built_in {
+.highlight .code .addition,
+.highlight .code .regexp,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo {
   color: #b5bd68;
 }
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .selector-id,
-.highlight .code .class .title {
-  color: #fc6;
+.highlight .code .attribute,
+.highlight .code .code,
+.highlight .code .selector-id {
+  color: #b294bb;
 }
-.highlight .code .section,
-.highlight .code .name,
-.highlight .code .strong {
-  font-weight: bold;
-}
-.highlight .code .symbol,
+.highlight .code .keyword,
+.highlight .code .selector-tag,
 .highlight .code .bullet,
-.highlight .code .subst,
-.highlight .code .meta,
-.highlight .code .link {
-  color: #f99157;
-}
-.highlight .code .deletion {
-  color: #dc322f;
-}
-.highlight .code .formula {
-  background: #eee8d5;
-}
-.highlight .code .attr,
-.highlight .code .attribute {
+.highlight .code .tag {
   color: #81a2be;
+}
+.highlight .code .subst,
+.highlight .code .variable,
+.highlight .code .template-tag,
+.highlight .code .template-variable {
+  color: #8abeb7;
+}
+.highlight .code .type,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .quote,
+.highlight .code .section,
+.highlight .code .selector-class {
+  color: #de935f;
 }
 .highlight .code .emphasis {
   font-style: italic;
+}
+.highlight .code .strong {
+  font-weight: bold;
 }
 pre {
   overflow-x: auto;
