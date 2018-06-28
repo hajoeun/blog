@@ -12,13 +12,13 @@ description: 자바스크립트로 블록체인을 구현해보자
 ---
 _자바스크립트로 블록체인을 구현해보자_
 
-## 선언
-
 __\*주의: 해당 글은 대략적인 구조를 설명함으로 실제 암호화폐의 구현과 다를 수 있습니다.__
+
+## 선언
 
 [지난 시간](/programming/block-chain-js-1/)에 해시값을 구하는 함수와 블록을 채굴하는 함수를 구현했습니다. 오늘은 블록을 체인에 추가하는 함수 `add_block`를 구현해보겠습니다. 더불어 블록의 유효성을 검사하는 함수(`is_block_valid`)와 보상을 주는 함수(`reward_to`)도 만들어볼까 합니다.
 
-우선 블록을 담고 있는 일종의 리스트인 체인을 만들기 위해서 전역에 변수를 선언합니다. 다양한 방법이 가능하지만 저는 노드(Node.js) 환경의 전역 변수인 `global`에 몇가지 변수들을 아래와 같이 선언하기로 했습니다.
+우선 블록체인 환경에서 공통으로 사용할 변수들을 선언합니다. 다양한 방법이 가능하지만 저는 노드(Node.js) 환경의 전역 변수인 `global`에 몇가지 변수들을 아래와 같이 선언하기로 했습니다.
 
 ```javascript
 let G = typeof window == 'object' ? window : global;
@@ -109,4 +109,4 @@ go(mining(G.HEAD, new Date(), [{ A: -10, B: 10 }], G.DIFF),
 // 0001's Balance: 90
 ```
 
-오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v02.js)에서 확인하실 수 있습니다. 다음 시간에는 보다 많은 블록을 추가하고 블록체인의 유효성도 검사해보겠습니다.
+오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v02.js)에서 확인하실 수 있습니다. 다음 시간에는 보다 많은 블록을 생성해보고 거래(transaction)를 관리하는 함수를 만들어 보겠습니다.
