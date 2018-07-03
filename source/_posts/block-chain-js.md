@@ -1,5 +1,5 @@
 ---
-title: '자바스크립트로 블록체인 - Intro'
+title: '자바스크립트로 블록체인 - block'
 categories:
   - programming
 tags:

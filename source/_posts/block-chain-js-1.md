@@ -1,5 +1,5 @@
 ---
-title: '자바스크립트로 블록체인 - 구현1'
+title: '자바스크립트로 블록체인 - mining'
 categories:
   - programming
 tags:
