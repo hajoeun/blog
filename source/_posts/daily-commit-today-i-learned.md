@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=570
 permalink: /daily-commit-today-i-learned/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - daily-commit
 ---

@@ -9,7 +9,7 @@ permalink: /javasrcipt-intro-2/
 geo_public:
   - 0
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - javascript
 ---

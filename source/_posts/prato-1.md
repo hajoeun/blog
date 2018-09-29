@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=516
 permalink: /prato-1/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - toy-project
 ---

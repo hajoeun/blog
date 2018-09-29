@@ -8,7 +8,7 @@ guid: https://rabbylab.wordpress.com/?p=25
 geo_public:
   - 0
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - introduction
 ---

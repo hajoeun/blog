@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=544
 permalink: /challenge-portfolio-page/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - freecodecamp
 ---

@@ -7,7 +7,7 @@ layout: post
 guid: https://rabbylab.wordpress.com/?p=402
 permalink: /learn-about-mean-stack/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - javascript
 ---

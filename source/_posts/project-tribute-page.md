@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=540
 permalink: /project-tribute-page/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - freecodecamp
 ---

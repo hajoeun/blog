@@ -7,7 +7,7 @@ layout: post
 guid: https://rabbylab.wordpress.com/?p=87
 permalink: /javascript-keyword/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - javascript
 ---

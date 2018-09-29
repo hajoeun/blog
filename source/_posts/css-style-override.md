@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=520
 permalink: /css-style-override/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - css
 ---

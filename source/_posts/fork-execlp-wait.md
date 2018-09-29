@@ -4,7 +4,7 @@ date: 2016-03-26T00:27:03+00:00
 author: rabby
 layout: post
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - cs-basic
 ---

@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=484
 permalink: /javascript-prototype/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - javascript
 ---

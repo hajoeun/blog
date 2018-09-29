@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=479
 permalink: /coin/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - coin
 ---

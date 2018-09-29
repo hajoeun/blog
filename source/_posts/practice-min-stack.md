@@ -4,7 +4,7 @@ date: 2016-03-26T19:29:50+00:00
 author: rabby
 layout: post
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - practice
 ---

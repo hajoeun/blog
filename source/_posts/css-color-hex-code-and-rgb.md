@@ -7,7 +7,7 @@ layout: post
 guid: http://rabbylab.xyz/?p=531
 permalink: /css-color-hex-code-and-rgb/
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - css
 ---

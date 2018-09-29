@@ -9,7 +9,7 @@ permalink: /javascript-intro-1/
 geo_public:
   - 0
 categories:
-  - rabbylab(wordpress)
+  - rabbylab
 tags:
   - javascript
 ---

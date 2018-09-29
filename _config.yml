@@ -5,9 +5,9 @@
 # Site
 title: joeun.me
 subtitle:
-description: 꿈꾸던 오늘을 살아가는 개발자, 하조은의 블로그
+description: const { JS, FP, BlockChain } = require('joeun.me');
 author: Joeun Ha
-language: ko
+language: en
 timezone:
 
 # URL
