@@ -5,7 +5,7 @@
 # Site
 title: joeun.me
 subtitle:
-description: const { JS, FP, BlockChain } = require('joeun.me');
+description: const { JS, FP, Blockchain } = require('joeun.me');
 author: Joeun Ha
 language: en
 timezone:
