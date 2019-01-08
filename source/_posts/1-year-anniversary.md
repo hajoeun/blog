@@ -4,8 +4,8 @@ date: 2017-07-17 23:11:11
 categories:
   - view of value
 tags:
-  - memoir
-  - aniversary
+  - retrospection
+  - anniversary
 ---
 _지난 1년을 되돌아보자_
 
