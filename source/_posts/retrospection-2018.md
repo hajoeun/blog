@@ -5,6 +5,7 @@ categories:
   - view of value
 tags:
   - retrospection
+  - 회고록
 description: '2018년, 새해를 야심 차게 시작했음이 틀림없다.'
 image: 'typewriter.jpg'
 ---

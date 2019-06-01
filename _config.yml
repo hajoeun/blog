@@ -3,20 +3,20 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: joeun.me
+title: joeun.dev
 subtitle:
-description: const { JS, FP, Blockchain } = require('joeun.me');
+description: const { JS, FP } = require('joeun.dev');
 author: Joeun Ha
 language: en
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://joeun.me/
+url: https://joeun.dev/
 root: /
 permalink: :category/:title/
 permalink_defaults:
-cname: joeun.me
+cname: joeun.dev
 
 # Directory
 source_dir: source
@@ -70,7 +70,7 @@ feed:
   path: feed.xml
   limit: false
 
-sitemap: 
+sitemap:
   path: sitemap.xml
 
 # Deployment
@@ -85,5 +85,5 @@ disqus_shortname: joeun
 robotstxt:
   useragent: "*"
   disallow:
-  allow: 
+  allow:
   sitemap: /sitemap.xml

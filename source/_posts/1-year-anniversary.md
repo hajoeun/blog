@@ -6,6 +6,7 @@ categories:
 tags:
   - retrospection
   - anniversary
+  - 회고록
 ---
 _지난 1년을 되돌아보자_
 
