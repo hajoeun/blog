@@ -1,5 +1,6 @@
 .deploy_git
 .deploy_git/*
+node_modules
 node_modules/*
 .idea
 .idea/*
