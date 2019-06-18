@@ -106,6 +106,14 @@
       return _is_mr(se) ? fn(...se) : fn(se);
     }, seed);
   }
+
+  _.tap = _tap;
+  function _tap(...fns) {
+    return function(...args) {
+      _go(_mr(...args), ...fns);
+      return _mr(...args);
+    }
+  }
   
   _.mr = _mr;
   function _mr(...args) {
@@ -162,5 +170,40 @@
       return keys.includes(key) ? obj : (obj[key] = target[key], obj);
     }, {});
   }
+
+  const call = (x, f) => f(x);
+
+  const match = (function self(input) {
+    const init = () => {
+      self.actions = {};
+      self.case = condition => (...fns) => {
+          self.actions[condition] = fns;
+          return self;
+      };
+      self.default = (...fns) => {
+          self.actions.__default__ = fns;
+          return self;
+      };
+    };
+
+    if (input === undefined) {
+      init();
+      return self;
+    }
+
+    if (self.actions[input]) {
+      const matarials = [input, ...self.actions[input]];
+      const result = matarials.reduce(call);
+      init();
+      return result;
+    } else {
+      const matarials = [input, ...self.actions.__default__];
+      const result = matarials.reduce(call);
+      init();
+      return result;
+    } 
+  })();
+
+  _.match = match;
 
 }(window)
