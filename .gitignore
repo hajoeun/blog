@@ -7,3 +7,4 @@ node_modules/*
 public/*
 test
 test/*
+db.json
