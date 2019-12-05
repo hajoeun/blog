@@ -26,9 +26,8 @@ nav:
 # only 'mail' is an exception.
 social_links:
   github: https://github.com/joeunha
-#  twitter: /
-  facebook: https://www.facebook.com/joeun.ha.developer
-  linkedin: https://www.linkedin.com/in/joeunha/
+  facebook: https://www.facebook.com/joeun.dev
+  linkedin: https://www.linkedin.com/in/joeunha
   mail: mailto:imjoeunha@email.com
 
 # Customize the overview with displaying a tagcloud on the index page.
