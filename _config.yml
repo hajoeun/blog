@@ -6,12 +6,12 @@ subtitle:
 description: Do the next right thing.
 author: Joeun Ha
 language: en
-timezone:
+timezone: Asia/Seoul
 
 # URL
 url: https://joeun.dev/
 root: /
-permalink: :category/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
@@ -55,6 +55,8 @@ pagination_dir: page
 
 # Extensions
 theme: cactus
+theme_config:
+  colorscheme: classic
 feed:
   type: atom
   path: feed.xml
