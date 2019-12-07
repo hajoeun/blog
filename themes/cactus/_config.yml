@@ -17,6 +17,7 @@ nav:
   home: /
   about: /about/
   articles: /archives/
+  search: /search/
 #  projects: projects_url
 
 
@@ -88,7 +89,7 @@ favicon:
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
 # Alternatively, add your own custom color scheme to source/css/_colors.
-colorscheme: dark
+colorscheme: classic
 
 # Maximal width of the page in rem units.
 page_width: 56

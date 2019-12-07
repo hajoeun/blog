@@ -1,5 +1,6 @@
 ---
 title: search
-date: 2018-06-25 15:54:34
+type: search
 search: true
+date: 2018-06-25 15:54:34
 ---

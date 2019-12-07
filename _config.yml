@@ -37,7 +37,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -55,8 +55,6 @@ pagination_dir: page
 
 # Extensions
 theme: cactus
-theme_config:
-  colorscheme: classic
 feed:
   type: atom
   path: feed.xml
@@ -67,8 +65,6 @@ sitemap:
 
 # Deployment
 deploy:
-  type: git
-  repo: https://github.com/joeunha/joeunha.github.io.git
 
 # Disqus comments
 disqus_shortname: joeun
