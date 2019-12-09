@@ -22,16 +22,6 @@ gulp.task('lib:fontAwesome',function(){
     .pipe(gulp.dest('./source/lib/font-awesome'))
 })
 
-gulp.task('lib:mesloFont', function () {
-  return download('https://github.com/andreberg/Meslo-Font/blob/master/dist/v1.2/Meslo%20LG%20v1.2.zip?raw=true')
-    .pipe(decompress({
-      filter: file => path.extname(file.path) == '.ttf',
-      strip: 1
-    }))
-    .pipe(gulp.dest('./source/lib/meslo-LG'));
-});
-
-
 gulp.task('lib:vazirFont',function(){
   return gulp.src([
     'node_modules/vazir-font/dist/*',
