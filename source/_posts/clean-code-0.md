@@ -8,9 +8,12 @@ tags:
   - 클린코드
 description: 협업을 위한 코드, 클린코드
 ---
+클린코드를 주제로 했던 [강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다.
+
+---
 
 ### 야생 개발자
-> **Wild [waɪld]**: animals or plants live or grow in natural surroundings and are **not looked after by people.**
+> Wild [waɪld]: animals or plants live or grow in natural surroundings and are not looked after by people.
 
 사람들과 협업 경험이 적은 개발자, 그게 제 상황이었습니다. 문과 출신 개발자인 저는 개발에 입문하기 전엔 나름대로 문학소년이었죠. 그래서인지 처음 프로그래밍을 배우면서 "프로그래밍, 이거 제법 문과스러운데? 🤔"라고 생각했었습니다. 문학소년 입장에서 문과의 꽃은 시라고 생각했습니다. 프로그래밍도 시 쓰듯 하는 게 좋은 게 아닐까 생각했죠. 
 
