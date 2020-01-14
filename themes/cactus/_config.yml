@@ -29,6 +29,7 @@ social_links:
   github: https://github.com/joeunha
   facebook: https://www.facebook.com/joeun.dev
   linkedin: https://www.linkedin.com/in/joeunha
+  twitter: https://twitter.com/joeun_ha
   mail: mailto:imjoeunha@email.com
 
 # Customize the overview with displaying a tagcloud on the index page.
@@ -106,7 +107,7 @@ rss: atom.xml
 open_graph:
   fb_app_id: 1553991251352257
   fb_admins:
-  twitter_id:
+  twitter_id: joeun_ha
   google_plus:
   image: '/images/cactus.jpg'
 
