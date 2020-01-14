@@ -1,5 +1,5 @@
 ---
-title: '클린코드 - 야생 개발자'
+title: '클린코드 - 협업을 위한 코드'
 date: 2020-01-13 20:00:00
 categories:
   - agile
@@ -8,7 +8,7 @@ tags:
   - 클린코드
 description: 협업을 위한 코드, 클린코드
 ---
-클린코드를 주제로 했던 [강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다.
+클린코드를 주제로 했던 [강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (블로그의 코드와 강의 자료에서의 코드가 상이할 수 있습니다.)
 
 ---
 
@@ -24,7 +24,7 @@ description: 협업을 위한 코드, 클린코드
 evt1('#is_prime', ({ currentTarget }) => (
     rend(current.loans = has_c(currentTarget, 'all') ?
         current.loans.filter(loan => loan.is_prime) :
-        loans.sort(compare[current.sort_by]))
+        origin.loans.sort(compare[current.sort_by]))
     && toggle_c(currentTarget, 'all')
 ));
 ```
@@ -38,7 +38,7 @@ evt1('#is_prime', ({ currentTarget }) => (
 evt1('#is_prime', ({ currentTarget }) => (
     rend(current.loans = has_c(currentTarget, 'all') ?
         current.loans.filter(loan => loan.is_prime) :
-        loans.sort(compare[current.sort_by]))
+        origin.loans.sort(compare[current.sort_by]))
     && toggle_c(currentTarget, 'all')
 ));
 ```
@@ -52,3 +52,53 @@ evt1('#is_prime', ({ currentTarget }) => (
 조금 어렵긴 해도 제가 여러분에게 설명드린 것처럼 옆에 있는 동료에게 설명하면 충분히 이해할 수 있는 코드니까 문제될거 없다고 생각했습니다. 사실 그렇지 않더군요. 항상 동료 옆에 붙어 있을 수 없을뿐더러. 기민하게 대응해야하는 상황에 위와 같은 코드는 실수할 여지가 많이 생긴다는걸 알게 됐습니다. 
 
 그렇다면 협업을 위한 코드, 클린코드는 무엇을 강조하고 있을까요. 
+
+
+### 클린코드
+
+[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)의 책을 통해 클린코드를 알게 됐습니다. 협업을 잘하기 위해 사내에서 함께 스터디를 했죠. 스터디를 통해 배운 클린코드에 대한 몇가지 지식을 추려봤습니다. 간단한 예시와 실제 사례도 담았습니다. 
+
+#### 깨끗한 코드
+> 깨끗한 코드는 잘 쓴 문장처럼 읽힌다 - Grady Booch
+
+![](/images/code-quality-wtf.jpg)
+
+위의 이미지는 클린코드가 무엇인지 단적으로 표현하고 있습니다. 좋은 코드와 나쁜 코드를 판별하는 지표로 '분당 WTF의 횟수'를 사용할 수 있다고 말하고 있죠. WTF은 한국말로 표현하자면 코드를 읽다가 "이건 뭐지...?" 정도가 되지 않을까 싶습니다. 여하튼 코드를 읽으면서 이해하기 어려운 순간이 잦을 수록 나쁜 코드라는 의미입니다. 앞에 나온 나온 예시를 다시 보겠습니다. 
+
+```js
+evt1('#is_prime', ({ currentTarget }) => (
+    rend(current.loans = has_c(currentTarget, 'all') ?
+        current.loans.filter(loan => loan.is_prime) :
+        origin.loans.sort(compare[current.sort_by]))
+    && toggle_c(currentTarget, 'all')
+));
+```
+
+곳곳에서 WTF을 외치게 되죠. 이 짧은 코드에 적어도 일곱번은 이건 무슨 소릴까 하는 의문이 생길겁니다. 명백히 나쁜 코드네요. 책에서 소개되는 대가 중 한명인 [그래디 부치(Grady Booch)](https://en.wikipedia.org/wiki/Grady_Booch)는 깨끗한 코드는 잘 쓴 문장처럼 읽힌다고 말합니다. 예시를 잘 쓴 문장처럼 바꾸면 어떻게 될까요?
+
+```js
+on_click("#is_prime", ({ currentTarget }) => {
+  const has_class_all = has_class(currentTarget, "all");
+
+  if (has_class_all) {
+    const is_prime = loan => loan.is_prime;
+    const filtered_loans = current.loans.filter(is_prime);
+
+    set_state({ loans: filtered_loans });
+  } else {
+    const compare_function = compare_functions[current.sort_by];
+    const sorted_loans = origin.loans.sort(compare_function);
+
+    set_state({ loans: sorted_loans });
+  }
+
+  render(current.loans);
+  toggle_class(currentTarget, "all");
+});
+```
+
+'all' 클래스를 가졌다면 현재 데이터(current.loans) 중에서 필터링해 랜더링 하고, 그렇지 않다면 기존 데이터(origin.loans)를 정렬해 랜더링 하는군요! 확실히 이제는 문장처럼 읽힙니다. 
+
+#### 의미있는 이름
+#### 함수와 주석
+#### 오류 처리
