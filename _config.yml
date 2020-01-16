@@ -56,7 +56,7 @@ pagination_dir: page
 # Extensions
 theme: cactus
 feed:
-  type: atom
+  type: rss2
   path: feed.xml
   limit: false
 
