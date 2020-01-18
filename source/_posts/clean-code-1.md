@@ -13,11 +13,11 @@ date: 2020-01-15 20:00:00
 
 ---
 
-### 클린 코드
+## 클린 코드
 
 [로버트 마틴(Robert C. Martin)](https://en.wikipedia.org/wiki/Robert_C._Martin)의 책을 통해 클린 코드를 알게 됐습니다. 협업을 잘하기 위해 회사에서 동료들과 함께 스터디를 진행했습니다. 이를 통해 배운 클린 코드에 대한 몇 가지 지식을 추려봤습니다. 간단한 예시와 실제 사례도 담았습니다. 
 
-#### 깨끗한 코드
+### 깨끗한 코드
 > 깨끗한 코드는 잘 쓴 문장처럼 읽힌다 - Grady Booch
 
 ![](/images/clean-code/code-quality-wtf.jpg)
@@ -58,7 +58,7 @@ on_click("#is_prime", ({ currentTarget }) => {
 
 'all' 클래스를 가졌다면 현재 데이터(current.loans) 중에서 필터링해 랜더링 하고, 그렇지 않다면 기존 데이터(origin.loans)를 정렬해 랜더링 하고 있습니다. 확실히 이제는 문장처럼 읽힙니다. 
 
-#### 의미 있는 이름
+### 의미 있는 이름
 > 의도를 분명하게 밝혀라 - Robert C. Martin
 
 이번에는 실제 코드 리뷰 중에 있었던 사례를 살펴보겠습니다. 여기 `clearEmptyKey`라는 함수가 있습니다. `undefined` 혹은 `null`을 빈 값(empty)으로 보고 지워버리는 함수입니다. (함수 선언부 내에 사용되는 함수는 [immutable.js에서 제공하는 함수](https://immutable-js.github.io/immutable-js/docs/#/Collection/filter)입니다.)
