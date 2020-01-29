@@ -26,12 +26,12 @@ var user_1 = { // [1] 기존의 데이터
   city: 'Seoul',
   mobile_phone: '010-0000-0000',
   email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.me',
+  blog_url: 'http://joeun.dev',
   };
 
 var user_data = { // [2] 필요한 데이터
   id: user_1.id,
-  first_name: user_1.first_name, 
+  first_name: user_1.first_name,
   last_name: user_1.last_name
   };
 
@@ -52,7 +52,7 @@ var user_1 = { // [1] 기존의 데이터
   city: 'Seoul',
   mobile_phone: '010-0000-0000',
   email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.me',
+  blog_url: 'http://joeun.dev',
   };
 
 function pick(target, keys) {
@@ -65,7 +65,7 @@ function pick(target, keys) {
 console.log(pick(user_1, ['age', 'id'])); // [2] 출력 결과는 { age: 28, id: 1 } 입니다. 이때, 객체 값의 순서가 배열로 전달한 키의 순서대로 반환됩니다.
 
 $.post('/api/user_name/check', pick(user_1, ['id', 'first_name', 'last_name'])) // [3] 간편하게 반복해서 원하는 객체를 만들 수 있습니다.
-  .done(redirect('/main')); 
+  .done(redirect('/main'));
 
 $.post('/api/city/check', pick(user_1, ['id', 'city']))
   .done(redirect('/main'));

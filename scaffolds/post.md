@@ -2,6 +2,6 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-  - joeun.me
+  - joeun.dev
 tags:
 ---

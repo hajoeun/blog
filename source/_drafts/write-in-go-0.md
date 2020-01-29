@@ -1,7 +1,7 @@
 ---
 title: 만들면서 배우는 고(Golang)
 categories:
-  - joeun.me
+  - joeun.dev
 draft: true
 date: 2020-01-17 22:47:09
 tags:
