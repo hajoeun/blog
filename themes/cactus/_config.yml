@@ -109,7 +109,7 @@ open_graph:
   fb_admins:
   twitter_id: joeun_ha
   google_plus:
-  image: '/images/cactus.jpg'
+  image: '/images/thumb.jpeg'
 
 ##############################################################################
 # Plugins
