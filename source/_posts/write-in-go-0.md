@@ -20,7 +20,7 @@ image: thumbs/go-thumb.jpeg
 
 ## 쉽고 단순해서
 
-Go는 복잡함이 싫어 태어난 언어입니다. [언어 설계자들이 직접 밝혔죠.](https://web.archive.org/web/20140313072938/http://www.drdobbs.com/open-source/interview-with-ken-thompson/229502480) 때문에 키워드도 적습니다. 반복문에 for만 존재할 정도죠. do, while이 없습니다! 코드 서식(format)을 자동으로 맞춰줘서 [Go를 사용하는 누구나 같은 규칙에 따라 코드를 작성할 수 있게 해 줍니다.](https://golang.org/doc/effective_go.html#formatting) 코드 리뷰 시에 오직 논리에만 집중할 수 있게 도와줍니다. 가비지 컬렉션도 가능해 메모리를 직접 관리할 필요도 없습니다. 이처럼 Go는 어렵고 불필요한 건 일절 담지 않아 쉽고 단순합니다.
+Go는 복잡함이 싫어 태어난 언어입니다. [언어 설계자들이 직접 밝혔죠.](https://web.archive.org/web/20140313072938/http://www.drdobbs.com/open-source/interview-with-ken-thompson/229502480) 때문에 키워드도 적습니다. 반복문에 for만 존재할 정도죠. (do, while이 없습니다!) [코드 서식(format)을 자동으로 맞춰줘서](https://golang.org/doc/effective_go.html#formatting) Go를 사용하는 누구나 같은 규칙에 따라 코드를 작성할 수 있습니다. 덕분에 코드 리뷰 시에 오직 논리에만 집중할 수 있죠. 가비지 컬렉션도 가능해 메모리를 직접 관리할 필요도 없습니다. 이처럼 Go는 어렵고 불필요한 건 일절 담지 않아 쉽고 단순합니다.
 
 ## 빠르고 강력해서
 
