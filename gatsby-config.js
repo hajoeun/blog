@@ -6,12 +6,17 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `Joeun`,
+    siteTitleAlt: `Joeun Blog`,
+    siteHeadline: `Joeun Blog`,
+    siteUrl: `https://joeun.dev`,
+    siteLanguage: `ko`,
+    siteDescription: `스타트업, 개발자, 블로그, 하조은, joeun, joeun.dev`,
+    author: `@joeunha`
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
       options: {
         navigation: [
           {
@@ -25,12 +30,12 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            name: `Github`,
+            url: `https://github.com/joeunha`,
           },
           {
-            name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            name: `Facebook`,
+            url: `https://www.facebook.com/joeun.dev`,
           },
         ],
       },
@@ -45,9 +50,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `Joeun Blog`,
+        short_name: `joeun-blog`,
+        description: `스타트업, 개발자, 블로그, 하조은, joeun, joeun.dev`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
