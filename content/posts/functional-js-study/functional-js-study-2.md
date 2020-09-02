@@ -10,7 +10,7 @@ tags:
 date: 2017-10-19 18:41:14
 ---
 ## 함수형 자바스크립트 라이브러리
-함수형으로 프로그래밍하는데 도움을 주는 자바스크립트 라이브러리를 알아보고 배워보자. 
+함수형으로 프로그래밍하는데 도움을 주는 자바스크립트 라이브러리를 알아보고 배워보자.
 (모든 예제는 웹 브라우저의 '검사' 도구를 열어서 테스트할 수 있다.)
 
 ### Partial.js
@@ -19,13 +19,13 @@ date: 2017-10-19 18:41:14
 
 
 ##### 1. 부분 적용 함수 `_.partial`
-[지난 시간](/programming/functional-js-study-1/)에 다룬 `curryr` 함수는 해결되지 않은 문제를 가지고 있었다. 
+[지난 시간](/programming/functional-js-study-1/)에 다룬 `curryr` 함수는 해결되지 않은 문제를 가지고 있었다.
 
 ```javascript
 var add = curryr((a, b) => a + b);
 ```
 
-`curryr`에 의해 커링이 가능하게 만들어진 함수는 받을 수 있는 인자의 개수가 2개로 제한되어 있다는 점이었다. `reduce`와 같이 3개 이상의 인자를 받는 함수가 커링이 가능하도록 만들기 위해서는 `curryr`을 새로 만들어야하는 상황이었다. 
+`curryr`에 의해 커링이 가능하게 만들어진 함수는 받을 수 있는 인자의 개수가 2개로 제한되어 있다는 점이었다. `reduce`와 같이 3개 이상의 인자를 받는 함수가 커링이 가능하도록 만들기 위해서는 `curryr`을 새로 만들어야하는 상황이었다.
 
 ```javascript
 function curryr3(fn) {
@@ -34,11 +34,11 @@ function curryr3(fn) {
       return function(b) {
         return fn(b, a);
       };
-    if (arguments.length == 2) 
+    if (arguments.length == 2)
       return function(c) {
         return fn(c, a, b);
       };
-    return fn(a, b, c); 
+    return fn(a, b, c);
   }
 }
 ```
@@ -58,7 +58,7 @@ var reduce_arr = _.partial(reduce, arr);
 console.log(reduce_arr((total, num) => total + num)); // 55
 ```
 
-`sum_init_0` 함수는 `0`을 초기값으로 가진 상태로 돌림직한 데이터가 가진 모든 수를 더하는 함수다. 선언되는 과정을 살펴보면 `_.partial` 함수에게 세개의 인자가 전달된다. 첫번째 인자인 `reduce`는 커링의 대상이 될 함수다. 이후의 인자들은 `reduce`에 전달될 인자를 의미한다. 두번째 인자는 `_`인데 이 부분은 나중에 받겠다는 의미가 된다. __'지금은 비워두고 나중에 값이 들어오면 여기에 넣어라'__는 의미가 되는 셈이다. 반면 `(total, num) => total + num`과 `0`은 각각 `iter`, `memo`를 의미하고([기본 함수 구현하고 사용하기](/programming/functional-js-study/) 편의 `reduce` 참고) __'지금 값을 넣어두겠다'__는 의미가 된다. 이렇게 일정 부분만 미리 값을 넣어두는 행위를 __부분 적용__이라고 한다. 
+`sum_init_0` 함수는 `0`을 초기값으로 가진 상태로 돌림직한 데이터가 가진 모든 수를 더하는 함수다. 선언되는 과정을 살펴보면 `_.partial` 함수에게 세개의 인자가 전달된다. 첫번째 인자인 `reduce`는 커링의 대상이 될 함수다. 이후의 인자들은 `reduce`에 전달될 인자를 의미한다. 두번째 인자는 `_`인데 이 부분은 나중에 받겠다는 의미가 된다. __'지금은 비워두고 나중에 값이 들어오면 여기에 넣어라'__는 의미가 되는 셈이다. 반면 `(total, num) => total + num`과 `0`은 각각 `iter`, `memo`를 의미하고([기본 함수 구현하고 사용하기](/programming/functional-js-study/) 편의 `reduce` 참고) __'지금 값을 넣어두겠다'__는 의미가 된다. 이렇게 일정 부분만 미리 값을 넣어두는 행위를 __부분 적용__이라고 한다.
 
 `sum` 함수는 돌림직한 데이터가 가진 모든 수를 더하는 함수다. `sum_init_0`와는 초기값의 유무에서 차이가 생긴다. `_.partial` 함수를 살펴보면 마지막 인자 `0`이 없는 것을 알 수 있다. 이처럼 `_.partial`로 부분 적용된 함수를 만들 때 마지막 인자가 들어오지 않으면 `_`과 같은 취급을 한다. 즉 '지금은 비워두고 나중에 값이 들어오면 넣는' 영역으로 본다. 결과적으로 `sum`은 `iter`만을 가진 함수가 되어 실행하는 시점에 데이터 `arr`와 초기값 `100`을 인자로 줄 수 있었다.
 
@@ -73,7 +73,7 @@ _.go(arr,
   console.log); // 25
 ```
 
-위 코드에서 재미난 부분은 Partial.js에서는 네임스페이스인 `_`가 `_.partial` 함수라는 점이다. Partial이라는 라이브러리의 이름이 `_.partial` 함수와 같은 이유가 바로 이 때문이다. 사실 위의 코드는 `_.partial`의 사용 예를 보여주기만을 위한 코드라 그리 근사하지 않다. 지난 시간에 만든 `filter`와 `reduce` 대신 Partial.js의 함수들을 사용하면 보다 깔끔한 코드를 만들 수 있다. 
+위 코드에서 재미난 부분은 Partial.js에서는 네임스페이스인 `_`가 `_.partial` 함수라는 점이다. Partial이라는 라이브러리의 이름이 `_.partial` 함수와 같은 이유가 바로 이 때문이다. 사실 위의 코드는 `_.partial`의 사용 예를 보여주기만을 위한 코드라 그리 근사하지 않다. 지난 시간에 만든 `filter`와 `reduce` 대신 Partial.js의 함수들을 사용하면 보다 깔끔한 코드를 만들 수 있다.
 
 ```javascript
 _.go(arr,
@@ -119,7 +119,7 @@ _.go([1, 2, 3],
 //   "Sun Feb 05 2017 03:33:39 GMT+0900 (KST)"]
 ```
 
-위의 예제는 Partial.js의 [소개 페이지](https://marpple.github.io/partial.js/#컬렉션을-다루는-비동기-제어-함수)에 나오는 코드를 가져왔다. 잠깐 코드를 살펴보면 동기적으로 날짜를 리턴하는 `snycData` 함수와 비동기적으로 날짜를 리턴하는 `promiseData` 함수가 있다. 두 함수를 `_.map`에 넣어 실행하면 날짜 데이터를 갖는 배열을 리턴한다. 다시 한번 `_.map`으로 날짜 데이터를 문자열로 치환하여 리턴하면 결과값과 같은 날짜와 시간을 표시한 문자열이 담긴 배열이 나온다. 비동기 상황임에도 불구하고 동기 상황과 같은 결과를 리턴한다. 물론 3초정도의 시간이 소요된다. [1주차](/programming/functional-js-study/)에 만들어본 일반 `go`를 사용하면 위와 같은 결과를 만들어내지 못한다. 
+위의 예제는 Partial.js의 [소개 페이지](https://marpple.github.io/partial.js/#컬렉션을-다루는-비동기-제어-함수)에 나오는 코드를 가져왔다. 잠깐 코드를 살펴보면 동기적으로 날짜를 리턴하는 `snycData` 함수와 비동기적으로 날짜를 리턴하는 `promiseData` 함수가 있다. 두 함수를 `_.map`에 넣어 실행하면 날짜 데이터를 갖는 배열을 리턴한다. 다시 한번 `_.map`으로 날짜 데이터를 문자열로 치환하여 리턴하면 결과값과 같은 날짜와 시간을 표시한 문자열이 담긴 배열이 나온다. 비동기 상황임에도 불구하고 동기 상황과 같은 결과를 리턴한다. 물론 3초정도의 시간이 소요된다. [1주차](/programming/functional-js-study/)에 만들어본 일반 `go`를 사용하면 위와 같은 결과를 만들어내지 못한다.
 
 ```javascript
 go([1, 2, 3],
@@ -137,19 +137,19 @@ HTML 코드를 보다 쉽게 작성하기 위해 [Pug](https://pugjs.org/api/get
 
 ### 함수형 jQuery, don.js
 ##### 1. jQuery vs don.js
-don.js는 jQuery가 지원하는 함수들을 함수형 스타일로 지원한다. 
+don.js는 jQuery가 지원하는 함수들을 함수형 스타일로 지원한다.
 
 ```javascript
 // jQuery
-$('body'); 
+$('body');
 $('body').addClass('container');
 
 // don.js
-D('body'); 
+D('body');
 D.addClass(D('body'), 'container');
 ```
 
-jQuery가 체인 방식으로 함수들을 이어나가는 것과 달리 __don.js는 함수의 리턴값을 사용함__으로 함수를 이어나간다. 때문에 Partial.js와 궁합이 잘 맞는다. 
+jQuery가 체인 방식으로 함수들을 이어나가는 것과 달리 __don.js는 함수의 리턴값을 사용함__으로 함수를 이어나간다. 때문에 Partial.js와 궁합이 잘 맞는다.
 
 
 ##### 2. Don.js with Partial.js
@@ -175,9 +175,9 @@ _.go(
   _.log);
 ```
 
-jQuery가 셀렉터를 통해 찾아 리턴하는 값이 jQuery 객체인데 반해 don.js의 리턴값은 기본형 데이터인 배열이거나 엘리먼트 자체임으로 어떤 순수 함수인 다른 함수들과 조합이 자유롭다. 위의 예제에서 jQuery의 경우, `map`을 실행한 뒤에 `get`을 실행하지 않으면 배열의 기본 메서드인 `join`을 실행할 수 없다. 하지만 don.js는 항상 기본형 데이터를 사용하기 때문에 자유롭게 함수들을 이어갈 수 있다. 
+jQuery가 셀렉터를 통해 찾아 리턴하는 값이 jQuery 객체인데 반해 don.js의 리턴값은 기본형 데이터인 배열이거나 엘리먼트 자체임으로 어떤 순수 함수인 다른 함수들과 조합이 자유롭다. 위의 예제에서 jQuery의 경우, `map`을 실행한 뒤에 `get`을 실행하지 않으면 배열의 기본 메서드인 `join`을 실행할 수 없다. 하지만 don.js는 항상 기본형 데이터를 사용하기 때문에 자유롭게 함수들을 이어갈 수 있다.
 
-`_.template` 계열의 템플릿 함수들과 함께 사용하면 더 don.js를 재미있고 유용하게 사용할 수 있다. 우선 예제를 위해 아래와 같은 주문서 데이터(`projections`)가 있다고 가정하자. 
+`_.template` 계열의 템플릿 함수들과 함께 사용하면 더 don.js를 재미있고 유용하게 사용할 수 있다. 우선 예제를 위해 아래와 같은 주문서 데이터(`projections`)가 있다고 가정하자.
 
 ```javascript
 var projections = [
@@ -212,7 +212,7 @@ _.go(
   D.appendTo('.user_list'));
 ```
 
-`_.sum`은 `projections` 데이터를 바탕으로 `_.t$` 함수가 만들어낸 HTML 문자열을 하나의 문자열로 합쳐준다. 이렇게 합쳐진 긴 문자열은 `D.appendTo` 함수에게 전달되는데 이 함수는 `'.user_list'`라는 문자열을 인자로 받았다. 클래스 명이 'user\_product'에 해당하는 엘리먼트에게 이후에 들어오는 HTML 문자열을 엘리먼트로 변환해서 붙여넣겠다는 의미다. 결과적으로 앞에서 `_.sum`에 의해 합쳐진 문자열이 `D.appendTo`에 의해 엘리먼트로 변환되고 'user\_product'에 해당하는 클래스를 가진 곳에 붙여진다. 
+`_.sum`은 `projections` 데이터를 바탕으로 `_.t$` 함수가 만들어낸 HTML 문자열을 하나의 문자열로 합쳐준다. 이렇게 합쳐진 긴 문자열은 `D.appendTo` 함수에게 전달되는데 이 함수는 `'.user_list'`라는 문자열을 인자로 받았다. 클래스 명이 'user\_product'에 해당하는 엘리먼트에게 이후에 들어오는 HTML 문자열을 엘리먼트로 변환해서 붙여넣겠다는 의미다. 결과적으로 앞에서 `_.sum`에 의해 합쳐진 문자열이 `D.appendTo`에 의해 엘리먼트로 변환되고 'user\_product'에 해당하는 클래스를 가진 곳에 붙여진다.
 
 이벤트를 달아서 주문을 취소하는 동작을 만들기 위해선 아래와 같은 `on` 함수를 사용하면 된다.
 
@@ -226,7 +226,7 @@ _.go(
   ));
 ```
 
-`_.pipe` 함수가 등장했다. `D.on` 함수의 세번째 인자로 받을 함수는 '클릭 이벤트가 발생하면 어떤 일을 할지 정의한 함수'가 들어와야 한다. 이 함수를 `_.pipe`가 여러개의 함수를 조합해서 만들었다. 내부를 보면 `_.v('$currentTarget')` 함수가 이벤트의 대상이 되는 엘리먼트를 꺼내고 `D.parent('li')`가 부모 중에 li 엘리먼트인 것을 찾아 리턴한다. 마지막에 `D.hide`가 리턴된 엘리먼트를 숨긴다. 이러한 순서에 의해 버튼을 클릭하면 대상을 담고 있는 li 엘리먼트가 가려지는 동작을 수행한다. 
+`_.pipe` 함수가 등장했다. `D.on` 함수의 세번째 인자로 받을 함수는 '클릭 이벤트가 발생하면 어떤 일을 할지 정의한 함수'가 들어와야 한다. 이 함수를 `_.pipe`가 여러개의 함수를 조합해서 만들었다. 내부를 보면 `_.v('$currentTarget')` 함수가 이벤트의 대상이 되는 엘리먼트를 꺼내고 `D.parent('li')`가 부모 중에 li 엘리먼트인 것을 찾아 리턴한다. 마지막에 `D.hide`가 리턴된 엘리먼트를 숨긴다. 이러한 순서에 의해 버튼을 클릭하면 대상을 담고 있는 li 엘리먼트가 가려지는 동작을 수행한다.
 
 ---
 
@@ -240,51 +240,3 @@ _.go(
   - _7주차 - Movie Box 4: 비동기 상황 다루기_
 
 [예제 코드](https://github.com/joeunha/functional-js-study/tree/master/03_week)
-
-<script async>
-var arr = [1,2,3,4,5,6,7,8,9,10];
-
-function filter(list, iter) {
-  var res = [];
-  if (Array.isArray(list)) {
-    for (var i = 0, len = list.length; i < len; i++) 
-      if (iter(list[i], i, list)) 
-        res.push(list[i]);
-  } else {
-    var keys = Object.keys(list);
-    for (var i = 0, len = keys.length; i < len; i++) 
-      if (iter(list[keys[i]], keys[i], list)) 
-        res.push(list[keys[i]]);
-  }
-  return res;
-}
-
-function reduce(list, iter, memo) {
-  var i = 0;
-  if (Array.isArray(list)) {
-    var res = (memo != undefined ? memo : list[i++]);
-    for (var len = list.length; i < len; i++) 
-      res = iter(res, list[i], i, list);
-  } else {
-    var keys = Object.keys(list), res = (memo != undefined ? memo : list[keys[i++]]);
-    for (var len = keys.length; i < len; i++) 
-      res = iter(res, list[keys[i]], keys[i], list);
-  }
-  return res;
-}
-
-var projections = [
-  { id: 1, user_id: 2, _: { user: { name: 'ID', age: 36 }, products: [ { name: '긴팔티' }, { name: '후드티' } ] } },
-  { id: 2, user_id: 7, _: { user: { name: 'BJ', age: 32 }, products: [ { name: '긴팔티' } ] } },
-  { id: 3, user_id: 8, _: { user: { name: 'JM', age: 34 }, products: [ { name: '에코백' }, { name: '청바지' }] } },
-  { id: 4, user_id: 9, _: { user: { name: 'PJ', age: 27 }, products: [ { name: '양말' }, { name: '후드티' }, { name: '긴팔티' }, { name: '에코백' } ] } },
-  { id: 5, user_id: 1, _: { user: { name: 'HA', age: 25 }, products: [ { name: '에코백' } ] } },
-  { id: 6, user_id: 11, _: { user: { name: 'JE', age: 26 }, products: [ { name: '머플러' } ] } },
-  { id: 7, user_id: 12, _: { user: { name: 'JI', age: 31 }, products: [ { name: '머그컵' } ] } },
-  { id: 8, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' } ] } },
-  { id: 9, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' }] } },
-  { id: 10, user_id: 15, _: { user: { name: 'MP', age: 23 }, products: [ { name: '에코백' }] } },
-];
-</script>
-<script async src="https://rawgit.com/joeunha/cdn/master/don.js"></script>
-<script async src="https://rawgit.com/marpple/partial.js/master/partial.min.js"></script>
