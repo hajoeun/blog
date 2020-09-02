@@ -20,13 +20,13 @@ date: 2017-10-17 15:36:32
 ```javascript
 var products = [
   {
-    is_selected: true, // 장바구니에서 체크 박스 선택
+    is_selected: true, // <--- 장바구니에서 체크 박스 선택
     name: "반팔티",
-    price: 10000, // 기본 가격
-    sizes: [ // 장바구니에 담은 동일 상품의 사이즈 별 수량과 가격
+    price: 10000, // <--- 기본 가격
+    sizes: [ // <---- 장바구니에 담은 동일 상품의 사이즈 별 수량과 가격
       { name: "L", quantity: 2, price: 0 },
       { name: "XL", quantity: 3, price: 0 },
-      { name: "2XL", quantity: 2, price: 2000 }, // 옵션의 추가 가격
+      { name: "2XL", quantity: 2, price: 2000 }, // <-- 옵션의 추가 가격
     ]
   },
   {
@@ -53,7 +53,7 @@ var products = [
 
 제품의 전체 수량을 구하는 코드는 아래와 같이 작성할 수 있다.
 ```javascript
-var sum_total_quantity = function(products) { // 제품의 전체 수량을 구하는 함수
+var sum_total_quantity = function(products) { // <-- 제품의 전체 수량을 구하는 함수
   return reduce(products, function(tq, product) {
     return reduce(product.sizes, function(tq2, size) {
       return tq2 + size.quantity;
@@ -61,7 +61,7 @@ var sum_total_quantity = function(products) { // 제품의 전체 수량을 구�
   }, 0)
 };
 
-var total_quantity = sum_total_quantity(products); // 예제 데이터를 넣으면 전체 수량을 구할 수 있다.
+var total_quantity = sum_total_quantity(products); // <-- 예제 데이터를 넣으면 전체 수량을 구할 수 있다.
 console.log(total_quantity); // 15
 ```
 
@@ -85,7 +85,7 @@ go(products,
 
 선택된 제품들의 수량만을 구하는 코드는 아래와 같다.
 ```javascript
-var selected_products = filter(products, product => product.is_selected); // 선택된 제품만 골라낸 데이터
+var selected_products = filter(products, product => product.is_selected); // <-- 선택된 제품만 골라낸 데이터
 var selected_products_total_quantity = sum_total_quantity(selected_products);
 
 console.log(selected_product_total_quantity); // 11
@@ -109,16 +109,16 @@ go(products,
 
 사용의 예는 아래와 같다.
 ```javascript
-each([1,2,3,4,5], num => console.log(num)); // 1부터 5까지 순서대로 로그가 남는다.
+each([1,2,3,4,5], num => console.log(num)); // <-- 1부터 5까지 순서대로 로그가 남는다.
 ```
 
 실제 함수는 아래와 같이 구현되어 있다.
 ```javascript
 function each(list, iter) {
-  if (Array.isArray(list)) { // 배열을 돌리기 위한 부분
+  if (Array.isArray(list)) { // <-- 배열을 돌리기 위한 부분
     for (var i = 0, len = list.length; i < len; i++)
       iter(list[i], i, list);
-  } else { // 그 외의 객체를 돌리기 위한 부분
+  } else { // <-- 그 외의 객체를 돌리기 위한 부분
     var keys = Object.keys(list);
     for (var i = 0, len = keys.length; i < len; i++)
       iter(list[keys[i]], keys[i], list);
@@ -199,7 +199,7 @@ console.log(result); // 55
 function reduce(list, iter, memo) {
   var i = 0;
   if (Array.isArray(list)) {
-    var res = (memo !== undefined ? memo : list[i++]); // 남다른 결과값 선언부
+    var res = (memo !== undefined ? memo : list[i++]); // <-- 남다른 결과값 선언부
     for (var len = list.length; i < len; i++)
       res = iter(res, list[i], i, list);
   } else {
@@ -221,7 +221,7 @@ function reduce(list, iter, memo) {
 
 ```javascript
 go([1,2,3,4,5,6,7,8,9,10],
-  arr => filter(arr, num => num % 2), // 홀수 값만을 갖는 배열을 리턴한다.
+  arr => filter(arr, num => num % 2), // <-- 홀수 값만을 갖는 배열을 리턴한다.
   arr => reduce(arr, (total, num) => total + num), // [1, 3, 5, 7, 9]을 더하여 리턴한다.
   console.log); // 25
 ```
@@ -260,44 +260,3 @@ function go(seed) {
   - _7주차 - Movie Box 4: 비동기 상황 다루기_
 
 [예제 코드](https://github.com/joeunha/functional-js-study/tree/master/01_week)
-
-<script src="/js/functional.js"></script>
-<script async>
-var products = [
-  {
-    is_selected: true, // <--- 장바구니에서 체크 박스 선택
-    name: "반팔티",
-    price: 10000, // <--- 기본 가격
-    sizes: [ // <---- 장바구니에 담은 동일 상품의 사이즈 별 수량과 가격
-      { name: "L", quantity: 2, price: 0 },
-      { name: "XL", quantity: 3, price: 0 },
-      { name: "2XL", quantity: 2, price: 2000 }, // 옵션의 추가 가격
-    ]
-  },
-  {
-    is_selected: true,
-    name: "후드티",
-    price: 21000,
-    sizes: [
-      { name: "L", quantity: 3, price: -1000 },
-      { name: "2XL", quantity: 1, price: 2000 },
-    ]
-  },
-  {
-    is_selected: false,
-    name: "맨투맨",
-    price: 16000,
-    sizes: [
-      { name: "L", quantity: 4, price: 0 }
-    ]
-  }
-];
-
-if (location.pathname === '/2017/10/17/functional-js-study/')
-  console.log(`
-  [문제 풀어보기]
-    0. 데이터 변수 이름: products
-    1. 모든 제품의 총 가격
-    2. 선택된 제품의 총 가격
-  `)
-</script>
