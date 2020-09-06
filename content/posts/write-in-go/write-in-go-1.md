@@ -11,7 +11,8 @@ tags:
   - variadic function
 date: 2020-02-12 22:00:00
 description: for, range and variadic function
-image: thumbs/go-thumb.jpeg
+image: /thumbs/go-thumb.jpeg
+slug: write-in-go-1
 ---
 
 ## 하나씩 더하기

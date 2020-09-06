@@ -7,6 +7,7 @@ tags:
   - 클린 코드
 description: 깨끗한 코드와 의미 있는 이름
 date: 2020-01-15 20:00:00
+slug: 'clean-code-1'
 ---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
@@ -20,7 +21,7 @@ date: 2020-01-15 20:00:00
 ### 깨끗한 코드
 > 깨끗한 코드는 잘 쓴 문장처럼 읽힌다 - Grady Booch
 
-![](/images/clean-code/code-quality-wtf.jpg)
+![](/clean-code/code-quality-wtf.jpg)
 
 위의 이미지는 클린 코드가 무엇인지 단적으로 표현하고 있습니다. 좋은 코드와 나쁜 코드를 판별하는 지표로 '분당 WTF의 횟수'를 사용할 수 있다고 말하고 있죠. WTF은 우리말로 표현하자면 "이건 뭐지...?" 정도가 되지 않을까 싶습니다. 코드를 읽는 중에 "이건 뭐지?"하고 이해하기 어려운 코드가 자주 나올수록 나쁜 코드라는 의미죠. 앞에 나온 예시를 다시 보겠습니다.
 
@@ -82,19 +83,19 @@ console.log(clearEmptyKey(userInfo));
 
 기존에 준비되어 있던 이 함수를 활용해서 PR을 날렸고 리뷰가 시작됐습니다. 해당 함수의 이름에 대해 의문이 제기됐습니다.
 
-<img src="/images/clean-code/code-review-0.png" style="border-radius: 4px;"/>
+<img src="/clean-code/code-review-0.png" style="border-radius: 4px; width: 100%;"/>
 
 함수의 의도가 분명하게 드러나지 않은 상황이었죠. 실제 함수의 의도를 댓글로 설명하며 더 좋은 이름을 찾기 시작합니다.
 
-<img src="/images/clean-code/code-review-1.png" style="border-radius: 4px;"/>
+<img src="/clean-code/code-review-1.png" style="border-radius: 4px; width: 100%;"/>
 
 새로운 함수의 이름을 제안하고 근거를 제시했습니다. 실제로 [underscore와 같은 라이브러리에서 compact](https://underscorejs.org/#compact)는 무의미한 값(falsy)을 제거하는 함수로 사용됩니다.
 
-<img src="/images/clean-code/code-review-2.png" style="border-radius: 4px;"/>
+<img src="/clean-code/code-review-2.png" style="border-radius: 4px; width: 100%;"/>
 
 각자의 생각을 공유하며 의미있는 이름을 도출해가고 있습니다. underscore에서와 같이 compact로만 이름을 짓기 어려운 이유는 대상이 되는 값의 타입이 다양할 수 있기 때문입니다. 저는 이를 추상화 레벨이 너무 높다고 표헌하고 있네요.
 
-<img src="/images/clean-code/code-review-3.png" style="border-radius: 4px;"/>
+<img src="/clean-code/code-review-3.png" style="border-radius: 4px; width: 100%;"/>
 
 이에 동료들이 동의하는 뜻을 표합니다. 제시한 함수의 이름이 제 의도를 드러낸다고 동의한 것이죠. 타입 앞에 `compact-`라는 접두사를 붙여 함수 이름을 지어 시리즈로 함수를 만들기로 했습니다.
 

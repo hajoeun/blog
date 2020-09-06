@@ -7,6 +7,7 @@ tags:
   - 클린 코드
 description: 함수와 주석 그리고 오류 처리
 date: 2020-01-17 20:00:00
+slug: 'clean-code-2'
 ---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
@@ -30,7 +31,7 @@ const renderSubFigure = subFigure => (
 
 간단한 컴포넌트를 그려주는 함수입니다. 여기서 포인트는 `data`의 존재 여부에 따라 엘리먼트를 그릴지 말지 검사하는 부분입니다. `&&` 연산자를 이용해 값이 참으로 평가되어 존재한다고 판단되면 `<figure>`를 그리도록 하고 있죠. 이에 대해서도 리뷰가 남습니다.
 
-<img src="/images/clean-code/code-review-4.png" style="border-radius: 4px;"/>
+<img src="/clean-code/code-review-4.png" style="border-radius: 4px; width: 100%;"/>
 
 조금 더 명시적으로 변경했으면 좋겠다는 리뷰입니다. 명시적이란 표현은 '내용이나 뜻을 분명하게 드러내 보이는. 또는 그런 것'이라고 사전에서 정의하고 있습니다. 어찌 보면 의미 있는 이름을 짓는 것과 같은 내용이네요. 동료인 리뷰어는 `!!`를 사용하거나 `optional` 함수를 사용하길 제안합니다. 제안을 받아들이고 코드를 개선했습니다.
 
