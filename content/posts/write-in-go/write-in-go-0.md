@@ -7,7 +7,7 @@ tags:
   - Golang
 date: 2020-02-11 22:00:00
 description: 마스코트가 너무 귀여운 탓
-banner: ./thumbs/write-in-go.jpeg
+banner: ./banner/write-in-go.jpeg
 slug: write-in-go-0
 ---
 
