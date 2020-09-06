@@ -8,6 +8,7 @@ tags:
   - 함수형 프로그래밍
   - 함수형 자바스크립트
 date: 2017-10-17 15:36:32
+slug: 'functional-js-study-0'
 ---
 ## 기본 함수 구현하고 사용하기
 함수형 프로그래밍에서 사용되는 기본 함수인 `each`, `map`, `filter`, `reduce` 함수와 함수를 실행하는 함수인 `go` 함수를 사용해보고 직접 구현해보자.
@@ -252,8 +253,8 @@ function go(seed) {
 
 ### 전체 스터디 일정
   - 1주차 - 기본 함수 구현하고 사용하기
-  - 2주차 - [고차 함수와 커링(currying)](/programming/functional-js-study-1/)
-  - 3주차 - [함수형 자바스크립트 라이브러리](/programming/functional-js-study-2/)
+  - 2주차 - [고차 함수와 커링(currying)](/functional-js-study-1/)
+  - 3주차 - [함수형 자바스크립트 라이브러리](/functional-js-study-2/)
   - 4주차 - Movie Box 1: 필터링, 정렬
   - _5주차 - Movie Box 2: 필터링, 정렬 복습_
   - _6주차 - Movie Box 3: 지연평가 L, memoize_
