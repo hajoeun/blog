@@ -6,7 +6,7 @@ tags:
   - opinion
   - 나와 같다면
 date: 2017-04-14 22:45:08
-slug: 'like-me-1'
+slug: like-me-1
 ---
 
 ##### '나와 같다면' 시리즈 소개

@@ -9,7 +9,7 @@ tags:
   - 함수형 프로그래밍
   - 조건문 함수
 description: 오늘은 조건문인 if를 함수로 구현해보려고 합니다.
-slug: 'daily-fp-if'
+slug: daily-fp-if
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

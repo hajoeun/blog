@@ -9,7 +9,7 @@ tags:
   - 함수형 프로그래밍
   - 조건문 함수
 description: match는 조건에 맞는 함수를 실행하는 함수를 만듭니다.
-slug: 'daily-fp-match'
+slug: daily-fp-match
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

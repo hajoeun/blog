@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 지난 시간에 만든 partial 함수보다 향상된 버전의 함수를 준비해보았습니다.
-slug: 'daily-fp-partial2'
+slug: daily-fp-partial2
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

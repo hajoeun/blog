@@ -9,7 +9,7 @@ tags:
   - 든든한 우리 형
   - forEach
 description: 우리 형은 논리를 꼬집어 함수를 만듭니다
-slug: 'my-bro-fp-0'
+slug: my-bro-fp-0
 ---
 **개발할 때 늘 도움을 주는 우리 형, 함수형을 소개합니다**
 

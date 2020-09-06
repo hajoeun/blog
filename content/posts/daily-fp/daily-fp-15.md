@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: all은 하나의 인자를 다수의 함수에게 전달합니다.
-slug: 'daily-fp-all'
+slug: daily-fp-all
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

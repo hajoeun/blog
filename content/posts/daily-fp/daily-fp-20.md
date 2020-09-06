@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: pipe는 함수를 합성하는 함수입니다.
-slug: 'daily-fp-pipe2'
+slug: daily-fp-pipe2
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

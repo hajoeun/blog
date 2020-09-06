@@ -7,7 +7,7 @@ tags:
   - 클린 코드
 description: 깨끗한 코드와 의미 있는 이름
 date: 2020-01-15 20:00:00
-slug: 'clean-code-1'
+slug: clean-code-1
 ---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)

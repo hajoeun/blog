@@ -7,7 +7,7 @@ tags:
   - 클린코드
 description: 안녕이라 말하기 전에
 date: 2020-01-29 20:00:00
-slug: 'clean-code-3'
+slug: clean-code-3
 ---
 
 ## 협업을 위하여

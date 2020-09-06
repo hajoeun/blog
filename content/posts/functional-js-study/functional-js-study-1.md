@@ -8,7 +8,7 @@ tags:
   - 함수형 프로그래밍
   - 함수형 자바스크립트
 date: 2017-10-18 18:49:54
-slug: 'functional-js-study-1'
+slug: functional-js-study-1
 ---
 ## 고차 함수와 커링(currying)
 함수형 프로그래밍의 꽃인 고차 함수 개념과 커링에 대해서 이야기 해보자.

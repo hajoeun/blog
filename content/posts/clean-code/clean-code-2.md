@@ -7,7 +7,7 @@ tags:
   - 클린 코드
 description: 함수와 주석 그리고 오류 처리
 date: 2020-01-17 20:00:00
-slug: 'clean-code-2'
+slug: clean-code-2
 ---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)

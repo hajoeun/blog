@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: mr은 Multiple Return의 약자입니다. 여러개의 값을 리턴하기 위해 사용하는 함수죠.
-slug: 'daily-fp-mr'
+slug: daily-fp-mr
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

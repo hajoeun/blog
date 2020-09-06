@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 오늘은 pick 함수의 반대 버전인 omit을 소개해드릴까 합니다.
-slug: 'daily-fp-omit'
+slug: daily-fp-omit
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

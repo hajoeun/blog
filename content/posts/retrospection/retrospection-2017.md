@@ -7,7 +7,8 @@ tags:
   - retrospection
   - anniversary
   - 회고록
-slug: 'retrospection-2017'
+image: 'thumbs/typewriter.jpg'
+slug: retrospection-2017
 ---
 _지난 1년을 되돌아보자_
 

@@ -10,7 +10,7 @@ tags:
   - forEach
   - map
 description: 우리 형은 역할의 차이를 중요하게 생각합니다
-slug: 'my-bro-fp-1'
+slug: my-bro-fp-1
 ---
 **개발할 때 늘 도움을 주는 우리 형, 함수형을 소개합니다**
 

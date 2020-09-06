@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?
-slug: 'daily-fp-pick'
+slug: daily-fp-pick
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

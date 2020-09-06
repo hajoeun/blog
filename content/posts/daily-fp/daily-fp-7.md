@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: partial은 기존의 함수에 인자를 미리 적용해두는 일을 하는 함수입니다.
-slug: 'daily-fp-partial'
+slug: daily-fp-partial
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

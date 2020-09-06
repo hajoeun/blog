@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: val은 객체에서 원하는 값 하나만을 반환합니다.
-slug: 'daily-fp-val'
+slug: daily-fp-val
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

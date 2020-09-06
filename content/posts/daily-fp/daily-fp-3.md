@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 새로운 함수를 만드는 것이 그렇게 화려한 일이 아님을 보여드리고 싶어 간단한 함수를 준비해봤습니다. 바로 confirm 함수 입니다.
-slug: 'daily-fp-confirm'
+slug: daily-fp-confirm
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

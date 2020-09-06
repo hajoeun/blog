@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: _.if2 함수를 응용한 함수를 소개할까 합니다. 일명 is_enter 함수입니다.
-slug: 'daily-fp-is_enter'
+slug: daily-fp-is_enter
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 

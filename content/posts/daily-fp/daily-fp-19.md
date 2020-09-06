@@ -8,7 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: pluck는 배열 속 객체에서 원하는 값만 잡아 뜯는(뽑는) 함수입니다.
-slug: 'daily-fp-pluck'
+slug: daily-fp-pluck
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
