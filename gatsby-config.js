@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: `Joeun`,
     siteTitleAlt: `Joeun Blog`,
-    siteHeadline: `Joeun Blog`,
+    siteHeadline: `Joeun Blog - joeun.dev`,
     siteUrl: `https://joeun.dev`,
     siteImage: `/banner/siteImage.jpg`,
     siteLanguage: `ko`,
@@ -39,6 +39,8 @@ module.exports = {
             url: `https://www.facebook.com/joeun.dev`,
           },
         ],
+        feed: true,
+        feedTitle: `Joeun Blog - joeun.dev`
       },
     },
     {
