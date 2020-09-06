@@ -9,6 +9,7 @@ tags:
   - 블록체인
 date: 2018-06-25 00:00:00
 description: 자바스크립트로 블록체인을 구현해보자
+slug: block-chain-js-1
 ---
 _자바스크립트로 블록체인을 구현해보자_
 
@@ -16,9 +17,9 @@ __\*주의: 해당 글은 대략적인 구조를 설명함으로 실제 암호�
 
 ## 구현
 
-오늘은 [지난 시간](/programming/block-chain-js/)에 설명한 기본 개념과 데이터 구조를 골자로 블록을 채굴하는 함수를 구현해보겠습니다. 노드(Node.js) 환경에서 구현하고 ES6 문법을 사용합니다. 암호화 알고리즘으로 SHA256을 사용하고 해당 함수를 가져오기 위해 [crypto-js](https://www.npmjs.com/package/crypto-js)라는 패키지를 사용합니다. (설치 방법은 생략하겠습니다.) 
+오늘은 [지난 시간](/programming/block-chain-js/)에 설명한 기본 개념과 데이터 구조를 골자로 블록을 채굴하는 함수를 구현해보겠습니다. 노드(Node.js) 환경에서 구현하고 ES6 문법을 사용합니다. 암호화 알고리즘으로 SHA256을 사용하고 해당 함수를 가져오기 위해 [crypto-js](https://www.npmjs.com/package/crypto-js)라는 패키지를 사용합니다. (설치 방법은 생략하겠습니다.)
 
-아래의 코드에 오늘 이야기할 모든 내용이 있습니다. 해쉬 값을 계산하는 `calculate_hash` 함수와 이를 사용하여 블록을 채굴하는 `mining` 함수입니다.   
+아래의 코드에 오늘 이야기할 모든 내용이 있습니다. 해쉬 값을 계산하는 `calculate_hash` 함수와 이를 사용하여 블록을 채굴하는 `mining` 함수입니다.
 
 ```javascript
 const { SHA256 }  = require('crypto-js');
@@ -31,7 +32,7 @@ function calculate_hash(block) {
 function mining(previousHash, timestamp, transactions, diff) {
   let block = { previousHash, timestamp, transactions, nonce: 0 };
   block.hash = calculate_hash(block);
-  
+
   while (block.hash.substring(0, diff) !== Array(diff + 1).join('0')) {
     block.nonce++;
     block.hash = calculate_hash(block);
@@ -54,11 +55,11 @@ while 문의 조건을 살펴보면 해시값의 앞자리 수가 난이도 만�
 
 ## 테스트
 
-실제로 함수를 돌려보면 아래와 같은 결과를 만듭니다. 159회의 시도(nonce)를 통해 해시값을 발견하고 블록을 만들어냈군요!  
+실제로 함수를 돌려보면 아래와 같은 결과를 만듭니다. 159회의 시도(nonce)를 통해 해시값을 발견하고 블록을 만들어냈군요!
 
 ```javascript
 console.log(mining('', new Date(), [{ adam: -10, eve: 10 }], 2));
- 
+
 //  { previousHash: '',
 //    timestamp: 2018-06-25T03:25:01.985Z,
 //    transactions: [ { adam: -10, eve: 10 } ],

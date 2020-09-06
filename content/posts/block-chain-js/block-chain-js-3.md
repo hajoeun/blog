@@ -9,6 +9,7 @@ tags:
   - 블록체인
 date: 2018-06-28 00:00:00
 description: 자바스크립트로 블록체인을 구현해보자
+slug: block-chain-js-3
 ---
 _자바스크립트로 블록체인을 구현해보자_
 
@@ -28,7 +29,7 @@ G.TRX = [];
 
 ## 구현
 
-이제 아래와 같이 거래를 생성하는 함수를 만들어볼 수 있습니다. 
+이제 아래와 같이 거래를 생성하는 함수를 만들어볼 수 있습니다.
 
 ```javascript
 function transaction(fromAddress, toAddress, amount) {
@@ -57,7 +58,7 @@ function balance_from_chain(address) {
 ```
 
 #### transaction
-거래를 생성하는 이 함수는 거래 내역(`G.TRX`)에 새로운 거래를 추가하는 것을 목표로 합니다. 인자로 돈을 보내는 주소(`fromAddress`), 받는 주소(`toAddress`), 보내는 양(`amount`)를 받습니다. 받은 인자를 객체로 감싸 거래 내역에 넣어주면(push) 이 함수의 역할은 끝이 납니다. 다만 잔액이 보낼 양보다 많아야하겠죠. 이를 위해 `get_balance` 함수를 호출합니다.  
+거래를 생성하는 이 함수는 거래 내역(`G.TRX`)에 새로운 거래를 추가하는 것을 목표로 합니다. 인자로 돈을 보내는 주소(`fromAddress`), 받는 주소(`toAddress`), 보내는 양(`amount`)를 받습니다. 받은 인자를 객체로 감싸 거래 내역에 넣어주면(push) 이 함수의 역할은 끝이 납니다. 다만 잔액이 보낼 양보다 많아야하겠죠. 이를 위해 `get_balance` 함수를 호출합니다.
 
 #### get_balance
 이전에 생성된 거래 내역(`G.TRX`)을 주소값(`address`)으로 조회해서 잔액을 확인합니다. 보내는 입장이었다면 빼고 받는 입장이었다면 더합니다. 이 과정에 `reduce` 메서드를 사용했습니다. 해당 메서드는 첫번째 인자로 어떻게 값을 줄여나갈지 정하는 함수를 받고 두번째로는 어떤 값으로 시작할지 지정해주는 값을 받습니다. 이때 시작이 되는 값은 체인에서 조회한 잔액입니다. `balance_from_chain` 함수가 체인에서 잔액을 조회해주죠.
@@ -85,8 +86,8 @@ function sum_balance(trx, init, address) {
 ```
 
 #### sum_balance
-코드 전체를 축약하는 김에 변수명도 조금 짧게 줄였습니다. 앞글자만 남겨버렸네요. 인자를 보시면 배열인 거래 내역(`trx`)과 초기값(`init`), 주소값(`address`)을 받았습니다. 이 녀석들이 있으면 잔액을 구할 수 있습니다.    
- 
+코드 전체를 축약하는 김에 변수명도 조금 짧게 줄였습니다. 앞글자만 남겨버렸네요. 인자를 보시면 배열인 거래 내역(`trx`)과 초기값(`init`), 주소값(`address`)을 받았습니다. 이 녀석들이 있으면 잔액을 구할 수 있습니다.
+
 덕분에 두 함수(`get_balance`, `balance_from_chain`)가 아래와 같이 간결해졌습니다.
 
 ```javascript
@@ -149,13 +150,13 @@ go(mining(G.HEAD, new Date(), G.TRX, G.DIFF),
   () => console.log('Block Chain:', G.CHAIN),
   () => console.log('My Balance:', get_balance(MY_ADDRESS)));
 
-// Block Chain: { '005d4d146a89f67c0daaba4dd414d5086f051c968b12d985e157f773ed617fb6': 
+// Block Chain: { '005d4d146a89f67c0daaba4dd414d5086f051c968b12d985e157f773ed617fb6':
 //    { previousHash: '',
 //      timestamp: 2018-06-28T05:27:49.102Z,
 //      transactions: [ [Object], [Object], [Object] ],
 //      nonce: 36,
 //      hash: '005d4d146a89f67c0daaba4dd414d5086f051c968b12d985e157f773ed617fb6' },
-//   '0004c4254f3ea25adb367c71244f7b0e4938d13245c8ea6603c1708020d88d14': 
+//   '0004c4254f3ea25adb367c71244f7b0e4938d13245c8ea6603c1708020d88d14':
 //    { previousHash: '005d4d146a89f67c0daaba4dd414d5086f051c968b12d985e157f773ed617fb6',
 //      timestamp: 2018-06-28T05:27:49.115Z,
 //      transactions: [ [Object], [Object] ],
