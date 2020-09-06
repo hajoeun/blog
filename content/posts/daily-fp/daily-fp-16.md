@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 메모이제이션(memoization)이라는 기술을 구현한 함수 memoize를 소개합니다.
+slug: 'daily-fp-memoize'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
@@ -19,9 +20,9 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 
 ```javascript
 const arr1 = [1,2,3,4,5], arr2 = [6,7,8,9,10];
-function sum(arr) { 
+function sum(arr) {
   console.log("SUM!")
-  return arr.reduce((sum, num) => sum + num); 
+  return arr.reduce((sum, num) => sum + num);
 }
 
 console.log(sum(arr1)); // "SUM!" 15
@@ -49,7 +50,7 @@ console.log(sum(arr2)); // "SUM!" 40
 
 ```javascript
 var cache = {}; // [1] 계산된 값을 저장해둘 객체(캐시)
-function sum2(arr) { 
+function sum2(arr) {
   if (cache[arr]) return cache[arr]; // [2] 저장된 값이 있으면 저장된 값을 리턴한다.
   console.log("SUM!");
   return cache[arr] = arr.reduce((sum, num) => sum + num); // [3] 없다면 값을 저장하고 결과를 리턴한다.
@@ -62,12 +63,12 @@ console.log(sum2(arr1)); // 15
 console.log(sum2(arr2)); // 40
 ```
 
-개선된 `sum2` 함수는 `cache`라고 이름 붙여진 객체에 계산된 값을 저장함으로써 동일한 계산을 반복하지 않도록 했습니다. 덕분에 같은 값을 넣어 함수를 실행하니 "SUM!"이 출력되지 않게 되었습니다. __'반복 수행을 제거'__하는 목적을 달성했지만 `cache`의 선언 방식이나 `sum2`의 구현이 그리 근사하지 않습니다. 이제 `memoize`를 사용해보겠습니다. 
+개선된 `sum2` 함수는 `cache`라고 이름 붙여진 객체에 계산된 값을 저장함으로써 동일한 계산을 반복하지 않도록 했습니다. 덕분에 같은 값을 넣어 함수를 실행하니 "SUM!"이 출력되지 않게 되었습니다. __'반복 수행을 제거'__하는 목적을 달성했지만 `cache`의 선언 방식이나 `sum2`의 구현이 그리 근사하지 않습니다. 이제 `memoize`를 사용해보겠습니다.
 
 ```javascript
-var sum = memoize(function(arr) { 
+var sum = memoize(function(arr) {
   console.log("SUM!")
-  return arr.reduce((sum, num) => sum + num); 
+  return arr.reduce((sum, num) => sum + num);
 }, function(key) { return key; });
 
 console.log(sum(arr1)); // "SUM!" 15
@@ -91,8 +92,8 @@ function memoize(func, hasher) { // [1]
 }
 ```
 
-짧은 코드지만 알찬 코드입니다. 한줄씩 살펴보겠습니다. 
-[1] `memoize`는 두개의 함수를 인자로 받습니다. 실제 로직을 담고 있는 `func`와 메모리의 키 값을 만들어낼 `hasher`가 있습니다. 
+짧은 코드지만 알찬 코드입니다. 한줄씩 살펴보겠습니다.
+[1] `memoize`는 두개의 함수를 인자로 받습니다. 실제 로직을 담고 있는 `func`와 메모리의 키 값을 만들어낼 `hasher`가 있습니다.
 [2] `f`라고 정의된 함수는 이 함수의 최종 리턴 값입니다. 여기서 받는 `...args`는 `sum`의 경우를 놓고보자면 `arr1`가 됩니다.
 [3] `hasher`는 `f`가 받은 값을 그대로 사용해서 `key`에 해당하는 값을 만들어냅니다. 이 값은 들어온 `args`에 따라 달라지겠죠. 이를 완전히 유니크한 키로 만드는 것은 `hasher` 함수를 잘 정의하는데 달려있습니다.
 [4] 만약에 캐시(`f.cache`)에 이미 저장된 값이 있으면 저장된 값을 리턴합니다. 그렇지 않으면 `func`의 실행 결과를 저장하고 그 값을 리턴합니다.

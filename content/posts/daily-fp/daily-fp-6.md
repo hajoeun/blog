@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 오늘은 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 nest 함수입니다.
+slug: 'daily-fp-nest'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
@@ -34,9 +35,9 @@ _오늘 발견한 재미있는 함수를 소개합니다_
   };
 
   function valkey(value, key) { // [2] 값과 키를 받아 객체를 만들어주는 함수입니다. (함수 이름은 value_and_key를 줄인 것입니다.)
-    return { [key] : value }; // [3] ES6부터 지원하는 문법입니다. (Computed property names) 
+    return { [key] : value }; // [3] ES6부터 지원하는 문법입니다. (Computed property names)
   }
-  
+
   var nested_obj = nest('first.second.third', "I'am nested object.");
   console.log(nested_obj.first.second.third); // "I'm nested object."
 ```

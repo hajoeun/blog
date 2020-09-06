@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 지난 시간에 만든 partial 함수보다 향상된 버전의 함수를 준비해보았습니다.
+slug: 'daily-fp-partial2'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
@@ -23,8 +24,8 @@ var partial = function(func, ...args) {
   return function(...args2) {
     var args1 = args.slice(); // [2] 생성된 클로저의 값이 변경되는 것을 막기 위해 배열을 복제합니다.
 
-    for (var i in args1) { 
-      if (args1[i] === _) { // [3] 단서인 키워드와 일치하는 값이면 
+    for (var i in args1) {
+      if (args1[i] === _) { // [3] 단서인 키워드와 일치하는 값이면
         args1[i] = args2.shift(); // [4] 그 자리에 추가될 인자 값을 넣어줍니다.
       }
     }
@@ -57,7 +58,7 @@ var partial2 = function(func, ...parts) {
 
   for (var i in parts) {
     if (parts[i] == ___) {
-      ___idx = i; 
+      ___idx = i;
     }
     else if (i < ___idx) {
       parts1.push(parts[i]);
@@ -69,16 +70,16 @@ var partial2 = function(func, ...parts) {
 
 
   return function(...args) {
-    var args1 = parts1.slice(), 
+    var args1 = parts1.slice(),
         args2 = parts2.slice(),
         rest = args.slice();
 
     for (var i in args1) {
       if (args1[i] == _) {
-        args1[i] = rest.shift(); 
+        args1[i] = rest.shift();
       }
-    }     
-      
+    }
+
     for (var i in args2) {
       if (args2[i] == _) {
         args2[i] = rest.pop();
@@ -93,11 +94,11 @@ var log = partial2(console.log, 0, _, 0, ___, 0, _, 0);
 log(1,2,3,4,5,6,7,8,9,10); // 0 1 0 2 3 4 5 6 7 8 9 0 10 0
 
 var greeting = partial2(console.log, 'Hello,', _, ___, 'Nice to meet you.');
-greeting('Joeun.', 'My name is', 'Momo.', '\n', 'I\'m', 27, 'years old.\n'); 
-/* 
-Hello, Joeun. 
- My name is Momo. 
- I'm 27 years old. 
- Nice to meet you.  
+greeting('Joeun.', 'My name is', 'Momo.', '\n', 'I\'m', 27, 'years old.\n');
+/*
+Hello, Joeun.
+ My name is Momo.
+ I'm 27 years old.
+ Nice to meet you.
 */
 ```

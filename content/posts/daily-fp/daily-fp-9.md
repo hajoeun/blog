@@ -8,12 +8,13 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 오늘은 pick 함수의 반대 버전인 omit을 소개해드릴까 합니다.
+slug: 'daily-fp-omit'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
 ## omit
 
-오늘은 `pick` 함수의 반대 버전인 `omit`을 소개해드릴까 합니다. 다시 말해 `omit`은 객체에서 키가 일치하는 프로퍼티를 제외한 새로운 객체를 반환하는 함수입니다. 
+오늘은 `pick` 함수의 반대 버전인 `omit`을 소개해드릴까 합니다. 다시 말해 `omit`은 객체에서 키가 일치하는 프로퍼티를 제외한 새로운 객체를 반환하는 함수입니다.
 
 사실 이 함수를 굳이 소개할 필요가 있을까 싶었는데, 사연이 생겨서 올리게 되었습니다. 2주 전쯤 [Codewars](https://www.codewars.com/kumite/)라는 사이트에서 제공하는 'kumite'(일본어로 대련을 의미합니다.) 페이지에 `pick` 함수를 올려두었습니다. 그리고 며칠 뒤 `omit`과 같은 일을 하는 `flick`함수를 대련 코드로 올리셨기에 살펴보다가 블로그에 소개하면 좋겠다고 생각해서 올리게 되었습니다.
 
@@ -29,7 +30,7 @@ _.pick = (target, ...keys) => {
 
     var predicate = keys[0];
     keys = Object.keys(target);
-    
+
     return keys.reduce((obj, key) => {
       return predicate(target[key], key, target) ? (obj[key] = target[key], obj) : obj;
     }, {})
@@ -46,7 +47,7 @@ _.flick = (target, ...keys) => {
 
     var predicate = keys[0];
     keys = Object.keys(target);
-    
+
     return keys.reduce((obj, key) => {
       return predicate(target[key], key, target) ? obj : (obj[key] = target[key], obj);
     }, {})
@@ -66,7 +67,7 @@ _.omit = (target, ...keys) => {
 	  var predicate = keys[0];
     return _.pick(target, (...args) => !predicate(...args)) // [1] pick을 사용하고 predicate를 뒤집었습니다.
   }
-  
+
   return Object.keys(target).reduce((obj, key) => { // [2] reduce를 사용하면서 새로운 객체를 복사한 뒤 요소를 제거하지 않고 바로 생성합니다.
     return keys.includes(key) ? obj : (obj[key] = target[key], obj);
   }, {});

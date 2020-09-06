@@ -8,12 +8,13 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: val은 객체에서 원하는 값 하나만을 반환합니다.
+slug: 'daily-fp-val'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
 ## [val](https://marpple.github.io/partial.js/docs/#val)
 
-오늘은 짧막한 이름을 가진 `val` 함수를 소개합니다. val이라는 이름은 value의 약자입니다. 여기서 value(값)는 객체에서 프로퍼티의 값을 의미합니다. 오늘 글에서는 '값'이라고 표기하겠습니다. 이름이 유사한 함수로는 `values`가 있는데, 이 함수는 객체에 있는 모든 값을 반환하는 함수입니다. 반면 `val`은 원하는 값 하나만을 반환합니다. 
+오늘은 짧막한 이름을 가진 `val` 함수를 소개합니다. val이라는 이름은 value의 약자입니다. 여기서 value(값)는 객체에서 프로퍼티의 값을 의미합니다. 오늘 글에서는 '값'이라고 표기하겠습니다. 이름이 유사한 함수로는 `values`가 있는데, 이 함수는 객체에 있는 모든 값을 반환하는 함수입니다. 반면 `val`은 원하는 값 하나만을 반환합니다.
 (기능이 유사한 함수로 [underscore](http://underscorejs.org/#property)의 `_.property`, [ramdajs](http://ramdajs.com/docs/#path)의 `R.path`가 있지만 사용법이 조금 다릅니다.)
 
 예제를 살펴보겠습니다.
@@ -21,7 +22,7 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 #### (1) 어제의 함수
 
 ```javascript
-let person = { 
+let person = {
   name: 'Oliver Queen',
   status: 'alive',
   occupation: ['Mayor of Star City', 'Vigilante'],
@@ -42,14 +43,14 @@ let person = {
 }
 ```
 
-여기 `person`이라는 한 인물의 [데이터](http://arrow.wikia.com/wiki/Oliver_Queen)가 있습니다. 여기서 우리가 원하는 값을 얻는 것은 전혀 어렵지 않습니다. 
+여기 `person`이라는 한 인물의 [데이터](http://arrow.wikia.com/wiki/Oliver_Queen)가 있습니다. 여기서 우리가 원하는 값을 얻는 것은 전혀 어렵지 않습니다.
 
 ```javascript
 console.log(person.name); // 'Oliver Queen'
 console.log(person.occupation[0]); // 'Mayor of Star City'
 console.log(person.family.sister.name); // 'Thea Queen'
 
-console.log(person.family.brother.name); 
+console.log(person.family.brother.name);
 // [에러] Uncaught TypeError: Cannot read property 'name' of undefined
 ```
 
@@ -84,7 +85,7 @@ function val(obj, key) {
   let keys = key.split('.');
   let i = 0, len = keys.length;
   let res = obj[keys[i]];
-  
+
   while (++i < len) {
     if (res === undefined) return;
     res = res[keys[i]];

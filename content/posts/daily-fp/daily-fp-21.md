@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: map은 돌림직한 데이터형(collection)을 순회하면서 새로운 값으로 매핑(mapping)해서 새로운 배열을 반환합니다.
+slug: 'daily-fp-map'
 ---
 _오늘 발견한 특별한 함수를 소개합니다_
 
@@ -22,7 +23,7 @@ _오늘 발견한 특별한 함수를 소개합니다_
 map(a => a + 10, [1, 2, 3, 4, 5]); // [11, 12, 13, 14, 15]
 ```
 
-아시다시피 `map`은 돌림직한 데이터형(collection)을 순회하면서 새로운 값으로 매핑(mapping)해서 새로운 배열을 반환합니다. 위의 코드를 보시면 아시겠지만 기존에 구현하던 것과 차이가 있습니다. 배열보다 함수가 먼저 나옵니다. 이는 [Ramda.js의 사용법](https://ramdajs.com/docs/#map)과 같습니다. 
+아시다시피 `map`은 돌림직한 데이터형(collection)을 순회하면서 새로운 값으로 매핑(mapping)해서 새로운 배열을 반환합니다. 위의 코드를 보시면 아시겠지만 기존에 구현하던 것과 차이가 있습니다. 배열보다 함수가 먼저 나옵니다. 이는 [Ramda.js의 사용법](https://ramdajs.com/docs/#map)과 같습니다.
 
 기본적인 구현은 아래와 같이 할 수 있습니다.
 
@@ -34,7 +35,7 @@ function map(f, coll) {
 }
 ```
 
-오늘의 구현은 조금 더 복잡합니다. 비동기 상황을 지원하는 `reduce`와 `then`함수 등을 활용해서 비동기 상황을 지원하는 `map`을 구현해보겠습니다. 기본적으로 사용될 `reduce`와 `then` 함수의 구현은 아래와 같습니다. 
+오늘의 구현은 조금 더 복잡합니다. 비동기 상황을 지원하는 `reduce`와 `then`함수 등을 활용해서 비동기 상황을 지원하는 `map`을 구현해보겠습니다. 기본적으로 사용될 `reduce`와 `then` 함수의 구현은 아래와 같습니다.
 
 ```javascript
 // Promise가 주어지면 then 으로 풀어서 값을 전달하는 then 함수
@@ -45,7 +46,7 @@ function reduce(f, coll, acc) {
   return then(function(coll) {
     const iter = coll[Symbol.iterator]();
     return then(function recur(acc) {
-      for (const x of iter) 
+      for (const x of iter)
         if ((acc = f(acc, x)) instanceof Promise) return acc.then(recur);
       return acc;
     }, acc === undefined ? iter.next().value : acc);
@@ -66,9 +67,9 @@ reduce((a, b) => a + b, [1, 2, 3, 4, 5], Promise.resolve(10)).then(console.log);
 
 ```javascript
 const map = (f, coll) => {
-  return reduce((res, x) => { 
-    res.push(f(x)); 
-    return res; 
+  return reduce((res, x) => {
+    res.push(f(x));
+    return res;
   }, coll, [])
 };
 ```
@@ -86,7 +87,7 @@ const push = (arr, v) => (arr.push(v), arr);
 const map = (f, coll) => reduce((res, x) => push(res, f(x)), coll, []);
 ```
 
-그럼 테스트를 해보겠습니다. 
+그럼 테스트를 해보겠습니다.
 
 ```javascript
 map(a => a + 10, [1, 2, 3, 4, 5]); // [11, 12, 13, 14, 15]
@@ -106,7 +107,7 @@ const map = (f, coll) => reduce(
 map(a => Promise.resolve(a + 10), [1, 2, 3, 4, 5]).then(console.log); // [11, 12, 13, 14, 15]
 ```
 
-이제 원하는대로 동작합니다. `f(x)`의 결과값을 `then` 함수의 두번째 인자로 전달하면 됩니다. 그리고 `push` 함수로 결과를 만들면 되죠. 이미 원하던 바는 이뤘습니다. 
+이제 원하는대로 동작합니다. `f(x)`의 결과값을 `then` 함수의 두번째 인자로 전달하면 됩니다. 그리고 `push` 함수로 결과를 만들면 되죠. 이미 원하던 바는 이뤘습니다.
 
 #### (3) 더보기
 
@@ -119,7 +120,7 @@ const map = (f, coll) => reduce(
   coll, []);
 ```
 
-`push` 함수를 함수를 반환하는 함수로 만들고 첫번째 함수에서 배열을 두번째 함수에서 값을 받는 함수로 만들면 `map` 내부에서 보다 간결하게 표현할 수 있습니다. 
+`push` 함수를 함수를 반환하는 함수로 만들고 첫번째 함수에서 배열을 두번째 함수에서 값을 받는 함수로 만들면 `map` 내부에서 보다 간결하게 표현할 수 있습니다.
 
 조금 더 간결한 표현을 위해 몇가지 함수의 도움을 받아야합니다. [`pipe`](/programming/javascript-daily-function-20/), `spread`가 필요합니다. 두 함수를 만들기 위해선 또 두개의 함수가 더 필요한데, 배열을 멀티 리턴 값으로 치환해주는 [`to_mr`](/programming/javascript-daily-function-14/)과 `go` 함수가 필요합니다. 이미 몇차례 소개해드린 적이 있어서 간단하게 구현만 살피겠습니다.
 
@@ -146,7 +147,7 @@ const map = (f, coll) => reduce(
   coll, []);
 ```
 
-기존 구현에서 `(res, x) => then(push(res), f(x))` 이 부분을 가만 살펴보면 전달되는 인자의 순서와 `then`내부에 실행되는 함수가 필요로하는 인자의 순서가 같음을 알 수 있습니다. 이때 `spread`를 사용하면 좋겠다는 생각이 들죠. 사용할 함수를 미리 `spread`에 적용해두고 그 결과를 `then` 함수에 적용하기 위해선 `pipe` 함수가 필요한거죠. 결국 `spread` 함수의 최종 실행 결과는 `push(res), f(x)`과 같습니다. 이 결과가 `then`에 전달됩니다. 멀티 리턴을 지원하는 `pipe` 함수이기에 이와 같은 전개가 가능합니다. 
+기존 구현에서 `(res, x) => then(push(res), f(x))` 이 부분을 가만 살펴보면 전달되는 인자의 순서와 `then`내부에 실행되는 함수가 필요로하는 인자의 순서가 같음을 알 수 있습니다. 이때 `spread`를 사용하면 좋겠다는 생각이 들죠. 사용할 함수를 미리 `spread`에 적용해두고 그 결과를 `then` 함수에 적용하기 위해선 `pipe` 함수가 필요한거죠. 결국 `spread` 함수의 최종 실행 결과는 `push(res), f(x)`과 같습니다. 이 결과가 `then`에 전달됩니다. 멀티 리턴을 지원하는 `pipe` 함수이기에 이와 같은 전개가 가능합니다.
 
 여기에 덧해서 커링을 지원하는 `map`을 만들려면 `curry` 함수가 필요합니다.
 
@@ -158,9 +159,9 @@ const map = curry((f, coll) => reduce(pipe(spread(push, f), then), coll, []));
 인자가 하나만 들어오면 커링을 하고 그렇지 않으면 즉시 실행합니다. 이제 `go` 함수를 써서 보다 함수형스럽게(?) 표현할 수 있습니다.
 
 ```javascript
-// map(a => Promise.resolve(a + 20), [1, 2, 3, 4, 5]).then(console.log); 
+// map(a => Promise.resolve(a + 20), [1, 2, 3, 4, 5]).then(console.log);
 
-go([1, 2, 3, 4, 5], 
-  map(a => Promise.resolve(a + 20)), 
+go([1, 2, 3, 4, 5],
+  map(a => Promise.resolve(a + 20)),
   console.log); // [11, 12, 13, 14, 15]
 ```

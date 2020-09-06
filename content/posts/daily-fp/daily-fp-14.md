@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: mr은 Multiple Return의 약자입니다. 여러개의 값을 리턴하기 위해 사용하는 함수죠.
+slug: 'daily-fp-mr'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
@@ -40,8 +41,8 @@ go([1,2,3], sum_arr, console.log); // 6
 이때 `mr`함수가 있으면 문제를 해결할 수 있습니다.
 
 ```javascript
-go(mr(1,2,3), 
-  sum, 
+go(mr(1,2,3),
+  sum,
   console.log); // 6
 ```
 
@@ -70,7 +71,7 @@ function mr() {
 }
 ```
 
-단지 `arguments`객체에 `__mr`이라는 프로퍼티를 붙이고 거기에 참 값을 넣어 그대로 리턴한 것뿐입니다. 이와 같은 방법으로 `go`와 `pipe`같은 함수 내에서 여러개의 값을 리턴할 수 있습니다. 
+단지 `arguments`객체에 `__mr`이라는 프로퍼티를 붙이고 거기에 참 값을 넣어 그대로 리턴한 것뿐입니다. 이와 같은 방법으로 `go`와 `pipe`같은 함수 내에서 여러개의 값을 리턴할 수 있습니다.
 
 ```javascript
 go(10,

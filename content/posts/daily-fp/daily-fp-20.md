@@ -8,6 +8,7 @@ tags:
   - 오늘의 함수
   - 함수형 프로그래밍
 description: pipe는 함수를 합성하는 함수입니다.
+slug: 'daily-fp-pipe2'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
@@ -19,10 +20,10 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 
 ```javascript
 function pipe() {
-  var funcs = Array.prototype.slice.apply(arguments); 
+  var funcs = Array.prototype.slice.apply(arguments);
   // [1] 함수에 들어온 인자(함수)들의 모임인 arguments를 배열로 만들어줍니다. (원래 arguments는 유사 배열입니다.)
   return function(seed) {
-    return funcs.reduce(function(value, func) { 
+    return funcs.reduce(function(value, func) {
       // [2] reduce 함수를 사용해서 함수의 실행 결과를 하나로 합칩니다.
       return func(value);
     }, seed);
@@ -36,10 +37,10 @@ function pipe() {
 const add = a => b => a + b;
 const adds = pipe(add(5), add(10), add(20));
 
-console.log(adds(10)); // 45 (10 + 5 + 10 + 20) 
+console.log(adds(10)); // 45 (10 + 5 + 10 + 20)
 ```
 
-값을 하나씩만 넘겨서 하나의 인자로만 연산하는 함수를 합성하는데는 전혀 문제가 없습니다. 문제가 생기는 상황은 두개의 인자를 전달하는 상황입니다. 
+값을 하나씩만 넘겨서 하나의 인자로만 연산하는 함수를 합성하는데는 전혀 문제가 없습니다. 문제가 생기는 상황은 두개의 인자를 전달하는 상황입니다.
 
 ```javascript
 const adds2 = pipe((a, b) => a + b, add(10), add(20));
@@ -62,14 +63,14 @@ console.log(adds3(10, 20)); // 60 (10 + 20 + 10 + 20)
 
 ```javascript
 function pipe2() {
-  let funcs = Array.prototype.slice.apply(arguments); 
+  let funcs = Array.prototype.slice.apply(arguments);
   return function(seed) {
     let init = seed;
     if (arguments.length > 1) { // [1]
       init = arguments;
       init.__mr = true; // [2]
     }
-    return funcs.reduce(function(value, func) { 
+    return funcs.reduce(function(value, func) {
       return value.__mr ? func(...value) : func(value); // [3]
     }, init);
   };
@@ -87,7 +88,7 @@ function pipe2() {
 
 ```javascript
 const adds4 = pipe2(
-  (a, b) => mr(a + b, 4), 
+  (a, b) => mr(a + b, 4),
   (a, b) => a * b,
   add(20)
 );

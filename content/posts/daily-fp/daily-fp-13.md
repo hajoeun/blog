@@ -7,13 +7,14 @@ tags:
   - javascript
   - 오늘의 함수
   - 함수형 프로그래밍
-description: _.if2 함수를 응용한 함수를 소개할까 합니다. 일명 is_enter 함수입니다. 
+description: _.if2 함수를 응용한 함수를 소개할까 합니다. 일명 is_enter 함수입니다.
+slug: 'daily-fp-is_enter'
 ---
 _오늘 발견한 재미있는 함수를 소개합니다_
 
 ## is_enter
 
-오늘은 [지난 시간](/programming/javascript-daily-function-12/)에 다룬 `_.if2` 함수를 응용한 함수를 소개할까 합니다. 일명 `is_enter` 함수입니다. 우리는 종종 이벤트 리스너에서 `keyCode` 값을 검사해서 특정 동작을 수행하곤 합니다. 특히 Enter 키에 해당하는 13이 입력되면 검색을 수행한다던지 하는 일을 자주 하죠. `is_enter`는 이 경우에 유용한 함수입니다. 
+오늘은 [지난 시간](/programming/javascript-daily-function-12/)에 다룬 `_.if2` 함수를 응용한 함수를 소개할까 합니다. 일명 `is_enter` 함수입니다. 우리는 종종 이벤트 리스너에서 `keyCode` 값을 검사해서 특정 동작을 수행하곤 합니다. 특히 Enter 키에 해당하는 13이 입력되면 검색을 수행한다던지 하는 일을 자주 하죠. `is_enter`는 이 경우에 유용한 함수입니다.
 
 
 #### (1) 어제의 함수
@@ -38,7 +39,7 @@ $input_element.addEventListener('keydown', is_enter(function(e) {
 }))
 ```
 
-`is_enter` 함수는 함수를 반환하는 함수입니다. 만약에 `keyCode`가 13과 같다면 인자로 받은 함수를 실행시킬 준비가 된 함수를 만듭니다. 어떻게 구현되었는지를 보면 이해가 쉽습니다. 
+`is_enter` 함수는 함수를 반환하는 함수입니다. 만약에 `keyCode`가 13과 같다면 인자로 받은 함수를 실행시킬 준비가 된 함수를 만듭니다. 어떻게 구현되었는지를 보면 이해가 쉽습니다.
 
 ```javascript
 var is_enter = function(...fns) { // [1]
