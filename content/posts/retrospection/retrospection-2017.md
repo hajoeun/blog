@@ -7,7 +7,7 @@ tags:
   - retrospection
   - anniversary
   - 회고록
-banner: './banner/retrospection.jpg'
+banner: ./preview.jpg
 slug: retrospection-2017
 ---
 _지난 1년을 되돌아보자_

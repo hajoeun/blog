@@ -11,7 +11,7 @@ tags:
   - variadic function
 date: 2020-02-12 22:00:00
 description: for, range and variadic function
-banner: ./banner/write-in-go.jpeg
+banner: ./preview.jpg
 slug: write-in-go-1
 ---
 
