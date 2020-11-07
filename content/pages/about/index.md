@@ -23,6 +23,6 @@ date: 2020-01-01 00:00:00
 | 18.10.30 | 이화여자대학교 | 핵심 직무 이해 - IT |
 | 18.11.08 | 학산중학교 | 소프트웨어 개발자 이야기 |
 | 19.02.16 | GDG | [전지적 문과 시점: 개발자가 되는 방법](https://speakerdeck.com/joeun_ha/190216-gdg) |
-| 19.03.16 | 콘샐러드 | [담대한 협업과 클린코드](https://speakerdeck.com/joeun_ha/190316-con-salad) |
-| 19.07.06 | GDG x For.D | [It was my intern. Now your turn.](https://speakerdeck.com/joeun_ha/190706-gdg-x-for-dot-d) |
+| 19.03.16 | [콘샐러드](https://consalad.io/) | [담대한 협업과 클린코드](https://speakerdeck.com/joeun_ha/190316-con-salad) |
+| 19.07.06 | GDG x For.D | [인턴스텔라](https://speakerdeck.com/joeun_ha/190706-gdg-x-for-dot-d) |
 | 20.01.07 | [SSAFY](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp) | [협업을 위한 클린코드](https://speakerdeck.com/joeun_ha/200107-ssafy) |
