@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: `https://joeun.dev`,
     siteImage: `/site-image.jpg`,
     siteLanguage: `ko`,
-    siteDescription: `스타트업, 개발자, 블로그, 하조은, joeun, joeun.dev`,
+    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
     author: `@joeunha`
   },
   plugins: [
@@ -55,7 +55,7 @@ module.exports = {
       options: {
         name: `Joeun Blog`,
         short_name: `joeun-blog`,
-        description: `스타트업, 개발자, 블로그, 하조은, joeun, joeun.dev`,
+        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
