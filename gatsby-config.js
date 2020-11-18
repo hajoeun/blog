@@ -10,7 +10,7 @@ module.exports = {
     siteTitleAlt: `Joeun Blog`,
     siteHeadline: `Joeun Blog - joeun.dev`,
     siteUrl: `https://joeun.dev`,
-    siteImage: `/site-image.jpg`,
+    siteImage: `/site-image.png`,
     siteLanguage: `ko`,
     siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
     author: `@joeunha`
