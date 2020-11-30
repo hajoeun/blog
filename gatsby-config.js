@@ -40,7 +40,8 @@ module.exports = {
           },
         ],
         feed: true,
-        feedTitle: `Joeun Blog - joeun.dev`
+        feedTitle: `Joeun Blog - joeun.dev`,
+        formatString: 'YYYY.MM.DD',
       },
     },
     {
