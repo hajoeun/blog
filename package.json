@@ -2,7 +2,7 @@
   "private": true,
   "name": "joeun-blog",
   "version": "1.2.4",
-  "author": "Joeun Ha <joeun@kakao.com>",
+  "author": "hajoeun <joeun@kakao.com>",
   "license": "0BSD",
   "starter-name": "gatsby-starter-minimal-blog",
   "scripts": {
