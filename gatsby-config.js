@@ -32,11 +32,11 @@ module.exports = {
         externalLinks: [
           {
             name: `Github`,
-            url: `https://github.com/joeunha`,
+            url: `https://github.com/hajoeun`,
           },
           {
             name: `Facebook`,
-            url: `https://www.facebook.com/joeun.dev`,
+            url: `https://www.facebook.com/hajoeun`,
           },
         ],
         feed: true,
