@@ -1,7 +1,7 @@
 ---
 title: '나와 같다면 - 직장이 아니라 직업'
 categories:
-  - view of value
+  - essay
 tags:
   - opinion
   - 나와 같다면

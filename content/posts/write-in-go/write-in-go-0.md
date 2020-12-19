@@ -1,7 +1,7 @@
 ---
 title: Go를 배우는 이유
 categories:
-  - joeun.dev
+  - programming
 tags:
   - Go
   - Golang

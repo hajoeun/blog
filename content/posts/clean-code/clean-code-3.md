@@ -1,7 +1,7 @@
 ---
 title: 클린 코드 - 오해와 진실
 categories:
-  - joeun.dev
+  - programming
 tags:
   - clean code
   - 클린코드

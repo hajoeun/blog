@@ -1,7 +1,7 @@
 ---
 title: '나와 같다면 - 어쩌다 개발자'
 categories:
-  - view of value
+  - essay
 tags:
   - opinion
   - 나와 같다면

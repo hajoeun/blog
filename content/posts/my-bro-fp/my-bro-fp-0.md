@@ -2,7 +2,7 @@
 title: '든든한 우리 형, 함수형 - 논리를 꼬집다'
 date: 2019-12-17 20:45:27
 categories:
-  - paradigm
+  - programming
 tags:
   - javascript
   - 함수형 프로그래밍

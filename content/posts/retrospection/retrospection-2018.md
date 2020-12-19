@@ -2,7 +2,7 @@
 title: '회고 - 숫자로 보는 2018'
 date: 2018-12-31 17:00:00
 categories:
-  - view of value
+  - essay
 tags:
   - retrospection
   - 회고록

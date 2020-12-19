@@ -1,7 +1,7 @@
 ---
 title: 자유로운 삶을 추구하는 이에게 권하는 책
 categories:
-  - joeun.dev
+  - review
 tags:
   - 서평
   - book review

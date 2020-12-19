@@ -2,7 +2,7 @@
 title: '회고 - 2019 단편 회고록 모음'
 date: 2019-12-31 22:00:00
 categories:
-  - view of value
+  - essay
 tags:
   - retrospection
   - 회고록

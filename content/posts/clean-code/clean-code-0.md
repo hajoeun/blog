@@ -1,7 +1,7 @@
 ---
 title: 클린 코드 - 협업을 위한 코드 1
 categories:
-  - joeun.dev
+  - programming
 tags:
   - clean code
   - 클린 코드

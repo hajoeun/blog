@@ -1,7 +1,7 @@
 ---
 title: 개발자에게 권하는 책
 categories:
-  - joeun.dev
+  - review
 tags:
   - 서평
   - book review

@@ -1,7 +1,7 @@
 ---
 title: Go로 sum을 만드는 네가지 방법
 categories:
-  - joeun.dev
+  - programming
 tags:
   - Go
   - Golang

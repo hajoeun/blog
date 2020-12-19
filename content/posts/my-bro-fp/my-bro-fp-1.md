@@ -2,7 +2,7 @@
 title: '든든한 우리 형, 함수형 - 역할의 차이'
 date: 2020-01-07 20:00:00
 categories:
-  - paradigm
+  - programming
 tags:
   - javascript
   - 함수형 프로그래밍
