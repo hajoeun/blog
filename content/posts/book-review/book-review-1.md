@@ -1,5 +1,5 @@
 ---
-title: 성장하고 싶은 이에게 권하는 책
+title: 서평 - 성장하고 싶은 이에게
 categories:
   - review
 tags:

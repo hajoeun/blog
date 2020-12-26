@@ -1,5 +1,5 @@
 ---
-title: 주식 시장에 뛰어든 개미에게 권하는 책
+title: 서평 - 주식 시장에 뛰어든 개미에게
 categories:
   - review
 tags:

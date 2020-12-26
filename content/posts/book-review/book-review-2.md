@@ -1,5 +1,5 @@
 ---
-title: 자유로운 삶을 추구하는 이에게 권하는 책
+title: 서평 - 자유로운 삶을 추구하는 이에게
 categories:
   - review
 tags:
