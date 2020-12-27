@@ -7,8 +7,8 @@ tags:
   - Golang
 date: 2020-02-11 22:00:00
 description: 마스코트가 너무 귀여운 탓
-banner: ./preview.jpg
-slug: go-why-learn-go
+banner: ./images/preview.jpg
+slug: why-learn-go
 ---
 
 ## Write in Go

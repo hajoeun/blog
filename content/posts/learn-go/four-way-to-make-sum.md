@@ -11,8 +11,8 @@ tags:
   - variadic function
 date: 2020-02-12 22:00:00
 description: for, range and variadic function
-banner: ./preview.jpg
-slug: go-four-way-to-make-sum
+banner: ./images/preview.jpg
+slug: four-way-to-make-sum
 ---
 
 ## 하나씩 더하기
