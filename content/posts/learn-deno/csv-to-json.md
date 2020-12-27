@@ -7,9 +7,7 @@ tags:
   - Javascript
 date: 2020-12-26 22:00:00
 description: '평소 써보고 싶었던 Deno로 가볍게 CSV to JSON Converter를 구현했다'
-banner: ./preview.jpg
-slug: deno-csv-to-json
-
+slug: csv-to-json
 ---
 
 종종 CSV 형식의 파일을 JSON 형식으로 바꿔야 하는 일이 생긴다. 그럴 때마다 구글에 'csv to json'라고 검색해서 나오는 웹 사이트에 CSV 파일을 붙여넣어 JSON 값을 받아내곤 했다. 깔끔하게 구현된 서비스가 많아서 불편함은 없었지만 별로 어렵지도 않은 변환기를 하나쯤 직접 만들어둬도 좋겠다는 생각이 들었다.
