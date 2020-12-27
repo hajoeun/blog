@@ -12,7 +12,7 @@ tags:
 date: 2020-02-12 22:00:00
 description: for, range and variadic function
 banner: ./preview.jpg
-slug: write-in-go-1
+slug: go-four-way-to-make-sum
 ---
 
 ## 하나씩 더하기
