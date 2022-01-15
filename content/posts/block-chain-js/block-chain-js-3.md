@@ -165,4 +165,4 @@ go(mining(G.HEAD, new Date(), G.TRX, G.DIFF),
 // My Balance: 110
 ```
 
-오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v03.js)에서 확인하실 수 있습니다. 다음 시간에는 체인 유효성 검사를 해보겠습니다.
+오늘의 코드는 [Github](https://github.com/hajoeun/block-js/blob/master/v03.js)에서 확인하실 수 있습니다. 다음 시간에는 체인 유효성 검사를 해보겠습니다.

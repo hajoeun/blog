@@ -16,7 +16,7 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 
 오늘은 명절을 맞아(?) `lazys` 함수 가족을 소개합니다. `lazys`라고 이름 붙인걸 보고 눈치채신 분들도 계실 것 같습니다. 바로 '지연 평가(Lazy Evaluation)' 기법을 위한 함수들입니다. 느긋한 계산법이라고 불리기도 하는 이 기법을 [위키피디아](https://ko.wikipedia.org/wiki/느긋한_계산법)에서는 __계산의 결과값이 필요할 때까지 계산을 늦추는 기법__이라고 설명합니다. 또 이러한 기법을 사용하면 __필요없는 계산을 하지 않으므로 실행을 더 빠르게__할 수 있다고 설명하는군요. 어떤 상황인지 직접 살펴보겠습니다.
 
-(예제는 [함수형 JS 스터디 시즌2](https://github.com/joeunha/functional-js-study2)의 [6주차 미션](https://github.com/joeunha/functional-js-study2/issues/6)을 토대로 합니다. [partial.js](https://marpple.github.io/partial.js/)를 라이브러리로 사용합니다.)
+(예제는 [함수형 JS 스터디 시즌2](https://github.com/hajoeun/functional-js-study2)의 [6주차 미션](https://github.com/hajoeun/functional-js-study2/issues/6)을 토대로 합니다. [partial.js](https://marpple.github.io/partial.js/)를 라이브러리로 사용합니다.)
 
 #### (1) 어제의 함수
 

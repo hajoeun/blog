@@ -31,4 +31,4 @@ Go는 복잡함이 싫어 태어난 언어입니다. [언어 설계자들이 직
 
 솔직하게 말하자면 제 진짜 이유는 여기 있습니다. 쉽고 단순하면서 빠르고 강력하다는 것도 배우기로 마음 먹은 뒤에 알아본 것이죠. 진짜 이유는 회사에서 Go를 사용하기 때문입니다. (마스코트가 너무 귀여운 탓도 있습니다.) 기존의 서비스를 새로 구현하는데 Go가 쓰입니다. 서버쪽이라 아직은 제가 쓰진 않습니다. 다만, 리뷰를 해야할 것 같아 배워두려고 합니다.
 
-오랜만에 새로운 언어를 배우는거라 기대가 됩니다. 이 과정을 글로 남겨볼 생각합니다. 우선은 [공식 문서](https://golang.org/doc/)를 조금 읽어봐야겠습니다. 그리고 [강의](https://academy.nomadcoders.co/p/go-for-beginners)를 하나 들으며 실제 서비스를 만들어볼 계획입니다. [쓸데 없는 짓](https://github.com/golang/go/wiki/WebAssembly)도 조금 해볼 생각입니다. [Github 저장소](https://github.com/joeunha/write-in-go)에 배운 것을 조금씩 올리겠습니다.
+오랜만에 새로운 언어를 배우는거라 기대가 됩니다. 이 과정을 글로 남겨볼 생각합니다. 우선은 [공식 문서](https://golang.org/doc/)를 조금 읽어봐야겠습니다. 그리고 [강의](https://academy.nomadcoders.co/p/go-for-beginners)를 하나 들으며 실제 서비스를 만들어볼 계획입니다. [쓸데 없는 짓](https://github.com/golang/go/wiki/WebAssembly)도 조금 해볼 생각입니다. [Github 저장소](https://github.com/hajoeun/write-in-go)에 배운 것을 조금씩 올리겠습니다.
