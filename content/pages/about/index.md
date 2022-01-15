@@ -5,14 +5,14 @@ date: 2020-01-01 00:00:00
 ---
 ### 소개
 
-하조은입니다. 헤븐 조선을 꿈꾸며 오늘도 세상을 바꿔가고 있습니다. 현재 [뱅크샐러드](https://youtu.be/KCZfB2_JzlU)에서 개발자로 일하며 사회적 문제를 해결하고 있습니다. 개발과 관련된 글은 보시고 계신 블로그에 올리고 있습니다. 에세이와 같은 보다 다양한 글은 [브런치](https://brunch.co.kr/@joeun)에서도 확인하실 수 있습니다.
+개발자 하조은입니다. 헤븐 조선을 꿈꾸며 오늘도 세상을 바꿔가고 있습니다. 현재 뱅크샐러드에서 개발자로 일하며 사회적 문제를 해결하고 있습니다. 개발과 관련된 글은 보시고 계신 블로그에 올리고 있습니다. 에세이와 같은 보다 다양한 글은 [브런치](https://brunch.co.kr/@hajoeun)에서도 확인하실 수 있습니다.
 
 ### 경력
 
 |회사|역할|재직 기간|기술 스택|
 |---|---|---|---|
-| 뱅크샐러드 | Software Engineer | 18.12 ~ | React, TypeScript |
-| 마켓프레스 | Software Engineer | 16.07 ~ 18.11 | Node.js, [Partial.js](https://marpple.github.io/partial.js/) |
+| [뱅크샐러드](https://www.banksalad.com/) | Software Engineer | 18.12 ~ | React, TypeScript |
+| [마플코퍼레이션](https://www.marpple.com/kr) | Software Engineer | 16.07 ~ 18.11 | Node.js, [Partial.js](https://marpple.github.io/partial.js/) |
 
 ### 발표 및 강의
 

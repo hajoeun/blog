@@ -16,7 +16,7 @@ _오늘 발견한 재미있는 함수를 소개합니다_
 
 오늘은 `all`이라는 함수를 소개합니다. [지난 시간](/programming/javascript-daily-function-14/)에 소개해드린 `mr`처럼 `go`나 `pipe`안에서 사용합니다. `all`은 하나의 인자를 다수의 함수에게 전달합니다. 달리 표현하자면 하나의 재료(값)로 여러가지 일(함수)을 처리해야할 때 `all`을 사용합니다.
 
-(예제는 [함수형 JS 스터디 시즌2](https://github.com/joeunha/functional-js-study2)의 [4주차 미션](https://github.com/joeunha/functional-js-study2/issues/4)을 토대로 합니다.)
+(예제는 [함수형 JS 스터디 시즌2](https://github.com/hajoeun/functional-js-study2)의 [4주차 미션](https://github.com/hajoeun/functional-js-study2/issues/4)을 토대로 합니다.)
 
 #### (1) 어제의 함수
 

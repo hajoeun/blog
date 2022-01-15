@@ -63,9 +63,9 @@ console.log('[ After ]\n Chain Valid: ', is_chain_valid(G.CHAIN)); // false
 console.log('Transactions: ', G.CHAIN[hash_key].transactions);
 ```
 
-오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v04.js)에서 확인하실 수 있습니다. 다음 시간부터는 각 기능을 조금씩 고도화 해보겠습니다.
+오늘의 코드는 [Github](https://github.com/hajoeun/block-js/blob/master/v04.js)에서 확인하실 수 있습니다. 다음 시간부터는 각 기능을 조금씩 고도화 해보겠습니다.
 
 
 ## 사소한 라이브러리
 
-구현부에서 살펴본 것처럼 `every` 같은 함수를 몇개 만들어두면 객체도 순회하며 원하는 일을 할 수 있습니다. 이를 위해 사용할 수 있는 라이브러리가 있지만 간단한 내용을 처리함으로 직접 만들어 사용하려고 합니다. functions.js라는 이름으로 파일을 만들고 함수 모음을 만들어 필요할때마다 꺼내서 사용하려고 합니다. 해당 코드는 [Github](https://github.com/joeunha/block-js/blob/master/lib/functions.js)에서 확인하실 수 있습니다.
+구현부에서 살펴본 것처럼 `every` 같은 함수를 몇개 만들어두면 객체도 순회하며 원하는 일을 할 수 있습니다. 이를 위해 사용할 수 있는 라이브러리가 있지만 간단한 내용을 처리함으로 직접 만들어 사용하려고 합니다. functions.js라는 이름으로 파일을 만들고 함수 모음을 만들어 필요할때마다 꺼내서 사용하려고 합니다. 해당 코드는 [Github](https://github.com/hajoeun/block-js/blob/master/lib/functions.js)에서 확인하실 수 있습니다.

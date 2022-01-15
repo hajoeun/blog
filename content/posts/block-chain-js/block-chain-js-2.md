@@ -110,4 +110,4 @@ go(mining(G.HEAD, new Date(), [{ A: -10, B: 10 }], G.DIFF),
 // 0001's Balance: 90
 ```
 
-오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v02.js)에서 확인하실 수 있습니다. 다음 시간에는 보다 많은 블록을 생성해보고 거래(transaction)를 관리하는 함수를 만들어 보겠습니다.
+오늘의 코드는 [Github](https://github.com/hajoeun/block-js/blob/master/v02.js)에서 확인하실 수 있습니다. 다음 시간에는 보다 많은 블록을 생성해보고 거래(transaction)를 관리하는 함수를 만들어 보겠습니다.

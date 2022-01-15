@@ -67,4 +67,4 @@ console.log(mining('', new Date(), [{ adam: -10, eve: 10 }], 2));
 //    hash: '006a918403e96e3545c8dfa58d360a6e6dd284e8ca74c2a81228243b2e45a1c0' }
 ```
 
-오늘의 코드는 [Github](https://github.com/joeunha/block-js/blob/master/v01.js)에서 확인하실 수 있습니다. 다음 시간에는 체인에 추가하는 과정을 구현해겠습니다.
+오늘의 코드는 [Github](https://github.com/hajoeun/block-js/blob/master/v01.js)에서 확인하실 수 있습니다. 다음 시간에는 체인에 추가하는 과정을 구현해겠습니다.

@@ -6,14 +6,14 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `hajoeun`,
-    siteTitleAlt: `hajoeun blog - joeun.dev`,
-    siteHeadline: `hajoeun blog - joeun.dev`,
+    siteTitle: `개발자 하조은의 블로그`,
+    siteTitleAlt: `개발자 하조은의 블로그`,
+    siteHeadline: `개발자 하조은의 블로그`,
     siteUrl: `https://joeun.dev`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
     siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
-    author: `@joeunha`
+    author: `@hajoeun`
   },
   plugins: [
     {
@@ -21,7 +21,7 @@ module.exports = {
       options: {
         navigation: [
           {
-            title: `Blog`,
+            title: `Posts`,
             slug: `/blog`,
           },
           {
@@ -40,7 +40,7 @@ module.exports = {
           },
         ],
         feed: true,
-        feedTitle: `Joeun Blog - joeun.dev`,
+        feedTitle: `개발자 하조은의 블로그`,
         formatString: 'YYYY.MM.DD',
       },
     },
@@ -54,9 +54,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Joeun Blog`,
-        short_name: `joeun-blog`,
-        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
+        name: `개발자 하조은의 블로그`,
+        short_name: `개발자 하조은의 블로그`,
+        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun.dev`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,

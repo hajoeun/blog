@@ -10,7 +10,7 @@ date: 2020-01-15 20:00:00
 slug: clean-code-1
 ---
 
-[클린 코드를 주제로 했던 강의](https://speakerdeck.com/joeun_ha/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
+[클린 코드를 주제로 했던 강의](https://speakerdeck.com/hajoeun/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
 
 ---
 
@@ -72,13 +72,13 @@ const clearEmptyKey = data => (
 );
 
 const userInfo = {
-  id: 327,
-  name: "joeunha",
+  id: 90,
+  name: "hajoeun",
   gender: null
 };
 
 console.log(clearEmptyKey(userInfo));
-// { id: 327, name: "joeunha" }
+// { id: 327, name: "hajoeun" }
 ```
 
 기존에 준비되어 있던 이 함수를 활용해서 PR을 날렸고 리뷰가 시작됐습니다. 해당 함수의 이름에 대해 의문이 제기됐습니다.
