@@ -27,7 +27,7 @@ var user_1 = { // [1] 기존의 데이터
   city: 'Seoul',
   mobile_phone: '010-0000-0000',
   email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.dev',
+  blog_url: 'http://hajoeun.blog',
   };
 
 var user_data = { // [2] 필요한 데이터
@@ -53,7 +53,7 @@ var user_1 = { // [1] 기존의 데이터
   city: 'Seoul',
   mobile_phone: '010-0000-0000',
   email: 'imjoeunha@gmail.com',
-  blog_url: 'http://joeun.dev',
+  blog_url: 'http://hajoeun.blog',
   };
 
 function pick(target, keys) {

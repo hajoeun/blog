@@ -9,7 +9,7 @@ module.exports = {
     siteTitle: `하조은의 개발 블로그`,
     siteTitleAlt: `하조은의 개발 블로그`,
     siteHeadline: `하조은의 개발 블로그`,
-    siteUrl: `https://joeun.dev`,
+    siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
     siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun`,
@@ -56,7 +56,7 @@ module.exports = {
       options: {
         name: `하조은의 개발 블로그`,
         short_name: `하조은의 개발 블로그`,
-        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun.dev`,
+        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, hajoeun.blog`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,

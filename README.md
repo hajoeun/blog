@@ -1,4 +1,4 @@
-# joeun.dev
+# hajoeun.blog
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e6750aa7-94f1-4eae-8c14-7d78ef88e432/deploy-status)](https://app.netlify.com/sites/hajoeun/deploys)
 
