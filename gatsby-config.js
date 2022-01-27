@@ -6,13 +6,13 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `개발자 하조은의 블로그`,
-    siteTitleAlt: `개발자 하조은의 블로그`,
-    siteHeadline: `개발자 하조은의 블로그`,
+    siteTitle: `하조은의 개발 블로그`,
+    siteTitleAlt: `하조은의 개발 블로그`,
+    siteHeadline: `하조은의 개발 블로그`,
     siteUrl: `https://joeun.dev`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, joeun, joeun.dev`,
+    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun`,
     author: `@hajoeun`
   },
   plugins: [
@@ -40,7 +40,7 @@ module.exports = {
           },
         ],
         feed: true,
-        feedTitle: `개발자 하조은의 블로그`,
+        feedTitle: `하조은의 개발 블로그`,
         formatString: 'YYYY.MM.DD',
       },
     },
@@ -54,8 +54,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `개발자 하조은의 블로그`,
-        short_name: `개발자 하조은의 블로그`,
+        name: `하조은의 개발 블로그`,
+        short_name: `하조은의 개발 블로그`,
         description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun.dev`,
         start_url: `/`,
         background_color: `#fff`,
