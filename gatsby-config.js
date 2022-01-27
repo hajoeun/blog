@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, joeun`,
+    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, hajoeun.blog`,
     author: `@hajoeun`
   },
   plugins: [
