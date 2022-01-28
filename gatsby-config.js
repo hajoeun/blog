@@ -19,6 +19,7 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
+        blogPath: `/posts`,
         navigation: [
           {
             title: `About`,
@@ -26,7 +27,7 @@ module.exports = {
           },
           {
             title: `Posts`,
-            slug: `/blog`,
+            slug: `/posts`,
           },
           {
             title: `Tags`,
