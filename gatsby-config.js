@@ -19,15 +19,20 @@ module.exports = {
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       options: {
+        blogPath: `/posts`,
         navigation: [
-          {
-            title: `Posts`,
-            slug: `/blog`,
-          },
           {
             title: `About`,
             slug: `/about`,
           },
+          {
+            title: `Posts`,
+            slug: `/posts`,
+          },
+          {
+            title: `Tags`,
+            slug: `/tags`
+          }
         ],
         externalLinks: [
           {
@@ -35,8 +40,8 @@ module.exports = {
             url: `https://github.com/hajoeun`,
           },
           {
-            name: `Facebook`,
-            url: `https://www.facebook.com/hajoeun`,
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/hajoeun/`,
           },
         ],
         feed: true,
