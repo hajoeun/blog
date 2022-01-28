@@ -10,14 +10,16 @@ collections:
     label: "Blog"
     folder: "content/posts"
     create: true
-    slug: "index"
-    media_folder: ""
+    slug: "{{series}}-{{number}}"
+    media_folder: "{{series}}/images"
     public_folder: ""
-    path: "{{title}}/index"
+    path: "{{series}}/{{series}}-{{number}}"
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "Description", name: "description", widget: "string"}
+      - { label: "Series", name: "series", widget: "string" }
+      - { label: "Number", name: "number", widget: "number", value_type: "int" }
       - { label: "Body", name: "body", widget: "markdown" }
