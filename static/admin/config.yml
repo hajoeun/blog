@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: admin
 
 media_folder: static/img
 public_folder: /img
@@ -10,10 +10,10 @@ collections:
     label: "Blog"
     folder: "content/posts"
     create: true
-    slug: "{{series}}-{{number}}"
+    slug: "{{slug}}"
     media_folder: "{{series}}/images"
     public_folder: ""
-    path: "{{series}}/{{series}}-{{number}}"
+    path: "{{series}}/{{slug}}"
     editor:
       preview: true
     fields:
@@ -21,5 +21,5 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
       - { label: "Description", name: "description", widget: "string"}
       - { label: "Series", name: "series", widget: "string" }
-      - { label: "Number", name: "number", widget: "number", value_type: "int" }
+      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
