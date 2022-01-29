@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: develop
+  branch: main
 
 publish_mode: editorial_workflow
 
@@ -14,17 +14,24 @@ collections:
     label: "Post"
     folder: "content/posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title}}"
     media_folder: "{{series}}/images"
     public_folder: ""
     preview_path: preview/{{slug}}
-    path: "{{series}}/{{slug}}"
+    path: "{{series}}/{{title}}"
     editor:
       preview: true
     fields:
+      - {
+        label: "Series",
+        name: "series",
+        widget: "select",
+        options: [
+          { label: "클린 코드", value: "clean-code" },
+          { label: "Deno", value: "learn-deno" },
+        ]
+        }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
       - { label: "Description", name: "description", widget: "string"}
-      - { label: "Series", name: "series", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
       - { label: "Body", name: "body", widget: "markdown" }
