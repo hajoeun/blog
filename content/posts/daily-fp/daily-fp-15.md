@@ -4,7 +4,7 @@ date: 2018-01-29 21:43:13
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: all은 하나의 인자를 다수의 함수에게 전달합니다.

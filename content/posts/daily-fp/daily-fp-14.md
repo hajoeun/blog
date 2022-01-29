@@ -4,7 +4,7 @@ date: 2018-01-27 22:51:05
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: mr은 Multiple Return의 약자입니다. 여러개의 값을 리턴하기 위해 사용하는 함수죠.

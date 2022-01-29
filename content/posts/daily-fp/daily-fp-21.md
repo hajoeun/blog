@@ -4,7 +4,7 @@ date: 2018-05-20 20:00:00
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: map은 돌림직한 데이터형(collection)을 순회하면서 새로운 값으로 매핑(mapping)해서 새로운 배열을 반환합니다.

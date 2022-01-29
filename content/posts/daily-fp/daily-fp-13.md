@@ -4,7 +4,7 @@ date: 2018-01-21 11:02:13
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: _.if2 함수를 응용한 함수를 소개할까 합니다. 일명 is_enter 함수입니다.

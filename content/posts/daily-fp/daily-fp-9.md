@@ -4,7 +4,7 @@ date: 2017-06-12 20:59:55
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 오늘은 pick 함수의 반대 버전인 omit을 소개해드릴까 합니다.

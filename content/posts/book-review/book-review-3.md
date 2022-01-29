@@ -4,7 +4,6 @@ categories:
   - review
 tags:
   - 서평
-  - book review
 date: 2020-12-19 18:30:00
 description: 잃지 않는 투자법, ⌜박곰희 투자법⌟
 slug: book-review-3

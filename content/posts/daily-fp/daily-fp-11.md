@@ -4,10 +4,9 @@ date: 2017-12-04 16:36:54
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
-  - 조건문 함수
 description: 오늘은 조건문인 if를 함수로 구현해보려고 합니다.
 slug: daily-fp-if
 ---

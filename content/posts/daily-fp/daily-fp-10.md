@@ -4,7 +4,7 @@ date: 2017-11-28 17:59:00
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 검색, 필터링, 정렬한 페이지를 다시 로드하는 `redirect3` 함수의 사용 패턴을 살펴보겠습니다.

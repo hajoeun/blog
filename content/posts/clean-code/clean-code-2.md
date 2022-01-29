@@ -3,7 +3,6 @@ title: 클린 코드 - 협업을 위한 코드 3
 categories:
   - programming
 tags:
-  - clean code
   - 클린 코드
 description: 함수와 주석 그리고 오류 처리
 date: 2020-01-17 20:00:00

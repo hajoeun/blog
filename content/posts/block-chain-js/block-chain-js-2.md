@@ -4,9 +4,7 @@ categories:
   - programming
 tags:
   - JavaScript
-  - 자바스크립트
   - Blockchain
-  - 블록체인
 date: 2018-06-26 00:00:00
 description: 자바스크립트로 블록체인을 구현해보자
 slug: block-chain-js-2

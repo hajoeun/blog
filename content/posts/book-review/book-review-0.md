@@ -4,7 +4,6 @@ categories:
   - review
 tags:
   - 서평
-  - book review
 date: 2020-11-07 22:00:00
 description: 우리에게 필요한 건 창조의 역량. ⌜생각의 탄생⌟은 이를 가르쳐주는 책이다.
 slug: book-review-0

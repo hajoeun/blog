@@ -4,7 +4,7 @@ date: 2018-03-29 20:21:56
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: pipe는 함수를 합성하는 함수입니다.

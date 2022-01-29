@@ -3,10 +3,8 @@ title: '함수형 자바스크립트 - 기본 함수 구현하고 사용하기'
 categories:
   - programming
 tags:
-  - javascript
-  - 자바스크립트
+  - JavaScript
   - 함수형 프로그래밍
-  - 함수형 자바스크립트
 date: 2017-10-17 15:36:32
 slug: functional-js-study-0
 ---

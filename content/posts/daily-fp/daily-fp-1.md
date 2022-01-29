@@ -4,7 +4,7 @@ date: 2017-03-07 23:28:18
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 많은 데이터를 가진 객체 하나에서 여러 개의 값을 꺼내오려면 어떻게 할까요?

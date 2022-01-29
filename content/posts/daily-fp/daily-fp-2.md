@@ -4,7 +4,7 @@ date: 2017-03-09 20:36:40
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: redirect 함수의 개량된 버전을 소개합니다.

@@ -3,7 +3,6 @@ title: 클린 코드 - 협업을 위한 코드 2
 categories:
   - programming
 tags:
-  - clean code
   - 클린 코드
 description: 깨끗한 코드와 의미 있는 이름
 date: 2020-01-15 20:00:00

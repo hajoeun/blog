@@ -3,8 +3,7 @@ title: '나와 같다면 - 어쩌다 개발자'
 categories:
   - essay
 tags:
-  - opinion
-  - 나와 같다면
+  - 에세이
 date: 2017-04-14 22:45:08
 slug: like-me-1
 ---

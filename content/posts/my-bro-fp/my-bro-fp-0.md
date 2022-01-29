@@ -4,10 +4,8 @@ date: 2019-12-17 20:45:27
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 함수형 프로그래밍
-  - 든든한 우리 형
-  - forEach
 description: 우리 형은 논리를 꼬집어 함수를 만듭니다
 slug: my-bro-fp-0
 ---

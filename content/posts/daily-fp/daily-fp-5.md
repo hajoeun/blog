@@ -4,7 +4,7 @@ date: 2017-03-23 22:48:59
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 이 함수는 underscore.js의 compose 함수와 같은 일을 합니다. 복수의 함수를 합쳐 하나의 함수로 만드는 것입니다.
