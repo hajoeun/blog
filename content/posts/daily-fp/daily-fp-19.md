@@ -4,7 +4,7 @@ date: 2018-03-05 21:21:56
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: pluck는 배열 속 객체에서 원하는 값만 잡아 뜯는(뽑는) 함수입니다.

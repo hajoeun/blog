@@ -4,7 +4,7 @@ date: 2017-04-26 22:54:34
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 지난 시간에 만든 partial 함수보다 향상된 버전의 함수를 준비해보았습니다.

@@ -4,7 +4,7 @@ date: 2020-12-26 16:00:00
 categories:
   - essay
 tags:
-  - retrospection
+  - 에세이
   - 회고록
 description: '오랜 친구에게 말하듯 편하게 편지 형식으로 회고했습니다'
 banner: ./images/preview.jpg

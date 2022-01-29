@@ -3,10 +3,8 @@ title: '자바스크립트로 블록체인 - is_chain_valid'
 categories:
   - programming
 tags:
-  - javascript
-  - 자바스크립트
-  - blockchain
-  - 블록체인
+  - JavaScript
+  - Blockchain
 date: 2018-07-02 00:00:00
 description: 자바스크립트로 블록체인을 구현해보자
 slug: block-chain-js-4

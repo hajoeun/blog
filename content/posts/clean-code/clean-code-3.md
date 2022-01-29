@@ -3,8 +3,7 @@ title: 클린 코드 - 오해와 진실
 categories:
   - programming
 tags:
-  - clean code
-  - 클린코드
+  - 클린 코드
 description: 안녕이라 말하기 전에
 date: 2020-01-29 20:00:00
 slug: clean-code-3

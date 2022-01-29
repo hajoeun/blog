@@ -3,10 +3,8 @@ title: '함수형 자바스크립트 - 함수형 자바스크립트 라이브러
 categories:
   - programming
 tags:
-  - javascript
-  - 자바스크립트
+  - JavaScript
   - 함수형 프로그래밍
-  - 함수형 자바스크립트
 date: 2017-10-19 18:41:14
 slug: functional-js-study-2
 ---

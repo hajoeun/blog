@@ -3,12 +3,7 @@ title: Go로 sum을 만드는 네가지 방법
 categories:
   - programming
 tags:
-  - Go
   - Golang
-  - for
-  - range
-  - array
-  - variadic function
 date: 2020-02-12 22:00:00
 description: for, range and variadic function
 banner: ./images/preview.jpg

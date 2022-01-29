@@ -4,7 +4,7 @@ date: 2017-03-28 23:07:24
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: 오늘은 중첩 객체를 만들어주는 함수를 소개드릴까합니다. 바로 nest 함수입니다.

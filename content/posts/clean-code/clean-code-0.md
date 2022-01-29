@@ -3,7 +3,6 @@ title: 클린 코드 - 협업을 위한 코드 1
 categories:
   - programming
 tags:
-  - clean code
   - 클린 코드
 description: '야생 개발자, 클린 코드를 만나다'
 date: 2020-01-13 20:00:00

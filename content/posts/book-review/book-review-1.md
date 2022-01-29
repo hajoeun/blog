@@ -4,7 +4,6 @@ categories:
   - review
 tags:
   - 서평
-  - book review
 date: 2020-11-16 22:00:00
 description: 성숙함이란 더 나은 대안을 추구하기 위해 좋은 대안을 거부할 수 있는 능력이다.
 slug: book-review-1

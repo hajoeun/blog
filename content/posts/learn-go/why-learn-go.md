@@ -3,7 +3,6 @@ title: Go를 배우는 이유
 categories:
   - programming
 tags:
-  - Go
   - Golang
 date: 2020-02-11 22:00:00
 description: 마스코트가 너무 귀여운 탓

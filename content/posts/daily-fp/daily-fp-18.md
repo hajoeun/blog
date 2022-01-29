@@ -4,7 +4,7 @@ date: 2018-02-24 20:16:00
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
 description: val은 객체에서 원하는 값 하나만을 반환합니다.

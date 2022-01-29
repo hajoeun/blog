@@ -4,11 +4,8 @@ date: 2020-01-07 20:00:00
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 함수형 프로그래밍
-  - 든든한 우리 형
-  - forEach
-  - map
 description: 우리 형은 역할의 차이를 중요하게 생각합니다
 slug: my-bro-fp-1
 ---

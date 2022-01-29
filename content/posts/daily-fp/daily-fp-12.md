@@ -4,10 +4,9 @@ date: 2017-12-06 14:12:21
 categories:
   - programming
 tags:
-  - javascript
+  - JavaScript
   - 오늘의 함수
   - 함수형 프로그래밍
-  - 조건문 함수
 description: 기존의 _.if와 _.if2의 문법적 차이를 먼저 살펴보고 구현 방식의 차이에 대해서도 이야기해보겠습니다.
 slug: daily-fp-if2
 ---

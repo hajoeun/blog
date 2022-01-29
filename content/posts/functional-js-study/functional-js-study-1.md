@@ -3,10 +3,8 @@ title: '함수형 자바스크립트 - 고차 함수와 커링(currying)'
 categories:
   - programming
 tags:
-  - javascript
-  - 자바스크립트
+  - JavaScript
   - 함수형 프로그래밍
-  - 함수형 자바스크립트
 date: 2017-10-18 18:49:54
 slug: functional-js-study-1
 ---

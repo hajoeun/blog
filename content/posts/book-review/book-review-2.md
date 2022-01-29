@@ -4,7 +4,6 @@ categories:
   - review
 tags:
   - 서평
-  - book review
 date: 2020-12-01 22:00:00
 description: ⌜월든⌟을 통해 소로우가 추구했던 '얽매임 없는 자유'
 slug: book-review-2

@@ -4,8 +4,7 @@ date: 2017-07-17 23:11:11
 categories:
   - essay
 tags:
-  - retrospection
-  - anniversary
+  - 에세이
   - 회고록
 banner: ./images/preview.jpg
 slug: retrospection-2017
