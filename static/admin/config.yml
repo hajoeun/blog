@@ -7,7 +7,7 @@ publish_mode: editorial_workflow
 site_url: https://hajoeun.blog
 media_folder: static/images
 public_folder: /images
-locale: 'ko'
+locale: "ko"
 show_preview_links: true
 
 collections:
@@ -18,7 +18,7 @@ collections:
     slug: "{{title}}"
     media_folder: "{{series}}/images"
     public_folder: ""
-    preview_path: preview/{{slug}}
+    preview_path: "{{title}}"
     path: "{{series}}/{{title}}"
     editor:
       preview: true
