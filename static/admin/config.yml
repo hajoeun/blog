@@ -4,17 +4,20 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: static/img
-public_folder: /img
+site_url: https://hajoeun.blog
+media_folder: static/images
+public_folder: /images
+show_preview_links: true
 
 collections:
-  - name: "blog"
-    label: "Blog"
+  - name: "post"
+    label: "Post"
     folder: "content/posts"
     create: true
     slug: "{{slug}}"
     media_folder: "{{series}}/images"
     public_folder: ""
+    preview_path: preview/{{slug}}
     path: "{{series}}/{{slug}}"
     editor:
       preview: true
