@@ -5,7 +5,6 @@ categories:
   - essay
 tags:
   - retrospection
-  - anniversary
   - 회고록
 banner: ./images/preview.jpg
 slug: retrospection-2017

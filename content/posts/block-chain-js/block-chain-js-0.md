@@ -5,7 +5,7 @@ categories:
 tags:
   - javascript
   - 자바스크립트
-  - blockchain
+  - Blockchain
   - 블록체인
 date: 2018-06-21 11:37:34
 description: 자바스크립트로 블록체인을 구현해보자
