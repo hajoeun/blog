@@ -17,7 +17,7 @@ const Header = () => {
   }
 
   return (
-    <header sx={{ mb: 3 }}>
+    <header sx={{ mb: 4 }}>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <HeaderTitle />
         <ColorModeToggle isDark={isDark} toggle={toggleColorMode} />
