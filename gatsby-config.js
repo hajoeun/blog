@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, hajoeun.blog`,
+    siteDescription: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
     author: `@hajoeun`
   },
   plugins: [
@@ -59,9 +59,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `하조은의 블로그`,
+        name: `소프트웨어 개발자 하조은의 블로그`,
         short_name: `하조은의 블로그`,
-        description: `스타트업, 개발자, 블로그, 하조은, 소프트웨어, 엔지니어, blog, developer, engineer, hajoeun, hajoeun.blog`,
+        description: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#6B46C1`,
