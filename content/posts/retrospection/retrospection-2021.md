@@ -5,7 +5,7 @@ description: 뱅크샐러드 인증 스쿼드에서 마이데이터 서비스를
 tags:
   - 에세이
   - 회고록
-date: 2022-01-30 13:59:41
+date: 2022-02-02 23:00:41
 slug: retrospection-2021
 ---
 
