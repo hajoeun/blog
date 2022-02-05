@@ -64,7 +64,7 @@ module.exports = {
         description: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#6B46C1`,
+        theme_color: `#fff`,
         display: `standalone`,
         icons: [
           {
