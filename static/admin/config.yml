@@ -36,7 +36,7 @@ collections:
           { label: "함수형 자바스크립트", value: "functional-js-study" },
           { label: "Deno", value: "learn-deno" },
           { label: "Golang", value: "learn-go" },
-          { label: "나와 같다면", value: "like-me" },
+          { label: "에세이", value: "essay" },
           { label: "든든한 우리형, 함수형", value: "my-bro-fp" },
           { label: "회고록", value: "retrospection" },
         ],
