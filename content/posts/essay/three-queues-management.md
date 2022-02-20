@@ -1,7 +1,7 @@
 ---
 series: essay
 title: 복잡한 상황에서 단순하게 일하는 방법
-description: 세가지 큐(Queue)를 사용해 복잡한 상황에서도 단순하게 일하는 방법을 공유합니다.
+description: 세 가지 큐(Queue)를 사용해 복잡한 상황에서도 단순하게 일하는 방법을 공유합니다.
 tags:
   - 에세이
 date: 2022-02-20 23:00:00
