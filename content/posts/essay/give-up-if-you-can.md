@@ -4,7 +4,8 @@ title: 포기는 배추 셀 때만 하는 말이 아니다
 description: 포기는 집중할 것을 정한 사람이 할 수 있는 멋진 선택
 tags:
   - 에세이
-date: 2022-02-27 23:00:49
+date: 2022-02-27 23:00:00
+slug: give-up-if-you-can
 ---
 
 
