@@ -36,12 +36,12 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Github`,
-            url: `https://github.com/hajoeun`,
-          },
-          {
             name: `LinkedIn`,
             url: `https://www.linkedin.com/in/hajoeun/`,
+          },
+          {
+            name: `Github`,
+            url: `https://github.com/hajoeun`,
           },
         ],
         feed: true,
