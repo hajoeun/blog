@@ -40,8 +40,8 @@ module.exports = {
             url: `https://github.com/hajoeun`,
           },
           {
-            name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/hajoeun/`,
+            name: `Facebook`,
+            url: `https://www.facebook.com/hajoeun`,
           },
         ],
         feed: true,
