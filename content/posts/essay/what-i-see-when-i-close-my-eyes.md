@@ -58,7 +58,7 @@ slug: what-i-see-when-i-close-my-eyes
 
 #### 웹뷰 접근성 디버깅 팁
 
-웹뷰 디버깅을 위해 시뮬레이터와 함께 [Accessibility Inspector](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwifsLe2rdn2AhVkr1YBHd6lCn0QFnoECAcQAQ&url=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Farchive%2Fdocumentation%2FAccessibility%2FConceptual%2FAccessibilityMacOSX%2FOSXAXTestingApps.html&usg=AOvVaw3Lkph0N6r8lYvQRvz5siyi)를 사용할 수 있다. 하지만 실제 보이스오버와 다른 경우가 있기 때문에 시뮬레이터 대신 단말기에 직접 빌드해서 보이스오버로 디버깅하길 권한다.
+웹뷰 디버깅을 위해 시뮬레이터와 함께 [Accessibility Inspector](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwifsLe2rdn2AhVkr1YBHd6lCn0QFnoECAcQAQ&url=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Farchive%2Fdocumentation%2FAccessibility%2FConceptual%2FAccessibilityMacOSX%2FOSXAXTestingApps.html&usg=AOvVaw3Lkph0N6r8lYvQRvz5siyi)를 사용할 수 있다. 하지만 실제 보이스오버와 다르게 동작하는 경우가 있기 때문에 시뮬레이터 대신 단말기에 직접 빌드해서 보이스오버로 디버깅하길 권한다.
 
 <br/>
 
