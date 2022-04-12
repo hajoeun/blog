@@ -5,6 +5,7 @@ description: 소소한 일에 개발의 재미와 보람을 느끼는 개발자�
 tags:
   - 에세이
 date: 2022-04-12 23:00:00
+slug: what-i-felt-as-a-developer-part-2
 ---
 
 개발자로서 느꼈던 감정을 짧은 글로 담았다. [지난 절망편](/what-i-felt-as-a-developer-part-1) 이후에 희망편도 써봐야겠다고 생각했다. 희망이 될진 모르겠지만 개발하면서 이런 재밌는 일, 뿌듯한 일도 종종 있다고 말해주고 싶었다.
