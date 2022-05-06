@@ -15,35 +15,42 @@ collections:
     label: "Post"
     folder: "content/posts"
     create: true
-    slug: "{{title}}"
+    slug: "{{slug}}"
     media_folder: "images"
     public_folder: "/images"
-    preview_path: "{{title}}"
-    path: "{{series}}/{{title}}"
+    preview_path: "{{slug}}"
+    path: "{{series}}/{{slug}}"
     editor:
       preview: true
     fields:
       - {
-        label: "Series",
-        name: "series",
-        widget: "select",
-        options: [
-          { label: "Undefined", value: "undefined" },
-          { label: "자바스크립트로 블록체인", value: "block-chain-js" },
-          { label: "서평", value: "book-review" },
-          { label: "클린 코드", value: "clean-code" },
-          { label: "오늘의 함수", value: "daily-fp" },
-          { label: "함수형 자바스크립트", value: "functional-js-study" },
-          { label: "Deno", value: "learn-deno" },
-          { label: "Golang", value: "learn-go" },
-          { label: "에세이", value: "essay" },
-          { label: "든든한 우리형, 함수형", value: "my-bro-fp" },
-          { label: "회고록", value: "retrospection" },
-        ],
-        default: { label: "Undefined", value: "undefined" }
+          label: "Series",
+          name: "series",
+          widget: "select",
+          options:
+            [
+              { label: "Undefined", value: "undefined" },
+              { label: "자바스크립트로 블록체인", value: "block-chain-js" },
+              { label: "서평", value: "book-review" },
+              { label: "클린 코드", value: "clean-code" },
+              { label: "오늘의 함수", value: "daily-fp" },
+              { label: "함수형 자바스크립트", value: "functional-js-study" },
+              { label: "Deno", value: "learn-deno" },
+              { label: "Golang", value: "learn-go" },
+              { label: "에세이", value: "essay" },
+              { label: "든든한 우리형, 함수형", value: "my-bro-fp" },
+              { label: "회고록", value: "retrospection" },
+            ],
+          default: { label: "Undefined", value: "undefined" },
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string"}
+      - { label: "Description", name: "description", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "date",
+          format: "YYYY-MM-DD",
+        }
       - { label: "Body", name: "body", widget: "markdown" }

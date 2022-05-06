@@ -13,7 +13,7 @@ module.exports = {
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
     siteDescription: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
-    author: `@hajoeun`
+    author: `@hajoeun`,
   },
   plugins: [
     {
@@ -31,8 +31,8 @@ module.exports = {
           },
           {
             title: `Tags`,
-            slug: `/tags`
-          }
+            slug: `/tags`,
+          },
         ],
         externalLinks: [
           {
@@ -46,13 +46,13 @@ module.exports = {
         ],
         feed: true,
         feedTitle: `하조은의 블로그`,
-        formatString: 'YYYY.MM.DD',
+        formatString: "YYYY.MM.DD",
       },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [ process.env.GOOGLE_ANALYTICS_ID ],
+        trackingIds: [process.env.GOOGLE_ANALYTICS_ID],
       },
     },
     `gatsby-plugin-sitemap`,
@@ -110,8 +110,8 @@ module.exports = {
           {
             serialize: ({ query: { site, allPost } }) =>
               allPost.nodes.map((post) => {
-                const url = site.siteMetadata.siteUrl + post.slug;
-                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">더 읽어보기</a>.</strong></div><br /> <br />`;
+                const url = site.siteMetadata.siteUrl + post.slug
+                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">더 읽어보기</a>.</strong></div><br /> <br />`
 
                 return {
                   title: post.title,
@@ -120,7 +120,7 @@ module.exports = {
                   url,
                   guid: url,
                   custom_elements: [{ "content:encoded": content }],
-                };
+                }
               }),
             query: `
               {
