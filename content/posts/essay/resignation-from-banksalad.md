@@ -5,7 +5,7 @@ description: 뱅크샐러드를 퇴사한 이유와 과정
 tags:
   - 에세이
 slug: resignation-from-banksalad
-date: 2022-05-12
+date: 2022-05-11
 ---
 
 5월 6일을 끝으로 뱅크샐러드를 퇴사했다. 오늘은 뱅크샐러드를 퇴사한 이유와 과정을 나눌까 한다.
