@@ -5,7 +5,7 @@ description: 이직 과정에서 했던 선택과 이유
 tags:
   - 에세이
 slug: record-of-change-jobs-in-2022
-date: 2022-05-21
+date: 2022-05-20
 ---
 
 [지난 글](/resignation-from-banksalad)을 통해 뱅크샐러드를 퇴사한 이유와 과정을 나눴다. 오늘은 이직 과정에서 했던 선택과 이유를 나눌까 한다.
