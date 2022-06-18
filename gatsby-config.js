@@ -64,7 +64,9 @@ module.exports = {
         description: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#fff`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#fff`,
         display: `standalone`,
         icons: [
           {
@@ -78,7 +80,6 @@ module.exports = {
             type: `image/png`,
           },
         ],
-        theme_color_in_head: false,
       },
     },
     `gatsby-plugin-offline`,
