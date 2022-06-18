@@ -78,6 +78,7 @@ module.exports = {
             type: `image/png`,
           },
         ],
+        theme_color_in_head: false,
       },
     },
     `gatsby-plugin-offline`,
