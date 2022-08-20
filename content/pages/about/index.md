@@ -17,7 +17,7 @@ date: 2022-01-31 00:00:00
 |회사|역할|재직 기간|
 |---|---|---|
 | [당근마켓](https://www.daangn.com/) | Software Engineer | 22.05 ~ |
-| [뱅크샐러드](https://www.banksalad.com/) | Engineering Manager | 18.12 ~ 22.05 |
+| [뱅크샐러드](https://www.banksalad.com/) | Software Engineer | 18.12 ~ 22.05 |
 | [마플코퍼레이션](https://www.marpple.com/kr/) | Software Engineer | 16.07 ~ 18.11 |
 
 ### 발표 및 강의
