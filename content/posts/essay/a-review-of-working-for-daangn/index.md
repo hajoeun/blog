@@ -5,7 +5,7 @@ description: 당근마켓에서 3개월 일하며 느낀 것
 tags:
   - 에세이
 date: 2022-08-21 23:00:00
-banner: ./images/preview.png
+banner: ./preview.png
 slug: a-review-of-working-for-daangn
 ---
 
