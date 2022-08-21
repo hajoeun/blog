@@ -1,7 +1,7 @@
 ---
 series: essay
 title: 당근마켓 다녀보니 어때?
-description: 개발자의 당근마켓 3개월 재직 후기
+description: 당근마켓에서 3개월 일하며 느낀 것
 tags:
   - 에세이
 date: 2022-08-21 23:00:00
