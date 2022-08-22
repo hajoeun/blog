@@ -5,11 +5,9 @@ description: 당근마켓에서 3개월 동안 일하며 느낀 것
 tags:
   - 에세이
 date: 2022-08-21 23:00:00
-banner: preview.jpg
+banner: ./banner.jpg
 slug: a-review-of-working-for-daangn
 ---
-
-![](preview.jpg)
 
 [이직 기록](/record-of-change-jobs-in-2022)을 나눈 지 3개월이 흘렀다. 요즘 지인들을 만나면 "당근마켓 다녀보니 어때?"하는 질문을 자주 받는다. 오늘은 그 질문에 대한 답변을 정리해봤다.
 
