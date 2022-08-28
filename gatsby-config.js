@@ -12,8 +12,8 @@ module.exports = {
     siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
-    author: `@hajoeun`,
+    siteDescription: `당근마켓 개발자 하조은의 기술(記述) 블로그`,
+    author: `@hajoeun_`,
   },
   plugins: [
     {
@@ -36,12 +36,8 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Github`,
-            url: `https://github.com/hajoeun`,
-          },
-          {
-            name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/hajoeun/`,
+            name: `Twitter`,
+            url: `https://twitter.com/hajoeun_`,
           },
         ],
         feed: true,
@@ -59,9 +55,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `소프트웨어 개발자 하조은의 블로그`,
+        name: `하조은의 블로그`,
         short_name: `하조은의 블로그`,
-        description: `소프트웨어 개발자 하조은이 배우고 느낀 점을 기록하는 공간`,
+        description: `당근마켓 개발자 하조은의 기술(記述) 블로그`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
