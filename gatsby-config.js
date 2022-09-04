@@ -39,6 +39,10 @@ module.exports = {
             name: `Twitter`,
             url: `https://twitter.com/hajoeun_`,
           },
+          {
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/hajoeun/`,
+          },
         ],
         feed: true,
         feedTitle: `하조은의 블로그`,
