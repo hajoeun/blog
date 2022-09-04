@@ -4,7 +4,7 @@ title: 코드를 사랑하지 마세요
 description: 코드보다 중요한 것
 tags:
   - 에세이
-date: 2022-09-03 23:00:00
+date: 2022-09-04 23:00:00
 slug: more-important-than-my-code
 ---
 
