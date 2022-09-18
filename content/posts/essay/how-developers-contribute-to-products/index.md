@@ -1,15 +1,13 @@
 ---
 series: essay
 title: 개발자가 제품에 기여하는 방법
-description: 블라블라
+description: 제품에 대한 자신의 생각 글로 정리해보기
 tags:
   - 에세이
 date: 2022-09-18 23:00:00
 banner: ./preview.jpg
-slug: how-to-contribute-product-as-a-developer
+slug: how-developers-contribute-to-products
 ---
-
-# 개발자가 제품에 기여하는 방법
 
 1. 개발자의 역할
     1. 개발자 간 오버 엔지니어링을 견제하듯 제품 개발 과정에도 서로 지속적으로 견제가 필요함
