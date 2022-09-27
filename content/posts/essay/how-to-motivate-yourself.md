@@ -4,9 +4,8 @@ title: 주도적으로 일하는 개발자가 되는 방법
 description: 당근마켓 같이사요 서비스를 이해하는데 도움이 되었던 방법
 tags:
   - 에세이
-date: 2022-09-26 23:00:00
-banner: ./preview.jpg
-slug: how-developers-contribute-to-products
+date: 2022-09-27 23:00:00
+slug: how-to-motivate-yourself
 ---
 
 자신이 만들고 있는 제품을 이해하고 개발하는 것과 그렇지 않은 것은 많은 차이가 있다. 제품을 이해하면서 만들면 책임감, 성취감이 커져 훨씬 주도적으로 일하게 된다. 오늘은 개발자가 보다 주도적으로 일하기 위해 제품에 대한 이해도를 높일 수 있는 방법을 소개한다.
