@@ -5,7 +5,7 @@ description: 개발자로 전향하고 싶은 이들에게 전하고 싶은 이�
 tags:
   - faction
 slug: to-my-friend-who-wants-to-be-a-developer
-date: 2022-11-05 23:00:00
+date: 2022-11-09 23:00:00
 ---
 
 친구에게 전화가 왔다. 비슷한 시기에 사회생활을 시작한 고등학교 동창이다.
