@@ -1,7 +1,7 @@
 ---
 series: faction
 title: 개발자가 되고 싶다는 친구에게
-description: 7년 차 개발자가 말하는 개발자로 전향하기 전에 알아야 할 것들
+description: 개발자로 전향하고 싶은 이들에게 전하고 싶은 이야기
 tags:
   - faction
 slug: to-my-friend-who-wants-to-be-a-developer
