@@ -3,7 +3,7 @@ series: faction
 title: 개발자가 되고 싶은 친구에게
 description: 개발자로 전향하고 싶은 이들에게 전하고 싶은 이야기
 tags:
-  - faction
+  - 팩션
 slug: to-my-friend-who-wants-to-be-a-developer
 date: 2022-11-09 23:00:00
 ---
