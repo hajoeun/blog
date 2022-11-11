@@ -3,7 +3,7 @@ series: faction
 title: 면접
 description: 면접 경험을 기반으로 한 팩션
 tags:
-  - faction
+  - 팩션
 slug: job-interview-2022
 date: 2022-06-18
 ---

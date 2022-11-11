@@ -1,9 +1,8 @@
 ---
-title: 'Deno - CSV to JSON'
+title: 'CSV to JSON'
 categories:
   - programming
 tags:
-  - Deno
   - JavaScript
 date: 2020-12-26 22:00:00
 description: '평소 써보고 싶었던 Deno로 가볍게 CSV to JSON Converter를 구현했다'
