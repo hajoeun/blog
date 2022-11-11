@@ -92,7 +92,6 @@ module.exports = {
         openAnalyzer: false,
       },
     },
-    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
