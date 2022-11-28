@@ -3,7 +3,7 @@ series: essay
 title: 개발자로서 느꼈던 것들 - 희망편
 description: 소소한 일에 개발의 재미와 보람을 느끼는 개발자의 이야기
 tags:
-  - 에세이
+  - Essay
 date: 2022-04-12 23:00:00
 slug: what-i-felt-as-a-developer-part-2
 ---

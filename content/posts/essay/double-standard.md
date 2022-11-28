@@ -3,7 +3,7 @@ series: essay
 title: 내가 지키지 못한 조언들
 description: 매니저일 때 했던 조언을 개발자가 돼서 지키지 못하는 이유
 tags:
-  - 에세이
+  - Essay
 date: 2022-07-31 23:00:00
 slug: double-standard
 ---

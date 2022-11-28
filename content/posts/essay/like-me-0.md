@@ -3,7 +3,7 @@ title: '나와 같다면 - 직장이 아니라 직업'
 categories:
   - essay
 tags:
-  - 에세이
+  - Essay
 date: 2017-04-05 23:11:26
 slug: like-me-0
 ---

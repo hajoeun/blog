@@ -3,7 +3,7 @@ series: essay
 title: 복잡한 상황에서 단순하게 일하는 방법
 description: Three Queues Management
 tags:
-  - 에세이
+  - Essay
 date: 2022-02-20 23:00:00
 slug: three-queues-management
 ---

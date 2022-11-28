@@ -3,7 +3,7 @@ series: essay
 title: 주도적으로 일하는 개발자 되는 방법
 description: 만들고 있는 제품에 대한 생각을 정리하고 동료들과 나누기
 tags:
-  - 에세이
+  - Essay
 date: 2022-09-27 23:00:00
 slug: how-to-motivate-yourself
 ---

@@ -30,8 +30,8 @@ module.exports = {
             slug: `/posts`,
           },
           {
-            title: `Tags`,
-            slug: `/tags`,
+            title: `Essay`,
+            slug: `/tags/essay`,
           },
         ],
         externalLinks: [

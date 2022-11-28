@@ -3,7 +3,7 @@ series: essay
 title: 개발자로서 느꼈던 것들 - 절망편
 description: 기술 부채, 코드 리뷰, 전문성, 좋은 코드를 고민하는 개발자의 이야기
 tags:
-  - 에세이
+  - Essay
 date: 2022-04-01 23:00:00
 slug: what-i-felt-as-a-developer-part-1
 ---
