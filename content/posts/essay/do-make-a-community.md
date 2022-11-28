@@ -3,7 +3,7 @@ series: essay
 title: 커뮤니티, 없으면 만들어라
 description: 스타트업에 종사하는 동문 커뮤니티를 운영하며 고민한 것들
 tags:
-  - 에세이
+  - Essay
 date: 2020-01-13 23:00:00
 slug: do-make-a-community
 ---

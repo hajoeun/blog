@@ -3,7 +3,7 @@ series: essay
 title: 스타트업, 세상을 바꿀 수 있을까
 description: 헤븐 조선을 꿈꾸는 스타트업 4년 차 개발자의 이상과 현실
 tags:
-  - 에세이
+  - Essay
 date: 2019-11-30 23:00:00
 slug: startup-could-change-the-world
 ---

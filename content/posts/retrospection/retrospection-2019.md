@@ -4,7 +4,7 @@ date: 2019-12-31 22:00:00
 categories:
   - essay
 tags:
-  - 에세이
+  - Essay
   - 회고록
 description: '어른의 나이가 된 지금, 한가지 다짐한다. 앞으로 세상의 모든 가능성을 존중하는 사람이 되자고.'
 banner: ./images/preview.jpg

@@ -3,7 +3,7 @@ series: essay
 title: 자취생의 재택근무 적응기
 description: 잠자는 공간에서 일하는 공간으로
 tags:
-  - 에세이
+  - Essay
 date: 2020-03-01 23:00:00
 slug: remote-work
 ---

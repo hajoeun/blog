@@ -3,7 +3,7 @@ series: essay
 title: 유저를 이해하는 단서, 이벤트 로그
 description: 이벤트 로그에 대한 기억
 tags:
-  - 에세이
+  - Essay
 date: 2022-03-13 16:00:00
 slug: event-log-is-a-clue-to-understand-user
 ---

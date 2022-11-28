@@ -3,7 +3,7 @@ series: essay
 title: 하드 스킬과 소프트 스킬
 description: 농업혁명과 하드 스킬의 유사성 그리고 소프트 스킬 강화를 위한 문장
 tags:
-  - 에세이
+  - Essay
 date: 2022-10-22 23:00:00
 slug: hard-skill-and-soft-skill
 ---
