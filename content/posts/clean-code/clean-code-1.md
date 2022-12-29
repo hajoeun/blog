@@ -17,6 +17,8 @@ slug: clean-code-1
 
 [로버트 마틴(Robert C. Martin)](https://en.wikipedia.org/wiki/Robert_C._Martin)의 책을 통해 클린 코드를 알게 됐습니다. 협업을 잘하기 위해 회사에서 동료들과 함께 스터디를 진행했습니다. 이를 통해 배운 클린 코드에 대한 몇 가지 지식을 추려봤습니다. 간단한 예시와 실제 사례도 담았습니다.
 
+<br/>
+
 ##### 깨끗한 코드
 > 깨끗한 코드는 잘 쓴 문장처럼 읽힌다 - Grady Booch
 
@@ -57,6 +59,8 @@ on_click("#is_prime", ({ currentTarget }) => {
 ```
 
 'all' 클래스를 가졌다면 현재 데이터(current.loans) 중에서 필터링해 랜더링 하고, 그렇지 않다면 기존 데이터(origin.loans)를 정렬해 랜더링 하고 있습니다. 확실히 이제는 문장처럼 읽힙니다.
+
+<br/>
 
 ##### 의미 있는 이름
 > 의도를 분명하게 밝혀라 - Robert C. Martin
