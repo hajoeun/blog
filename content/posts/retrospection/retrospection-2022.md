@@ -1,7 +1,7 @@
 ---
 series: retrospection
-title: "회고 - 2022년"
-description: 2022년에 잘한 점, 아쉬운 점 그리고 2023년에 시도해볼 것
+title: "회고 - 다시 개발자"
+description: 2022년을 돌아보며 정리한 9가지 항목들
 tags:
   - Essay
   - 회고록
