@@ -1,7 +1,7 @@
 ---
 series: retrospection
-title: "회고 - 벌써 일년"
-description: 지난 1년을 되돌아보자
+title: "회고 - 마켓프레스에서 벌써 일년"
+description: 첫 출근부터 오픈소스 활동까지
 tags:
   - Essay
   - 회고록
