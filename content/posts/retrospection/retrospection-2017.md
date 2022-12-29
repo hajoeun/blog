@@ -1,6 +1,6 @@
 ---
 series: retrospection
-title: "회고 - 마켓프레스에서 벌써 일년"
+title: "회고 - 마켓프레스에서 365일"
 description: 첫 출근부터 오픈소스 활동까지
 tags:
   - Essay
