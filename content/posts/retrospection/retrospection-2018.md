@@ -1,12 +1,11 @@
 ---
-title: '회고 - 숫자로 보는 2018'
-date: 2018-12-31 17:00:00
-categories:
-  - essay
+series: retrospection
+title: "회고 - 첫번째 이직"
+description: 6가지 숫자로 보는 2018년
 tags:
   - Essay
   - 회고록
-description: '2018년, 새해를 야심 차게 시작했음이 틀림없다.'
+date: 2018-12-31 17:00:00
 banner: ./images/preview.jpg
 slug: retrospection-2018
 ---

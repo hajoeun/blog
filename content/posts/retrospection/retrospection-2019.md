@@ -1,12 +1,11 @@
 ---
-title: '회고 - 2019 단편 회고록 모음'
-date: 2019-12-31 22:00:00
-categories:
-  - essay
+series: retrospection
+title: "회고 - 서른, 어른"
+description: "어른의 나이가 된 지금, 한가지 다짐한다. 앞으로 세상의 모든 가능성을 존중하는 사람이 되자고."
 tags:
   - Essay
   - 회고록
-description: '어른의 나이가 된 지금, 한가지 다짐한다. 앞으로 세상의 모든 가능성을 존중하는 사람이 되자고.'
+date: 2019-12-31 22:00:00
 banner: ./images/preview.jpg
 slug: retrospection-2019
 ---
@@ -25,11 +24,7 @@ slug: retrospection-2019
 
 어른의 나이가 된 지금, 한가지 다짐한다. 앞으로 세상의 모든 가능성을 존중하는 사람이 되자고.
 
-
-
 ---
-
-
 
 ## #2. 단어 사전
 
