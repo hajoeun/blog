@@ -5,7 +5,7 @@ description: 2022년을 돌아보며 정리한 9가지 항목들
 tags:
   - Essay
   - 회고록
-date: 2022-12-25 23:00:00
+date: 2022-12-29 23:00:00
 slug: retrospection-2022
 ---
 

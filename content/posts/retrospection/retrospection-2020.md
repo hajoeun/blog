@@ -1,12 +1,11 @@
 ---
-title: '회고 - 나에게 쓰는 편지'
-date: 2020-12-26 16:00:00
-categories:
-  - essay
+series: retrospection
+title: "회고 - 나에게 쓰는 편지"
+description: 오랜 친구에게 말하듯 편하게 편지 형식으로 회고했습니다
 tags:
   - Essay
   - 회고록
-description: '오랜 친구에게 말하듯 편하게 편지 형식으로 회고했습니다'
+date: 2020-12-26 16:00:00
 banner: ./images/preview.jpg
 slug: retrospection-2020
 ---
