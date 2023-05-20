@@ -4,7 +4,7 @@ title: 개발자의 역량
 description: 요구 사항을 안정성과 확장성의 균형을 맞춰 제시간에 개발하는 능력
 tags:
   - Essay
-date: 2023-05-21 23:00:00
+date: 2023-05-20 23:00:00
 slug: ability-of-engineer
 ---
 
