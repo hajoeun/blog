@@ -19,12 +19,10 @@
     "gatsby-plugin-feed": "^4.11.1",
     "gatsby-plugin-google-gtag": "^4.8.0",
     "gatsby-plugin-manifest": "^4.7.0",
-    "gatsby-plugin-netlify": "^4.1.0",
     "gatsby-plugin-offline": "^5.7.0",
     "gatsby-plugin-sitemap": "^5.7.0",
     "gatsby-plugin-split-css": "^2.0.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
-    "netlify-cms-app": "^2.15.66",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
