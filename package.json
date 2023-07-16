@@ -29,5 +29,6 @@
   "devDependencies": {
     "cross-env": "^7.0.3"
   },
-  "starter-name": "gatsby-starter-minimal-blog"
+  "starter-name": "gatsby-starter-minimal-blog",
+  "packageManager": "yarn@3.6.1"
 }
