@@ -1558,7 +1558,7 @@
     gatsby-transformer-sharp "^4.15.1"
     lodash.kebabcase "^4.1.1"
 
-"@lekoarts/gatsby-theme-minimal-blog@^4.1.4":
+"@lekoarts/gatsby-theme-minimal-blog@4.1.7":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@lekoarts/gatsby-theme-minimal-blog/-/gatsby-theme-minimal-blog-4.1.7.tgz#c83aed26702505ea80423f787761fa76490df467"
   integrity sha512-Fvaoj1G8gUzauqKkl7eOQC3CQV6hHL5ejkQf2PjD/u6MIzxX50/4F/DpBU7lxbKQgv4Jfa82h87jpM4U8T/Z7A==
@@ -3736,9 +3736,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
-  version "1.0.30001431"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001431.tgz#e7c59bd1bc518fae03a4656be442ce6c4887a795"
-  integrity sha512-zBUoFU0ZcxpvSt9IU66dXVT/3ctO1cy4y9cscs1szkPlcWb6pasYM144GqrUygUbT+k7cmUCW61cvskjcv0enQ==
+  version "1.0.30001516"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001516.tgz"
+  integrity sha512-Wmec9pCBY8CWbmI4HsjBeQLqDTqV91nFVR83DnZpYyRnPI1wePDsTg0bGLPC5VU/3OIZV1fmxEea1b+tFKe86g==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -5944,7 +5944,7 @@ gatsby-plugin-catch-links@^4.15.0:
     "@babel/runtime" "^7.15.4"
     escape-string-regexp "^1.0.5"
 
-gatsby-plugin-feed@^4.11.1:
+gatsby-plugin-feed@4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.24.0.tgz#c6b2674b45dd2b8037e301daaab62d57a2dd5ee3"
   integrity sha512-lTCpIjvgZZjkciBm2jsibk6+5Opd9ToQWrb363Y/7Mm26TYK/xuLLCuFBuAi76YekbBZJc5HnMcZcFHB4lIIUw==
@@ -5957,7 +5957,7 @@ gatsby-plugin-feed@^4.11.1:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-google-gtag@^4.8.0:
+gatsby-plugin-google-gtag@4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-4.24.0.tgz#71ca4d83c91292490e803048d3342f3d60f1aa68"
   integrity sha512-2GHzg727Xr+48kxS5+3xSc246gdQLlAk4L0vn5+KauJsP1aCGb2XpumlUQj8H81TA/BnroBc1wlW4N+k7J4I5Q==
@@ -5965,7 +5965,7 @@ gatsby-plugin-google-gtag@^4.8.0:
     "@babel/runtime" "^7.15.4"
     minimatch "^3.1.2"
 
-gatsby-plugin-manifest@^4.7.0:
+gatsby-plugin-manifest@4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-4.24.0.tgz#ad537b48f9fb8e7c93234945a4889ecf3c099f66"
   integrity sha512-xlpJMNALNozeC0lIspQQZw68qi4pE1nhgPfsLiUtAc5CLihm2LNbGLAKcYHCXwudRHo5Hvp6Xi4VOwtMkRKwmQ==
@@ -6020,7 +6020,7 @@ gatsby-plugin-mdx@^3.15.2:
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
 
-gatsby-plugin-offline@^5.7.0:
+gatsby-plugin-offline@5.24.0:
   version "5.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-5.24.0.tgz#f866ffa9e138395e3d8dd675801087f3da781561"
   integrity sha512-NiTLxlFOQSpBz7ZXYEtQB1GQOGoO9Xzg/COUkGXoCKlVW84EzXLRiyc01lZcdBk125maE3L8ZAqsql2k8smxLA==
@@ -6079,7 +6079,7 @@ gatsby-plugin-sharp@^4.15.1:
     sharp "^0.30.7"
     svgo "^2.8.0"
 
-gatsby-plugin-sitemap@^5.7.0:
+gatsby-plugin-sitemap@5.24.0:
   version "5.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-5.24.0.tgz#a0c1b81df6ee3ae63a84c82dff7e2fb14019ca04"
   integrity sha512-6bMA/JRgV2VtQj2XqtZmaCRSqwCVd1a3MbZMT8irZDzmQyM4cz25vu8XWnrCLWJe72NyB97oL0y/9WWxQ/61SA==
@@ -6233,7 +6233,7 @@ gatsby-worker@^1.24.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.7.2:
+gatsby@4.24:
   version "4.24.8"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.24.8.tgz#2f4c34b3e6727c78a31971e1902d9672e052b5af"
   integrity sha512-dbpAXMpWPv0P3H+xYhK2+XZ+W0xsgvZUvQTYhYEro7jVh9gBJr68tlT4YYH7J+9FThrIcg6MPLN7KLVJp8yyGw==
