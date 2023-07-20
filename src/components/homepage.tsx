@@ -38,7 +38,7 @@ const Homepage = ({ posts }: PostsProps) => {
       <Title text="최근 글">
         <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>더보기</Link>
       </Title>
-      <Listing posts={posts} showTags={false} />
+      <Listing posts={posts} showTags />
       <List>
         <Bottom />
       </List>
