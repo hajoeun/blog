@@ -29,15 +29,11 @@ module.exports = {
             title: `Posts`,
             slug: `/posts`,
           },
-          {
-            title: `Essay`,
-            slug: `/tags/essay`,
-          },
         ],
         externalLinks: [
           {
-            name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/hajoeun/`,
+            name: `Instagram`,
+            url: `https://instagram.com/hajoeun.dev/`,
           },
         ],
         feed: true,
