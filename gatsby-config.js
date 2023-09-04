@@ -29,19 +29,11 @@ module.exports = {
             title: `Posts`,
             slug: `/posts`,
           },
-          {
-            title: `Tags`,
-            slug: `/tags`,
-          },
         ],
         externalLinks: [
           {
             name: `Instagram`,
-            url: `https://www.instagram.com/hajoeun.blog/`,
-          },
-          {
-            name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/hajoeun/`,
+            url: `https://instagram.com/hajoeun.dev/`,
           },
         ],
         feed: true,
@@ -83,7 +75,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
     shouldAnalyseBundle && {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
@@ -141,5 +132,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-split-css`,
   ].filter(Boolean),
 }

@@ -3,7 +3,7 @@ series: essay
 title: 뱅크샐러드를 떠나며
 description: 뱅크샐러드를 퇴사한 이유와 과정
 tags:
-  - 에세이
+  - Essay
 slug: resignation-from-banksalad
 date: 2022-05-11
 ---

@@ -3,7 +3,7 @@ series: essay
 title: 눈을 감으니 보이는 것들
 description: 접근성 개선 작업을 하며 배운 것들
 tags:
-  - 에세이
+  - Essay
 date: 2022-03-22 23:00:00
 slug: what-i-see-when-i-close-my-eyes
 ---

@@ -1,9 +1,9 @@
 ---
 series: retrospection
-title: 2021년 프로젝트에서 배운 것들
+title: "회고 - 마이데이터 프로젝트"
 description: 뱅크샐러드 인증 스쿼드에서 마이데이터 서비스를 만들며 배운 것들
 tags:
-  - 에세이
+  - Essay
   - 회고록
 date: 2022-02-02 23:00:00
 slug: retrospection-2021

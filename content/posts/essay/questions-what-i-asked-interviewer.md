@@ -3,7 +3,7 @@ series: essay
 title: 면접관에게 했던 질문들
 description: '"저희에게 질문하고 싶으신 게 있으실까요?"라는 질문에 대한 답변들'
 tags:
-  - 에세이
+  - Essay
 date: 2022-05-04 23:00:00
 slug: questions-what-i-asked-interviewer
 ---

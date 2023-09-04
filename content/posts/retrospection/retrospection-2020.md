@@ -1,12 +1,11 @@
 ---
-title: '회고 - 나에게 쓰는 편지'
-date: 2020-12-26 16:00:00
-categories:
-  - essay
+series: retrospection
+title: "회고 - 코로나와 테크 리드"
+description: 2021년을 돌아보며 편지 형식으로 정리한 4가지 주제들
 tags:
-  - 에세이
+  - Essay
   - 회고록
-description: '오랜 친구에게 말하듯 편하게 편지 형식으로 회고했습니다'
+date: 2020-12-26 16:00:00
 banner: ./images/preview.jpg
 slug: retrospection-2020
 ---
@@ -61,7 +60,7 @@ slug: retrospection-2020
 
 <br/><br/>
 
-### 테크 리드
+## 테크 리드
 
 올해 꼽은 애증의 단어야. 올 해 새로운 팀에서 테크 리드라는 역할을 맡았었어.
 
