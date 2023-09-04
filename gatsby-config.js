@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `당근마켓 개발자 하조은의 기술(記述) 블로그`,
+    siteDescription: `당근 개발자 하조은의 블로그`,
     author: `@hajoeun_`,
   },
   plugins: [
@@ -46,7 +46,7 @@ module.exports = {
         ],
         feed: true,
         feedTitle: `하조은의 블로그`,
-        formatString: "YYYY.MM.DD",
+        formatString: 'YYYY.MM.DD',
       },
     },
     {
@@ -61,7 +61,7 @@ module.exports = {
       options: {
         name: `하조은의 블로그`,
         short_name: `하조은의 블로그`,
-        description: `당근마켓 개발자 하조은의 기술(記述) 블로그`,
+        description: `당근 개발자 하조은의 블로그`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
@@ -120,7 +120,7 @@ module.exports = {
                   excerpt: post.excerpt,
                   url,
                   guid: url,
-                  custom_elements: [{ "content:encoded": content }],
+                  custom_elements: [{ 'content:encoded': content }],
                 }
               }),
             query: `
