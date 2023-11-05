@@ -1,14 +1,14 @@
 ---
 series: essay
 title: 강의를 만들며 답한 3가지 질문들
-description: "첫 번째 강의, '손에 익는 Next.js 공식 문서 훑어보기 편'을 만들며 떠오른 질문과 답변들"
+description: Next.js 강의를 만들며 떠오른 질문과 답변들
 tags:
   - Essay
 date: 2023-11-05 23:00:00
 slug: three-questions-that-i-answered-while-making-a-lecture
 ---
 
-지난 9월 26일 인프런에 강의를 올렸다. 한 달이 넘은 지금, 강의를 만들며 답한 3가지 질문을 정리해 본다.
+지난 9월 26일 [Next.js 강의](https://inf.run/kzcU)를 공개했다. 한 달이 넘은 지금, 강의를 만들며 답한 3가지 질문을 정리해 본다.
 
 <br/>
 
