@@ -53,7 +53,7 @@ module.exports = {
       options: {
         name: `하조은의 블로그`,
         short_name: `하조은의 블로그`,
-        description: `당근 개발자 하조은의 블로그`,
+        description: `하조은의 블로그`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
