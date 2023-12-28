@@ -1,8 +1,8 @@
 require(`dotenv`).config({
   path: `.env`,
-})
+});
 
-const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
   siteMetadata: {
@@ -12,8 +12,8 @@ module.exports = {
     siteUrl: `https://hajoeun.blog/`,
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
-    siteDescription: `당근 개발자 하조은의 블로그`,
-    author: `@hajoeun_`,
+    siteDescription: `하조은의 블로그`,
+    author: `@hajoeun`,
   },
   plugins: [
     {
@@ -32,13 +32,13 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Instagram`,
-            url: `https://instagram.com/hajoeun.dev/`,
+            name: `LinkedIn`,
+            url: `https://www.linkedin.com/in/hajoeun/`,
           },
         ],
         feed: true,
         feedTitle: `하조은의 블로그`,
-        formatString: 'YYYY.MM.DD',
+        formatString: "YYYY.MM.DD",
       },
     },
     {
@@ -102,8 +102,8 @@ module.exports = {
           {
             serialize: ({ query: { site, allPost } }) =>
               allPost.nodes.map((post) => {
-                const url = site.siteMetadata.siteUrl + post.slug
-                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">더 읽어보기</a>.</strong></div><br /> <br />`
+                const url = site.siteMetadata.siteUrl + post.slug;
+                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">더 읽어보기</a>.</strong></div><br /> <br />`;
 
                 return {
                   title: post.title,
@@ -111,8 +111,8 @@ module.exports = {
                   excerpt: post.excerpt,
                   url,
                   guid: url,
-                  custom_elements: [{ 'content:encoded': content }],
-                }
+                  custom_elements: [{ "content:encoded": content }],
+                };
               }),
             query: `
               {
@@ -134,4 +134,4 @@ module.exports = {
     },
     `gatsby-plugin-split-css`,
   ].filter(Boolean),
-}
+};
