@@ -1,6 +1,6 @@
 ---
 series: retrospection
-title: "회고 - 새로운 계절의 시작"
+title: "회고 - 새로운 계절"
 description: 2023년을 돌아보며 정리한 9가지 항목들
 tags:
   - Essay
