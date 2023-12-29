@@ -13,7 +13,7 @@ module.exports = {
     siteImage: `/site-image.png`,
     siteLanguage: `ko`,
     siteDescription: `하조은의 블로그`,
-    author: `@hajoeun`,
+    author: `@hajoeun_`,
   },
   plugins: [
     {
@@ -32,8 +32,8 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `LinkedIn`,
-            url: `https://www.linkedin.com/in/hajoeun/`,
+            name: `Course`,
+            url: `https://inf.run/kzcU`,
           },
         ],
         feed: true,
