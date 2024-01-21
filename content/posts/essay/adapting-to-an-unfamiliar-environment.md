@@ -4,7 +4,7 @@ title: 낯선 코드에 숟가락 얹기
 description: 누구나 할 수 있지만 아무도 하지 않았던 일부터 시작하기
 tags:
   - Essay
-date: 2024-01-20 23:00:00
+date: 2024-01-21 23:00:00
 slug: adapting-to-an-unfamiliar-environment
 ---
 
