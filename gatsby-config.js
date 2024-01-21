@@ -47,6 +47,12 @@ module.exports = {
         trackingIds: [process.env.GOOGLE_ANALYTICS_ID],
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "1553991251352257",
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
