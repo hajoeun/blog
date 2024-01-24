@@ -24,6 +24,7 @@ date: 2023-10-09 00:00:00
 
 |강의|주관|날짜|
 |---|---|---|
+| [손에 익는 Next.js - 마이그레이션하기](https://inf.run/heKES) | 인프런 | 24.01.05 |
 | [손에 익는 Next.js - 공식 문서 훑어보기](https://inf.run/g7L2) | 인프런 | 23.09.26 |
 | [개발자가 PM에게 기대하는 것들](https://hajoeun.notion.site/PM-9d9627d3b50144b094ceb7b1e25c7d12) | 한동대학교 | 21.11.18 |
 | [협업을 위한 클린코드](https://speakerdeck.com/hajoeun/200107-ssafy) | 삼성 청년 SW 아카데미 | 20.01.07 |

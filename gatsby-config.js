@@ -32,8 +32,8 @@ module.exports = {
         ],
         externalLinks: [
           {
-            name: `Course`,
-            url: `https://inf.run/kzcU`,
+            name: `Follow`,
+            url: `http://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=hajoeun`,
           },
         ],
         feed: true,
