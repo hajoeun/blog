@@ -1,33 +1,54 @@
 {
   "name": "hajoeun-blog",
-  "version": "1.2.4",
-  "private": true,
-  "license": "0BSD",
-  "author": "hajoeun <hajoeun90@gmail.com>",
-  "scripts": {
-    "build": "gatsby build",
-    "build:cypress": "cross-env CYPRESS_SUPPORT=y yarn build",
-    "clean": "gatsby clean",
-    "develop": "gatsby develop",
-    "develop:cypress": "cross-env CYPRESS_SUPPORT=y yarn develop",
-    "serve": "gatsby serve",
-    "start": "gatsby develop"
-  },
+  "license": "MIT",
+  "description": "hajoeun.blog (blog)",
   "dependencies": {
-    "@lekoarts/gatsby-theme-minimal-blog": "4.1.7",
-    "gatsby": "4.24",
-    "gatsby-plugin-feed": "4.24.0",
-    "gatsby-plugin-google-gtag": "4.24.0",
-    "gatsby-plugin-manifest": "4.24.0",
-    "gatsby-plugin-offline": "5.24.0",
-    "gatsby-plugin-sitemap": "5.24.0",
-    "gatsby-plugin-split-css": "^2.0.3",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@fontsource/inter": "^4.5.15",
+    "@fontsource/roboto-mono": "^4.5.10",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "13.1.7-canary.10",
+    "@types/node-fetch": "^2.6.2",
+    "@upstash/redis": "^1.20.1",
+    "@vercel/analytics": "^1.0.0",
+    "comma-number": "^2.1.0",
+    "date-fns": "^2.29.3",
+    "image-size": "^1.0.2",
+    "load-script": "^1.0.0",
+    "next": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^8.34.0",
+    "react-tweet": "^3.1.1",
+    "react-wrap-balancer": "^0.2.4",
+    "react-youtube": "^10.1.0",
+    "swr": "^2.1.2",
+    "time-ago": "^0.2.1",
+    "word-wrap": "^1.2.5"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "@types/comma-number": "^2.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^4.9.5"
   },
-  "starter-name": "gatsby-starter-minimal-blog"
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start"
+  },
+  "prettier": {
+    "arrowParens": "avoid"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  }
 }
