@@ -17,7 +17,6 @@ export const metadata = {
     url: "https://hajoeun.blog",
     siteName: "하조은의 블로그",
   },
-  // FIXME: twitter 대신 linkedin으로 변경
   twitter: {
     card: "summary_large_image",
     site: "@hajoeun_",

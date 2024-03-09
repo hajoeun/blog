@@ -17,11 +17,10 @@ export function Header() {
           About
         </Link>
         <a
-          href="https://www.linkedin.com/in/hajoeun/"
+          href="https://twitter.com/hajoeun_"
           target="_blank"
           className="inline-flex hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
         >
-          {/* FIXME: LinkedInIcon으로 변경 */}
           <TweetIcon style={{ marginRight: 4 }} /> Follow{" "}
           <span className="hidden md:inline">&nbsp;me</span>
         </a>
