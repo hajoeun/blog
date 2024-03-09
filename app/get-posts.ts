@@ -1,5 +1,6 @@
 import postsData from "./posts.json";
 import commaNumber from "comma-number";
+import { kv } from "@vercel/kv";
 
 export type Post = {
   id: string;
@@ -15,7 +16,7 @@ type Views = {
 };
 
 export const getPosts = async () => {
-  const allViews: null | Views = null;
+  const allViews: null | Views = await kv.hgetall("views");
   const posts = postsData.posts.map((post): Post => {
     const views = Number(allViews?.[post.id] ?? 0);
     return {

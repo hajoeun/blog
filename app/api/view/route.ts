@@ -4,6 +4,7 @@ import postsData from "@/app/posts.json";
 import commaNumber from "comma-number";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { kv } from "@vercel/kv";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
@@ -36,14 +37,14 @@ export async function GET(req: NextRequest) {
   }
 
   if (url.searchParams.get("incr") != null) {
-    const views = 0;
+    const views = await kv.hincrby("views", id, 1);
     return NextResponse.json({
       ...post,
       views,
       viewsFormatted: commaNumber(views),
     });
   } else {
-    const views = 0;
+    const views = (await kv.hget("views", id)) ?? 0;
     return NextResponse.json({
       ...post,
       views,
