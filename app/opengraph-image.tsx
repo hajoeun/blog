@@ -40,7 +40,7 @@ export default async function MainOG() {
             하조은의 블로그
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">hajoeun.blog</div>
+          <div tw="text-[28px]">hajoeun.com</div>
         </header>
 
         <main tw="flex mt-10 flex-col w-full" style={font("Roboto Mono 400")}>

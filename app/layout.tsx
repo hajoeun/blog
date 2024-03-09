@@ -16,7 +16,7 @@ export const metadata = {
   openGraph: {
     title: "하조은의 블로그",
     description: "하조은 | 당신 근처의 개발자",
-    url: "https://hajoeun.blog",
+    url: "https://hajoeun.com",
     siteName: "하조은의 블로그",
   },
   twitter: {
@@ -24,7 +24,7 @@ export const metadata = {
     site: "@hajoeun_",
     creator: "@hajoeun_",
   },
-  metadataBase: new URL("https://hajoeun.blog"),
+  metadataBase: new URL("https://hajoeun.com"),
 };
 
 export const viewport = {

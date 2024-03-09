@@ -1,7 +1,7 @@
 {
   "name": "hajoeun-blog",
   "license": "MIT",
-  "description": "hajoeun.blog (blog)",
+  "description": "hajoeun.com (blog)",
   "dependencies": {
     "@fontsource/inter": "^4.5.15",
     "@fontsource/roboto-mono": "^4.5.10",

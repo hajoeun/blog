@@ -50,7 +50,7 @@ export async function GET(_req: Request, { params: { id } }) {
             하조은의 블로그
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">hajoeun.blog</div>
+          <div tw="text-[28px]">hajoeun.com</div>
         </header>
 
         <main tw="flex grow pb-3 flex-col items-center justify-center">

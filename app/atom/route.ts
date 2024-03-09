@@ -8,10 +8,10 @@ export async function GET() {
   <feed xmlns="http://www.w3.org/2005/Atom">
     <title>하조은의 블로그</title>
     <subtitle>Essays</subtitle>
-    <link href="https://hajoeun.blog/atom" rel="self"/>
-    <link href="https://hajoeun.blog/"/>
+    <link href="https://hajoeun.com/atom" rel="self"/>
+    <link href="https://hajoeun.com/"/>
     <updated>${posts[0].date}</updated>
-    <id>https://hajoeun.blog/</id>
+    <id>https://hajoeun.com/</id>
     <author>
       <name>하조은</name>
       <email>hello@hajoeun.dev</email>
@@ -23,7 +23,7 @@ export async function GET() {
         <entry>
           <id>${post.id}</id>
           <title>${post.title}</title>
-          <link href="https://hajoeun.blog/${dateMatch[0]}/${post.id}"/>
+          <link href="https://hajoeun.com/${dateMatch[0]}/${post.id}"/>
           <updated>${post.date}</updated>
         </entry>`;
     }, "")}
