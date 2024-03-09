@@ -1,4 +1,4 @@
-export const runtime = "edge";
+// export const runtime = "edge";
 
 import postsData from "@/app/posts.json";
 import commaNumber from "comma-number";
