@@ -1,6 +1,7 @@
 import "./globals.css";
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import { themeEffect } from "./theme-effect";
 import { Analytics } from "./analytics";
@@ -56,6 +57,9 @@ export default function RootLayout({
         </main>
 
         <Footer />
+        {process.env.GOOGLE_ANALYTICS_ID && (
+          <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
+        )}
         <Analytics />
         <SpeedInsights />
       </body>
