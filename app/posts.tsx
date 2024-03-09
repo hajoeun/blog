@@ -46,7 +46,8 @@ export function Posts({ posts: initialPosts }) {
             {sort[0] === "date" && sort[1] === "asc" && "↑"}
           </button>
           <span className="grow pl-2">title</span>
-          <button
+          {/* FIXME: views */}
+          {/* <button
             onClick={sortViews}
             className={`
                   h-9
@@ -60,7 +61,7 @@ export function Posts({ posts: initialPosts }) {
           >
             views
             {sort[0] === "views" ? (sort[1] === "asc" ? "↑" : "↓") : ""}
-          </button>
+          </button> */}
         </header>
 
         <List posts={posts} sort={sort} />
@@ -115,9 +116,10 @@ function List({ posts, sort }) {
 
                   <span className="grow dark:text-gray-100">{post.title}</span>
 
-                  <span className="text-gray-500 dark:text-gray-500 text-xs">
+                  {/* FIXME: views */}
+                  {/* <span className="text-gray-500 dark:text-gray-500 text-xs">
                     {post.viewsFormatted}
-                  </span>
+                  </span> */}
                 </span>
               </span>
             </Link>

@@ -87,5 +87,8 @@ function Views({ id, mutate, defaultValue }) {
     }
   });
 
-  return <>{views != null ? <span>{views} views</span> : null}</>;
+  return null
+
+  // FIXME: views
+  // return <>{views != null ? <span>{views} views</span> : null}</>;
 }
