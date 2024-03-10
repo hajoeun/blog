@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, Suspense } from "react";
 import Link from "next/link";
-import { Suspense } from "react";
 import useSWR from "swr";
+import { parseDate } from "@/app/parse-date";
 
 type SortSetting = ["date" | "views", "desc" | "asc"];
 
@@ -77,8 +77,8 @@ function List({ posts, sort }) {
     return [...posts].sort((a, b) => {
       if (sortKey === "date") {
         return sortDirection === "desc"
-          ? new Date(b.date).getTime() - new Date(a.date).getTime()
-          : new Date(a.date).getTime() - new Date(b.date).getTime();
+          ? parseDate(b.date).getTime() - parseDate(a.date).getTime()
+          : parseDate(a.date).getTime() - parseDate(b.date).getTime();
       } else {
         return sortDirection === "desc" ? b.views - a.views : a.views - b.views;
       }
@@ -96,7 +96,7 @@ function List({ posts, sort }) {
 
         return (
           <li key={post.id}>
-            <Link href={`/${new Date(post.date).getFullYear()}/${post.id}`}>
+            <Link href={`/${getYear(post.date)}/${post.id}`}>
               <span
                 className={`flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#242424] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]
                 ${!firstOfYear ? "border-t-0" : ""}
@@ -131,5 +131,5 @@ function List({ posts, sort }) {
 }
 
 function getYear(date: string) {
-  return new Date(date).getFullYear();
+  return parseDate(date).getFullYear();
 }

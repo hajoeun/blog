@@ -2,9 +2,11 @@
 
 import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { ago } from "time-ago";
 import useSWR from "swr";
 import type { Post } from "@/app/get-posts";
+import { parseDate } from "@/app/parse-date";
+import { formatDistanceToNowStrict } from "date-fns";
+import koLocale from "date-fns/locale/ko";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
@@ -26,6 +28,10 @@ export function Header({ posts }: { posts: Post[] }) {
   );
 
   if (initialPost == null) return <></>;
+
+  const distanceDate = formatDistanceToNowStrict(parseDate(post.date), {
+    locale: koLocale,
+  });
 
   return (
     <>
@@ -53,7 +59,7 @@ export function Header({ posts }: { posts: Post[] }) {
            * In practice this is not an issue because we revalidate the entire page over time
            * and because we will move this to a server component with template.tsx at some point */}
           <span suppressHydrationWarning={true}>
-            {post.date} ({ago(post.date, true)} ago)
+            {post.date} ({`${distanceDate} 전`})
           </span>
         </span>
 
@@ -87,7 +93,7 @@ function Views({ id, mutate, defaultValue }) {
     }
   });
 
-  return null
+  return null;
 
   // FIXME: views
   // return <>{views != null ? <span>{views} views</span> : null}</>;
