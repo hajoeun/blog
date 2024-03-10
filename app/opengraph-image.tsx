@@ -28,6 +28,9 @@ export default async function MainOG() {
   ).then(res => res.arrayBuffer());
 
   const posts = await getPosts();
+  const sortedPosts = [...posts].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
   return new ImageResponse(
     (
@@ -47,10 +50,11 @@ export default async function MainOG() {
           <div tw="flex w-full text-[26px] text-gray-400 mb-3">
             <div tw="w-24">date</div>
             <div tw="grow">title</div>
-            <div>views</div>
+            {/* FIXME: views */}
+            {/* <div>views</div> */}
           </div>
 
-          {posts.map((post, i) => (
+          {sortedPosts.map((post, i) => (
             <div
               key={post.id}
               tw="flex py-6 text-[26px] border-gray-300 border-t w-full"
@@ -62,7 +66,8 @@ export default async function MainOG() {
                   : ""}
               </div>
               <div tw="flex grow">{post.title}</div>
-              <div tw="flex text-gray-400 pl-7">{post?.viewsFormatted}</div>
+              {/* FIXME: views */}
+              {/* <div tw="flex text-gray-400 pl-7">{post?.viewsFormatted}</div> */}
             </div>
           ))}
         </main>
