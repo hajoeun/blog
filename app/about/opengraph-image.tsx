@@ -11,16 +11,16 @@ export default async function AboutOG() {
   ).then(res => res.arrayBuffer());
 
   // fonts
-  const inter300 = fetch(
+  const notoSans300 = fetch(
     new URL(
-      `../../node_modules/@fontsource/inter/files/inter-latin-300-normal.woff`,
+      `../../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-300-normal.woff`,
       import.meta.url
     )
   ).then(res => res.arrayBuffer());
 
-  const inter500 = fetch(
+  const notoSans500 = fetch(
     new URL(
-      `../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff`,
+      `../../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-500-normal.woff`,
       import.meta.url
     )
   ).then(res => res.arrayBuffer());
@@ -39,7 +39,7 @@ export default async function AboutOG() {
     (
       <div
         tw="flex p-10 h-full w-full bg-white flex-col"
-        style={font("Inter 300")}
+        style={font("Noto Sans 300")}
       >
         <main tw="flex grow pt-4 w-full justify-center items-center">
           <div tw="flex flex-row">
@@ -54,7 +54,7 @@ export default async function AboutOG() {
             </div>
 
             <div tw="flex flex-col px-10 grow text-[28px] h-70 justify-center">
-              <div tw="text-[64px] mb-7" style={font("Inter 500")}>
+              <div tw="text-[64px] mb-7" style={font("Noto Sans 500")}>
                 하조은
               </div>
               <div tw="flex mb-5" style={font("Roboto Mono 400")}>
@@ -86,12 +86,12 @@ export default async function AboutOG() {
       height: 630,
       fonts: [
         {
-          name: "Inter 300",
-          data: await inter300,
+          name: "Noto Sans 300",
+          data: await notoSans300,
         },
         {
-          name: "Inter 500",
-          data: await inter500,
+          name: "Noto Sans 500",
+          data: await notoSans500,
         },
         {
           name: "Roboto Mono 400",

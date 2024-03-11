@@ -6,16 +6,16 @@ import { getPosts } from "@/app/get-posts";
 
 export default async function MainOG() {
   // fonts
-  const inter300 = fetch(
+  const notoSans300 = fetch(
     new URL(
-      `../node_modules/@fontsource/inter/files/inter-latin-300-normal.woff`,
+      `../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-300-normal.woff`,
       import.meta.url
     )
   ).then(res => res.arrayBuffer());
 
-  const inter600 = fetch(
+  const notoSans600 = fetch(
     new URL(
-      `../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff`,
+      `../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-600-normal.woff`,
       import.meta.url
     )
   ).then(res => res.arrayBuffer());
@@ -34,16 +34,15 @@ export default async function MainOG() {
 
   return new ImageResponse(
     (
-      <div
-        tw="flex p-10 h-full w-full bg-white flex-col"
-        style={font("Inter 300")}
-      >
+      <div tw="flex p-10 h-full w-full bg-white flex-col">
         <header tw="flex text-[36px] w-full">
-          <div tw="font-bold" style={font("Inter 600")}>
+          <div tw="font-bold" style={font("Noto Sans 600")}>
             하조은의 블로그
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">hajoeun.com</div>
+          <div tw="text-[28px]" style={font("Noto Sans 300")}>
+            hajoeun.com
+          </div>
         </header>
 
         <main tw="flex mt-10 flex-col w-full" style={font("Roboto Mono 400")}>
@@ -78,12 +77,12 @@ export default async function MainOG() {
       height: 630,
       fonts: [
         {
-          name: "Inter 300",
-          data: await inter300,
+          name: "Noto Sans 300",
+          data: await notoSans300,
         },
         {
-          name: "Inter 600",
-          data: await inter600,
+          name: "Noto Sans 600",
+          data: await notoSans600,
         },
         {
           name: "Roboto Mono 400",

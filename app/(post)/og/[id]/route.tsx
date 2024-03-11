@@ -4,23 +4,23 @@ import { ImageResponse } from "next/og";
 import { getPosts } from "@/app/get-posts";
 
 // fonts
-const inter300 = fetch(
+const notoSans300 = fetch(
   new URL(
-    `../../../../node_modules/@fontsource/inter/files/inter-latin-300-normal.woff`,
+    `../../../../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-300-normal.woff`,
     import.meta.url
   )
 ).then(res => res.arrayBuffer());
 
-const inter500 = fetch(
+const notoSans600 = fetch(
   new URL(
-    `../../../../node_modules/@fontsource/inter/files/inter-latin-500-normal.woff`,
+    `../../../../node_modules/@fontsource/noto-sans-kr/files/noto-sans-kr-latin-600-normal.woff`,
     import.meta.url
   )
 ).then(res => res.arrayBuffer());
 
-const inter600 = fetch(
+const blackHanSans400 = fetch(
   new URL(
-    `../../../../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff`,
+    `../../../../node_modules/@fontsource/black-han-sans/files/black-han-sans-korean-400-normal.woff`,
     import.meta.url
   )
 ).then(res => res.arrayBuffer());
@@ -41,23 +41,22 @@ export async function GET(_req: Request, { params: { id } }) {
 
   return new ImageResponse(
     (
-      <div
-        tw="flex p-10 h-full w-full bg-white flex-col"
-        style={font("Inter 300")}
-      >
+      <div tw="flex p-10 h-full w-full bg-white flex-col">
         <header tw="flex text-[36px] w-full">
-          <div tw="font-bold" style={font("Inter 600")}>
+          <div tw="font-bold" style={font("Noto Sans 600")}>
             하조은의 블로그
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">hajoeun.com</div>
+          <div tw="text-[28px]" style={font("Noto Sans 300")}>
+            hajoeun.com
+          </div>
         </header>
 
         <main tw="flex grow pb-3 flex-col items-center justify-center">
           <div tw="flex">
             <div
               tw="bg-gray-100 p-8 text-7xl font-medium rounded-md text-center"
-              style={font("Inter 500")}
+              style={font("Black Han Sans 400")}
             >
               {post.title}
             </div>
@@ -77,16 +76,16 @@ export async function GET(_req: Request, { params: { id } }) {
       height: 630,
       fonts: [
         {
-          name: "Inter 300",
-          data: await inter300,
+          name: "Noto Sans 300",
+          data: await notoSans300,
         },
         {
-          name: "Inter 500",
-          data: await inter500,
+          name: "Noto Sans 600",
+          data: await notoSans600,
         },
         {
-          name: "Inter 600",
-          data: await inter600,
+          name: "Black Han Sans 400",
+          data: await blackHanSans400,
         },
         {
           name: "Roboto Mono 400",
