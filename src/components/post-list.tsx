@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState, Suspense } from "react";
 import Link from "next/link";
+import { Suspense, useMemo, useState } from "react";
 import useSWR from "swr";
+
 import { parseDate } from "@/src/utils/parse-date";
 
 type SortSetting = ["date" | "views", "desc" | "asc"];

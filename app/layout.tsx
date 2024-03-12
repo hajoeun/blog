@@ -1,12 +1,14 @@
 import "@/src/styles/globals.css";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
-import { themeEffect } from "@/src/utils/theme-effect";
-import { Analytics } from "../src/components/analytics";
-import { MainHeader } from "@/src/components/main-header";
+
 import { Footer } from "@/src/components/footer";
+import { MainHeader } from "@/src/components/main-header";
+import { themeEffect } from "@/src/utils/theme-effect";
+
+import { Analytics } from "../src/components/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,14 +1,16 @@
+import "./tweet.css";
+
 import { kv } from "@vercel/kv";
 import { type ReactNode, Suspense } from "react";
-import { type Tweet, getTweet } from "react-tweet/api";
 import {
   EmbeddedTweet,
   TweetNotFound,
-  TweetSkeleton,
   type TweetProps,
+  TweetSkeleton,
 } from "react-tweet";
+import { getTweet, type Tweet } from "react-tweet/api";
+
 import { Caption } from "./caption";
-import "./tweet.css";
 
 interface TweetArgs {
   id: string;

@@ -1,12 +1,13 @@
 "use client";
 
+import { formatDistanceToNowStrict } from "date-fns";
+import koLocale from "date-fns/locale/ko";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef } from "react";
 import useSWR from "swr";
+
 import type { Post } from "@/src/utils/get-posts";
 import { parseDate } from "@/src/utils/parse-date";
-import { formatDistanceToNowStrict } from "date-fns";
-import koLocale from "date-fns/locale/ko";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 

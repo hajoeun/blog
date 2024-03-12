@@ -1,6 +1,8 @@
-import { ThemeToggle } from "../utils/theme-toggle";
-import { Logo } from "./logo";
 import Link from "next/link";
+
+import { ThemeToggle } from "@/src/utils/theme-toggle";
+
+import { Logo } from "./logo";
 
 export function MainHeader() {
   return (

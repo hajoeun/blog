@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
-import { themeEffect } from "./theme-effect";
 import va from "@vercel/analytics";
+import { useCallback, useEffect, useState } from "react";
+
+import { themeEffect } from "./theme-effect";
 
 export function ThemeToggle() {
   // a `null` preference implies auto

@@ -1,5 +1,6 @@
-import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+
 import postsData from "./src/posts.json" assert { type: "json" };
 
 const withMDX = createMDX({

@@ -1,6 +1,7 @@
-import postsData from "@/src/posts.json";
-import commaNumber from "comma-number";
 import { kv } from "@vercel/kv";
+import commaNumber from "comma-number";
+
+import postsData from "@/src/posts.json";
 
 export type Post = {
   id: string;

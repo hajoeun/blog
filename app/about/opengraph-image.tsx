@@ -1,9 +1,10 @@
 export const runtime = "edge";
 export const revalidate = 60;
 
-import { ImageResponse } from "next/og";
-import { getPosts } from "@/src/utils/get-posts";
 import commaNumber from "comma-number";
+import { ImageResponse } from "next/og";
+
+import { getPosts } from "@/src/utils/get-posts";
 
 export default async function AboutOG() {
   const hajoeunPhoto = fetch(
