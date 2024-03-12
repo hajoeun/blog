@@ -1,4 +1,4 @@
-import { getPosts } from "@/app/get-posts";
+import { getPosts } from "@/src/utils/get-posts";
 
 export async function GET() {
   const posts = await getPosts();

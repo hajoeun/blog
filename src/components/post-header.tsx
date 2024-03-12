@@ -3,14 +3,14 @@
 import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef } from "react";
 import useSWR from "swr";
-import type { Post } from "@/app/get-posts";
-import { parseDate } from "@/app/parse-date";
+import type { Post } from "@/src/utils/get-posts";
+import { parseDate } from "@/src/utils/parse-date";
 import { formatDistanceToNowStrict } from "date-fns";
 import koLocale from "date-fns/locale/ko";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export function Header({ posts }: { posts: Post[] }) {
+export function PostHeader({ posts }: { posts: Post[] }) {
   const segments = useSelectedLayoutSegments();
   // segments can be:
   // date/post

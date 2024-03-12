@@ -1,9 +1,9 @@
-import { Posts } from "./posts";
-import { getPosts } from "./get-posts";
+import { PostList } from "../src/components/post-list";
+import { getPosts } from "../src/utils/get-posts";
 
 export const revalidate = 60;
 
 export default async function Home() {
   const posts = await getPosts();
-  return <Posts posts={posts} />;
+  return <PostList posts={posts} />;
 }

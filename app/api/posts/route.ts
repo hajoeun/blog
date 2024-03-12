@@ -1,4 +1,4 @@
-import { getPosts } from "@/app/get-posts";
+import { getPosts } from "@/src/utils/get-posts";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";

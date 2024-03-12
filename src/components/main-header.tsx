@@ -1,8 +1,8 @@
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "../utils/theme-toggle";
 import { Logo } from "./logo";
 import Link from "next/link";
 
-export function Header() {
+export function MainHeader() {
   return (
     <header className="flex mb-5 md:mb-10 items-center">
       <Logo />

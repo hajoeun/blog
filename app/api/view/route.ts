@@ -1,6 +1,6 @@
 export const runtime = "edge";
 
-import postsData from "@/app/posts.json";
+import postsData from "@/src/posts.json";
 import commaNumber from "comma-number";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";

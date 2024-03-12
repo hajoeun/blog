@@ -3,13 +3,13 @@
 import { useMemo, useState, Suspense } from "react";
 import Link from "next/link";
 import useSWR from "swr";
-import { parseDate } from "@/app/parse-date";
+import { parseDate } from "@/src/utils/parse-date";
 
 type SortSetting = ["date" | "views", "desc" | "asc"];
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export function Posts({ posts: initialPosts }) {
+export function PostList({ posts: initialPosts }) {
   const [sort, setSort] = useState<SortSetting>(["date", "desc"]);
   const { data: posts } = useSWR("/api/posts", fetcher, {
     fallbackData: initialPosts,

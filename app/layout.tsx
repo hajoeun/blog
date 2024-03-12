@@ -1,12 +1,12 @@
-import "./globals.css";
+import "@/src/styles/globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
-import { themeEffect } from "./theme-effect";
-import { Analytics } from "./analytics";
-import { Header } from "./header";
-import { Footer } from "./footer";
+import { themeEffect } from "@/src/utils/theme-effect";
+import { Analytics } from "../src/components/analytics";
+import { MainHeader } from "@/src/components/main-header";
+import { Footer } from "@/src/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
 
       <body className="dark:text-gray-100 max-w-2xl m-auto">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
-          <Header />
+          <MainHeader />
           {children}
         </main>
 

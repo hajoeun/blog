@@ -1,4 +1,4 @@
-import postsData from "./posts.json";
+import postsData from "@/src/posts.json";
 import commaNumber from "comma-number";
 import { kv } from "@vercel/kv";
 

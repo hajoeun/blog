@@ -10,7 +10,6 @@ import {
 import { Caption } from "./caption";
 import "./tweet.css";
 
-
 interface TweetArgs {
   id: string;
   caption: ReactNode;
