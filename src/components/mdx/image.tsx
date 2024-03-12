@@ -1,8 +1,9 @@
-import sizeOf from "image-size";
-import { join } from "path";
 import { readFile } from "fs/promises";
-import { Caption } from "./caption";
+import sizeOf from "image-size";
 import NextImage from "next/image";
+import { join } from "path";
+
+import { Caption } from "./caption";
 
 export async function Image({
   src,

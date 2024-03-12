@@ -1,6 +1,7 @@
 export const runtime = "edge";
 
 import { ImageResponse } from "next/og";
+
 import { getPosts } from "@/src/utils/get-posts";
 
 // fonts

@@ -1,5 +1,5 @@
-import { PostHeader } from "../../src/components/post-header";
-import { getPosts } from "../../src/utils/get-posts";
+import { PostHeader } from "@/src/components/post-header";
+import { getPosts } from "@/src/utils/get-posts";
 
 export const revalidate = 60;
 
