@@ -16,19 +16,6 @@ export default withMDX({
   images: {
     remotePatterns: [],
   },
-  headers() {
-    return [
-      {
-        source: "/images/profile.png",
-        headers: [
-          {
-            key: "cache-control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ];
-  },
   redirects() {
     const posts = postsData.posts;
     const redirectPosts = posts.map(post => ({

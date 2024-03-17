@@ -3,8 +3,6 @@
   "license": "MIT",
   "description": "hajoeun.com (blog)",
   "dependencies": {
-    "@fontsource/noto-sans-kr": "^5.0.18",
-    "@fontsource/roboto-mono": "^4.5.10",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.1.3",

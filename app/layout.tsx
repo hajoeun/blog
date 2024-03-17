@@ -14,10 +14,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "하조은의 블로그",
-  description: "하조은 | 당신 근처의 개발자",
+  description: "하조은 | Ha Joeun",
   openGraph: {
     title: "하조은의 블로그",
-    description: "하조은 | 당신 근처의 개발자",
+    description: "하조은 | Ha Joeun",
     url: "https://hajoeun.com",
     siteName: "하조은의 블로그",
   },
@@ -40,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="ko"
       className={`${inter.className} antialiased`}
       suppressHydrationWarning={true}
     >
