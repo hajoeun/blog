@@ -23,7 +23,12 @@ export default withMDX({
       destination: `/${post.date.split(".")[0]}/${post.id}`,
       permanent: true,
     }));
+    const redirectOgImages = posts.map(post => ({
+      source: `/og/${post.id}`,
+      destination: `/opengraph-image.png`,
+      permanent: false,
+    }));
 
-    return [...redirectPosts];
+    return [...redirectPosts, ...redirectOgImages];
   },
 });
