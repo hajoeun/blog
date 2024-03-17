@@ -1,47 +1,20 @@
-/** @jsx jsx */
-import { jsx, Link } from "theme-ui"
-import useSiteMetadata from "../hooks/use-site-metadata"
+import { A } from "@/src/components/mdx/a";
 
-const Footer = () => {
-  const { siteTitle } = useSiteMetadata()
-
+export function Footer() {
   return (
-    <footer
-      sx={{
-        boxSizing: `border-box`,
-        display: `flex`,
-        justifyContent: `space-between`,
-        mt: [6],
-        color: `secondary`,
-        a: {
-          variant: `links.secondary`,
-        },
-        flexDirection: [`column`, `column`, `row`],
-        variant: `dividers.top`,
-      }}
-    >
-      <div>
-        &copy; {new Date().getFullYear()} by {siteTitle}. All rights reserved.
+    <footer className="p-6 pt-3 pb-6 flex text-xs text-center mt-3 dark:text-gray-400 text-gray-500 font-mono">
+      <div className="grow text-left">
+        하조은의 블로그 (
+        <A target="_blank" href="https://twitter.com/hajoeun_">
+          @hajoeun
+        </A>
+        )
       </div>
       <div>
-        <Link
-          aria-label="Link to the theme's GitHub repository"
-          href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog"
-        >
-          Theme
-        </Link>
-        {` `}
-        by
-        {` `}
-        <Link
-          aria-label="Link to the theme author's website"
-          href="https://www.lekoarts.de/en"
-        >
-          LekoArts
-        </Link>
+        <A target="_blank" href="https://github.com/hajoeun/blog">
+          Source
+        </A>
       </div>
     </footer>
-  )
+  );
 }
-
-export default Footer
