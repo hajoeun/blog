@@ -14,10 +14,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "하조은의 블로그",
-  description: "하조은 | Ha Joeun",
+  description: "hajoeun.com",
   openGraph: {
     title: "하조은의 블로그",
-    description: "하조은 | Ha Joeun",
+    description: "hajoeun.com",
     url: "https://hajoeun.com",
     siteName: "하조은의 블로그",
   },
