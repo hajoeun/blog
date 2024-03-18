@@ -12,7 +12,6 @@
     "@vercel/analytics": "^1.0.0",
     "@vercel/kv": "^1.0.1",
     "@vercel/speed-insights": "^1.0.10",
-    "comma-number": "^2.1.0",
     "date-fns": "^2.29.3",
     "image-size": "^1.0.2",
     "load-script": "^1.0.0",
@@ -28,7 +27,6 @@
     "word-wrap": "^1.2.5"
   },
   "devDependencies": {
-    "@types/comma-number": "^2.1.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",

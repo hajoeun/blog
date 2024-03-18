@@ -1,11 +1,11 @@
 export const runtime = "edge";
 
 import { kv } from "@vercel/kv";
-import commaNumber from "comma-number";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 import postsData from "@/src/posts.json";
+import { commaNumber } from "@/src/utils/comma-number";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
