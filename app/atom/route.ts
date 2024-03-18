@@ -1,4 +1,5 @@
 import { getPosts } from "@/src/utils/get-posts";
+import { parseDate } from "@/src/utils/parse-date";
 
 export async function GET() {
   const posts = await getPosts();
@@ -10,7 +11,7 @@ export async function GET() {
     <subtitle>Essays</subtitle>
     <link href="https://hajoeun.com/atom" rel="self"/>
     <link href="https://hajoeun.com/"/>
-    <updated>${posts[0].date}</updated>
+    <updated>${parseDate(posts[0].date).toISOString()}</updated>
     <id>https://hajoeun.com/</id>
     <author>
       <name>하조은</name>
@@ -24,7 +25,7 @@ export async function GET() {
           <id>${post.id}</id>
           <title>${post.title}</title>
           <link href="https://hajoeun.com/${dateMatch[0]}/${post.id}"/>
-          <updated>${post.date}</updated>
+          <updated>${parseDate(post.date).toISOString()}</updated>
         </entry>`;
     }, "")}
   </feed>`,
