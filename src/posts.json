@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "id": "daily-fp-pick",
+      "date": "2017.03.07",
+      "title": "오늘의 함수 - pick"
+    },
+    {
       "id": "clean-code-0",
       "date": "2020.01.13",
       "title": "야생 개발자, 클린 코드를 만나다"
