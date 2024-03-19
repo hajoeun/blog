@@ -1,4 +1,5 @@
 import "@/src/styles/globals.css";
+import "@/src/styles/codes.css";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";

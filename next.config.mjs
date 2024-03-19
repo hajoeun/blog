@@ -1,4 +1,5 @@
 import createMDX from "@next/mdx";
+import rehypePrettyCode from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 
 import postsData from "./src/posts.json" assert { type: "json" };
@@ -6,6 +7,7 @@ import postsData from "./src/posts.json" assert { type: "json" };
 const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrettyCode],
   },
 });
 

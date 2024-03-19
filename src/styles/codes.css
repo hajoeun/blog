@@ -1,0 +1,11 @@
+/* Ref: https://github.com/Likilee/kilee.dev/blob/e60ce99d1ba47a7bb28a042cb93f927851f894bb/styles/global.css#L77-L85 */
+
+/* Fenced Code block - hide horizontal scrollbar: webkit */
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fenced Code block - hide horizontal scrollbar: mozila */
+pre {
+  scrollbar-width: none;
+}
