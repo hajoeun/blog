@@ -3,7 +3,6 @@
 import { formatDistanceToNowStrict } from "date-fns";
 import koLocale from "date-fns/locale/ko";
 import { useSelectedLayoutSegments } from "next/navigation";
-import { useEffect, useRef } from "react";
 import useSWR from "swr";
 
 import type { Post } from "@/src/utils/get-posts";
@@ -63,39 +62,7 @@ export function PostHeader({ posts }: { posts: Post[] }) {
             {post.date} ({`${distanceDate} 전`})
           </span>
         </span>
-
-        <span className="pr-1.5">
-          <Views
-            id={post.id}
-            mutate={mutate}
-            defaultValue={post.viewsFormatted}
-          />
-        </span>
       </p>
     </>
   );
-}
-
-function Views({ id, mutate, defaultValue }) {
-  const views = defaultValue;
-  const didLogViewRef = useRef(false);
-
-  useEffect(() => {
-    if ("development" === process.env.NODE_ENV) return;
-    if (!didLogViewRef.current) {
-      const url = "/api/view?incr=1&id=" + encodeURIComponent(id);
-      fetch(url)
-        .then(res => res.json())
-        .then(obj => {
-          mutate(obj);
-        })
-        .catch(console.error);
-      didLogViewRef.current = true;
-    }
-  });
-
-  return null;
-
-  // FIXME: views
-  // return <>{views != null ? <span>{views} views</span> : null}</>;
 }

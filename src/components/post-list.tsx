@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 import { parseDate } from "@/src/utils/parse-date";
 
-type SortSetting = ["date" | "views", "desc" | "asc"];
+type SortSetting = ["date", "desc" | "asc"];
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
@@ -21,13 +21,6 @@ export function PostList({ posts: initialPosts }) {
     setSort(sort => [
       "date",
       sort[0] !== "date" || sort[1] === "asc" ? "desc" : "asc",
-    ]);
-  }
-
-  function sortViews() {
-    setSort(sort => [
-      sort[0] === "views" && sort[1] === "asc" ? "date" : "views",
-      sort[0] !== "views" ? "desc" : sort[1] === "asc" ? "desc" : "asc",
     ]);
   }
 
@@ -47,22 +40,6 @@ export function PostList({ posts: initialPosts }) {
             {sort[0] === "date" && sort[1] === "asc" && "↑"}
           </button>
           <span className="grow pl-2">title</span>
-          {/* FIXME: views */}
-          {/* <button
-            onClick={sortViews}
-            className={`
-                  h-9
-                  pl-4
-                  ${
-                    sort[0] === "views"
-                      ? "text-gray-700 dark:text-gray-400"
-                      : ""
-                  }
-                `}
-          >
-            views
-            {sort[0] === "views" ? (sort[1] === "asc" ? "↑" : "↓") : ""}
-          </button> */}
         </header>
 
         <List posts={posts} sort={sort} />
@@ -72,17 +49,13 @@ export function PostList({ posts: initialPosts }) {
 }
 
 function List({ posts, sort }) {
-  // sort can be ["date", "desc"] or ["views", "desc"] for example
+  // sort can be ["date", "desc"] for example
   const sortedPosts = useMemo(() => {
     const [sortKey, sortDirection] = sort;
     return [...posts].sort((a, b) => {
-      if (sortKey === "date") {
-        return sortDirection === "desc"
-          ? parseDate(b.date).getTime() - parseDate(a.date).getTime()
-          : parseDate(a.date).getTime() - parseDate(b.date).getTime();
-      } else {
-        return sortDirection === "desc" ? b.views - a.views : a.views - b.views;
-      }
+      return sortDirection === "desc"
+        ? parseDate(b.date).getTime() - parseDate(a.date).getTime()
+        : parseDate(a.date).getTime() - parseDate(b.date).getTime();
     });
   }, [posts, sort]);
 
@@ -116,11 +89,6 @@ function List({ posts, sort }) {
                   )}
 
                   <span className="grow dark:text-gray-100">{post.title}</span>
-
-                  {/* FIXME: views */}
-                  {/* <span className="text-gray-500 dark:text-gray-500 text-xs">
-                    {post.viewsFormatted}
-                  </span> */}
                 </span>
               </span>
             </Link>
