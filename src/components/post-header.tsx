@@ -3,31 +3,17 @@
 import { formatDistanceToNowStrict } from "date-fns";
 import koLocale from "date-fns/locale/ko";
 import { useSelectedLayoutSegments } from "next/navigation";
-import useSWR from "swr";
 
 import type { Post } from "@/src/utils/get-posts";
 import { parseDate } from "@/src/utils/parse-date";
-
-const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export function PostHeader({ posts }: { posts: Post[] }) {
   const segments = useSelectedLayoutSegments();
   // segments can be:
   // date/post
   // lang/date/post
-  const initialPost = posts.find(
-    post => post.id === segments[segments.length - 1]
-  );
-  const { data: post, mutate } = useSWR(
-    `/api/view?id=${initialPost?.id ?? ""}`,
-    fetcher,
-    {
-      fallbackData: initialPost,
-      refreshInterval: 5000,
-    }
-  );
-
-  if (initialPost == null) return <></>;
+  const post = posts.find(post => post.id === segments[segments.length - 1]);
+  if (post == null) return <></>;
 
   const distanceDate = formatDistanceToNowStrict(parseDate(post.date), {
     locale: koLocale,

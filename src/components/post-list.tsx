@@ -2,27 +2,19 @@
 
 import Link from "next/link";
 import { Suspense, useMemo, useState } from "react";
-import useSWR from "swr";
 
 import { parseDate } from "@/src/utils/parse-date";
 
 type SortSetting = ["date", "desc" | "asc"];
 
-const fetcher = (url: string) => fetch(url).then(res => res.json());
-
-export function PostList({ posts: initialPosts }) {
+export function PostList({ posts }) {
   const [sort, setSort] = useState<SortSetting>(["date", "desc"]);
-  const { data: posts } = useSWR("/api/posts", fetcher, {
-    fallbackData: initialPosts,
-    refreshInterval: 5000,
-  });
-
-  function sortDate() {
+  const sortDate = () => {
     setSort(sort => [
       "date",
       sort[0] !== "date" || sort[1] === "asc" ? "desc" : "asc",
     ]);
-  }
+  };
 
   return (
     <Suspense fallback={null}>
@@ -51,7 +43,7 @@ export function PostList({ posts: initialPosts }) {
 function List({ posts, sort }) {
   // sort can be ["date", "desc"] for example
   const sortedPosts = useMemo(() => {
-    const [sortKey, sortDirection] = sort;
+    const [_, sortDirection] = sort;
     return [...posts].sort((a, b) => {
       return sortDirection === "desc"
         ? parseDate(b.date).getTime() - parseDate(a.date).getTime()
