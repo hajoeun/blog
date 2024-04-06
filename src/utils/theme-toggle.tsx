@@ -1,15 +1,13 @@
-"use client";
+'use client';
 
-import va from "@vercel/analytics";
-import { useCallback, useEffect, useState } from "react";
+import va from '@vercel/analytics';
+import { useCallback, useEffect, useState } from 'react';
 
-import { themeEffect } from "./theme-effect";
+import { themeEffect } from './theme-effect';
 
 export function ThemeToggle() {
   // a `null` preference implies auto
-  const [preference, setPreference] = useState<undefined | null | string>(
-    undefined
-  );
+  const [preference, setPreference] = useState<undefined | null | string>(undefined);
   const [currentTheme, setCurrentTheme] = useState<null | string>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isHoveringOverride, setIsHoveringOverride] = useState(false);
@@ -20,18 +18,18 @@ export function ThemeToggle() {
   }, []);
 
   useEffect(() => {
-    setPreference(localStorage.getItem("theme"));
+    setPreference(localStorage.getItem('theme'));
     const current = themeEffect();
     setCurrentTheme(current);
 
-    const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    matchMedia.addEventListener("change", onMediaChange);
-    return () => matchMedia.removeEventListener("change", onMediaChange);
+    const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
+    matchMedia.addEventListener('change', onMediaChange);
+    return () => matchMedia.removeEventListener('change', onMediaChange);
   }, [onMediaChange]);
 
   const onStorageChange = useCallback(
     (event: StorageEvent) => {
-      if (event.key === "theme") setPreference(event.newValue);
+      if (event.key === 'theme') setPreference(event.newValue);
     },
     [setPreference]
   );
@@ -43,8 +41,8 @@ export function ThemeToggle() {
   }, [preference]);
 
   useEffect(() => {
-    window.addEventListener("storage", onStorageChange);
-    return () => window.removeEventListener("storage", onStorageChange);
+    window.addEventListener('storage', onStorageChange);
+    return () => window.removeEventListener('storage', onStorageChange);
   });
 
   return (
@@ -62,11 +60,7 @@ export function ThemeToggle() {
             md:inline
           `}
         >
-          {preference === null
-            ? "System"
-            : preference === "dark"
-            ? "Dark"
-            : "Light"}
+          {preference === null ? 'System' : preference === 'dark' ? 'Dark' : 'Light'}
         </span>
       )}
 
@@ -77,9 +71,7 @@ export function ThemeToggle() {
       <button
         aria-label="Toggle theme"
         className={`inline-flex ${
-          isHovering && !isHoveringOverride
-            ? "bg-gray-200 dark:bg-[#313131]"
-            : ""
+          isHovering && !isHoveringOverride ? 'bg-gray-200 dark:bg-[#313131]' : ''
         } active:bg-gray-300 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2 
           bg-gray-200
           dark:bg-[#313131]
@@ -88,29 +80,27 @@ export function ThemeToggle() {
           dark:[&_.moon-icon]:hidden
           dark:[&_.sun-icon]:inline
         }`}
-        onClick={ev => {
+        onClick={(ev) => {
           ev.preventDefault();
           // prevent the hover state from rendering
           setIsHoveringOverride(true);
 
-          let newPreference: string | null =
-            currentTheme === "dark" ? "light" : "dark";
-          const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-            .matches
-            ? "dark"
-            : "light";
+          let newPreference: string | null = currentTheme === 'dark' ? 'light' : 'dark';
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
 
           // if the user has their current OS theme as a preference (instead of auto)
           // and they click the toggle, we want to switch to reset the preference
           if (preference !== null && systemTheme === currentTheme) {
             newPreference = null;
-            localStorage.removeItem("theme");
+            localStorage.removeItem('theme');
           } else {
-            localStorage.setItem("theme", newPreference);
+            localStorage.setItem('theme', newPreference);
           }
 
-          va.track("Theme toggle", {
-            Theme: newPreference === null ? "system" : newPreference,
+          va.track('Theme toggle', {
+            Theme: newPreference === null ? 'system' : newPreference,
           });
 
           setPreference(newPreference);

@@ -1,50 +1,41 @@
-import "@/src/styles/globals.css";
-import "@/src/styles/codes.css";
+import '@/styles/globals.css';
+import '@/styles/codes.css';
 
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Inter } from 'next/font/google';
 
-import { Footer } from "@/src/components/footer";
-import { MainHeader } from "@/src/components/main-header";
-import { themeEffect } from "@/src/utils/theme-effect";
+import { Footer } from '@/components/footer';
+import { MainHeader } from '@/components/main-header';
+import { themeEffect } from '@/utils/theme-effect';
 
-import { Analytics } from "../src/components/analytics";
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "하조은의 블로그",
-  description: "hajoeun.com",
+  title: '하조은의 블로그',
+  description: 'hajoeun.com',
   openGraph: {
-    title: "하조은의 블로그",
-    description: "hajoeun.com",
-    url: "https://hajoeun.com",
-    siteName: "하조은의 블로그",
+    title: '하조은의 블로그',
+    description: 'hajoeun.com',
+    url: 'https://hajoeun.com',
+    siteName: '하조은의 블로그',
   },
   twitter: {
-    card: "summary_large_image",
-    site: "@hajoeun_",
-    creator: "@hajoeun_",
+    card: 'summary_large_image',
+    site: '@hajoeun_',
+    creator: '@hajoeun_',
   },
-  metadataBase: new URL("https://hajoeun.com"),
+  metadataBase: new URL('https://hajoeun.com'),
 };
 
 export const viewport = {
-  themeColor: "transparent",
+  themeColor: 'transparent',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="ko"
-      className={`${inter.className} antialiased`}
-      suppressHydrationWarning={true}
-    >
+    <html lang="ko" className={`${inter.className} antialiased`} suppressHydrationWarning={true}>
       <head>
         <script
           dangerouslySetInnerHTML={{

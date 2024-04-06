@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import Balancer from "react-wrap-balancer";
+import type { ReactNode } from 'react';
+import Balancer from 'react-wrap-balancer';
 
 export function Caption({ children }: { children: ReactNode }) {
   return (

@@ -1,9 +1,9 @@
-const plugin = require("tailwindcss/plugin");
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
-  content: ["./(app|src)/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: 'class',
+  content: ['./(app|src)/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {},
   },
@@ -11,7 +11,7 @@ module.exports = {
     plugin(function ({ addVariant }) {
       // this class is applied to `html` by `app/theme-efect.ts`, similar
       // to how `dark:` gets enabled
-      addVariant("theme-system", ".theme-system &");
+      addVariant('theme-system', '.theme-system &');
     }),
   ],
   future: {

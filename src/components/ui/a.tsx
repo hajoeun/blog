@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-export function A({ children, className = "", href, ...props }) {
-  if (href[0] === "#") {
+export function A({ children, className = '', href, ...props }) {
+  if (href[0] === '#') {
     return (
       <a
         href={href}

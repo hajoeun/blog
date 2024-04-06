@@ -19,7 +19,7 @@ export function Figure({ wide = false, children }) {
       before:absolute
       before:z-[-1]
     `
-        : ""
+        : ''
     }
   `}
     >

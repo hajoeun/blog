@@ -1,24 +1,24 @@
-import type { MDXComponents } from "mdx/types";
+import type { MDXComponents } from 'mdx/types';
 
-import { A as a } from "@/src/components/mdx/a";
-import { Blockquote as blockquote } from "@/src/components/mdx/blockquote";
-import { Callout } from "@/src/components/mdx/callout";
-import { Caption } from "@/src/components/mdx/caption";
-import { Code as code } from "@/src/components/mdx/code";
-import { Figure } from "@/src/components/mdx/figure";
-import { FootNote,FootNotes, Ref } from "@/src/components/mdx/footnotes";
-import { H1 as h1 } from "@/src/components/mdx/h1";
-import { H2 as h2 } from "@/src/components/mdx/h2";
-import { H3 as h3 } from "@/src/components/mdx/h3";
-import { HR as hr } from "@/src/components/mdx/hr";
-import { Image } from "@/src/components/mdx/image";
-import { LI as li } from "@/src/components/mdx/li";
-import { OL as ol } from "@/src/components/mdx/ol";
-import { P as p } from "@/src/components/mdx/p";
-import { Snippet } from "@/src/components/mdx/snippet";
-import { Tweet } from "@/src/components/mdx/tweet";
-import { UL as ul } from "@/src/components/mdx/ul";
-import { YouTube } from "@/src/components/mdx/youtube";
+import { A as a } from '@/components/ui/a';
+import { Blockquote as blockquote } from '@/components/ui/blockquote';
+import { Callout } from '@/components/ui/callout';
+import { Caption } from '@/components/ui/caption';
+import { Code as code } from '@/components/ui/code';
+import { Figure } from '@/components/ui/figure';
+import { FootNote, FootNotes, Ref } from '@/components/ui/footnotes';
+import { H1 as h1 } from '@/components/ui/h1';
+import { H2 as h2 } from '@/components/ui/h2';
+import { H3 as h3 } from '@/components/ui/h3';
+import { HR as hr } from '@/components/ui/hr';
+import { Image } from '@/components/ui/image';
+import { LI as li } from '@/components/ui/li';
+import { OL as ol } from '@/components/ui/ol';
+import { P as p } from '@/components/ui/p';
+import { Snippet } from '@/components/ui/snippet';
+import { Tweet } from '@/components/ui/tweet';
+import { UL as ul } from '@/components/ui/ul';
+import { YouTube } from '@/components/ui/youtube';
 
 export function useMDXComponents(components: MDXComponents) {
   return {

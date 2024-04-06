@@ -1,5 +1,5 @@
-import { getPosts } from "@/src/utils/get-posts";
-import { parseDate } from "@/src/utils/parse-date";
+import { getPosts } from '@/utils/get-posts';
+import { parseDate } from '@/utils/parse-date';
 
 export async function GET() {
   const posts = await getPosts();
@@ -20,7 +20,7 @@ export async function GET() {
       </author>
       ${posts.slice(0, max).reduce((acc, post) => {
         const dateMatch = post.date.match(/\d{4}/);
-        if (!dateMatch) return "";
+        if (!dateMatch) return '';
         return `${acc}
           <entry>
             <id>${post.id}</id>
@@ -28,12 +28,12 @@ export async function GET() {
             <link href="https://hajoeun.com/${dateMatch[0]}/${post.id}"/>
             <updated>${parseDate(post.date).toISOString()}</updated>
           </entry>`;
-      }, "")}
+      }, '')}
     </feed>
   `,
     {
       headers: {
-        "Content-Type": "application/atom+xml; charset=utf-8",
+        'Content-Type': 'application/atom+xml; charset=utf-8',
       },
     }
   );

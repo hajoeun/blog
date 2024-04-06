@@ -1,4 +1,4 @@
-import { A } from "@/src/components/mdx/a";
+import { A } from '@/components/ui/a';
 
 export function Footer() {
   return (
