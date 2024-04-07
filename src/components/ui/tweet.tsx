@@ -1,16 +1,11 @@
-import "./tweet.css";
+import './tweet.css';
 
-import { kv } from "@vercel/kv";
-import { type ReactNode, Suspense } from "react";
-import {
-  EmbeddedTweet,
-  TweetNotFound,
-  type TweetProps,
-  TweetSkeleton,
-} from "react-tweet";
-import { getTweet, type Tweet } from "react-tweet/api";
+import { kv } from '@vercel/kv';
+import { type ReactNode, Suspense } from 'react';
+import { EmbeddedTweet, TweetNotFound, type TweetProps, TweetSkeleton } from 'react-tweet';
+import { getTweet, type Tweet } from 'react-tweet/api';
 
-import { Caption } from "./caption";
+import { Caption } from './caption';
 
 interface TweetArgs {
   id: string;
@@ -29,14 +24,14 @@ async function getAndCacheTweet(id: string): Promise<Tweet | undefined> {
       return tweet;
     }
   } catch (error) {
-    console.error("tweet fetch error", error);
+    console.error('tweet fetch error', error);
   }
 
   const cachedTweet: Tweet | null = await kv.get(`tweet:${id}`);
 
   // @ts-ignore
   if (!cachedTweet || cachedTweet.tombstone) return undefined;
-  console.log("tweet cache hit", id);
+  console.log('tweet cache hit', id);
 
   return cachedTweet;
 }

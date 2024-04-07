@@ -1,5 +1,5 @@
-"use client";
-import YT from "react-youtube";
+'use client';
+import YT from 'react-youtube';
 
 export function YouTube(props: any) {
   return (

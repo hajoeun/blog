@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function Logo() {
   const pathname = usePathname();
   return (
     <span className="text-md md:text-lg whitespace-nowrap font-bold">
-      {pathname === "/" ? (
+      {pathname === '/' ? (
         <span className="cursor-default pr-2">하조은의 블로그</span>
       ) : (
         <Link

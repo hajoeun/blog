@@ -1,7 +1,7 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-import { PostHeader } from "@/src/components/post-header";
-import { getPosts } from "@/src/utils/get-posts";
+import { PostHeader } from '@/components/post-header';
+import { getPosts } from '@/utils/get-posts';
 
 export const revalidate = 60;
 

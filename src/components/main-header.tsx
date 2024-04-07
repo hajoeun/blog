@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { ThemeToggle } from "@/src/utils/theme-toggle";
+import { ThemeToggle } from '@/utils/theme-toggle';
 
-import { Logo } from "./logo";
+import { Logo } from './logo';
 
 export function MainHeader() {
   return (
@@ -23,7 +23,7 @@ export function MainHeader() {
           target="_blank"
           className="inline-flex hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
         >
-          <TweetIcon style={{ marginRight: 4 }} /> Follow{" "}
+          <TweetIcon style={{ marginRight: 4 }} /> Follow{' '}
           <span className="hidden md:inline">&nbsp;me</span>
         </a>
       </nav>
@@ -33,13 +33,7 @@ export function MainHeader() {
 
 function TweetIcon(props: any) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={16}
-      height={16}
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         fillRule="nonzero"

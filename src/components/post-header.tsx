@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { formatDistanceToNowStrict } from "date-fns";
-import koLocale from "date-fns/locale/ko";
-import { useSelectedLayoutSegments } from "next/navigation";
+import { formatDistanceToNowStrict } from 'date-fns';
+import koLocale from 'date-fns/locale/ko';
+import { useSelectedLayoutSegments } from 'next/navigation';
 
-import type { Post } from "@/src/utils/get-posts";
-import { parseDate } from "@/src/utils/parse-date";
+import type { Post } from '@/utils/get-posts';
+import { parseDate } from '@/utils/parse-date';
 
 export function PostHeader({ posts }: { posts: Post[] }) {
   const segments = useSelectedLayoutSegments();
   // segments can be:
   // date/post
   // lang/date/post
-  const post = posts.find(post => post.id === segments[segments.length - 1]);
+  const post = posts.find((post) => post.id === segments[segments.length - 1]);
   if (post == null) return <></>;
 
   const distanceDate = formatDistanceToNowStrict(parseDate(post.date), {
@@ -21,9 +21,7 @@ export function PostHeader({ posts }: { posts: Post[] }) {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-1 dark:text-gray-100">
-        {post.title}
-      </h1>
+      <h1 className="text-2xl font-bold mb-1 dark:text-gray-100">{post.title}</h1>
 
       <p className="font-mono flex text-xs text-gray-500 dark:text-gray-500">
         <span className="flex-grow">

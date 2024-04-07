@@ -1,4 +1,4 @@
-import postsData from "@/src/posts.json";
+import postsData from '@/posts.json';
 
 export type Post = {
   id: string;

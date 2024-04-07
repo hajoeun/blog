@@ -1,5 +1,5 @@
-import { PostList } from "@/src/components/post-list";
-import { getPosts } from "@/src/utils/get-posts";
+import { PostList } from '@/components/post-list';
+import { getPosts } from '@/utils/get-posts';
 
 export const revalidate = 60;
 
