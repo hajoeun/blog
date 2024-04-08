@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Suspense, useMemo, useState } from 'react';
 
 import { parseDate } from '@/utils/parse-date';
+import { getYear } from '@/utils/get-year';
 
 type SortSetting = ['date', 'desc' | 'asc'];
 
@@ -78,8 +79,4 @@ function List({ posts, sort }) {
       })}
     </ul>
   );
-}
-
-function getYear(date: string) {
-  return parseDate(date).getFullYear();
 }
