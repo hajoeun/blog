@@ -1,7 +1,7 @@
-export const metadata = {
-  title: "함수와 주석 그리고 오류 처리",
-  description: "클린 코드: 협업을 위한 코드 3",
-};
+---
+title: 함수와 주석 그리고 오류 처리
+description: '클린 코드: 협업을 위한 코드 3'
+---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/hajoeun/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
 
@@ -16,7 +16,7 @@ export const metadata = {
 함수는 코드를 문장처럼 읽히게 하는데 가장 큰 역할을 합니다. 간단한 사례를 통해 프로그래밍이 글짓기와 비슷해질 수 있는 이유를 살펴보겠습니다.
 
 ```tsx
-const renderSubFigure = subFigure => subFigure && <figure>{subFigure}</figure>;
+const renderSubFigure = (subFigure) => subFigure && <figure>{subFigure}</figure>;
 ```
 
 간단한 컴포넌트를 그려주는 함수입니다. 여기서 포인트는 `data`의 존재 여부에 따라 엘리먼트를 그릴지 말지 검사하는 부분입니다. `&&` 연산자를 이용해 값이 참으로 평가되어 존재한다고 판단되면 `<figure>`를 그리도록 하고 있죠. 이에 대해서도 리뷰가 남습니다.
@@ -27,22 +27,20 @@ const renderSubFigure = subFigure => subFigure && <figure>{subFigure}</figure>;
 
 ```tsx
 // !!를 사용해 참/거짓을 평가하고 있음을 명시적으로 드러냄
-const renderSubFigure = subFigure =>
-  !!subFigure && <figure>{subFigure}</figure>;
+const renderSubFigure = (subFigure) => !!subFigure && <figure>{subFigure}</figure>;
 ```
 
 ```tsx
 // optional을 사용해 값의 존재 유무에 따라 동작하는 코드임을 명시적으로 드러냄
-const renderSubFigure = subFigure =>
-  optional(subFigure, it => <figure>{it}</figure>);
+const renderSubFigure = (subFigure) => optional(subFigure, (it) => <figure>{it}</figure>);
 ```
 
 두 방법 모두 명시적으로 어떤 행위를 하는지 표현하고 있습니다. optional 함수에 대한 이해가 있다면 두번째 경우가 조금 더 읽기 좋은 코드가 될 것 같습니다. 함수를 하나만 더 사용한다면 더 명시적으로 표현할 수도 있죠.
 
 ```tsx
-const renderFigure = it => <figure>{it}</figure>;
+const renderFigure = (it) => <figure>{it}</figure>;
 
-const renderSubFigure = subFigure => optional(subFigure, renderFigure);
+const renderSubFigure = (subFigure) => optional(subFigure, renderFigure);
 ```
 
 `renderSubFigure` 함수 내부가 이제 이렇게 읽힙니다. "optional한 subFigure 값이 존재한다면 figure를 render 한다"
@@ -60,21 +58,21 @@ const renderSubFigure = subFigure => optional(subFigure, renderFigure);
 우리가 바꿔둔 아래의 함수는 유저가 필터를 적용할 때마다 실행되는 코드입니다. 어떤 필터가 적용했는지 로그를 남길 수 있는 코드를 추가해달라는 요구 사항을 반영하려면 어떻게 해야할까요?
 
 ```js
-on_click("#is_prime", ({ currentTarget }) => {
-  const has_class_all = has_class(currentTarget, "all");
-  let filter_name = ""; // 1
+on_click('#is_prime', ({ currentTarget }) => {
+  const has_class_all = has_class(currentTarget, 'all');
+  let filter_name = ''; // 1
 
   if (has_class_all) {
-    const is_prime = loan => loan.is_prime;
+    const is_prime = (loan) => loan.is_prime;
     const filtered_loans = current.loans.filter(is_prime);
 
-    filter_name = "prime_only"; // 2
+    filter_name = 'prime_only'; // 2
     set_state({ loans: filtered_loans });
   } else {
     const compare_function = compare_functions[current.sort_by];
     const sorted_loans = origin.loans.sort(compare_function);
 
-    filter_name = "all"; // 3
+    filter_name = 'all'; // 3
     set_state({ loans: sorted_loans });
   }
 
@@ -86,11 +84,11 @@ on_click("#is_prime", ({ currentTarget }) => {
 이렇게 기존의 코드에 네 줄의 코드에 넣어서 원하는 로그를 남길 수 있습니다. 아주 쉽죠. 하지만 문제는 비즈니스 로직을 읽는 중에 흐름을 끊고 있다는 점입니다. "'all' 클래스를 가졌다면 현재 데이터(current.loans) 중에서 필터링하고, **필터 이름을 정해준다.** 그렇지 않다면 기존 데이터(origin.loans)를 정렬하고, **필터 이름을 정해준다.** 그리고 **로그를 남긴 뒤**, 랜더링한다." 코드를 읽는 중에 다른 논리가 계속 끼어들고 있죠. 두가지 논리가 뒤섞여 있습니다. 정리가 필요해보이네요.
 
 ```js
-on_click("#is_prime", ({ currentTarget }) => {
-  const has_class_all = has_class(currentTarget, "all");
+on_click('#is_prime', ({ currentTarget }) => {
+  const has_class_all = has_class(currentTarget, 'all');
 
   if (has_class_all) {
-    const is_prime = loan => loan.is_prime;
+    const is_prime = (loan) => loan.is_prime;
     const filtered_loans = current.loans.filter(is_prime);
 
     set_state({ loans: filtered_loans });
@@ -105,8 +103,8 @@ on_click("#is_prime", ({ currentTarget }) => {
   event_log(has_class_all); // 1
 });
 
-const event_log = has_class_all => {
-  const filter_name = has_class_all ? "prime_only" : "all";
+const event_log = (has_class_all) => {
+  const filter_name = has_class_all ? 'prime_only' : 'all';
   console.log(filter_name);
 };
 ```
