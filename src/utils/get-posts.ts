@@ -34,7 +34,7 @@ export const getPostBySlug = (slug: string): Post => {
     content,
     title: data.title,
     description: data.description,
-    date: data.openGraph.publishedTime,
+    date: data.date,
   };
 };
 

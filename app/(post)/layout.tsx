@@ -5,10 +5,6 @@ import { getPosts } from '@/utils/get-posts';
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  openGraph: {},
-};
-
 export default async function Layout({ children }) {
   const posts = getPosts();
 
