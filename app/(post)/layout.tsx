@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Layout({ children }) {
-  const posts = await getPosts();
+  const posts = getPosts();
 
   return (
     <article className="text-gray-800 dark:text-gray-300 mb-10">

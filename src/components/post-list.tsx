@@ -3,12 +3,17 @@
 import Link from 'next/link';
 import { Suspense, useMemo, useState } from 'react';
 
+import type { Post } from '@/utils/get-posts';
 import { getYear } from '@/utils/get-year';
 import { parseDate } from '@/utils/parse-date';
 
 type SortSetting = ['date', 'desc' | 'asc'];
 
-export function PostList({ posts }) {
+type Props = {
+  posts: Post[];
+};
+
+export function PostList({ posts }: Props) {
   const [sort, setSort] = useState<SortSetting>(['date', 'desc']);
   const sortDate = () => {
     setSort((sort) => ['date', sort[0] !== 'date' || sort[1] === 'asc' ? 'desc' : 'asc']);
@@ -36,7 +41,12 @@ export function PostList({ posts }) {
   );
 }
 
-function List({ posts, sort }) {
+type ListProps = {
+  posts: Post[];
+  sort: SortSetting;
+};
+
+function List({ posts, sort }: ListProps) {
   // sort can be ["date", "desc"] for example
   const sortedPosts = useMemo(() => {
     const [_, sortDirection] = sort;
@@ -55,8 +65,8 @@ function List({ posts, sort }) {
         const lastOfYear = !sortedPosts[i + 1] || getYear(sortedPosts[i + 1].date) !== year;
 
         return (
-          <li key={post.id}>
-            <Link href={`/${getYear(post.date)}/${post.id}`}>
+          <li key={post.slug}>
+            <Link href={post.slug}>
               <span
                 className={`flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#242424] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]
                 ${!firstOfYear ? 'border-t-0' : ''}

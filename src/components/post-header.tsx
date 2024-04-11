@@ -1,13 +1,13 @@
 'use client';
 
-import { formatDistanceToNowStrict } from 'date-fns';
-import koLocale from 'date-fns/locale/ko';
 import { useSelectedLayoutSegments } from 'next/navigation';
 
 import type { Post } from '@/utils/get-posts';
 import { parseDate } from '@/utils/parse-date';
 
-export function PostHeader({ posts }: { posts: Post[] }) {
+type Props = { posts: Post[] };
+
+export function PostHeader({ posts }: Props) {
   const segments = useSelectedLayoutSegments();
   // segments can be:
   // date/post
@@ -15,9 +15,13 @@ export function PostHeader({ posts }: { posts: Post[] }) {
   const post = posts.find((post) => post.id === segments[segments.length - 1]);
   if (post == null) return <></>;
 
-  const distanceDate = formatDistanceToNowStrict(parseDate(post.date), {
-    locale: koLocale,
-  });
+  const displayDate = parseDate(post.date)
+    .toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    })
+    .replaceAll(' ', '');
 
   return (
     <>
@@ -25,26 +29,11 @@ export function PostHeader({ posts }: { posts: Post[] }) {
 
       <p className="font-mono flex text-xs text-gray-500 dark:text-gray-500">
         <span className="flex-grow">
-          <span className="hidden md:inline">
-            <span>
-              <a
-                href="https://twitter.com/hajoeun_"
-                className="hover:text-gray-800 dark:hover:text-gray-400"
-                target="_blank"
-              >
-                @hajoeun
-              </a>
-            </span>
-            <span className="mx-2">|</span>
-          </span>
-
           {/* since we will pre-render the relative time, over time it
            * will diverge with what the user relative time is, so we suppress the warning.
            * In practice this is not an issue because we revalidate the entire page over time
            * and because we will move this to a server component with template.tsx at some point */}
-          <span suppressHydrationWarning={true}>
-            {post.date} ({`${distanceDate} 전`})
-          </span>
+          <span suppressHydrationWarning={true}>{displayDate}</span>
         </span>
       </p>
     </>
