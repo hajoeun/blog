@@ -17,8 +17,9 @@ export default withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   swcMinify: true,
   reactStrictMode: true,
-  images: {
-    remotePatterns: [],
+  poweredByHeader: false,
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   redirects() {
     const posts = postsData.posts;
