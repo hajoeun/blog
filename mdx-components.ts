@@ -16,7 +16,6 @@ import { LI as li } from '@/components/ui/li';
 import { OL as ol } from '@/components/ui/ol';
 import { P as p } from '@/components/ui/p';
 import { Snippet } from '@/components/ui/snippet';
-import { Tweet } from '@/components/ui/tweet';
 import { UL as ul } from '@/components/ui/ul';
 import { YouTube } from '@/components/ui/youtube';
 
@@ -36,7 +35,6 @@ export function useMDXComponents(components: MDXComponents) {
     pre: Snippet,
     img: Image,
     blockquote,
-    Tweet,
     Image,
     Figure,
     Snippet,

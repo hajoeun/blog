@@ -1,8 +1,7 @@
 import { getPosts } from '@/utils/get-posts';
-import { parseDate } from '@/utils/parse-date';
 
 export async function GET() {
-  const posts = await getPosts();
+  const posts = getPosts();
   const max = 100; // max returned posts
   return new Response(
     `
@@ -12,21 +11,19 @@ export async function GET() {
       <subtitle>hajoeun.com</subtitle>
       <link href="https://hajoeun.com/atom" rel="self"/>
       <link href="https://hajoeun.com/"/>
-      <updated>${parseDate(posts[0].date).toISOString()}</updated>
+      <updated>${posts[0].date}</updated>
       <id>https://hajoeun.com/</id>
       <author>
         <name>하조은</name>
         <email>hello@hajoeun.dev</email>
       </author>
       ${posts.slice(0, max).reduce((acc, post) => {
-        const dateMatch = post.date.match(/\d{4}/);
-        if (!dateMatch) return '';
         return `${acc}
           <entry>
             <id>${post.id}</id>
             <title>${post.title}</title>
-            <link href="https://hajoeun.com/${dateMatch[0]}/${post.id}"/>
-            <updated>${parseDate(post.date).toISOString()}</updated>
+            <link href="https://hajoeun.com/${post.slug}"/>
+            <updated>${post.date}</updated>
           </entry>`;
       }, '')}
     </feed>

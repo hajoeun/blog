@@ -1,7 +1,8 @@
-export const metadata = {
-  title: "야생 개발자, 클린 코드를 만나다",
-  description: "클린 코드: 협업을 위한 코드 1",
-};
+---
+title: 야생 개발자, 클린 코드를 만나다
+description: '클린 코드: 협업을 위한 코드 1'
+date: '2020-01-13T00:00:00.000Z'
+---
 
 [클린 코드를 주제로 했던 강의](https://speakerdeck.com/hajoeun/200107-ssafy)를 글로 정리합니다. (강의 내용과 글의 코드가 상이할 수 있습니다.)
 
@@ -19,13 +20,13 @@ export const metadata = {
 
 ```js
 evt1(
-  "#is_prime",
+  '#is_prime',
   ({ currentTarget }) =>
     rend(
-      (current.loans = has_c(currentTarget, "all")
-        ? current.loans.filter(loan => loan.is_prime)
+      (current.loans = has_c(currentTarget, 'all')
+        ? current.loans.filter((loan) => loan.is_prime)
         : origin.loans.sort(compare[current.sort_by]))
-    ) && toggle_c(currentTarget, "all")
+    ) && toggle_c(currentTarget, 'all')
 );
 ```
 
@@ -37,13 +38,13 @@ evt1(
 
 ```js
 evt1(
-  "#is_prime",
+  '#is_prime',
   ({ currentTarget }) =>
     rend(
-      (current.loans = has_c(currentTarget, "all")
-        ? current.loans.filter(loan => loan.is_prime)
+      (current.loans = has_c(currentTarget, 'all')
+        ? current.loans.filter((loan) => loan.is_prime)
         : origin.loans.sort(compare[current.sort_by]))
-    ) && toggle_c(currentTarget, "all")
+    ) && toggle_c(currentTarget, 'all')
 );
 ```
 
