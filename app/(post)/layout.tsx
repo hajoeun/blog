@@ -1,5 +1,3 @@
-import { Metadata } from 'next';
-
 import { PostHeader } from '@/components/post-header';
 import { getPosts } from '@/utils/get-posts';
 
