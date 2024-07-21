@@ -24,7 +24,7 @@ export async function GET(_, { params: { id } }) {
       >
         <div
           style={{
-            marginLeft: 120,
+            marginLeft: 160,
             marginRight: 190,
             paddingBottom: 190,
             display: 'flex',
