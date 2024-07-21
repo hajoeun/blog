@@ -9,7 +9,7 @@ export async function GET(_, { params: { id } }) {
   const post = posts.find((post) => post.id === id);
 
   const fontData = await fetch(
-    new URL('../../../public/fonts/nanum-square-extra-bold.ttf', import.meta.url)
+    new URL('../../../public/fonts/nanum-square-extra-bold.otf', import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -28,8 +28,9 @@ export async function GET(_, { params: { id } }) {
       >
         <div
           style={{
-            marginLeft: 190,
+            marginLeft: 120,
             marginRight: 190,
+            paddingBottom: 190,
             display: 'flex',
             fontSize: 130,
             fontFamily: 'Nanum Square',
