@@ -3,6 +3,7 @@
   "description": "hajoeun.com (blog)",
   "license": "MIT",
   "scripts": {
+    "prebuild": "node generate-posts.mjs",
     "build": "next build",
     "dev": "next dev",
     "start": "next start"
