@@ -8,10 +8,6 @@ export async function GET(_, { params: { id } }) {
   );
   const post = posts.find((post) => post.id === id);
 
-  const fontData = await fetch(
-    new URL('../../../public/fonts/nanum-square-extra-bold.otf', import.meta.url)
-  ).then((res) => res.arrayBuffer());
-
   return new ImageResponse(
     (
       <div
@@ -33,7 +29,6 @@ export async function GET(_, { params: { id } }) {
             paddingBottom: 190,
             display: 'flex',
             fontSize: 130,
-            fontFamily: 'Nanum Square',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             color: '#fefcfc',
@@ -48,13 +43,6 @@ export async function GET(_, { params: { id } }) {
     {
       width: 1920,
       height: 1080,
-      fonts: [
-        {
-          name: 'Nanum Square',
-          data: fontData,
-          style: 'normal',
-        },
-      ],
     }
   );
 }
