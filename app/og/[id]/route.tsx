@@ -3,16 +3,14 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
 export async function GET(_, { params: { id } }) {
-  const posts = fetch(new URL('../../../src/databases/posts.json', import.meta.url)).then((res) =>
-    res.json()
+  const posts = await fetch(new URL('../../../src/databases/posts.json', import.meta.url)).then(
+    (res) => res.json()
   );
-  const postsData = await posts;
-  const post = postsData.find((post) => post.id === id);
+  const post = posts.find((post) => post.id === id);
 
-  const font = fetch(
-    new URL('../../../public/fonts/kaisei-tokumin-bold.ttf', import.meta.url)
+  const fontData = await fetch(
+    new URL('../../../public/fonts/nanum-square-extra-bold.ttf', import.meta.url)
   ).then((res) => res.arrayBuffer());
-  const fontData = await font;
 
   return new ImageResponse(
     (
@@ -24,7 +22,8 @@ export async function GET(_, { params: { id } }) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'url(https://hajoeun.com/opengraph-image.png)',
+          backgroundImage: 'url(https://hajoeun.com/og-background.png)',
+          backgroundColor: '#242424',
         }}
       >
         <div
@@ -33,11 +32,11 @@ export async function GET(_, { params: { id } }) {
             marginRight: 190,
             display: 'flex',
             fontSize: 130,
-            fontFamily: 'Kaisei Tokumin',
+            fontFamily: 'Nanum Square',
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
-            color: 'white',
-            lineHeight: '120px',
+            color: '#fefcfc',
+            lineHeight: '180px',
             whiteSpace: 'pre-wrap',
           }}
         >
@@ -50,7 +49,7 @@ export async function GET(_, { params: { id } }) {
       height: 1080,
       fonts: [
         {
-          name: 'Kaisei Tokumin',
+          name: 'Nanum Square',
           data: fontData,
           style: 'normal',
         },
