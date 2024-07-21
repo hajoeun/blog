@@ -14,7 +14,7 @@ export type Post = {
 
 const postRoot = join(process.cwd(), 'app/(post)');
 
-export const getPostSlugs = () => {
+const getPostSlugs = () => {
   const dirs = fs.readdirSync(postRoot, { recursive: true });
   const paths = dirs.map((path) => path);
 
