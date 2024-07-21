@@ -1,13 +1,17 @@
-import { getPostBySlug } from '@/utils/get-posts';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export async function GET(_, { params: { slug } }) {
-  const post = await getPostBySlug(slug);
-  const font = fetch(new URL('../../public/fonts/kaisei-tokumin-bold.ttf', import.meta.url)).then(
-    (res) => res.arrayBuffer()
+export async function GET(_, { params: { id } }) {
+  const posts = fetch(new URL('../../../src/databases/posts.json', import.meta.url)).then((res) =>
+    res.json()
   );
+  const postsData = await posts;
+  const post = postsData.find((post) => post.id === id);
+
+  const font = fetch(
+    new URL('../../../public/fonts/kaisei-tokumin-bold.ttf', import.meta.url)
+  ).then((res) => res.arrayBuffer());
   const fontData = await font;
 
   return new ImageResponse(

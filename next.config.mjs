@@ -4,7 +4,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-import postsData from './src/databases/posts.json' assert { type: 'json' };
+import postsData from './src/databases/legacy-posts.json' assert { type: 'json' };
 
 const withMDX = createMDX({
   options: {
