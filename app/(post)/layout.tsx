@@ -1,8 +1,6 @@
 import { PostHeader } from '@/components/post-header';
 import { getPosts } from '@/utils/get-posts';
 
-export const revalidate = 60;
-
 export default async function Layout({ children }) {
   const posts = getPosts();
 
