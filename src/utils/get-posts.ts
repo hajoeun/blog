@@ -9,9 +9,11 @@ export type Post = {
   title: string;
   description: string;
   date: string;
+  content: string;
+  image?: string;
 };
 
-const postRoot = join(process.cwd(), 'app/(post)');
+const postRoot = join(process.cwd(), 'src/posts');
 
 const getPostSlugs = () => {
   const dirs = fs.readdirSync(postRoot, { recursive: true });
@@ -22,9 +24,9 @@ const getPostSlugs = () => {
 
 const getPostBySlug = (slug: string): Post => {
   const [year, id] = slug.split('/');
-  const fullPath = join(postRoot, `${slug}/page.mdx`);
+  const fullPath = join(postRoot, slug);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data } = matter(fileContents);
+  const { data, content } = matter(fileContents);
 
   return {
     id,
@@ -33,6 +35,8 @@ const getPostBySlug = (slug: string): Post => {
     title: data.title,
     description: data.description,
     date: data.date,
+    content,
+    image: data.openGraph?.images[0],
   };
 };
 

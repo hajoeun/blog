@@ -1,5 +1,3 @@
-import type { MDXComponents } from 'mdx/types';
-
 import { A as a } from '@/components/ui/a';
 import { Blockquote as blockquote } from '@/components/ui/blockquote';
 import { Callout } from '@/components/ui/callout';
@@ -18,31 +16,29 @@ import { P as p } from '@/components/ui/p';
 import { Snippet } from '@/components/ui/snippet';
 import { UL as ul } from '@/components/ui/ul';
 import { YouTube } from '@/components/ui/youtube';
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 
-export function useMDXComponents(components: MDXComponents) {
-  return {
-    ...components,
-    a,
-    h1,
-    h2,
-    h3,
-    p,
-    ol,
-    ul,
-    li,
-    hr,
-    code,
-    pre: Snippet,
-    img: Image,
-    blockquote,
-    Image,
-    Figure,
-    Snippet,
-    Caption,
-    Callout,
-    YouTube,
-    Ref,
-    FootNotes,
-    FootNote,
-  };
-}
+export default {
+  a,
+  h1,
+  h2,
+  h3,
+  p,
+  ol,
+  ul,
+  li,
+  hr,
+  code,
+  pre: Snippet,
+  // img: Image,
+  blockquote,
+  // Image,
+  Figure,
+  Snippet,
+  Caption,
+  Callout,
+  YouTube,
+  Ref,
+  FootNotes,
+  FootNote,
+};

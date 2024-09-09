@@ -1,20 +1,9 @@
-'use client';
-
-import { useSelectedLayoutSegments } from 'next/navigation';
-
 import type { Post } from '@/utils/get-posts';
 import { parseDate } from '@/utils/parse-date';
 
-type Props = { posts: Post[] };
+type Props = { post: Post };
 
-export function PostHeader({ posts }: Props) {
-  const segments = useSelectedLayoutSegments();
-  // segments can be:
-  // date/post
-  // lang/date/post
-  const post = posts.find((post) => post.id === segments[segments.length - 1]);
-  if (post == null) return <></>;
-
+export function PostHeader({ post }: Props) {
   const displayDate = parseDate(post.date)
     .toLocaleDateString('ko-KR', {
       year: 'numeric',
