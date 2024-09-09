@@ -1,8 +1,6 @@
 import { getPosts } from '@/utils/get-posts';
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
 export async function GET(_, { params: { id } }) {
   const posts = getPosts();
   const post = posts.find((post) => post.id === id);
