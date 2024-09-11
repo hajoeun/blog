@@ -15,7 +15,7 @@ export async function GET() {
       <id>https://hajoeun.com/</id>
       <author>
         <name>하조은</name>
-        <email>hello@hajoeun.dev</email>
+        <email>hello@hajoeun.com</email>
       </author>
       ${posts.slice(0, max).reduce((acc, post) => {
         return `${acc}
