@@ -16,7 +16,6 @@ import { P as p } from '@/components/ui/p';
 import { Snippet } from '@/components/ui/snippet';
 import { UL as ul } from '@/components/ui/ul';
 import { YouTube } from '@/components/ui/youtube';
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 
 export default {
   a,
@@ -32,7 +31,7 @@ export default {
   pre: Snippet,
   // img: Image,
   blockquote,
-  // Image,
+  Image,
   Figure,
   Snippet,
   Caption,

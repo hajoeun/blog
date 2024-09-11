@@ -12,7 +12,6 @@ export const Snippet = async ({ children, caption = null }) => {
   return (
     <div className="my-6">
       <div dangerouslySetInnerHTML={{ __html: out }} />
-
       {caption != null ? <Caption>{caption}</Caption> : null}
     </div>
   );

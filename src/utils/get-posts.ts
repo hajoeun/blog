@@ -19,12 +19,14 @@ const getPostSlugs = () => {
   const dirs = fs.readdirSync(postRoot, { recursive: true });
   const paths = dirs.map((path) => path);
 
-  return paths.filter((path) => path.split('/').length === 2);
+  return paths
+    .filter((path) => path.split('/').length === 2)
+    .map((path) => path.replace(/\.mdx$/, ''));
 };
 
 const getPostBySlug = (slug: string): Post => {
   const [year, id] = slug.split('/');
-  const fullPath = join(postRoot, slug);
+  const fullPath = join(postRoot, `${slug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 

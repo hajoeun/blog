@@ -29,7 +29,7 @@ const Post = async ({ params }) => {
   return (
     <article className="text-gray-800 dark:text-gray-300 mb-10">
       <PostHeader post={post} />
-      {MDXRemote({ components, source: post.content })}
+      <MDXRemote source={post.content} components={components} />
     </article>
   );
 };
