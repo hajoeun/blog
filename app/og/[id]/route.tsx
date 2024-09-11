@@ -1,12 +1,10 @@
+import { getPosts } from '@/utils/get-posts';
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
 export async function GET(_, { params: { id } }) {
-  const posts = await fetch(new URL('../../../src/databases/posts.json', import.meta.url)).then(
-    (res) => res.json()
-  );
+  const posts = getPosts();
   const post = posts.find((post) => post.id === id);
+  const title = post?.title || '하조은의 블로그';
 
   return new ImageResponse(
     (
@@ -36,7 +34,7 @@ export async function GET(_, { params: { id } }) {
             whiteSpace: 'pre-wrap',
           }}
         >
-          {post.title}
+          {title}
         </div>
       </div>
     ),
