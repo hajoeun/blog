@@ -31,4 +31,13 @@ export default withMDX({
 
     return [...redirectPosts];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        port: '',
+      },
+    ],
+  },
 });
