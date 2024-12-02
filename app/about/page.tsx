@@ -1,8 +1,13 @@
 import Image from 'next/image';
 
 import { SocialCard } from '@/components/social-card';
+import { YouTubeSubscribeButton } from '@/components/youtube-subscribe-button';
+import { getYouTubeSubscriberCount, getYouTubeVideos } from '@/utils/get-youtube-data';
 
-export default function Page() {
+export default async function Page() {
+  const youTubeSubscriberCount = await getYouTubeSubscriberCount();
+  const youTubeVideos = await getYouTubeVideos();
+
   return (
     <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#1C1C1C]">
       <div className="mx-auto max-w-2xl px-4 py-8">
@@ -40,13 +45,25 @@ export default function Page() {
                 />
                 <span className="font-medium text-gray-900 dark:text-gray-100">하조은조하</span>
               </div>
-              <button className="rounded-full bg-red-600 px-4 py-1.5 text-sm font-medium text-white">
-                Subscribe 339
-              </button>
+              <YouTubeSubscribeButton youTubeSubscriberCount={youTubeSubscriberCount} />
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-video rounded-lg bg-gray-100 dark:bg-gray-800" />
+              {youTubeVideos.map((v, i) => (
+                <a
+                  key={i}
+                  href={`https://www.youtube.com/watch?v=${v.videoId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aspect-video rounded-lg bg-gray-100 dark:bg-gray-800 overflow-hidden"
+                >
+                  <Image
+                    src={v.thumbnail}
+                    alt={v.title}
+                    width={320}
+                    height={180}
+                    className="object-cover w-full h-full rounded-lg"
+                  />
+                </a>
               ))}
             </div>
           </SocialCard>
