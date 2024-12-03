@@ -50,4 +50,3 @@ export async function getLinkedInFollowers() {
     await browser.close();
   }
 }
-
