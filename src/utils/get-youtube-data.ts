@@ -34,7 +34,7 @@ export const getYouTubeVideos = async () => {
     throw new Error('YOUTUBE_API_KEY 또는 YOUTUBE_CHANNEL_ID가 설정되지 않았습니다.');
   }
 
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&maxResults=6&key=${apiKey}`;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&maxResults=4&key=${apiKey}`;
 
   try {
     const response = await fetch(url);
