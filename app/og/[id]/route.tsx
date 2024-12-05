@@ -1,5 +1,6 @@
-import { getPosts } from '@/utils/get-posts';
 import { ImageResponse } from 'next/og';
+
+import { getPosts } from '@/utils/get-posts';
 
 export async function GET(_, { params: { id } }) {
   const posts = getPosts();

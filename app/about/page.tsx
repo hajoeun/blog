@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Suspense } from 'react';
 
 import { SocialCard } from '@/components/social-card';
 import { YouTubeSocialCard } from '@/components/youtube-social-card';

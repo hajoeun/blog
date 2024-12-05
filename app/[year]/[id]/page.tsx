@@ -1,9 +1,10 @@
-import components from '@/components/ui';
-import { PostHeader } from '@/components/post-header';
-import { getPosts } from '@/utils/get-posts';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { Metadata } from 'next';
+
+import { PostHeader } from '@/components/post-header';
+import components from '@/components/ui';
+import { getPosts } from '@/utils/get-posts';
 
 export const generateMetadata = ({ params }): Metadata => {
   const posts = getPosts();
