@@ -9,14 +9,10 @@ const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' | 'caree
     rows: [socialStats],
   } = use(sql`
     select followers
-    from social_stats s1
+    from social_stats
     where platform = ${platform}
-      and timestamp = (
-          select max(timestamp)
-          from social_stats s2
-          where s2.platform = s1.platform
-      )
-    order by id asc
+    order by timestamp desc
+    limit 1
   `);
 
   const followerCount = new Intl.NumberFormat('en-US', { notation: 'compact' }).format(
