@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import { PropsWithChildren, Suspense, use } from 'react';
 
+import { SocialCard } from '@/components/social-card';
 import {
   getYouTubeSubscriberCount,
   getYouTubeVideos,
   YouTubeChannelId,
 } from '@/utils/get-youtube-data';
-
-import { SocialCard } from './social-card';
 
 export const YouTubeSocialCard = () => {
   return (
