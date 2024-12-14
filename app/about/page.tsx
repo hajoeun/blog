@@ -14,7 +14,7 @@ export default async function Page() {
       <div className="mx-auto max-w-2xl py-8">
         {/* Profile Section */}
         <div className="flex flex-col items-center space-y-4">
-          <div className="relative h-32 w-32 overflow-hidden rounded-full bg-gray-100">
+          <div className="relative h-24 w-24 overflow-hidden rounded-full bg-gray-100">
             <Image
               src="/assets/thumbnail.png"
               alt="Profile"
