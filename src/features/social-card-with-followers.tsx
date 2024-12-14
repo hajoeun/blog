@@ -4,7 +4,7 @@ import { Suspense, use } from 'react';
 
 import { SocialCard } from '@/components/social-card';
 
-const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' }) => {
+const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' | 'careerly' }) => {
   const {
     rows: [socialStats],
   } = use(sql`
@@ -25,7 +25,7 @@ const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' }) => {
 
   return (
     <span className="text-sm">
-      <b>{followerCount}</b> Followers
+      <b>{followerCount}</b> followers
     </span>
   );
 };
@@ -38,7 +38,13 @@ export const ThreadSocialCard = () => {
         target="_blank"
         className="flex items-center space-x-3"
       >
-        <Image src="/assets/threads.png" alt="Threads" width={32} height={32} className="rounded" />
+        <Image
+          src="/assets/threads.png"
+          alt="Threads"
+          width={32}
+          height={32}
+          className="rounded-lg"
+        />
         <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
           <span className="font-medium">Threads</span>
           <Suspense>
@@ -63,12 +69,38 @@ export const LinkedInSocialCard = () => {
           alt="LinkedIn"
           width={32}
           height={32}
-          className="rounded"
+          className="rounded-lg"
         />
         <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
           <span className="font-medium">LinkedIn</span>
           <Suspense>
             <FollowerCount platform="linkedin" />
+          </Suspense>
+        </div>
+      </a>
+    </SocialCard>
+  );
+};
+
+export const CareerlySocialCard = () => {
+  return (
+    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+      <a
+        href="https://careerly.co.kr/@hajoeun"
+        target="_blank"
+        className="flex items-center space-x-3"
+      >
+        <Image
+          src="/assets/careerly.png"
+          alt="Careerly"
+          width={32}
+          height={32}
+          className="rounded-lg"
+        />
+        <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
+          <span className="font-medium">Careerly</span>
+          <Suspense>
+            <FollowerCount platform="careerly" />
           </Suspense>
         </div>
       </a>

@@ -1,7 +1,11 @@
 import Image from 'next/image';
 
 import { SocialCard } from '@/components/social-card';
-import { LinkedInSocialCard, ThreadSocialCard } from '@/features/social-card-with-followers';
+import {
+  CareerlySocialCard,
+  LinkedInSocialCard,
+  ThreadSocialCard,
+} from '@/features/social-card-with-followers';
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
 
 export default async function Page() {
@@ -33,6 +37,8 @@ export default async function Page() {
           <ThreadSocialCard />
 
           <LinkedInSocialCard />
+
+          <CareerlySocialCard />
 
           {/* Instagram Card */}
           <SocialCard className="bg-white dark:bg-[#2C2C2C]">
