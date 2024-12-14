@@ -1,7 +1,8 @@
 import Image from 'next/image';
 
 import { SocialCard } from '@/components/social-card';
-import { YouTubeSocialCard } from '@/components/youtube-social-card';
+import { LinkedInSocialCard, ThreadSocialCard } from '@/features/social-card-with-followers';
+import { YouTubeSocialCard } from '@/features/youtube-social-card';
 
 export default async function Page() {
   return (
@@ -27,44 +28,11 @@ export default async function Page() {
 
         {/* Social Links Section */}
         <div className="mt-8 space-y-4">
-          {/* YouTube Card */}
           <YouTubeSocialCard />
 
-          {/* Threads Card */}
-          <SocialCard className="bg-white dark:bg-[#2C2C2C]">
-            <a
-              href="https://www.threads.net/@hajoeun_"
-              target="_blank"
-              className="flex items-center space-x-3"
-            >
-              <Image
-                src="/assets/threads.png"
-                alt="Threads"
-                width={32}
-                height={32}
-                className="rounded"
-              />
-              <span className="font-medium text-gray-900 dark:text-gray-100">Threads</span>
-            </a>
-          </SocialCard>
+          <ThreadSocialCard />
 
-          {/* Threads Card */}
-          <SocialCard className="bg-white dark:bg-[#2C2C2C]">
-            <a
-              href="https://www.linkedin.com/in/hajoeun/"
-              target="_blank"
-              className="flex items-center space-x-3"
-            >
-              <Image
-                src="/assets/linkedin.png"
-                alt="LinkedIn"
-                width={32}
-                height={32}
-                className="rounded"
-              />
-              <span className="font-medium text-gray-900 dark:text-gray-100">LinkedIn</span>
-            </a>
-          </SocialCard>
+          <LinkedInSocialCard />
 
           {/* Instagram Card */}
           <SocialCard className="bg-white dark:bg-[#2C2C2C]">
@@ -80,7 +48,7 @@ export default async function Page() {
                 height={32}
                 className="rounded"
               />
-              <span className="font-medium text-gray-900 dark:text-gray-100">Threads</span>
+              <span className="font-medium text-gray-900 dark:text-gray-100">Instagram</span>
             </a>
           </SocialCard>
         </div>
