@@ -2,6 +2,8 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
 
+import { mdxToHtml } from './mdx-to-html';
+
 export type Post = {
   id: string;
   year: string;
@@ -47,4 +49,14 @@ export const getPosts = () => {
   const posts = slugs.map(getPostBySlug).sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
   return posts;
+};
+
+export const getPostsWithHtmlContent = async () => {
+  const posts = getPosts();
+  return Promise.all(
+    posts.map(async (post) => {
+      const content = post.content ? await mdxToHtml(post.content) : '';
+      return { ...post, content };
+    })
+  );
 };
