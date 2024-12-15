@@ -37,6 +37,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko" className={`${inter.className} antialiased`} suppressHydrationWarning={true}>
       <head>
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Atom Feed"
+          href="https://hajoeun.com/atom"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(${themeEffect.toString()})();`,
