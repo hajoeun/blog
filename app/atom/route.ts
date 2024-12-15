@@ -11,21 +11,30 @@ export async function GET() {
       <subtitle>hajoeun.com</subtitle>
       <link href="https://hajoeun.com/atom" rel="self"/>
       <link href="https://hajoeun.com/"/>
-      <updated>${posts[0].date}</updated>
+      <updated>${new Date(posts[0].date).toISOString()}</updated>
       <id>https://hajoeun.com/</id>
       <author>
         <name>하조은</name>
         <email>hello@hajoeun.com</email>
       </author>
-      ${posts.slice(0, max).reduce((acc, post) => {
-        return `${acc}
+      ${posts
+        .slice(0, max)
+        .map((post) => {
+          const content = post.content || '';
+          return `
           <entry>
-            <id>${post.id}</id>
+            <id>https://hajoeun.com/${post.slug}</id>
             <title>${post.title}</title>
             <link href="https://hajoeun.com/${post.slug}"/>
-            <updated>${post.date}</updated>
-          </entry>`;
-      }, '')}
+            <updated>${new Date(post.date).toISOString()}</updated>
+            <content type="html"><![CDATA[${content}]]></content>
+            <author>
+              <name>하조은</name>
+            </author>
+          </entry>
+        `;
+        })
+        .join('')}
     </feed>
   `,
     {
