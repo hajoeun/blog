@@ -4,8 +4,7 @@ export async function GET() {
   const posts = getPosts();
   const max = 100; // max returned posts
   return new Response(
-    `
-    <?xml version="1.0" encoding="utf-8"?>
+    `<?xml version="1.0" encoding="utf-8"?>
     <feed xmlns="http://www.w3.org/2005/Atom">
       <title>하조은의 블로그</title>
       <subtitle>hajoeun.com</subtitle>
