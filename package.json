@@ -26,9 +26,13 @@
     "react-wrap-balancer": "^0.2.4",
     "react-youtube": "^10.1.0",
     "rehype-pretty-code": "^0.13.2",
+    "rehype-stringify": "^10.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
-    "remark-mdx-frontmatter": "^4.0.0"
+    "remark-mdx-frontmatter": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
