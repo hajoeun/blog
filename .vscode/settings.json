@@ -3,5 +3,6 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "prettier.configPath": ".prettierrc.json",
   "prettier.prettierPath": "./node_modules/prettier",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true
 }
