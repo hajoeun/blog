@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { SocialCard } from '@/components/social-card';
+import { InflearnSocialCard } from '@/features/inflearn-social-card';
 import {
   CareerlySocialCard,
   LinkedInSocialCard,
@@ -59,6 +60,13 @@ export default async function Page() {
               </span>
             </a>
           </SocialCard>
+        </div>
+
+        <div className="mt-12 space-y-4">
+          <h3 className="ml-4 text-xl font-bold text-gray-900 dark:text-gray-100">강의</h3>
+          <InflearnSocialCard title="Next.js 블로그 만들기" url="https://inf.run/Z8PRA" />
+          <InflearnSocialCard title="Next.js 공식문서 훑어보기" url="https://inf.run/kzcU" />
+          <InflearnSocialCard title="Next.js 마이그레이션하기" url="https://inf.run/heKES" />
         </div>
       </div>
     </div>
