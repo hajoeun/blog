@@ -52,9 +52,11 @@ export default async function Page() {
                 alt="Instagram"
                 width={32}
                 height={32}
-                className="rounded"
+                className="rounded-lg"
               />
-              <span className="font-medium text-gray-900 dark:text-gray-100">Instagram</span>
+              <span className="font-medium text-sm text-gray-900 dark:text-gray-100">
+                Instagram
+              </span>
             </a>
           </SocialCard>
         </div>

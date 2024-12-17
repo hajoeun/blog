@@ -12,15 +12,15 @@ export const YouTubeSocialCard = () => {
   return (
     <SocialCard className="bg-white dark:bg-[#2C2C2C]">
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2">
           <Image
             src="/assets/youtube.png"
             alt="YouTube"
             width={32}
             height={32}
-            className="rounded"
+            className="rounded-lg"
           />
-          <span className="font-medium text-gray-900 dark:text-gray-100">하조은조하</span>
+          <span className="font-medium text-sm text-gray-900 dark:text-gray-100">하조은조하</span>
         </div>
         <Suspense fallback={<SubscribeButtonCore>Subscribe</SubscribeButtonCore>}>
           <SubscribeButton />

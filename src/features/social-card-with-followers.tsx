@@ -19,11 +19,7 @@ const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' | 'caree
     socialStats.followers
   );
 
-  return (
-    <span className="text-sm">
-      <b>{followerCount}</b> followers
-    </span>
-  );
+  return <span className="text-xs">{followerCount} followers</span>;
 };
 
 export const ThreadSocialCard = () => {
@@ -42,7 +38,7 @@ export const ThreadSocialCard = () => {
           className="rounded-lg"
         />
         <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
-          <span className="font-medium">Threads</span>
+          <span className="font-medium text-sm">Threads</span>
           <Suspense>
             <FollowerCount platform="threads" />
           </Suspense>
@@ -68,7 +64,7 @@ export const LinkedInSocialCard = () => {
           className="rounded-lg"
         />
         <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
-          <span className="font-medium">LinkedIn</span>
+          <span className="font-medium text-sm">LinkedIn</span>
           <Suspense>
             <FollowerCount platform="linkedin" />
           </Suspense>
@@ -94,7 +90,7 @@ export const CareerlySocialCard = () => {
           className="rounded-lg"
         />
         <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
-          <span className="font-medium">Careerly</span>
+          <span className="font-medium text-sm">Careerly</span>
           <Suspense>
             <FollowerCount platform="careerly" />
           </Suspense>

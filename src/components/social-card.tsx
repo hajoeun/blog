@@ -5,7 +5,9 @@ type Props = {
 
 export const SocialCard = ({ children, className }: Props) => {
   return (
-    <div className={`rounded-3xl bg-background p-6 shadow-sm dark:bg-gray-800/50 ${className}`}>
+    <div
+      className={`rounded-3xl bg-background py-4 px-5 shadow-sm border border-gray-100 dark:border-gray-800 dark:bg-gray-800/50 ${className}`}
+    >
       {children}
     </div>
   );
