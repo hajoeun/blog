@@ -5,7 +5,7 @@ import { getPosts } from '@/utils/get-posts';
 export async function GET(_, { params: { id } }) {
   const posts = getPosts();
   const post = posts.find((post) => post.id === id);
-  const title = post?.title || '하조은의 블로그';
+  const title = post?.title || '하조은의 글간';
 
   return new ImageResponse(
     (

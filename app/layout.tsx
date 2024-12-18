@@ -13,13 +13,13 @@ import { themeEffect } from '@/utils/theme-effect';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: '하조은의 블로그',
+  title: '하조은의 글간',
   description: 'hajoeun.com',
   openGraph: {
-    title: '하조은의 블로그',
+    title: '하조은의 글간',
     description: 'hajoeun.com',
     url: 'https://hajoeun.com',
-    siteName: '하조은의 블로그',
+    siteName: '하조은의 글간',
   },
   twitter: {
     card: 'summary_large_image',
