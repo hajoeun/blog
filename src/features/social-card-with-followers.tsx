@@ -99,3 +99,27 @@ export const CareerlySocialCard = () => {
     </SocialCard>
   );
 };
+
+export const InstagramSocialCard = () => {
+  return (
+    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+      <a
+        href="https://www.instagram.com/hajoeun_"
+        target="_blank"
+        className="flex items-center space-x-3"
+      >
+        <Image
+          src="/assets/instagram.png"
+          alt="Instagram"
+          width={32}
+          height={32}
+          className="rounded-lg"
+        />
+        <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
+          <span className="font-medium text-sm">Instagram</span>
+          <span className="text-xs">1.5K followers</span>
+        </div>
+      </a>
+    </SocialCard>
+  );
+};

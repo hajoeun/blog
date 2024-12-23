@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import { SocialCard } from '@/components/social-card';
 import { InflearnSocialCard } from '@/features/inflearn-social-card';
 import {
   CareerlySocialCard,
+  InstagramSocialCard,
   LinkedInSocialCard,
   ThreadSocialCard,
 } from '@/features/social-card-with-followers';
@@ -41,25 +41,7 @@ export default async function Page() {
 
           <CareerlySocialCard />
 
-          {/* Instagram Card */}
-          <SocialCard className="bg-white dark:bg-[#2C2C2C]">
-            <a
-              href="https://www.instagram.com/hajoeun_"
-              target="_blank"
-              className="flex items-center space-x-3"
-            >
-              <Image
-                src="/assets/instagram.png"
-                alt="Instagram"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
-              <span className="font-medium text-sm text-gray-900 dark:text-gray-100">
-                Instagram
-              </span>
-            </a>
-          </SocialCard>
+          <InstagramSocialCard />
         </div>
 
         <div className="mt-12 space-y-4">
