@@ -6,7 +6,7 @@ export async function GET() {
   const posts = await getPostsWithHtmlContent();
 
   const feed = new RSS({
-    title: '하조은의 글간',
+    title: 'hajoeun.com',
     site_url: 'https://hajoeun.com',
     feed_url: 'https://hajoeun.com/atom',
     description: '하조은의 글간',

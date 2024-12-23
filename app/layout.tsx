@@ -12,23 +12,6 @@ import { themeEffect } from '@/utils/theme-effect';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  title: '하조은의 글간',
-  description: 'hajoeun.com',
-  openGraph: {
-    title: '하조은의 글간',
-    description: 'hajoeun.com',
-    url: 'https://hajoeun.com',
-    siteName: '하조은의 글간',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@hajoeun_',
-    creator: '@hajoeun_',
-  },
-  metadataBase: new URL('https://hajoeun.com'),
-};
-
 export const viewport = {
   themeColor: 'transparent',
 };

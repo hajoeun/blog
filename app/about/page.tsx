@@ -9,6 +9,23 @@ import {
 } from '@/features/social-card-with-followers';
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
 
+export const metadata = {
+  title: 'hajoeun.com/about',
+  description: '하조은에 대하여',
+  openGraph: {
+    title: 'hajoeun.com/about',
+    description: '하조은에 대하여',
+    url: 'https://hajoeun.com/about',
+    siteName: '하조은에 대하여',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@hajoeun_',
+    creator: '@hajoeun_',
+  },
+  metadataBase: new URL('https://hajoeun.com/about'),
+};
+
 export default async function Page() {
   return (
     <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#1C1C1C]">
