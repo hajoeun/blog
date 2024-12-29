@@ -4,7 +4,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-import postsData from './src/databases/legacy-posts.json' assert { type: 'json' };
+import postsData from './src/databases/legacy-posts.json' with { type: 'json' };
 
 const withMDX = createMDX({
   options: {
@@ -15,7 +15,6 @@ const withMDX = createMDX({
 
 export default withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  swcMinify: true,
   reactStrictMode: true,
   poweredByHeader: false,
   eslint: {
@@ -29,7 +28,12 @@ export default withMDX({
       permanent: true,
     }));
 
-    return [...redirectPosts];
+    return [
+      ...redirectPosts,
+      { source: '/2022/retrospection-2021', destination: '/2021/retrospective', permanent: true },
+      { source: '/2022/retrospection-2022', destination: '/2022/retrospective', permanent: true },
+      { source: '/2023/retrospection-2023', destination: '/2023/retrospective', permanent: true },
+    ];
   },
   images: {
     remotePatterns: [

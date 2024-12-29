@@ -6,9 +6,11 @@ import { PostHeader } from '@/components/post-header';
 import components from '@/components/ui';
 import { getPosts } from '@/utils/get-posts';
 
-export const generateMetadata = ({ params }): Metadata => {
+export const generateMetadata = async ({ params }): Promise<Metadata> => {
+  const { year, id } = await params;
   const posts = getPosts();
-  const post = posts.find((post) => post.year === params.year && post.id === params.id);
+
+  const post = posts.find((post) => post.year === year && post.id === id);
   const ogImage = post?.image ? post.image : '/opengraph-image.png';
 
   return {
@@ -22,8 +24,10 @@ export const generateMetadata = ({ params }): Metadata => {
 };
 
 const Post = async ({ params }) => {
+  const { year, id } = await params;
   const posts = getPosts();
-  const post = posts.find((post) => post.year === params.year && post.id === params.id);
+
+  const post = posts.find((post) => post.year === year && post.id === id);
 
   if (!post) return notFound();
 
