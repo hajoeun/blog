@@ -2,11 +2,16 @@ import { ImageResponse } from 'next/og';
 
 import { getPosts } from '@/utils/get-posts';
 
-export async function GET(_, { params }) {
+export async function GET(request, { params }) {
+  const searchParams = request.nextUrl.searchParams;
+  const year = searchParams.get('year');
   const { id } = await params;
 
   const posts = getPosts();
-  const post = posts.find((post) => post.id === id);
+  const post = posts.find((post) => {
+    if (!year) return post.id === id;
+    return post.id === id && post.year === year;
+  });
   const title = post?.title || 'hajoeun.com';
 
   return new ImageResponse(
