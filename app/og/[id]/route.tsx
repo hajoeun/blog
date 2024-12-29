@@ -2,7 +2,9 @@ import { ImageResponse } from 'next/og';
 
 import { getPosts } from '@/utils/get-posts';
 
-export async function GET(_, { params: { id } }) {
+export async function GET(_, { params }) {
+  const { id } = await params;
+
   const posts = getPosts();
   const post = posts.find((post) => post.id === id);
   const title = post?.title || 'hajoeun.com';
