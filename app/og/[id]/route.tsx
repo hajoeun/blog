@@ -34,7 +34,7 @@ export async function GET(request, { params }) {
             marginRight: 190,
             paddingBottom: 190,
             display: 'flex',
-            fontSize: 130,
+            fontSize: 105,
             letterSpacing: '-0.05em',
             fontStyle: 'normal',
             color: '#fefcfc',
