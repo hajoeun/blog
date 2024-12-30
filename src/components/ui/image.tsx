@@ -45,7 +45,7 @@ export async function Image({
       height = computedSize.height;
     }
 
-    let alt: string | null = null;
+    let alt: string | null = originalAlt ?? null;
     let dividedBy = 100;
 
     if ('string' === typeof originalAlt) {
