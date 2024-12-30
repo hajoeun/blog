@@ -29,7 +29,7 @@ export default {
   hr,
   code,
   pre: Snippet,
-  img: Image,
+  // img: Image,
   blockquote,
   Image,
   Figure,
