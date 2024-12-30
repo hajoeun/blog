@@ -2,11 +2,11 @@ import { PostList } from '@/components/post-list';
 import { getPosts } from '@/utils/get-posts';
 
 export const metadata = {
-  title: 'hajoeun.com/posts',
-  description: '하조은의 글간',
+  title: 'hajoeun',
+  description: 'hajoeun.com',
   openGraph: {
-    title: 'hajoeun.com/posts',
-    description: '하조은의 글간',
+    title: 'hajoeun',
+    description: 'hajoeun.com',
     url: 'https://hajoeun.com',
     siteName: 'hajoeun.com',
   },
