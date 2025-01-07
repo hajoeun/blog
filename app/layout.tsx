@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           title="Atom Feed"
           href="https://hajoeun.com/atom"
         />
+        <meta name="google-adsense-account" content="ca-pub-8316897973981102" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(${themeEffect.toString()})();`,
