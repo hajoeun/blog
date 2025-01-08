@@ -45,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8316897973981102"
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
         {process.env.GOOGLE_ANALYTICS_ID && (
           <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
