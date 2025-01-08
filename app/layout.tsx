@@ -31,6 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `(${themeEffect.toString()})();`,
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8316897973981102"
+          crossOrigin="anonymous"
+        ></script>
       </head>
 
       <body className="dark:text-gray-100 max-w-2xl m-auto">
