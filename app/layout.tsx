@@ -9,6 +9,7 @@ import { Inter } from 'next/font/google';
 import { Footer } from '@/components/footer';
 import { MainHeader } from '@/components/main-header';
 import { themeEffect } from '@/utils/theme-effect';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,11 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `(${themeEffect.toString()})();`,
           }}
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8316897973981102"
-          crossOrigin="anonymous"
-        ></script>
       </head>
 
       <body className="dark:text-gray-100 max-w-2xl m-auto">
@@ -45,6 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <Footer />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8316897973981102"
+          crossOrigin="anonymous"
+        />
         {process.env.GOOGLE_ANALYTICS_ID && (
           <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
         )}
