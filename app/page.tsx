@@ -19,6 +19,6 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const posts = getPosts();
+  const posts = await getPosts();
   return <PostList posts={posts} />;
 }

@@ -5,11 +5,11 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
 import { Footer } from '@/components/footer';
 import { MainHeader } from '@/components/main-header';
 import { themeEffect } from '@/utils/theme-effect';
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 

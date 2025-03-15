@@ -72,15 +72,14 @@ export const getVideoPosts = async (): Promise<Post[]> => {
   });
 };
 
-export const getPosts = () => {
-  const slugs = getPostSlugs();
-  const posts = slugs.map(getPostBySlug).sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-
-  return posts;
+export const getPosts = async () => {
+  const posts = getPostSlugs().map(getPostBySlug);
+  const videoPosts = await getVideoPosts();
+  return [...posts, ...videoPosts].sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
 
 export const getPostsWithHtmlContent = async () => {
-  const posts = getPosts();
+  const posts = await getPosts();
   return Promise.all(
     posts.map(async (post) => {
       const content = post.content ? await mdxToHtml(post.content) : '';

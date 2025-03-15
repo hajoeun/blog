@@ -7,7 +7,7 @@ export async function GET(request, { params }) {
   const year = searchParams.get('year');
   const { id } = await params;
 
-  const posts = getPosts();
+  const posts = await getPosts();
   const post = posts.find((post) => {
     if (!year) return post.id === id;
     return post.id === id && post.year === year;

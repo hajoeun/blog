@@ -8,7 +8,7 @@ import { getPosts } from '@/utils/get-posts';
 
 export const generateMetadata = async ({ params }): Promise<Metadata> => {
   const { year, id } = await params;
-  const posts = getPosts();
+  const posts = await getPosts();
 
   const post = posts.find((post) => post.year === year && post.id === id);
   const ogImage = post?.image ? post.image : '/opengraph-image.png';
@@ -25,7 +25,7 @@ export const generateMetadata = async ({ params }): Promise<Metadata> => {
 
 const Post = async ({ params }) => {
   const { year, id } = await params;
-  const posts = getPosts();
+  const posts = await getPosts();
 
   const post = posts.find((post) => post.year === year && post.id === id);
 
