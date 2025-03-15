@@ -1,6 +1,8 @@
 import type { Post } from '@/utils/get-posts';
 import { parseDate } from '@/utils/parse-date';
 
+import { YouTubePlayer } from './youtube-player';
+
 type Props = { post: Post };
 
 export function PostHeader({ post }: Props) {
@@ -25,6 +27,12 @@ export function PostHeader({ post }: Props) {
           <span suppressHydrationWarning={true}>{displayDate}</span>
         </span>
       </p>
+
+      {post.videoId && (
+        <div className="my-4">
+          <YouTubePlayer videoId={post.videoId} />
+        </div>
+      )}
     </>
   );
 }

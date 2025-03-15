@@ -15,6 +15,7 @@ export type Post = {
   date: string;
   content: string;
   image?: string;
+  videoId?: string;
 };
 
 const postRoot = join(process.cwd(), 'src/posts');
@@ -68,6 +69,7 @@ export const getVideoPosts = async (): Promise<Post[]> => {
       description: data.description,
       content,
       date: publishedAt.toISOString(),
+      videoId: row.video_id,
     };
   });
 };
