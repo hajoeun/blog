@@ -1,8 +1,10 @@
+import { sql } from '@vercel/postgres';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
 
 import { mdxToHtml } from './mdx-to-html';
+import { convertToKST } from './parse-date';
 
 export type Post = {
   id: string;
@@ -42,6 +44,32 @@ const getPostBySlug = (slug: string): Post => {
     content,
     image: data.openGraph?.images[0],
   };
+};
+
+export const getVideoPosts = async (): Promise<Post[]> => {
+  const { rows } = await sql`
+    SELECT id, video_id, title, status, published_at, content
+    FROM youtube_posts
+    WHERE status = 'completed'
+    ORDER BY published_at DESC
+  `;
+
+  return rows.map((row) => {
+    const publishedAt = convertToKST(row.published_at);
+    const year = publishedAt.getFullYear().toString();
+    const slug = `${year}/${row.video_id}`;
+    const { data, content } = matter(row.content);
+
+    return {
+      id: row.video_id,
+      year,
+      slug,
+      title: row.title,
+      description: data.description,
+      content,
+      date: publishedAt.toISOString(),
+    };
+  });
 };
 
 export const getPosts = () => {
