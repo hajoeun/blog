@@ -10,7 +10,9 @@ export const getYouTubeSubscriberCount = async () => {
   const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YouTubeChannelId}&key=${apiKey}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: { revalidate: 86400 } // 24시간 캐싱
+    });
     if (!response.ok) {
       throw new Error(`YouTube API 요청 실패: ${response.status}`);
     }
@@ -37,7 +39,9 @@ export const getYouTubeVideos = async () => {
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&videoDuration=medium&maxResults=4&key=${apiKey}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: { revalidate: 86400 } // 24시간 캐싱
+    });
     if (!response.ok) {
       throw new Error(`YouTube API 요청 실패: ${response.status}`);
     }
