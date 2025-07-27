@@ -8,6 +8,7 @@ import {
   ThreadSocialCard,
 } from '@/features/social-card-with-followers';
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
+import { getYouTubeChannelThumbnail } from '@/utils/get-youtube-data';
 
 export const metadata = {
   title: 'hajoeun.com/about',
@@ -27,6 +28,8 @@ export const metadata = {
 };
 
 export default async function Page() {
+  const youtubeThumbUrl = await getYouTubeChannelThumbnail();
+
   return (
     <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#1C1C1C]">
       <div className="mx-auto max-w-2xl py-8">
@@ -34,7 +37,7 @@ export default async function Page() {
         <div className="flex flex-col items-center space-y-4">
           <div className="relative h-24 w-24 overflow-hidden rounded-full bg-gray-100">
             <Image
-              src="/assets/thumbnail.png"
+              src={youtubeThumbUrl}
               alt="Profile"
               width={128}
               height={128}
