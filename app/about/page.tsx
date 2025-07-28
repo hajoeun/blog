@@ -10,6 +10,8 @@ import {
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
 import { getYouTubeChannelThumbnail } from '@/utils/get-youtube-data';
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: 'hajoeun.com/about',
   description: '하조은에 대하여',
