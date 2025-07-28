@@ -1,7 +1,7 @@
 import CustomComponents from '@/components/ui';
-import { MDXComponents } from '@mdx-js/react/lib';
+import type { MDXComponents } from 'mdx/types';
 
-export function useMDXComponents(components: MDXComponents) {
+export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
     ...CustomComponents,
