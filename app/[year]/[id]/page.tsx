@@ -17,8 +17,10 @@ export const generateMetadata = async ({ params }): Promise<Metadata> => {
     title: post?.title,
     description: post?.description,
     openGraph: {
+      type: 'article',
       publishedTime: post?.date,
       images: [ogImage],
+      url: `https://hajoeun.com/${year}/${id}`,
     },
   };
 };
