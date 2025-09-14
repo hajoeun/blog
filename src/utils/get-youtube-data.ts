@@ -34,21 +34,38 @@ export const getYouTubeVideos = async () => {
     throw new Error('YOUTUBE_API_KEY 또는 YOUTUBE_CHANNEL_ID가 설정되지 않았습니다.');
   }
 
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&videoDuration=medium&maxResults=4&key=${apiKey}`;
-
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`YouTube API 요청 실패: ${response.status}`);
+    // medium 영상 가져오기 (4분 이상 20분 미만)
+    const mediumUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&videoDuration=medium&maxResults=25&key=${apiKey}`;
+
+    // long 영상 가져오기 (20분 이상)
+    const longUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YouTubeChannelId}&order=date&type=video&videoDuration=long&maxResults=25&key=${apiKey}`;
+
+    const [mediumResponse, longResponse] = await Promise.all([fetch(mediumUrl), fetch(longUrl)]);
+
+    if (!mediumResponse.ok || !longResponse.ok) {
+      throw new Error(`YouTube API 요청 실패: ${mediumResponse.status} ${longResponse.status}`);
     }
 
-    const data = await response.json();
-    if (!data.items || data.items.length === 0) {
+    const [mediumData, longData] = await Promise.all([mediumResponse.json(), longResponse.json()]);
+
+    // 두 결과를 병합
+    const allVideos = [...(mediumData.items || []), ...(longData.items || [])];
+
+    if (allVideos.length === 0) {
       throw new Error('최근 동영상 데이터를 찾을 수 없습니다.');
     }
 
+    // 날짜순으로 정렬하고 최신 4개만 선택
+    const sortedVideos = allVideos
+      .sort(
+        (a, b) =>
+          new Date(b.snippet.publishedAt).getTime() - new Date(a.snippet.publishedAt).getTime()
+      )
+      .slice(0, 4);
+
     // 동영상 ID와 썸네일 정보 반환
-    return data.items.map((item) => ({
+    return sortedVideos.map((item) => ({
       videoId: item.id.videoId,
       title: item.snippet.title,
       thumbnail: item.snippet.thumbnails.high.url,
