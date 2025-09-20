@@ -10,7 +10,7 @@ import {
 
 export const YouTubeSocialCard = () => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Image

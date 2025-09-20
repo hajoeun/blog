@@ -24,7 +24,7 @@ const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' | 'caree
 
 export const ThreadSocialCard = () => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <a
         href="https://www.threads.net/@hajoeun_"
         target="_blank"
@@ -50,7 +50,7 @@ export const ThreadSocialCard = () => {
 
 export const LinkedInSocialCard = () => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <a
         href="https://www.linkedin.com/in/hajoeun/"
         target="_blank"
@@ -76,7 +76,7 @@ export const LinkedInSocialCard = () => {
 
 export const CareerlySocialCard = () => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <a
         href="https://careerly.co.kr/@hajoeun"
         target="_blank"
@@ -102,7 +102,7 @@ export const CareerlySocialCard = () => {
 
 export const InstagramSocialCard = () => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <a
         href="https://www.instagram.com/hajoeun_"
         target="_blank"

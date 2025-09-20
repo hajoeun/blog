@@ -9,7 +9,7 @@ type Props = {
 
 export const InflearnSocialCard = ({ title, url }: Props) => {
   return (
-    <SocialCard className="bg-white dark:bg-[#2C2C2C]">
+    <SocialCard>
       <div className="flex items-center justify-between">
         <a href={url} target="_blank" className="flex items-center space-x-3">
           <Image

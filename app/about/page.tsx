@@ -9,6 +9,7 @@ import {
 } from '@/features/social-card-with-followers';
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
 import { getYouTubeChannelThumbnail } from '@/utils/get-youtube-data';
+import { LiquidGlassBackground } from '@/components/liquid-glass-background';
 
 export const revalidate = 3600;
 
@@ -33,10 +34,11 @@ export default async function Page() {
   const youtubeThumbUrl = await getYouTubeChannelThumbnail();
 
   return (
-    <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#1C1C1C]">
-      <div className="mx-auto max-w-2xl py-8">
+    <div className="min-h-screen relative">
+      <LiquidGlassBackground />
+      <div className="mx-auto max-w-2xl py-12 px-4 relative z-10">
         {/* Profile Section */}
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-center space-y-4 mb-12">
           <div className="relative h-24 w-24 overflow-hidden rounded-full bg-gray-100">
             <Image
               src={youtubeThumbUrl}
