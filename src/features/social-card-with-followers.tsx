@@ -4,7 +4,7 @@ import { Suspense, use } from 'react';
 
 import { SocialCard } from '@/components/social-card';
 
-const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' | 'careerly' }) => {
+const FollowerCount = ({ platform }: { platform: 'linkedin' | 'threads' }) => {
   const {
     rows: [socialStats],
   } = use(sql`
@@ -67,32 +67,6 @@ export const LinkedInSocialCard = () => {
           <span className="font-medium text-sm">LinkedIn</span>
           <Suspense>
             <FollowerCount platform="linkedin" />
-          </Suspense>
-        </div>
-      </a>
-    </SocialCard>
-  );
-};
-
-export const CareerlySocialCard = () => {
-  return (
-    <SocialCard>
-      <a
-        href="https://careerly.co.kr/@hajoeun"
-        target="_blank"
-        className="flex items-center space-x-3"
-      >
-        <Image
-          src="/assets/careerly.png"
-          alt="Careerly"
-          width={32}
-          height={32}
-          className="rounded-lg"
-        />
-        <div className="flex justify-between items-center w-[100%] text-gray-900 dark:text-gray-100">
-          <span className="font-medium text-sm">Careerly</span>
-          <Suspense>
-            <FollowerCount platform="careerly" />
           </Suspense>
         </div>
       </a>

@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 import { InflearnSocialCard } from '@/features/inflearn-social-card';
 import {
-  CareerlySocialCard,
   InstagramSocialCard,
   LinkedInSocialCard,
   ThreadSocialCard,
@@ -62,8 +61,6 @@ export default async function Page() {
           <ThreadSocialCard />
 
           <LinkedInSocialCard />
-
-          <CareerlySocialCard />
 
           <InstagramSocialCard />
         </div>
