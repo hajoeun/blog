@@ -19,7 +19,7 @@
     "gray-matter": "^4.0.3",
     "image-size": "^1.2.1",
     "next": "^15.5.9",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-tweet": "^3.3.0",
