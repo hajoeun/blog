@@ -20,7 +20,7 @@ export const YouTubeSocialCard = () => {
             height={32}
             className="rounded-lg"
           />
-          <span className="font-medium text-sm text-gray-900 dark:text-gray-100">하조은조하</span>
+          <span className="font-medium text-sm text-gray-900 dark:text-gray-100">하조은</span>
         </div>
         <Suspense fallback={<SubscribeButtonCore>Subscribe</SubscribeButtonCore>}>
           <SubscribeButton />
@@ -35,8 +35,9 @@ export const YouTubeSocialCard = () => {
 
 const SubscribeButton = () => {
   const subscriberCount = use(getYouTubeSubscriberCount());
+  const formattedSubscriberCount = new Intl.NumberFormat('ko-KR').format(Number(subscriberCount));
 
-  return <SubscribeButtonCore>Subscribe {subscriberCount}</SubscribeButtonCore>;
+  return <SubscribeButtonCore>Subscribe {formattedSubscriberCount}</SubscribeButtonCore>;
 };
 
 const SubscribeButtonCore = ({ children }: PropsWithChildren) => {
