@@ -1,13 +1,10 @@
-import { createRequire } from 'module';
-
 import createMDX from '@next/mdx';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-const require = createRequire(import.meta.url);
-const postsData = require('./src/databases/legacy-posts.json');
+import postsData from './src/databases/legacy-posts.json' with { type: 'json' };
 
 const withMDX = createMDX({
   options: {
