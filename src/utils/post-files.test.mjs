@@ -25,6 +25,30 @@ function writePost(root, relativePath) {
   fs.writeFileSync(fullPath, postBody);
 }
 
+function hasActiveMdxSyntax(filePath) {
+  const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
+  let isFrontmatter = false;
+  let isCodeFence = false;
+
+  return lines.some((line, index) => {
+    if (index === 0 && line.trim() === '---') {
+      isFrontmatter = true;
+      return false;
+    }
+    if (isFrontmatter && line.trim() === '---') {
+      isFrontmatter = false;
+      return false;
+    }
+    if (line.trim().startsWith('```')) {
+      isCodeFence = !isCodeFence;
+      return false;
+    }
+    if (isFrontmatter || isCodeFence) return false;
+
+    return /(^|[^\\])<[A-Z][A-Za-z0-9]*(\s|>|\/)/.test(line) || /style=\{\{/.test(line);
+  });
+}
+
 test('discovers md and mdx posts directly under a year directory', () => {
   const root = makePostRoot();
 
@@ -69,4 +93,25 @@ test('rejects md and mdx files that resolve to the same slug', () => {
   writePost(root, '2026/duplicate.mdx');
 
   assert.throws(() => getPostFiles(root), /Duplicate post slug "2026\/duplicate"/);
+});
+
+test('keeps mdx extension only for posts that use active MDX syntax', () => {
+  const root = path.join(process.cwd(), 'src/posts');
+  const postFiles = getPostFiles(root);
+  const mdxFiles = postFiles.filter((postFile) => postFile.extension === '.mdx');
+
+  assert.deepEqual(
+    mdxFiles.map((postFile) => postFile.slug),
+    ['2024/retrospective', '2025/retrospective']
+  );
+  assert.deepEqual(
+    mdxFiles.filter((postFile) => !hasActiveMdxSyntax(postFile.fullPath)).map((postFile) => postFile.slug),
+    []
+  );
+  assert.deepEqual(
+    postFiles
+      .filter((postFile) => postFile.extension === '.md' && hasActiveMdxSyntax(postFile.fullPath))
+      .map((postFile) => postFile.slug),
+    []
+  );
 });
