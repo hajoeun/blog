@@ -32,18 +32,17 @@ const getPostFiles = () => {
 
   return paths
     .filter((path) => path.split('/').length === 2)
-    .flatMap((path) => {
+    .filter((path) => postExtensions.some((extension) => path.endsWith(extension)))
+    .map((path) => {
       const extension = postExtensions.find((extension) => path.endsWith(extension));
-      if (!extension) return [];
+      if (!extension) throw new Error(`Unsupported post file extension: ${path}`);
 
       const slug = path.slice(0, -extension.length);
 
-      return [
-        {
-          slug,
-          fullPath: join(postRoot, path),
-        },
-      ];
+      return {
+        slug,
+        fullPath: join(postRoot, path),
+      };
     });
 };
 
