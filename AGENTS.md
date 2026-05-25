@@ -3,8 +3,8 @@
 이 문서는 이 리포지토리에서 코드 작업을 수행하는 도구/에이전트를 위한 가이드입니다.
 
 ## 프로젝트 개요
-- **스택**: Next.js 15(App Router), MDX, TypeScript
-- **콘텐츠 소스**: MDX 게시글 + Vercel Postgres에 저장된 YouTube 게시글
+- **스택**: Next.js 15(App Router), Markdown/MDX, TypeScript
+- **콘텐츠 소스**: Markdown/MDX 게시글 + Vercel Postgres에 저장된 YouTube 게시글
 - **언어**: 한국어 중심
 
 ## 명령어
@@ -18,7 +18,7 @@ pnpm start      # 프로덕션 서버 실행
 
 ### 핵심 기술
 - **Next.js 15** (App Router)
-- **MDX** (Frontmatter 지원)
+- **Markdown/MDX** (Frontmatter 지원)
 - **Tailwind CSS**
 - **TypeScript** (non-strict)
 - **Vercel Postgres** (YouTube 게시글 저장)
@@ -28,7 +28,7 @@ pnpm start      # 프로덕션 서버 실행
   - `[year]/[id]` - 블로그 게시글 동적 라우트
   - `atom/route.ts` - RSS 피드 생성
   - `og/[id]` - Open Graph 이미지 생성
-- `/src/posts` - 연도별 MDX 게시글(2017–현재)
+- `/src/posts` - 연도별 Markdown/MDX 게시글(2017–현재)
 - `/src/components` - 재사용 컴포넌트
   - `/ui` - MDX 전용 UI 컴포넌트
 - `/src/utils` - 게시글 관리 유틸리티
@@ -36,13 +36,15 @@ pnpm start      # 프로덕션 서버 실행
 
 ### 주요 패턴
 #### 게시글 관리
-- 소스 1) `src/posts/{year}/{id}.mdx`
+- 소스 1) `src/posts/{year}/{id}.{md,mdx}`
 - 소스 2) Vercel Postgres의 YouTube 게시글
 - `src/utils/get-posts.ts`의 `getPosts()`가 두 소스를 병합하고 `date` 내림차순으로 정렬합니다.
 
-#### MDX 처리
+#### Markdown/MDX 처리
 - `@next/mdx` + `remark-frontmatter`, `remark-mdx-frontmatter`, `rehype-pretty-code` 사용
 - MDX 전용 UI 컴포넌트는 `src/components/ui/`에서 가져옵니다.
+- 순수 Markdown/GFM 글은 `.md`, React 컴포넌트나 JSX가 필요한 글은 `.mdx`를 사용합니다.
+- 같은 `{year}/{id}`에 `.md`와 `.mdx`를 동시에 두면 중복 slug로 처리하지 않습니다.
 
 #### 라우팅
 - `next.config.mjs`에서 레거시 ID를 연도 기반 라우트로 리다이렉트합니다. (예: `/post-id` → `/{year}/post-id`)

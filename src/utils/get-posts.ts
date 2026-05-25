@@ -19,19 +19,35 @@ export type Post = {
 };
 
 const postRoot = join(process.cwd(), 'src/posts');
+const postExtensions = ['.mdx', '.md'];
 
-const getPostSlugs = () => {
+type PostFile = {
+  slug: string;
+  fullPath: string;
+};
+
+const getPostFiles = () => {
   const dirs = fs.readdirSync(postRoot, { recursive: true });
-  const paths = dirs.map((path) => path);
+  const paths = dirs.map((path) => path.toString().replace(/\\/g, '/'));
 
   return paths
     .filter((path) => path.split('/').length === 2)
-    .map((path) => path.replace(/\.mdx$/, ''));
+    .filter((path) => postExtensions.some((extension) => path.endsWith(extension)))
+    .map((path) => {
+      const extension = postExtensions.find((extension) => path.endsWith(extension));
+      if (!extension) throw new Error(`Unsupported post file extension: ${path}`);
+
+      const slug = path.slice(0, -extension.length);
+
+      return {
+        slug,
+        fullPath: join(postRoot, path),
+      };
+    });
 };
 
-const getPostBySlug = (slug: string): Post => {
+const getPostByFile = ({ slug, fullPath }: PostFile): Post => {
   const [year, id] = slug.split('/');
-  const fullPath = join(postRoot, `${slug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -75,7 +91,7 @@ export const getVideoPosts = async (): Promise<Post[]> => {
 };
 
 export const getPosts = async () => {
-  const posts = getPostSlugs().map(getPostBySlug);
+  const posts = getPostFiles().map(getPostByFile);
   const videoPosts = await getVideoPosts();
   return [...posts, ...videoPosts].sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
