@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { join } from 'path';
 
 import { mdxToHtml } from './mdx-to-html';
-import { getPostFiles, type PostFile } from './post-files';
 import { convertToKST } from './parse-date';
 
 export type Post = {
@@ -20,8 +19,36 @@ export type Post = {
 };
 
 const postRoot = join(process.cwd(), 'src/posts');
+const postExtensions = ['.mdx', '.md'];
 
-const getPostByFile = ({ id, year, slug, fullPath }: PostFile): Post => {
+type PostFile = {
+  slug: string;
+  fullPath: string;
+};
+
+const getPostFiles = () => {
+  const dirs = fs.readdirSync(postRoot, { recursive: true });
+  const paths = dirs.map((path) => path.toString().replace(/\\/g, '/'));
+
+  return paths
+    .filter((path) => path.split('/').length === 2)
+    .flatMap((path) => {
+      const extension = postExtensions.find((extension) => path.endsWith(extension));
+      if (!extension) return [];
+
+      const slug = path.slice(0, -extension.length);
+
+      return [
+        {
+          slug,
+          fullPath: join(postRoot, path),
+        },
+      ];
+    });
+};
+
+const getPostByFile = ({ slug, fullPath }: PostFile): Post => {
+  const [year, id] = slug.split('/');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -65,7 +92,7 @@ export const getVideoPosts = async (): Promise<Post[]> => {
 };
 
 export const getPosts = async () => {
-  const posts = getPostFiles(postRoot).map(getPostByFile);
+  const posts = getPostFiles().map(getPostByFile);
   const videoPosts = await getVideoPosts();
   return [...posts, ...videoPosts].sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
