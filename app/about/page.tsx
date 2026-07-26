@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { LiquidGlassBackground } from '@/components/liquid-glass-background';
 import { InflearnSocialCard } from '@/features/inflearn-social-card';
 import {
   InstagramSocialCard,
@@ -8,7 +9,6 @@ import {
 } from '@/features/social-card-with-followers';
 import { YouTubeSocialCard } from '@/features/youtube-social-card';
 import { getYouTubeChannelThumbnail } from '@/utils/get-youtube-data';
-import { LiquidGlassBackground } from '@/components/liquid-glass-background';
 
 export const revalidate = 3600;
 
@@ -49,8 +49,7 @@ export default async function Page() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">하조은</h1>
           <p className=" text-gray-600 dark:text-gray-400">
-            ⚬ 개발자의 성장을 돕는 컨텐츠를 만들어요 <br />⚬ 마플, 뱅크샐러드 출신 | 당근 프론트엔드
-            개발자
+            이웃에게 사랑받는 소프트웨어를 만드는 사람들과 대화해요
           </p>
         </div>
 
